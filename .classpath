@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="img"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="jgoodies-common-1.8.0.jar" sourcepath="jgoodies-common-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="jgoodies-forms-1.8.0.jar" sourcepath="jgoodies-forms-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="lib/cmu_us_kal.jar"/>
+	<classpathentry kind="lib" path="lib/cmulex.jar"/>
+	<classpathentry kind="lib" path="lib/en_us.jar"/>
+	<classpathentry kind="lib" path="lib/freetts.jar"/>
+	<classpathentry kind="lib" path="lib/mbrola.jar"/>
+	<classpathentry kind="lib" path="miglayout15-swing.jar" sourcepath="miglayout-src.zip"/>
+	<classpathentry kind="lib" path="lib/marytts-builder-5.2-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="lib/marytts-lang-en-5.2.jar"/>
+	<classpathentry kind="lib" path="lib/voice-cmu-slt-hsmm-5.2.jar"/>
+	<classpathentry kind="lib" path="lib/voice-dfki-poppy-hsmm-5.1.jar"/>
+	<classpathentry kind="lib" path="lib/voice-dfki-prudence-hsmm-5.1.jar"/>
+	<classpathentry kind="lib" path="Resources/sqlite-jdbc-3.7.15-M1.jar"/>
+	<classpathentry kind="lib" path="Resources/sqlite-jdbc-3.7.15-SNAPSHOT-2.jar"/>
+	<classpathentry kind="lib" path="Resources/sqlite-jdbc-3.7.15-SNAPSHOT-javadoc.jar"/>
+	<classpathentry kind="lib" path="Resources/sqlite-jdbc-3.7.15-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="Resources/sqlite-jdbc-3.7.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="Resources/sqlite-jdbc-3.7.2.jar"/>
+	<classpathentry kind="lib" path="Resources/sqlite-jdbc4-3.8.2-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="jgoodies-forms-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/rs2xml.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/dsn-1.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/gimap-1.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/imap-1.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/pop3-1.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/smtp-1.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/mailapi-1.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/javacv-0.11-bin/javacv-bin/opencv-windows-x86.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/javacv-0.11-bin/javacv-bin/opencv-windows-x86_64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/javacv-0.11-bin/javacv-bin/ffmpeg-windows-x86.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/javacv-0.11-bin/javacv-bin/ffmpeg-windows-x86_64.jar"/>
+	<classpathentry kind="lib" path="C:/opencv/build/java/opencv-320.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/javacv-0.11-bin/javacv-bin/javacpp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/javacv-0.11-bin/javacv-bin/javacv.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/jfreechart-1.0.19-demo.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
