@@ -1,55 +1,15 @@
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Properties;
-import javax.swing.JButton;
-import javax.swing.JTable;
+import java.awt.*;
 
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
-import net.proteanit.sql.DbUtils;
-
-import javax.swing.JScrollPane;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableModel;
-
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PiePlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DefaultPieDataset;
-
-import com.ibm.icu.util.Calendar;
-
-import Machines.Audio;
-import studentHub.Conversions.*;
-import java.awt.SystemColor;
-import GraphTemplates.*;
-import javax.swing.JRadioButton;
-import javax.swing.JProgressBar;
+import javax.swing.*;
 
 public class FormSurvey {
 
 	private JFrame frame;
-	private JTextField newCol;
-	private JTextField sampq;
-	public JProgressBar bar;
+	private JTextField title;
+	JTextPane description;
+	private JTextField txtQuestion;
 
 	/**
 	 * Launch the application.
@@ -80,90 +40,55 @@ public class FormSurvey {
 	 */
 
 	private void initialize() {
-		frame = new JFrame("Chart Generator");
+		frame = new JFrame("Forms & Survey");
 		frame.getContentPane().setBackground(new Color(255, 204, 51));
 		frame.getContentPane().setLayout(null);
-		frame.setSize(891, 280);
+		frame.setSize(700, 400);
 		frame.setLocation(300, 150);
 
 		JLabel lblChartGenerator = new JLabel("Forms & Survey");
 		lblChartGenerator.setFont(new Font("Castellar", Font.PLAIN, 34));
-		lblChartGenerator.setBounds(275, 11, 322, 42);
+		lblChartGenerator.setBounds(181, 11, 322, 42);
 		frame.getContentPane().add(lblChartGenerator);
 
 		JLabel lblinitializeTheSize = new JLabel(
 				"<html>Create a list of all the questions you want to make and turn it into a survey that everyone can take here!");
 		lblinitializeTheSize.setFont(new Font("Times New Roman", Font.ITALIC, 13));
-		lblinitializeTheSize.setBounds(152, 53, 571, 23);
+		lblinitializeTheSize.setBounds(56, 49, 571, 23);
 		frame.getContentPane().add(lblinitializeTheSize);
 
-		JLabel lblSetSizeOf = new JLabel("Template:");
-		lblSetSizeOf.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblSetSizeOf.setBounds(11, 83, 142, 23);
-		frame.getContentPane().add(lblSetSizeOf);
+		title = new JTextField();
+		title.setBackground(Color.WHITE);
+		title.setFont(new Font("Arial", Font.BOLD, 15));
+		title.setText("Untitled Form");
+		title.setBounds(5, 83, 148, 23);
+		frame.getContentPane().add(title);
+		title.setColumns(10);
 
-		JButton make = new JButton("Make a Form Yourself!");
-		make.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		make.setBounds(620, 129, 159, 31);
-		frame.getContentPane().add(make);
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(5, 114, 253, 48);
+		frame.getContentPane().add(scrollPane_1);
 
-		sampq = new JTextField();
-		sampq.setFont(new Font("Times New Roman", Font.PLAIN, 11));
-		sampq.setEditable(false);
-		sampq.setText("Enter Question Here");
-		sampq.setBounds(11, 135, 120, 20);
-		frame.getContentPane().add(sampq);
-		sampq.setColumns(10);
+		description = new JTextPane();
+		description.setText("(Form description)");
+		description.setFont(new Font("Arial", Font.PLAIN, 13));
+		scrollPane_1.setViewportView(description);
 
-		JLabel lblQuestion = new JLabel("Question:");
-		lblQuestion.setFont(new Font("Times New Roman", Font.ITALIC, 13));
-		lblQuestion.setBounds(11, 110, 72, 20);
-		frame.getContentPane().add(lblQuestion);
+		txtQuestion = new JTextField();
+		txtQuestion.setText("Question");
+		txtQuestion.setFont(new Font("Arial", Font.BOLD, 13));
+		txtQuestion.setColumns(10);
+		txtQuestion.setBackground(Color.WHITE);
+		txtQuestion.setBounds(5, 173, 203, 21);
+		frame.getContentPane().add(txtQuestion);
 
-		JLabel lblOptions = new JLabel("Options");
-		lblOptions.setFont(new Font("Times New Roman", Font.ITALIC, 13));
-		lblOptions.setBounds(11, 160, 72, 20);
-		frame.getContentPane().add(lblOptions);
+		String ops[] = { "Multiple Choice", "Short Answer", "Paragraph", "Checkboxes", "Dropdown", "Linear Scale" };
 
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Sample Option1");
-		rdbtnNewRadioButton.setEnabled(false);
-		rdbtnNewRadioButton.setFont(new Font("Times New Roman", Font.ITALIC, 12));
-		rdbtnNewRadioButton.setBackground(new Color(255, 204, 51));
-		rdbtnNewRadioButton.setBounds(11, 179, 109, 20);
-		frame.getContentPane().add(rdbtnNewRadioButton);
-
-		JRadioButton rdbtnSampleOption = new JRadioButton("Sample Option2");
-		rdbtnSampleOption.setFont(new Font("Times New Roman", Font.ITALIC, 12));
-		rdbtnSampleOption.setEnabled(false);
-		rdbtnSampleOption.setBackground(new Color(255, 204, 51));
-		rdbtnSampleOption.setBounds(122, 179, 109, 20);
-		frame.getContentPane().add(rdbtnSampleOption);
-
-		JRadioButton rdbtnSampleOption_1 = new JRadioButton("Sample Option3");
-		rdbtnSampleOption_1.setFont(new Font("Times New Roman", Font.ITALIC, 12));
-		rdbtnSampleOption_1.setEnabled(false);
-		rdbtnSampleOption_1.setBackground(new Color(255, 204, 51));
-		rdbtnSampleOption_1.setBounds(233, 179, 109, 20);
-		frame.getContentPane().add(rdbtnSampleOption_1);
-
-		JRadioButton rdbtnSampleOption_2 = new JRadioButton("Sample Option4");
-		rdbtnSampleOption_2.setFont(new Font("Times New Roman", Font.ITALIC, 12));
-		rdbtnSampleOption_2.setEnabled(false);
-		rdbtnSampleOption_2.setBackground(new Color(255, 204, 51));
-		rdbtnSampleOption_2.setBounds(344, 179, 109, 20);
-		frame.getContentPane().add(rdbtnSampleOption_2);
-
-		bar = new JProgressBar();
-		bar.setForeground(new Color(255, 204, 51));
-		bar.setStringPainted(true);
-		bar.setBounds(605, 172, 188, 23);
-		frame.getContentPane().add(bar);
-
-		make.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
+		JComboBox questionOptions = new JComboBox(ops);
+		questionOptions.setFont(new Font("Verdana", Font.BOLD, 12));
+		questionOptions.setBackground(Color.WHITE);
+		questionOptions.setBounds(231, 173, 138, 23);
+		frame.getContentPane().add(questionOptions);
 
 	}
 
@@ -175,5 +100,4 @@ public class FormSurvey {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
-
 }

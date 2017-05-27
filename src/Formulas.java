@@ -1,14 +1,7 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.net.URI;
+import java.awt.event.*;
 
 import javax.swing.*;
-import java.util.*;
-import java.util.logging.Handler;
-import studentHub.PhysicsCalculators.*;
-
-import java.net.URI;
 
 public class Formulas extends JFrame {
 	JLabel sh;

@@ -198,10 +198,10 @@ public class Main extends JFrame {
 						Browser.main(arguments, site);
 						website.setText("");
 					} catch (IOException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					} catch (URISyntaxException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					}
 				}
@@ -216,10 +216,10 @@ public class Main extends JFrame {
 					Browser.main(arguments, site);
 					website.setText("");
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				} catch (URISyntaxException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
 			}
@@ -417,10 +417,10 @@ public class Main extends JFrame {
 			try {
 				Browser.main(arguments, website);
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
+
 				e1.printStackTrace();
 			} catch (URISyntaxException e1) {
-				// TODO Auto-generated catch block
+
 				e1.printStackTrace();
 			}
 
@@ -497,10 +497,10 @@ public class Main extends JFrame {
 			try {
 				Browser.main(arguments, site);
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
+
 				e1.printStackTrace();
 			} catch (URISyntaxException e1) {
-				// TODO Auto-generated catch block
+
 				e1.printStackTrace();
 			}
 		}

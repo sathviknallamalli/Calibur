@@ -1,42 +1,27 @@
 import java.awt.EventQueue;
 import Machines.*;
-import Machines.Voice;
-import Motion.*;
+
 import Motion.Motion;
 import PeriodicTable.*;
 import BalancingEquations.*;
 
-import javax.swing.JFrame;
-import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import javax.swing.JButton;
-import javax.swing.JToggleButton;
-import javax.swing.JSeparator;
-import javax.swing.JTree;
+import java.awt.*;
 
 import BasicsChemistry.*;
 import FundamentalsOfAlgebraContents.*;
 import LinearEquationsContents.LinearEquations;
 import SegmentsAngleContents.*;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import java.awt.event.ActionListener;
+
+import java.awt.event.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.awt.event.ActionEvent;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.JTabbedPane;
-import javax.swing.JPanel;
+
+import javax.swing.*;
 
 public class TACALIBUR {
 
 	JFrame frame;
 
-	private final Action action_3 = new SwingAction_3();
 	private JPanel panel_4;
 
 	/**
@@ -864,7 +849,7 @@ public class TACALIBUR {
 		button_3.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		button_3.setBounds(848, 168, 146, 23);
 		panel_5.add(button_3);
-		
+
 		JButton btnBasicsOfEarth = new JButton("Basics of Earth Science");
 		btnBasicsOfEarth.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnBasicsOfEarth.setBounds(10, 6, 143, 23);

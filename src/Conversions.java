@@ -1,29 +1,14 @@
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Properties;
-import javax.swing.JButton;
-import javax.swing.JTable;
-import java.util.GregorianCalendar;
-import net.proteanit.sql.DbUtils;
 
-import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
-import java.io.File;
+import java.io.*;
 import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+import java.awt.*;
 
-import com.ibm.icu.util.Calendar;
+import javax.swing.*;
 
 import Machines.Audio;
 import studentHub.Conversions.*;
@@ -51,7 +36,6 @@ public class Conversions {
 	Connection connection = null;
 	Connection connection1 = null;
 	private JTable table;
-	private JTable table_1;
 	String s;
 	String m;
 	private JTextField l1;

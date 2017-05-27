@@ -1,15 +1,9 @@
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.GregorianCalendar;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 
 import com.ibm.icu.util.Calendar;
 

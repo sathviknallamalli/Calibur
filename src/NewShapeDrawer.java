@@ -1,64 +1,18 @@
-import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Properties;
-import javax.swing.JButton;
-import javax.swing.JTable;
-
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
-import net.proteanit.sql.DbUtils;
-
-import javax.swing.JScrollPane;
-import java.awt.event.ActionListener;
-import java.io.File;
 import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
-import java.awt.Font;
-import java.awt.Graphics;
 import java.applet.Applet;
 import java.awt.Color;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableModel;
 
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PiePlot;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DefaultPieDataset;
+import java.awt.*;
 
-import com.ibm.icu.util.Calendar;
-
-import Machines.Audio;
-import studentHub.Conversions.*;
-import java.awt.SystemColor;
-import java.awt.List;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JPopupMenu;
-import java.awt.Component;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JMenuItem;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class NewShapeDrawer extends Applet {
 
 	private JFrame frame;
-	private JTable table;
-	private JTable table_1;
-	private JTable table_2;
-	private final Action action = new SwingAction();
+
 	private final Action action_1 = new SwingAction_1();
 
 	/**
@@ -144,26 +98,6 @@ public class NewShapeDrawer extends Applet {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-	}
-
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
 	}
 
 	private class SwingAction extends AbstractAction {

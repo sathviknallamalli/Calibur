@@ -1,21 +1,13 @@
-import java.awt.EventQueue;
-import java.awt.Font;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
+
 import PhysicsTopics.*;
 import AlgebraTopics.*;
 import GeometryTopics.*;
-import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.AbstractAction;
-import java.awt.event.ActionEvent;
-import javax.swing.Action;
-import java.awt.event.ActionListener;
+import java.awt.*;
+
+import java.awt.event.*;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 

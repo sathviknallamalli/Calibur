@@ -1,20 +1,13 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
+import java.awt.event.*;
 import java.util.Properties;
-import javax.mail.Message.*;
-import javax.mail.PasswordAuthentication.*;
+
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.*;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class EmailSender extends JFrame {
 	private JTextField email;

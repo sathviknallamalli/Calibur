@@ -1,80 +1,21 @@
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Properties;
+import java.util.*;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JTable;
-
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
-import net.proteanit.sql.DbUtils;
-
-import javax.swing.JScrollPane;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
-
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PiePlot;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DefaultPieDataset;
-
-import com.ibm.icu.util.Calendar;
+import java.io.*;
 
 import FundamentalsOfAlgebraContents.FileTypeFilter;
-import Machines.Audio;
-import studentHub.Conversions.*;
-import java.awt.SystemColor;
-import java.awt.List;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JPopupMenu;
-import javax.swing.JScrollBar;
 
-import java.awt.Component;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JMenuItem;
-import javax.swing.JEditorPane;
-import javax.swing.JTextPane;
-import javax.swing.JTextArea;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
+import java.awt.*;
+
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Editor {
 
 	private JFrame frame;
-	private JTable table;
-	private JTable table_1;
-	private JTable table_2;
+
 	private JTextPane text;
-	private JLabel picpanel;
 
 	/**
 	 * Launch the application.

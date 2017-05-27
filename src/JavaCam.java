@@ -1,11 +1,7 @@
 import javax.swing.JFrame;
-import javax.imageio.ImageIO;
+
 import javax.swing.JButton;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 
 import javax.swing.JPanel;
 
@@ -13,45 +9,33 @@ import org.bytedeco.javacpp.opencv_core.Mat;
 import org.bytedeco.javacpp.opencv_highgui.VideoCapture;
 import org.opencv.core.MatOfByte;
 
-
 public class JavaCam extends JFrame {
 
-	//private DaemonThread myThread = null;
+	// private DaemonThread myThread = null;
 	int count = 0;
 	VideoCapture webSource = null;
 
 	Mat frame = new Mat();
 	MatOfByte mem = new MatOfByte();
 
-	/*class DaemonThread implements Runnable {
-		protected volatile boolean runnable = false;
-
-		public void run() {
-			synchornized(this) {
-				while(runnable) {
-					if(webSource.grab()) {
-						try{
-							webSource.retrieve(frame);
-							Highgui.imencode(".bmp",frame,mem);
-							Image im = ImageIO.read(new ByteArrayInputStream(mem.toArray()));
-							
-							JPanel panel;
-							BufferedImage buff = (BufferedImage) im;
-							Graphics g = panel.getGraphics();
-							
-							if(g.drawImage(buff, 0, 0, getWidth(),getHeight()-150,0,0,buff.getWidth(),buff.getHeight(),null));
-							if(runnable == false) {
-								System.out.println("Going to wait()");
-								this.wait();
-							}
-						}catch(Exception ex) {
-							System.out.println("Error");
-						}
-					}
-				}
-			}
-		}
-	}*/
+	/*
+	 * class DaemonThread implements Runnable { protected volatile boolean
+	 * runnable = false;
+	 * 
+	 * public void run() { synchornized(this) { while(runnable) {
+	 * if(webSource.grab()) { try{ webSource.retrieve(frame);
+	 * Highgui.imencode(".bmp",frame,mem); Image im = ImageIO.read(new
+	 * ByteArrayInputStream(mem.toArray()));
+	 * 
+	 * JPanel panel; BufferedImage buff = (BufferedImage) im; Graphics g =
+	 * panel.getGraphics();
+	 * 
+	 * if(g.drawImage(buff, 0, 0,
+	 * getWidth(),getHeight()-150,0,0,buff.getWidth(),buff.getHeight(),null));
+	 * if(runnable == false) { System.out.println("Going to wait()");
+	 * this.wait(); } }catch(Exception ex) { System.out.println("Error"); } } }
+	 * } } }
+	 */
 
 	public JavaCam() {
 		getContentPane().setLayout(null);
