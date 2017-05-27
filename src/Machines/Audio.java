@@ -1,14 +1,10 @@
 package Machines;
 
-import sun.audio.*;
-import java.io.*;
-import javax.sound.sampled.AudioInputStream;
+import java.io.File;
+
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.TargetDataLine;
 import javax.swing.JOptionPane;
-
-import com.sun.speech.freetts.audio.AudioPlayer;
 
 public class Audio {
 	public static void main(String[] args) {

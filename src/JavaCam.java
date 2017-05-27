@@ -1,8 +1,7 @@
-import javax.swing.JFrame;
-
-import javax.swing.JButton;
 import java.awt.Font;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import org.bytedeco.javacpp.opencv_core.Mat;

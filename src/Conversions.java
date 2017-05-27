@@ -1,17 +1,21 @@
+import java.awt.Color;
 import java.awt.EventQueue;
-
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 import java.sql.Connection;
 
-import java.awt.event.ActionListener;
-import java.io.*;
-import java.awt.event.ActionEvent;
-
-import java.awt.*;
-
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 import Machines.Audio;
-import studentHub.Conversions.*;
+import studentHub.Conversions.LengthConversions;
 
 public class Conversions {
 

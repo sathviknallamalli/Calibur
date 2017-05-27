@@ -1,25 +1,18 @@
 package BasicsChemistry;
 
-import java.awt.Font;
-import javafx.scene.media.*;
-import marytts.server.http.AudioStreamNHttpEntity;
-
-import java.io.*;
-import java.awt.Graphics;
-import java.awt.Toolkit;
-
-import javax.swing.*;
-
-import com.sun.speech.freetts.audio.AudioPlayer;
-
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.awt.event.ActionEvent;
-import sun.audio.*;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Lesson4 extends JFrame {
 	public Lesson4() {
@@ -347,17 +340,18 @@ public class Lesson4 extends JFrame {
 		lbltheParticlesWill_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lbltheParticlesWill_1.setBounds(733, 554, 241, 34);
 		getContentPane().add(lbltheParticlesWill_1);
-		
+
 		JLabel lblIntermolecularForce = new JLabel("Intermolecular Force");
 		lblIntermolecularForce.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		lblIntermolecularForce.setBounds(630, 308, 203, 32);
 		getContentPane().add(lblIntermolecularForce);
-		
-		JLabel lblthisIsA = new JLabel("<html>This is a force existing inside of matter that keeps particles together and the strength of the force is what determines the phase of matter and how it can be transformed\r\n");
+
+		JLabel lblthisIsA = new JLabel(
+				"<html>This is a force existing inside of matter that keeps particles together and the strength of the force is what determines the phase of matter and how it can be transformed\r\n");
 		lblthisIsA.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblthisIsA.setBounds(630, 339, 423, 53);
 		getContentPane().add(lblthisIsA);
-		
+
 		JButton button_7 = new JButton("Activate Calibur!");
 		button_7.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		button_7.setBounds(813, 312, 132, 23);

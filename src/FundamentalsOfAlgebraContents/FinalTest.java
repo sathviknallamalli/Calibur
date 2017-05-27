@@ -1,12 +1,12 @@
 package FundamentalsOfAlgebraContents;
 
-import java.awt.Font;
-import java.awt.Toolkit;
+import java.awt.*;
+
+import java.awt.event.*;
+
+import java.io.File;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 
 public class FinalTest extends JFrame {
 	static public JTextField textField;

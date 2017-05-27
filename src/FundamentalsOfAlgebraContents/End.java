@@ -1,14 +1,12 @@
 package FundamentalsOfAlgebraContents;
 
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Toolkit;
+import java.awt.*;
+
+import java.awt.event.*;
+
+import java.io.File;
 
 import javax.swing.*;
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.ActionEvent;
 
 public class End extends JFrame {
 	public End() {
@@ -69,7 +67,7 @@ public class End extends JFrame {
 		checkBox_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		checkBox_1.setBounds(5, 175, 215, 23);
 		getContentPane().add(checkBox_1);
-		
+
 		JButton btnNewButton = new JButton("Lesson 1");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -80,7 +78,7 @@ public class End extends JFrame {
 		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		btnNewButton.setBounds(312, 139, 193, 31);
 		getContentPane().add(btnNewButton);
-		
+
 		JButton btnLesson = new JButton("Lesson 2 - Properties of Equations\r\n\r\n");
 		btnLesson.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -91,7 +89,7 @@ public class End extends JFrame {
 		btnLesson.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		btnLesson.setBounds(598, 139, 267, 31);
 		getContentPane().add(btnLesson);
-		
+
 		JButton btnLesson_1 = new JButton("Lesson 3");
 		btnLesson_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -102,7 +100,7 @@ public class End extends JFrame {
 		btnLesson_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		btnLesson_1.setBounds(482, 209, 193, 31);
 		getContentPane().add(btnLesson_1);
-		
+
 		JButton btnLesson_2 = new JButton("Lesson 4");
 		btnLesson_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -113,7 +111,7 @@ public class End extends JFrame {
 		btnLesson_2.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		btnLesson_2.setBounds(312, 287, 193, 31);
 		getContentPane().add(btnLesson_2);
-		
+
 		JButton btnLesson_3 = new JButton("Lesson 5\r\n");
 		btnLesson_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -124,32 +122,32 @@ public class End extends JFrame {
 		btnLesson_3.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		btnLesson_3.setBounds(642, 287, 193, 31);
 		getContentPane().add(btnLesson_3);
-		
+
 		JLabel lblAnatomyOfAn = new JLabel("Anatomy of an Equation\r\n");
 		lblAnatomyOfAn.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblAnatomyOfAn.setBounds(348, 175, 131, 23);
 		getContentPane().add(lblAnatomyOfAn);
-		
+
 		JLabel lblPropertiesOfEquations = new JLabel("Properties of Equations");
 		lblPropertiesOfEquations.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblPropertiesOfEquations.setBounds(666, 175, 131, 23);
 		getContentPane().add(lblPropertiesOfEquations);
-		
+
 		JLabel lblTypesOfNumber = new JLabel("Types of Numbers");
 		lblTypesOfNumber.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblTypesOfNumber.setBounds(522, 251, 131, 23);
 		getContentPane().add(lblTypesOfNumber);
-		
+
 		JLabel lblSolvingEquations = new JLabel("Solving Equations\r\n");
 		lblSolvingEquations.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblSolvingEquations.setBounds(357, 329, 103, 23);
 		getContentPane().add(lblSolvingEquations);
-		
+
 		JLabel lblOrderOfOperations = new JLabel("Order of Operations\r\n");
 		lblOrderOfOperations.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblOrderOfOperations.setBounds(692, 329, 131, 23);
 		getContentPane().add(lblOrderOfOperations);
-		
+
 		JButton btnFinalTest = new JButton("Final Test");
 		btnFinalTest.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -162,9 +160,6 @@ public class End extends JFrame {
 		btnFinalTest.setBounds(482, 372, 202, 45);
 		getContentPane().add(btnFinalTest);
 
-		
-		
-		
 	}
 
 	public void close() {

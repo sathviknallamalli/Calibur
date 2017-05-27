@@ -1,8 +1,10 @@
 package LinearEquationsContents;
+import java.awt.Color;
 import java.awt.Font;
 
-import javax.swing.*;
-import java.awt.Color;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 public class Lesson1 extends JFrame {
 	public Lesson1() {
 		getContentPane().setLayout(null);

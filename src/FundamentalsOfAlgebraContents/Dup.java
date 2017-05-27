@@ -1,26 +1,15 @@
 package FundamentalsOfAlgebraContents;
 
-import java.awt.Color;
-import java.awt.Desktop;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
+import java.awt.*;
+
+import java.awt.event.*;
+
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileFilter;
+import javax.swing.*;
 
-import LinearEquationsContents.*;
+import LinearEquationsContents.LinearEquations;
 
 public class Dup extends JFrame {
 

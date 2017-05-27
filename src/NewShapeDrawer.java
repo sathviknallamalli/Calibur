@@ -1,13 +1,17 @@
 
-import java.awt.event.ActionEvent;
-
 import java.applet.Applet;
 import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
 
-import java.awt.*;
-
-import java.awt.event.*;
-import javax.swing.*;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 public class NewShapeDrawer extends Applet {
 

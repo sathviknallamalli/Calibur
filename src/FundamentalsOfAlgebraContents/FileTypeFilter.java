@@ -3,7 +3,6 @@ package FundamentalsOfAlgebraContents;
 import java.io.File;
 
 import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.*;
 
 public class FileTypeFilter extends FileFilter {
 

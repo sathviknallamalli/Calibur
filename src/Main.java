@@ -1,28 +1,26 @@
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Desktop;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
-
-import javax.swing.*;
-
-import FundamentalsOfAlgebraContents.Dup;
-import Machines.Audio;
-import Machines.Voice;
-
-import java.util.*;
-import java.util.logging.Handler;
-import studentHub.PhysicsCalculators.*;
-
-import java.net.URI;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Properties;
+import java.util.Random;
+
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import Machines.Audio;
 
 public class Main extends JFrame {
 	JLabel sh;

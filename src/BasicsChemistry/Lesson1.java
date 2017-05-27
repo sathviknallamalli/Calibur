@@ -1,25 +1,18 @@
 package BasicsChemistry;
 
-import java.awt.Font;
-import javafx.scene.media.*;
-import marytts.server.http.AudioStreamNHttpEntity;
-
-import java.io.*;
-import java.awt.Graphics;
-import java.awt.Toolkit;
-
-import javax.swing.*;
-
-import com.sun.speech.freetts.audio.AudioPlayer;
-
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.awt.event.ActionEvent;
-import sun.audio.*;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Lesson1 extends JFrame {
 	public Lesson1() {
@@ -116,59 +109,60 @@ public class Lesson1 extends JFrame {
 		lbltheAtomsThat.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lbltheAtomsThat.setBounds(450, 313, 314, 42);
 		getContentPane().add(lbltheAtomsThat);
-		
+
 		JLabel lblMatter = new JLabel("Matter");
 		lblMatter.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		lblMatter.setBounds(10, 255, 181, 32);
 		getContentPane().add(lblMatter);
-		
-		JLabel lblthisIsAn = new JLabel("<html>This is an indepth look at atoms and its nucleus. This is what the nucleus is composed of with electrons and protons. Matter have both atoms and molecules and that is what is called a MIXTURE. MIXTURES ARE THE MOST COMMON THINGS WE USE. ");
+
+		JLabel lblthisIsAn = new JLabel(
+				"<html>This is an indepth look at atoms and its nucleus. This is what the nucleus is composed of with electrons and protons. Matter have both atoms and molecules and that is what is called a MIXTURE. MIXTURES ARE THE MOST COMMON THINGS WE USE. ");
 		lblthisIsAn.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblthisIsAn.setBounds(122, 283, 208, 129);
 		getContentPane().add(lblthisIsAn);
-		
+
 		JCheckBox checkBox = new JCheckBox("Lesson 6 - Temperature Conversions\r\n");
 		checkBox.setForeground(Color.RED);
 		checkBox.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		checkBox.setEnabled(false);
 		checkBox.setBounds(10, 210, 230, 23);
 		getContentPane().add(checkBox);
-		
+
 		JCheckBox checkBox_1 = new JCheckBox("Lesson 5 - Phase Changes");
 		checkBox_1.setForeground(Color.RED);
 		checkBox_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		checkBox_1.setEnabled(false);
 		checkBox_1.setBounds(10, 184, 215, 23);
 		getContentPane().add(checkBox_1);
-		
+
 		JCheckBox checkBox_2 = new JCheckBox("Lesson 4 - Phases of Matter");
 		checkBox_2.setForeground(Color.RED);
 		checkBox_2.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		checkBox_2.setEnabled(false);
 		checkBox_2.setBounds(10, 160, 230, 23);
 		getContentPane().add(checkBox_2);
-		
+
 		JCheckBox checkBox_3 = new JCheckBox("Lesson 3 - Substances & Mixtures");
 		checkBox_3.setForeground(Color.RED);
 		checkBox_3.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		checkBox_3.setEnabled(false);
 		checkBox_3.setBounds(10, 135, 230, 23);
 		getContentPane().add(checkBox_3);
-		
+
 		JCheckBox checkBox_4 = new JCheckBox("Lesson 2 - Classifying Matter");
 		checkBox_4.setForeground(Color.RED);
 		checkBox_4.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		checkBox_4.setEnabled(false);
 		checkBox_4.setBounds(10, 109, 215, 23);
 		getContentPane().add(checkBox_4);
-		
+
 		JCheckBox checkBox_5 = new JCheckBox("Lesson 1 - Structure");
 		checkBox_5.setForeground(Color.RED);
 		checkBox_5.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		checkBox_5.setEnabled(false);
 		checkBox_5.setBounds(10, 83, 215, 23);
 		getContentPane().add(checkBox_5);
-		
+
 		JLabel label_1 = new JLabel("Chapter Progress");
 		label_1.setFont(new Font("Times New Roman", Font.ITALIC, 14));
 		label_1.setBounds(25, 64, 112, 16);

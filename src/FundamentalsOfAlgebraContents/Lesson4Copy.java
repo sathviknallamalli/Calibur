@@ -1,14 +1,14 @@
 package FundamentalsOfAlgebraContents;
 
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Toolkit;
-
-import javax.swing.*;
 import java.awt.Color;
-import java.awt.event.ActionListener;
+import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
-import java.awt.event.ActionEvent;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Lesson4Copy extends JFrame {
 	public Lesson4Copy() {

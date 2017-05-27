@@ -1,8 +1,13 @@
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 
-import java.awt.*;
-
-import javax.swing.*;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 public class FormSurvey {
 

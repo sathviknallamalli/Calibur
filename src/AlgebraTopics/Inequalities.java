@@ -1,7 +1,8 @@
 package AlgebraTopics;
 import java.awt.Font;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 public class Inequalities extends JFrame {
 	public Inequalities() {
 		getContentPane().setLayout(null);

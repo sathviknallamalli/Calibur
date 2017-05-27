@@ -1,25 +1,18 @@
 package BasicsChemistry;
 
-import java.awt.Font;
-import javafx.scene.media.*;
-import marytts.server.http.AudioStreamNHttpEntity;
-
-import java.io.*;
-import java.awt.Graphics;
-import java.awt.Toolkit;
-
-import javax.swing.*;
-
-import com.sun.speech.freetts.audio.AudioPlayer;
-
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.awt.event.ActionEvent;
-import sun.audio.*;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Lesson3More extends JFrame {
 	public Lesson3More() {
@@ -174,28 +167,28 @@ public class Lesson3More extends JFrame {
 		button_3.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		button_3.setBounds(947, 412, 215, 36);
 		getContentPane().add(button_3);
-		
+
 		JCheckBox checkBox = new JCheckBox("Lesson 6 - Temperature Conversions\r\n");
 		checkBox.setForeground(Color.RED);
 		checkBox.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		checkBox.setEnabled(false);
 		checkBox.setBounds(6, 210, 230, 23);
 		getContentPane().add(checkBox);
-		
+
 		JCheckBox checkBox_1 = new JCheckBox("Lesson 5 - Phase Changes");
 		checkBox_1.setForeground(Color.RED);
 		checkBox_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		checkBox_1.setEnabled(false);
 		checkBox_1.setBounds(6, 184, 215, 23);
 		getContentPane().add(checkBox_1);
-		
+
 		JCheckBox checkBox_2 = new JCheckBox("Lesson 4 - Phases of Matter");
 		checkBox_2.setForeground(Color.RED);
 		checkBox_2.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		checkBox_2.setEnabled(false);
 		checkBox_2.setBounds(6, 160, 230, 23);
 		getContentPane().add(checkBox_2);
-		
+
 		JCheckBox checkBox_3 = new JCheckBox("Lesson 3 - Substances & Mixtures");
 		checkBox_3.setSelected(true);
 		checkBox_3.setForeground(Color.RED);
@@ -203,7 +196,7 @@ public class Lesson3More extends JFrame {
 		checkBox_3.setEnabled(false);
 		checkBox_3.setBounds(6, 135, 230, 23);
 		getContentPane().add(checkBox_3);
-		
+
 		JCheckBox checkBox_4 = new JCheckBox("Lesson 2 - Classifying Matter");
 		checkBox_4.setSelected(true);
 		checkBox_4.setForeground(Color.RED);
@@ -211,7 +204,7 @@ public class Lesson3More extends JFrame {
 		checkBox_4.setEnabled(false);
 		checkBox_4.setBounds(6, 109, 215, 23);
 		getContentPane().add(checkBox_4);
-		
+
 		JCheckBox checkBox_5 = new JCheckBox("Lesson 1 - Structure");
 		checkBox_5.setSelected(true);
 		checkBox_5.setForeground(Color.RED);
@@ -219,7 +212,7 @@ public class Lesson3More extends JFrame {
 		checkBox_5.setEnabled(false);
 		checkBox_5.setBounds(6, 83, 215, 23);
 		getContentPane().add(checkBox_5);
-		
+
 		JLabel label_2 = new JLabel("Chapter Progress");
 		label_2.setFont(new Font("Times New Roman", Font.ITALIC, 14));
 		label_2.setBounds(21, 64, 112, 16);

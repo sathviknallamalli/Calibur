@@ -1,14 +1,12 @@
 package TrigTopics;
-import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Point;
-import java.awt.font.TextAttribute;
-import java.text.AttributedString;
-
-import javax.swing.*;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 public class LawOfSines extends JFrame {
 	private JTextField a;
 	private JTextField b;

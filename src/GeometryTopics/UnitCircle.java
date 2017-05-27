@@ -1,13 +1,10 @@
 package GeometryTopics;
 
 import java.awt.Font;
-import studentHub.MathCalculators.*;
 
-import javax.swing.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Label;
-import java.awt.TextField;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class UnitCircle extends JFrame {
 	public UnitCircle() {

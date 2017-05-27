@@ -1,12 +1,10 @@
 package BalancingEquations;
 
-import java.awt.Font;
-import java.awt.Toolkit;
+import java.awt.*;
+
+import java.awt.event.*;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 
 public class BalancingEquations extends JFrame {
 

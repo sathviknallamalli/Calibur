@@ -1,12 +1,10 @@
 package FundamentalsOfAlgebraContents;
 import java.awt.Font;
 import java.awt.Toolkit;
-
-import javax.swing.*;
-import java.awt.Color;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
-import java.awt.event.ActionEvent;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 public class Test3 extends JFrame {
 	public Test3() {
 		getContentPane().setLayout(null);

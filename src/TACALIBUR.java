@@ -1,22 +1,29 @@
+import java.awt.Color;
 import java.awt.EventQueue;
-import Machines.*;
-
-import Motion.Motion;
-import PeriodicTable.*;
-import BalancingEquations.*;
-
-import java.awt.*;
-
-import BasicsChemistry.*;
-import FundamentalsOfAlgebraContents.*;
-import LinearEquationsContents.LinearEquations;
-import SegmentsAngleContents.*;
-
-import java.awt.event.*;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import javax.swing.*;
+import javax.swing.AbstractAction;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+
+import BalancingEquations.BalancingEquations;
+import BasicsChemistry.BasicsOfChemistry;
+import FundamentalsOfAlgebraContents.FundamentalsAlg;
+import LinearEquationsContents.LinearEquations;
+import Machines.Machines;
+import Motion.Motion;
+import PeriodicTable.PeriodicTable;
+import SegmentsAngleContents.SegmentsAngle;
 
 public class TACALIBUR {
 

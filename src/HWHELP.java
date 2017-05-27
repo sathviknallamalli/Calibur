@@ -1,17 +1,57 @@
 
-import javax.swing.*;
-
-import PhysicsTopics.*;
-import AlgebraTopics.*;
-import GeometryTopics.*;
-import java.awt.*;
-
-import java.awt.event.*;
-
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import ProbabilityTopics.*;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+import AlgebraTopics.EquationSolver;
+import AlgebraTopics.ExponentsAndPowers;
+import AlgebraTopics.Graphing;
+import AlgebraTopics.Inequalities;
+import AlgebraTopics.Polynomials;
+import AlgebraTopics.Quadratics;
+import AlgebraTopics.RationalEquations;
+import AlgebraTopics.SystemOfEquationsSolver;
+import AlgebraTopics.WordProblems;
+import GeometryTopics.Circle;
+import GeometryTopics.ConeSA;
+import GeometryTopics.CubeSA;
+import GeometryTopics.CylinderSA;
+import GeometryTopics.DegreesToRadiansConversions;
+import GeometryTopics.Distance;
+import GeometryTopics.Hypotnuese;
+import GeometryTopics.Midpoint;
+import GeometryTopics.RectangularPrisim;
+import GeometryTopics.Slope;
+import GeometryTopics.SphereSA;
+import GeometryTopics.Triangle;
+import GeometryTopics.TrigRatios;
+import GeometryTopics.UnitCircle;
+import GeometryTopics.Volumes;
+import PhysicsTopics.Effeciency;
+import PhysicsTopics.FMA;
+import PhysicsTopics.IdealMechanicalAdvantage;
+import PhysicsTopics.KineticEnergy;
+import PhysicsTopics.MechanicalAdvantage;
+import PhysicsTopics.MechanicalEnergy;
+import PhysicsTopics.Momentum;
+import PhysicsTopics.OhmsLaw;
+import PhysicsTopics.PotentialEnergy;
+import PhysicsTopics.Power;
+import PhysicsTopics.Work;
+import ProbabilityTopics.Combinations;
 import TrigTopics.LawOfSines;
 
 public class HWHELP {

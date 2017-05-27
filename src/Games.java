@@ -1,17 +1,22 @@
+import java.awt.Color;
 import java.awt.EventQueue;
-import FlappyBird.*;
-import BrickBreaker.*;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import java.awt.event.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 
-import javax.swing.*;
-
-import java.awt.*;
-
-import Simulations.*;
-
-import SnakeGame.*;
-import ColorGame.*;
+import BrickBreaker.Center;
+import ColorGame.Driver;
+import FlappyBird.FlappyBird;
+import Simulations.DiceRolling;
+import Simulations.HeadsTails;
+import Simulations.RandomGuessing;
+import SnakeGame.MainClass;
 
 public class Games {
 

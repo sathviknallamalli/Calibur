@@ -1,17 +1,26 @@
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.GregorianCalendar;
 
-import java.sql.*;
-
-import java.util.*;
-import net.proteanit.sql.DbUtils;
-
-import java.awt.event.*;
-
-import java.awt.*;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextPane;
+import javax.swing.table.DefaultTableModel;
 
 import com.ibm.icu.util.Calendar;
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+
+import net.proteanit.sql.DbUtils;
 
 public class Reminders {
 
