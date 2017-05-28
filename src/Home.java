@@ -26,6 +26,8 @@ public class Home extends JFrame {
 
 	Connection connection = null;
 	Connection connection1 = null;
+	JTextField untf = new JTextField();
+	JPasswordField passwordField = new JPasswordField();;
 
 	public Home() {
 		super("Login");
@@ -35,7 +37,6 @@ public class Home extends JFrame {
 		setBounds(100, 100, 803, 313);
 		getContentPane().setLayout(null);
 
-		JPasswordField passwordField;
 		JTextField name;
 		JTextField lname;
 		JTextField email;
@@ -44,24 +45,23 @@ public class Home extends JFrame {
 		JPasswordField cpd;
 		JButton sendemail;
 
-		JFrame frame;
 		JLabel lblLoginToCalibur = new JLabel("Login to Calibur\r\n");
 		lblLoginToCalibur.setFont(new Font("Castellar", Font.PLAIN, 34));
 		lblLoginToCalibur.setBounds(209, 11, 365, 47);
 		getContentPane().add(lblLoginToCalibur);
-		JTextField untf = new JTextField();
-		untf.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		untf.setBounds(343, 99, 188, 26);
-		getContentPane().add(untf);
-		untf.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("Username");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		lblNewLabel.setBounds(247, 100, 86, 20);
 		getContentPane().add(lblNewLabel);
 		untf.requestFocusInWindow();
-		passwordField = new JPasswordField();
+
 		passwordField.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+
+		untf.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		untf.setBounds(343, 99, 188, 26);
+		getContentPane().add(untf);
+		untf.setColumns(10);
 		passwordField.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
@@ -100,8 +100,10 @@ public class Home extends JFrame {
 		lblPassword.setBounds(247, 144, 86, 20);
 		getContentPane().add(lblPassword);
 		untf.requestFocusInWindow();
-		JButton btnNewButton = new JButton("Login");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton login = new JButton("Login");
+
+		login.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 
 				try {
@@ -111,15 +113,14 @@ public class Home extends JFrame {
 					pst.setString(2, passwordField.getText());
 					ResultSet rs = pst.executeQuery();
 					int count = 0;
-					// String user = untf.getText();
 
 					while (rs.next()) {
 						count++;
 					}
 					if (count == 1) {
+
 						Main m = new Main();
 						m.newClass();
-						// close();
 
 					} else {
 						JOptionPane.showMessageDialog(null, "Username or password is not correct. Try again");
@@ -134,9 +135,9 @@ public class Home extends JFrame {
 			}
 		});
 
-		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
-		btnNewButton.setBounds(224, 180, 124, 41);
-		getContentPane().add(btnNewButton);
+		login.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
+		login.setBounds(224, 180, 124, 41);
+		getContentPane().add(login);
 
 		JLabel lblIfYouDont = new JLabel(
 				"If you dont have an account for Calibur, then please sign up and it is completely free of charge! A verification email will be sent once you sign up.");
@@ -318,4 +319,5 @@ public class Home extends JFrame {
 		WindowEvent w = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(w);
 	}
+
 }

@@ -15,12 +15,41 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import AlgebraTopics.*;
-
-import GeometryTopics.*;
-
-import PhysicsTopics.*;
-
+import AlgebraTopics.EquationSolver;
+import AlgebraTopics.ExponentsAndPowers;
+import AlgebraTopics.Graphing;
+import AlgebraTopics.Inequalities;
+import AlgebraTopics.Polynomials;
+import AlgebraTopics.Quadratics;
+import AlgebraTopics.RationalEquations;
+import AlgebraTopics.SystemOfEquationsSolver;
+import AlgebraTopics.WordProblems;
+import GeometryTopics.Circle;
+import GeometryTopics.ConeSA;
+import GeometryTopics.CubeSA;
+import GeometryTopics.CylinderSA;
+import GeometryTopics.DegreesToRadiansConversions;
+import GeometryTopics.Distance;
+import GeometryTopics.Hypotnuese;
+import GeometryTopics.Midpoint;
+import GeometryTopics.RectangularPrisim;
+import GeometryTopics.Slope;
+import GeometryTopics.SphereSA;
+import GeometryTopics.Triangle;
+import GeometryTopics.TrigRatios;
+import GeometryTopics.UnitCircle;
+import GeometryTopics.Volumes;
+import PhysicsTopics.Effeciency;
+import PhysicsTopics.FMA;
+import PhysicsTopics.IdealMechanicalAdvantage;
+import PhysicsTopics.KineticEnergy;
+import PhysicsTopics.MechanicalAdvantage;
+import PhysicsTopics.MechanicalEnergy;
+import PhysicsTopics.Momentum;
+import PhysicsTopics.OhmsLaw;
+import PhysicsTopics.PotentialEnergy;
+import PhysicsTopics.Power;
+import PhysicsTopics.Work;
 import ProbabilityTopics.Combinations;
 import TrigTopics.LawOfSines;
 

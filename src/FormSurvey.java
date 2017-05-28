@@ -1,24 +1,24 @@
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import javax.swing.JCheckBox;
 
 public class FormSurvey {
 
@@ -220,11 +220,18 @@ public class FormSurvey {
 			public void actionPerformed(ActionEvent arg0) {
 				String email = JOptionPane.showInputDialog(null, "Please enter the email of who you want to send it",
 						"Send Form!", JOptionPane.INFORMATION_MESSAGE);
+				SignUp.sendEmail(email, "", "", title.getText(),
+						"Hi! I have made a survey through Calibur and would like to share it with you. Please take this and let me know your opinion");
 			}
 		});
 		send.setFont(new Font("Arial", Font.PLAIN, 13));
 		send.setBounds(536, 336, 138, 33);
 		frame.getContentPane().add(send);
+		
+		JButton btnPreviewForm = new JButton("Preview Form");
+		btnPreviewForm.setFont(new Font("Arial", Font.PLAIN, 13));
+		btnPreviewForm.setBounds(536, 295, 138, 33);
+		frame.getContentPane().add(btnPreviewForm);
 
 		add.addMouseListener(new MouseListener() {
 			public void mouseReleased(MouseEvent e) {

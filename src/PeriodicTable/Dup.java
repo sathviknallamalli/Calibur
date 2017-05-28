@@ -1,4 +1,4 @@
-package BasicsChemistry;
+package PeriodicTable;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -13,7 +13,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import PeriodicTable.PeriodicTable;
+import BalancingEquations.BalancingEquations;
 
 public class Dup {
 
@@ -69,7 +69,7 @@ public class Dup {
 		frame.getContentPane().add(button);
 
 		JLabel pic = new JLabel();
-		pic.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Certificates\\BasicsChemistry.png"));
+		pic.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Certificates\\PeriodicTable.png"));
 		pic.setBounds(0, 0, 581, 425);
 		frame.getContentPane().add(pic);
 
@@ -81,7 +81,7 @@ public class Dup {
 		pic.add(lab);
 
 		JLabel lbltheNextCourse = new JLabel(
-				"<html>The next course is Perioidic Table. In this course you will learn about each element in the periodic table along with what each part is including the atomic number and mass. You will also learn why it is arranged in this such way along with some fun excercises.");
+				"<html>The next course is Balancing Equations. In this course you will learn about how different compounds are formed and how scientists have to balance things to make sure they dont mess up!! You will learn how to use the atomic structure of elements to create new compounds too!");
 		lbltheNextCourse.setForeground(Color.RED);
 		lbltheNextCourse.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
 		lbltheNextCourse.setBounds(10, 481, 563, 51);
@@ -90,7 +90,7 @@ public class Dup {
 		JButton button_1 = new JButton("Next Course!!>>");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PeriodicTable p = new PeriodicTable();
+				BalancingEquations p = new BalancingEquations();
 				p.newClass();
 			}
 		});

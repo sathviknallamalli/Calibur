@@ -7,6 +7,7 @@ import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -28,6 +29,7 @@ public class SignUp extends JFrame {
 	private JTextField email;
 	private JTextField UsernameTextField;
 	Connection connection = null;
+	static Connection connection1 = null;
 	private JPasswordField pd;
 	private JPasswordField confirmpd;
 
@@ -67,7 +69,24 @@ public class SignUp extends JFrame {
 		}
 	}
 
+	public static void createTable() {
+		connection1 = sqliteConnection.c();
+
+		try {
+			PreparedStatement create = connection1.prepareStatement(
+					"CREATE TABLE IF NOT EXISTS tablename(id int NOT NULL AUTO_INCREMENT, first varchar(255), last varchar(255), PRIMARY KEY(id)");
+			create.executeUpdate();
+		} catch (SQLException e) {
+
+			JOptionPane.showMessageDialog(null, e);
+		} finally {
+			System.out.println("Function complete");
+		}
+		;
+	}
+
 	public SignUp() {
+		super("Sign-up!");
 		getContentPane().setLayout(null);
 
 		connection = sqliteConnection.c();
@@ -189,6 +208,7 @@ public class SignUp extends JFrame {
 
 									pst.execute();
 
+									//SignUp.createTable();
 									JOptionPane.showMessageDialog(null,
 											"You have been signed up!! Please check your email for verification.");
 
@@ -249,4 +269,5 @@ public class SignUp extends JFrame {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 	}
+
 }

@@ -7,45 +7,44 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
 import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
-public class Lesson5Review extends JFrame {
+public class Lesson6Review extends JFrame {
 
-	public Lesson5Review() {
+	public Lesson6Review() {
 		getContentPane().setLayout(null);
 
-		JLabel title = new JLabel("Lesson 5 Review");
+		JLabel title = new JLabel("Lesson 6 Review");
 		title.setFont(new Font("Castellar", Font.PLAIN, 20));
-		title.setBounds(345, 11, 200, 42);
+		title.setBounds(297, 11, 200, 42);
 		getContentPane().add(title);
 
 		JLabel quizIntro = new JLabel(
 				"This review is used to see how well you understood the material do not use any outside resources.");
 		quizIntro.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		quizIntro.setBounds(166, 48, 558, 16);
+		quizIntro.setBounds(118, 48, 558, 16);
 		getContentPane().add(quizIntro);
 
-		JLabel q1 = new JLabel("1.) What are the order of phases from gas to solid?");
+		JLabel q1 = new JLabel("1.) What are the boiling and freezing points of a Kelvin Scale?");
 		q1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		q1.setBounds(10, 83, 357, 25);
 		getContentPane().add(q1);
 
-		JRadioButton op1 = new JRadioButton("Melting, Vaporization, Boiling");
+		JRadioButton op1 = new JRadioButton("0K and 100K\r\n");
 		op1.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op1.setBounds(31, 107, 224, 23);
 		getContentPane().add(op1);
 
-		JRadioButton op2 = new JRadioButton("Condensation, Freezing\r\n");
+		JRadioButton op2 = new JRadioButton("32K and 212K");
 		op2.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op2.setBounds(31, 133, 192, 23);
 		getContentPane().add(op2);
 
-		JRadioButton op3 = new JRadioButton("Condensation, Evaporation, Freezing");
+		JRadioButton op3 = new JRadioButton("273K and 373K");
 		op3.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op3.setBounds(31, 159, 211, 23);
 		getContentPane().add(op3);
@@ -55,30 +54,24 @@ public class Lesson5Review extends JFrame {
 		b.add(op2);
 		b.add(op1);
 
-		JLabel lblWhatIs = new JLabel("2.) What happens to the atoms during the vaporization phase?");
+		JLabel lblWhatIs = new JLabel("2.) Determine which temperature is the lowest?");
 		lblWhatIs.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblWhatIs.setBounds(10, 182, 357, 25);
 		getContentPane().add(lblWhatIs);
 
-		JRadioButton op21 = new JRadioButton(
-				"<html>The atoms will become more pact and dense so it solidifies from a gas to a liquid\r\n");
-		op21.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op21 = new JRadioButton("10K");
 		op21.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op21.setBounds(31, 206, 248, 37);
+		op21.setBounds(31, 206, 248, 25);
 		getContentPane().add(op21);
 
-		JRadioButton op22 = new JRadioButton(
-				"<html>The atoms are loosly bound originally, but when the heat is added it can become more flowy and fill the space all around it");
-		op22.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op22 = new JRadioButton("72F");
 		op22.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op22.setBounds(31, 246, 301, 45);
+		op22.setBounds(31, 234, 301, 25);
 		getContentPane().add(op22);
 
-		JRadioButton op23 = new JRadioButton(
-				"<html>The atoms become tighter together and thus is the phase from liquid to gas and can be evaporated or boiled.");
-		op23.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op23 = new JRadioButton("37C");
 		op23.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op23.setBounds(31, 294, 301, 31);
+		op23.setBounds(31, 262, 301, 25);
 		getContentPane().add(op23);
 
 		ButtonGroup b2 = new ButtonGroup();
@@ -86,25 +79,24 @@ public class Lesson5Review extends JFrame {
 		b2.add(op22);
 		b2.add(op21);
 
-		JLabel lblSolveThis = new JLabel(
-				"<html>3.) Determine the position in which only liquid is present in the graph if it starts as a solid, remember what causes a phase change.");
+		JLabel lblSolveThis = new JLabel("<html>3.) Convert 89F to Kelvin");
 		lblSolveThis.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblSolveThis.setBounds(10, 335, 384, 37);
+		lblSolveThis.setBounds(10, 294, 384, 25);
 		getContentPane().add(lblSolveThis);
 
-		JRadioButton op31 = new JRadioButton("C");
+		JRadioButton op31 = new JRadioButton("304K");
 		op31.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op31.setBounds(208, 391, 61, 25);
+		op31.setBounds(31, 325, 61, 25);
 		getContentPane().add(op31);
 
-		JRadioButton op32 = new JRadioButton("D");
+		JRadioButton op32 = new JRadioButton("31K");
 		op32.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op32.setBounds(208, 418, 61, 25);
+		op32.setBounds(31, 353, 61, 25);
 		getContentPane().add(op32);
 
-		JRadioButton op33 = new JRadioButton("B");
+		JRadioButton op33 = new JRadioButton("36K");
 		op33.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op33.setBounds(208, 446, 61, 25);
+		op33.setBounds(31, 381, 61, 25);
 		getContentPane().add(op33);
 
 		ButtonGroup bg3 = new ButtonGroup();
@@ -112,30 +104,24 @@ public class Lesson5Review extends JFrame {
 		bg3.add(op32);
 		bg3.add(op31);
 
-		JLabel lblWhatIs_1 = new JLabel("4.) What is the difference between evaporation and boiling");
+		JLabel lblWhatIs_1 = new JLabel("4.) Which temperature scale is the smallest, interval");
 		lblWhatIs_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblWhatIs_1.setBounds(10, 523, 321, 25);
+		lblWhatIs_1.setBounds(11, 413, 321, 25);
 		getContentPane().add(lblWhatIs_1);
 
-		JRadioButton op41 = new JRadioButton(
-				"<html>Evaporation occurs on the surface of the liquid whereas boiling is also within");
-		op41.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op41 = new JRadioButton("Celsius");
 		op41.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op41.setBounds(10, 555, 289, 37);
+		op41.setBounds(31, 445, 289, 25);
 		getContentPane().add(op41);
 
-		JRadioButton op42 = new JRadioButton(
-				"<html>Evaporation occurs when a liquid changes to a gas, but boiling is from gas to liquid");
-		op42.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op42 = new JRadioButton("Farenheit");
 		op42.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op42.setBounds(10, 595, 289, 39);
+		op42.setBounds(31, 473, 289, 25);
 		getContentPane().add(op42);
 
-		JRadioButton op43 = new JRadioButton(
-				"<html>Evaporation and boiling occur at different temperatures and convert from liquid to gas");
-		op43.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op43 = new JRadioButton("Kelvin");
 		op43.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op43.setBounds(301, 595, 242, 37);
+		op43.setBounds(31, 501, 242, 25);
 		getContentPane().add(op43);
 
 		ButtonGroup bg4 = new ButtonGroup();
@@ -143,25 +129,24 @@ public class Lesson5Review extends JFrame {
 		bg4.add(op42);
 		bg4.add(op41);
 
-		JLabel lblSolveThe = new JLabel(
-				"<html>5.) Which phase in this diagram matches that of Section D in diagram question 3");
+		JLabel lblSolveThe = new JLabel("<html>5.) Convert 50 Celsius to Farenheit");
 		lblSolveThe.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblSolveThe.setBounds(437, 83, 404, 31);
+		lblSolveThe.setBounds(437, 83, 260, 25);
 		getContentPane().add(lblSolveThe);
 
-		JRadioButton op51 = new JRadioButton("Condensation");
+		JRadioButton op51 = new JRadioButton("323.15F");
 		op51.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op51.setBounds(708, 120, 109, 23);
+		op51.setBounds(458, 107, 109, 23);
 		getContentPane().add(op51);
 
-		JRadioButton op52 = new JRadioButton("Evaporation");
+		JRadioButton op52 = new JRadioButton("10F");
 		op52.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op52.setBounds(708, 146, 146, 23);
+		op52.setBounds(458, 133, 146, 23);
 		getContentPane().add(op52);
 
-		JRadioButton op53 = new JRadioButton("Precipitation");
+		JRadioButton op53 = new JRadioButton("122F");
 		op53.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op53.setBounds(708, 172, 109, 23);
+		op53.setBounds(458, 159, 109, 23);
 		getContentPane().add(op53);
 
 		ButtonGroup bg5 = new ButtonGroup();
@@ -169,30 +154,24 @@ public class Lesson5Review extends JFrame {
 		bg5.add(op52);
 		bg5.add(op51);
 
-		JLabel lblAStudentSolved = new JLabel("6.) Which of these statements is true about heat and temperature?");
+		JLabel lblAStudentSolved = new JLabel("6.) What is absolute zero?");
 		lblAStudentSolved.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblAStudentSolved.setBounds(437, 310, 392, 25);
+		lblAStudentSolved.setBounds(437, 192, 392, 25);
 		getContentPane().add(lblAStudentSolved);
 
-		JRadioButton op71 = new JRadioButton(
-				"<html>Heat is what causes a phase change and it also increases the temperature");
-		op71.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op71 = new JRadioButton("9/5x + 32");
 		op71.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op71.setBounds(482, 481, 348, 31);
+		op71.setBounds(458, 371, 348, 25);
 		getContentPane().add(op71);
 
-		JRadioButton op72 = new JRadioButton(
-				"<html>Temperature is what causes a phase change and it also increases the heat");
-		op72.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op72 = new JRadioButton("5/9(x-32)");
 		op72.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op72.setBounds(482, 515, 335, 33);
+		op72.setBounds(458, 399, 335, 25);
 		getContentPane().add(op72);
 
-		JRadioButton op73 = new JRadioButton(
-				"<html>Temperature stays the same during a phase change and heat increases");
-		op73.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op73 = new JRadioButton("x+273");
 		op73.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op73.setBounds(482, 551, 348, 31);
+		op73.setBounds(458, 427, 348, 25);
 		getContentPane().add(op73);
 
 		ButtonGroup bg7 = new ButtonGroup();
@@ -202,50 +181,39 @@ public class Lesson5Review extends JFrame {
 
 		JButton btnNewButton = new JButton("Submit");
 		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		btnNewButton.setBounds(733, 596, 128, 37);
+		btnNewButton.setBounds(628, 489, 128, 37);
 		getContentPane().add(btnNewButton);
 
 		JRadioButton op61 = new JRadioButton(
-				"<html>Heat is how hot an object is and temperature is a more accurate and numerical value of that measure");
+				"<html>The temperature at 0Celsius and is the lowest possible temperature an object can get");
 		op61.setVerticalAlignment(SwingConstants.TOP);
 		op61.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op61.setBounds(482, 342, 307, 37);
+		op61.setBounds(458, 218, 307, 37);
 		getContentPane().add(op61);
 
 		JRadioButton op62 = new JRadioButton(
-				"<html>Heat is what causes temperature and heat is a measure of the movement in atoms of a material");
+				"<html>It is when molecules are motionless and it occurs at 0 Kelvin and nothing can be lower than that");
 		op62.setVerticalAlignment(SwingConstants.TOP);
 		op62.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op62.setBounds(482, 382, 289, 31);
+		op62.setBounds(458, 258, 289, 31);
 		getContentPane().add(op62);
 
-		JLabel lblWhichOf = new JLabel("7.) How does heat and temperature contribute to a phase change");
+		JLabel lblWhichOf = new JLabel("7.) What formula is used to convert from celsius to faranheit");
 		lblWhichOf.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblWhichOf.setBounds(437, 459, 360, 25);
+		lblWhichOf.setBounds(437, 339, 360, 25);
 		getContentPane().add(lblWhichOf);
 
 		JRadioButton op63 = new JRadioButton(
-				"<html>Temperature is the kinetic energy of atoms in an object and heat is the energy transfer between objects");
+				"<html>The lowest temperature on the positive scale and the higest on the negative scale of temperatures");
 		op63.setVerticalAlignment(SwingConstants.TOP);
 		op63.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op63.setBounds(482, 419, 295, 37);
+		op63.setBounds(458, 295, 295, 37);
 		getContentPane().add(op63);
 
 		ButtonGroup bg6 = new ButtonGroup();
 		bg6.add(op63);
 		bg6.add(op62);
 		bg6.add(op61);
-
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\phasegraph.PNG"));
-		label.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		label.setBounds(10, 383, 192, 138);
-		getContentPane().add(label);
-
-		JLabel label_1 = new JLabel();
-		label_1.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\wcycle.PNG"));
-		label_1.setBounds(437, 118, 256, 185);
-		getContentPane().add(label_1);
 
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -255,25 +223,25 @@ public class Lesson5Review extends JFrame {
 				frame.setVisible(true);
 				frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 				int maxScore = 0;
-				if (op2.isSelected()) {
+				if (op3.isSelected()) {
 					maxScore++;
 				}
-				if (op22.isSelected()) {
+				if (op21.isSelected()) {
 					maxScore++;
 				}
-				if (op33.isSelected()) {
+				if (op31.isSelected()) {
 					maxScore++;
 				}
-				if (op41.isSelected()) {
+				if (op42.isSelected()) {
 					maxScore++;
 				}
-				if (op51.isSelected()) {
+				if (op53.isSelected()) {
 					maxScore++;
 				}
-				if (op61.isSelected()) {
+				if (op62.isSelected()) {
 					maxScore++;
 				}
-				if (op73.isSelected()) {
+				if (op71.isSelected()) {
 					maxScore++;
 				}
 
@@ -290,8 +258,8 @@ public class Lesson5Review extends JFrame {
 
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						Lesson6 l = new Lesson6();
-						l.newClass();
+						End e = new End();
+						e.newClass();
 						close();
 					}
 				});

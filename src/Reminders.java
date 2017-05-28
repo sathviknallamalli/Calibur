@@ -26,6 +26,7 @@ public class Reminders {
 
 	JFrame frame;
 	JLabel lblCurrentTimeIs;
+	static String tempe = "";
 
 	/**
 	 * Launch the application.
@@ -110,6 +111,8 @@ public class Reminders {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+
+		System.out.println();
 		frame = new JFrame("Reminder Dashboard");
 		frame.getContentPane().setBackground(Color.YELLOW);
 		frame.setBounds(100, 100, 956, 445);
@@ -234,10 +237,16 @@ public class Reminders {
 
 					pst.execute();
 
+					/*
+					 * SignUp.sendEmail(tempe, "", "", "Reminder Saved: " + s,
+					 * "We have successfully saved your reminder and you will be notified through the application of Calibur along with an email that will be sent to the registered email. \nThe reminder has been scheduled for "
+					 * + m + " " + dy + ", " + y + " and at " + h + ":" + minute
+					 * + " " + te +
+					 * ", the message has been recorded with information of: " +
+					 * s);
+					 */
 					JOptionPane.showMessageDialog(null, "Reminder has been saved");
-
 					pst.close();
-
 				} catch (Exception b) {
 					JOptionPane.showMessageDialog(null, b);
 				}

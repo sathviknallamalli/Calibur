@@ -862,6 +862,11 @@ public class TACALIBUR {
 		btnBasicsOfEarth.setBounds(10, 6, 143, 23);
 		panel_5.add(btnBasicsOfEarth);
 
+		JButton btnPlanetsAndThe = new JButton("Planets and the Moon");
+		btnPlanetsAndThe.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnPlanetsAndThe.setBounds(10, 93, 143, 23);
+		panel_5.add(btnPlanetsAndThe);
+
 		energy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tit.setText("Energy");

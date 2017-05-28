@@ -1,10 +1,8 @@
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.BufferedReader;
@@ -23,7 +21,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
@@ -143,6 +140,17 @@ public class Editor {
 			}
 		});
 		fonttype.add(mntmNewMenuItem);
+
+		JMenuItem bh = new JMenuItem("Bradley Hand ITC");
+		bh.setFont(new Font("Bradley Hand ITC", Font.PLAIN, 12));
+		bh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				text.setFont(new Font("Bradley Hand ITC", Font.PLAIN, Integer.parseInt(size.getText())));
+				fonttype.setText("Bradley Hand ITC");
+				fonttype.setFont(new Font("Bradley Hand ITC", Font.PLAIN, 12));
+			}
+		});
+		fonttype.add(bh);
 		fonttype.add(calib);
 
 		JMenuItem tnew = new JMenuItem("Times New Roman");
@@ -154,7 +162,15 @@ public class Editor {
 				fonttype.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 			}
 		});
-		fonttype.add(tnew);
+
+		JMenuItem mntmConsolas = new JMenuItem("Consolas");
+		mntmConsolas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				text.setFont(new Font("Consolas", Font.PLAIN, Integer.parseInt(size.getText())));
+				fonttype.setText("Consolas");
+				fonttype.setFont(new Font("Consolas", Font.PLAIN, 12));
+			}
+		});
 
 		JMenuItem camb = new JMenuItem("Cambria");
 		camb.setFont(new Font("Cambria", Font.PLAIN, 12));
@@ -178,17 +194,6 @@ public class Editor {
 		});
 		fonttype.add(cast);
 
-		JMenuItem bh = new JMenuItem("Bradley Hand ITC");
-		bh.setFont(new Font("Bradley Hand ITC", Font.PLAIN, 12));
-		bh.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				text.setFont(new Font("Bradley Hand ITC", Font.PLAIN, Integer.parseInt(size.getText())));
-				fonttype.setText("Bradley Hand ITC");
-				fonttype.setFont(new Font("Bradley Hand ITC", Font.PLAIN, 12));
-			}
-		});
-		fonttype.add(bh);
-
 		JMenuItem cs = new JMenuItem("Comic Sans MS");
 		cs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -199,6 +204,31 @@ public class Editor {
 		});
 		cs.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
 		fonttype.add(cs);
+		mntmConsolas.setFont(new Font("Consolas", Font.PLAIN, 12));
+		fonttype.add(mntmConsolas);
+
+		JMenuItem impact = new JMenuItem("Impact");
+		impact.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				text.setFont(new Font("Impact", Font.PLAIN, Integer.parseInt(size.getText())));
+				fonttype.setText("Impact");
+				fonttype.setFont(new Font("Impact", Font.PLAIN, 12));
+			}
+		});
+		impact.setFont(new Font("Impact", Font.PLAIN, 12));
+		fonttype.add(impact);
+
+		JMenuItem tah = new JMenuItem("Tahoma");
+		tah.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				text.setFont(new Font("Tahoma", Font.PLAIN, Integer.parseInt(size.getText())));
+				fonttype.setText("Tahoma");
+				fonttype.setFont(new Font("Tahoma", Font.PLAIN, 12));
+			}
+		});
+		tah.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		fonttype.add(tah);
+		fonttype.add(tnew);
 
 		JMenuItem ver = new JMenuItem("Verdana");
 		ver.addActionListener(new ActionListener() {
@@ -211,8 +241,92 @@ public class Editor {
 		ver.setFont(new Font("Verdana", Font.PLAIN, 12));
 		fonttype.add(ver);
 
+		// color selections
+		JMenu color = new JMenu("Font Color");
+		color.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\font.png"));
+		color.setFont(new Font("Arial", Font.PLAIN, 13));
+		menuBar.add(color);
+
+		JMenuItem red = new JMenuItem("Red");
+		red.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				color.setText("Font Color: " + "Red");
+				text.setForeground(Color.RED);
+				text.setCaretColor(Color.RED);
+			}
+		});
+		red.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\red.PNG"));
+		red.setFont(new Font("Arial", Font.PLAIN, 12));
+		color.add(red);
+
+		JMenuItem orange = new JMenuItem("Orange");
+		orange.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				color.setText("Font Color: " + "Orange");
+				text.setForeground(Color.ORANGE);
+			}
+		});
+		orange.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\orange.PNG"));
+		orange.setFont(new Font("Arial", Font.PLAIN, 12));
+		color.add(orange);
+
+		JMenuItem yellow = new JMenuItem("Yellow");
+		yellow.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				color.setText("Font Color: " + "Yellow");
+				text.setForeground(Color.YELLOW);
+			}
+		});
+		yellow.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\yellow.PNG"));
+		yellow.setFont(new Font("Arial", Font.PLAIN, 12));
+		color.add(yellow);
+
+		JMenuItem green = new JMenuItem("Green");
+		green.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				color.setText("Font Color: " + "Green");
+				text.setForeground(Color.GREEN);
+			}
+		});
+		green.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\green.PNG"));
+		green.setFont(new Font("Arial", Font.PLAIN, 12));
+		color.add(green);
+
+		JMenuItem blue = new JMenuItem("Blue");
+		blue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				color.setText("Font Color: " + "Blue");
+				text.setForeground(Color.BLUE);
+			}
+		});
+		blue.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\blue.PNG"));
+		blue.setFont(new Font("Arial", Font.PLAIN, 12));
+		color.add(blue);
+
+		JMenuItem black = new JMenuItem("Black");
+		black.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				color.setText("Font Color: " + "Black");
+				text.setForeground(Color.BLACK);
+			}
+		});
+		black.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\black.PNG"));
+		black.setFont(new Font("Arial", Font.PLAIN, 12));
+		color.add(black);
+
+		JMenuItem white = new JMenuItem("White");
+		white.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				color.setText("Font Color: " + "White");
+				text.setForeground(Color.WHITE);
+			}
+		});
+		white.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\white.PNG"));
+		white.setFont(new Font("Arial", Font.PLAIN, 12));
+		color.add(white);
+
 		// bold
-		JLabel bold = new JLabel("Bold");
+		JLabel bold = new JLabel("Bold     ");
 		bold.setFont(new Font("Arial", Font.BOLD, 12));
 		bold.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\bold.png"));
 		menuBar.add(bold);
@@ -240,7 +354,7 @@ public class Editor {
 			}
 		});
 		// italics
-		JLabel italic = new JLabel("Italics");
+		JLabel italic = new JLabel("Italics     ");
 		italic.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\italics.png"));
 		italic.setFont(new Font("Arial", Font.ITALIC, 12));
 		menuBar.add(italic);
@@ -540,89 +654,6 @@ public class Editor {
 		menuItem_9.setFont(new Font("Arial", Font.PLAIN, 12));
 		size.add(menuItem_9);
 
-		// color selections
-		JMenu color = new JMenu("Font Color");
-		color.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\font.png"));
-		color.setFont(new Font("Arial", Font.PLAIN, 13));
-		menuBar.add(color);
-
-		JMenuItem red = new JMenuItem("Red");
-		red.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				color.setText("Font Color: " + "Red");
-				text.setForeground(Color.RED);
-			}
-		});
-		red.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\red.PNG"));
-		red.setFont(new Font("Arial", Font.PLAIN, 12));
-		color.add(red);
-
-		JMenuItem orange = new JMenuItem("Orange");
-		orange.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				color.setText("Font Color: " + "Orange");
-				text.setForeground(Color.ORANGE);
-			}
-		});
-		orange.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\orange.PNG"));
-		orange.setFont(new Font("Arial", Font.PLAIN, 12));
-		color.add(orange);
-
-		JMenuItem yellow = new JMenuItem("Yellow");
-		yellow.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				color.setText("Font Color: " + "Yellow");
-				text.setForeground(Color.YELLOW);
-			}
-		});
-		yellow.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\yellow.PNG"));
-		yellow.setFont(new Font("Arial", Font.PLAIN, 12));
-		color.add(yellow);
-
-		JMenuItem green = new JMenuItem("Green");
-		green.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				color.setText("Font Color: " + "Green");
-				text.setForeground(Color.GREEN);
-			}
-		});
-		green.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\green.PNG"));
-		green.setFont(new Font("Arial", Font.PLAIN, 12));
-		color.add(green);
-
-		JMenuItem blue = new JMenuItem("Blue");
-		blue.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				color.setText("Font Color: " + "Blue");
-				text.setForeground(Color.BLUE);
-			}
-		});
-		blue.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\blue.PNG"));
-		blue.setFont(new Font("Arial", Font.PLAIN, 12));
-		color.add(blue);
-
-		JMenuItem black = new JMenuItem("Black");
-		black.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				color.setText("Font Color: " + "Black");
-				text.setForeground(Color.BLACK);
-			}
-		});
-		black.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\black.PNG"));
-		black.setFont(new Font("Arial", Font.PLAIN, 12));
-		color.add(black);
-
-		JMenuItem white = new JMenuItem("White");
-		white.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				color.setText("Font Color: " + "White");
-				text.setForeground(Color.WHITE);
-			}
-		});
-		white.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\white.PNG"));
-		white.setFont(new Font("Arial", Font.PLAIN, 12));
-		color.add(white);
-
 		// side buttons options
 		JButton saveas = new JButton("Save As...");
 		saveas.setBounds(622, 161, 119, 27);
@@ -724,12 +755,7 @@ public class Editor {
 		wordcount.setFont(new Font("Arial", Font.BOLD, 13));
 		wordcount.setBounds(616, 336, 135, 23);
 		frame.getContentPane().add(wordcount);
-		for (;;) {
 
-			String input = text.getText();
-			int spaces = input.length() - input.replace(" ", "").length();
-			wordcount.setText("Word Count: " + spaces);
-		}
 	}
 
 	public void newClass() {

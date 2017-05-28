@@ -1,4 +1,4 @@
-package FundamentalsOfAlgebraContents;
+package BasicsChemistry;
 
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,9 +23,9 @@ public class FinalTest extends JFrame {
 	public FinalTest() {
 		getContentPane().setLayout(null);
 
-		JLabel title = new JLabel("Fundamentals of Algebra Final Test\r\n");
+		JLabel title = new JLabel("Chemistry - Basics of Chemistry Final Test\r\n");
 		title.setFont(new Font("Castellar", Font.PLAIN, 20));
-		title.setBounds(182, 11, 458, 42);
+		title.setBounds(137, 11, 529, 42);
 		getContentPane().add(title);
 
 		JLabel quizIntro = new JLabel(
@@ -33,69 +34,91 @@ public class FinalTest extends JFrame {
 		quizIntro.setBounds(10, 52, 803, 51);
 		getContentPane().add(quizIntro);
 
-		JLabel q1 = new JLabel("1.) Which of the following is an equation where 3 coeffecients are present?");
+		JLabel q1 = new JLabel("1.) Identify the simple machines in a Hand Drill?");
 		q1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		q1.setBounds(10, 201, 413, 25);
+		q1.setBounds(10, 201, 265, 25);
 		getContentPane().add(q1);
 
-		JRadioButton op1 = new JRadioButton("2x-3y+4 = 36");
+		JRadioButton op1 = new JRadioButton("Wheel and Axle");
 		op1.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op1.setBounds(31, 233, 109, 23);
 		getContentPane().add(op1);
 
-		JRadioButton op2 = new JRadioButton("15x - 6y + 13x = 35");
+		JRadioButton op2 = new JRadioButton("Levers");
 		op2.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op2.setBounds(31, 259, 156, 23);
+		op2.setBounds(31, 259, 70, 23);
 		getContentPane().add(op2);
 
-		JRadioButton op3 = new JRadioButton("3y - 3 + z - 2x = 20");
+		JRadioButton op3 = new JRadioButton("Wedge");
 		op3.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op3.setBounds(31, 285, 134, 23);
+		op3.setBounds(31, 285, 82, 23);
 		getContentPane().add(op3);
 
-		ButtonGroup bg1 = new ButtonGroup();
-		bg1.add(op3);
-		bg1.add(op2);
-		bg1.add(op1);
+		JRadioButton op6 = new JRadioButton("Rope and Pulley");
+		op6.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		op6.setBounds(161, 285, 114, 23);
+		getContentPane().add(op6);
 
-		JRadioButton op21 = new JRadioButton("1");
+		JRadioButton op5 = new JRadioButton("Gear");
+		op5.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		op5.setBounds(161, 259, 70, 23);
+		getContentPane().add(op5);
+
+		JRadioButton op4 = new JRadioButton("Ramp");
+		op4.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		op4.setBounds(161, 233, 109, 23);
+		getContentPane().add(op4);
+
+		JRadioButton op21 = new JRadioButton("2nd Class Lever");
+		op21.setVerticalAlignment(SwingConstants.TOP);
 		op21.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op21.setBounds(31, 346, 109, 23);
+		op21.setBounds(31, 346, 120, 23);
 		getContentPane().add(op21);
 
-		JRadioButton op22 = new JRadioButton("7");
+		JRadioButton op22 = new JRadioButton("Wheel and Axle");
 		op22.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op22.setBounds(31, 372, 109, 23);
 		getContentPane().add(op22);
 
-		JRadioButton op23 = new JRadioButton("3");
+		JRadioButton op23 = new JRadioButton("3rd Class Lever");
 		op23.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op23.setBounds(31, 398, 109, 23);
 		getContentPane().add(op23);
+
+		JLabel pic = new JLabel();
+		pic.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\wb.png"));
+		pic.setBounds(182, 351, 98, 78);
+		getContentPane().add(pic);
 
 		ButtonGroup bg2 = new ButtonGroup();
 		bg2.add(op23);
 		bg2.add(op22);
 		bg2.add(op21);
 
-		JLabel lblSolveThis = new JLabel("3.) Identify the number of constants in this equation: 3x - 6y + 9 = 30");
+		JLabel lblSolveThis = new JLabel("3.) What description matches that of a simple machine?");
 		lblSolveThis.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblSolveThis.setBounds(10, 428, 361, 25);
+		lblSolveThis.setBounds(10, 440, 361, 25);
 		getContentPane().add(lblSolveThis);
 
-		JRadioButton op31 = new JRadioButton("4");
+		JRadioButton op31 = new JRadioButton(
+				"<html>A machine that is made up of only one piece and can do little work");
+		op31.setVerticalAlignment(SwingConstants.TOP);
 		op31.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op31.setBounds(31, 460, 109, 23);
+		op31.setBounds(31, 465, 265, 33);
 		getContentPane().add(op31);
 
-		JRadioButton op32 = new JRadioButton("1");
+		JRadioButton op32 = new JRadioButton(
+				"<html>An object that has multiple parts and can complete multiple tasks at once");
+		op32.setVerticalAlignment(SwingConstants.TOP);
 		op32.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op32.setBounds(31, 486, 109, 23);
+		op32.setBounds(31, 501, 256, 34);
 		getContentPane().add(op32);
 
-		JRadioButton op33 = new JRadioButton("3");
+		JRadioButton op33 = new JRadioButton(
+				"<html>A machine that can complete a task in one movement and can multiply the original force\r\n");
+		op33.setVerticalAlignment(SwingConstants.TOP);
 		op33.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op33.setBounds(31, 512, 109, 23);
+		op33.setBounds(31, 538, 282, 33);
 		getContentPane().add(op33);
 
 		ButtonGroup bg3 = new ButtonGroup();
@@ -103,30 +126,24 @@ public class FinalTest extends JFrame {
 		bg3.add(op32);
 		bg3.add(op31);
 
-		JLabel lblWhatIs_1 = new JLabel("4.) Which of the following descriptions correlate to a variable");
+		JLabel lblWhatIs_1 = new JLabel("4.) A record player is which type of simple machine?");
 		lblWhatIs_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblWhatIs_1.setBounds(10, 542, 340, 25);
+		lblWhatIs_1.setBounds(10, 578, 340, 25);
 		getContentPane().add(lblWhatIs_1);
 
-		JRadioButton op41 = new JRadioButton(
-				"<html>It is in front of a number and determines how many times it is multiplied by");
-		op41.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op41 = new JRadioButton("Gear");
 		op41.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op41.setBounds(31, 574, 221, 33);
+		op41.setBounds(31, 599, 62, 25);
 		getContentPane().add(op41);
 
-		JRadioButton op42 = new JRadioButton(
-				"<html> It is a representation for a variable and you must isolate it to solve the equation");
-		op42.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op42 = new JRadioButton("Wheel and Axle");
 		op42.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op42.setBounds(31, 610, 221, 33);
+		op42.setBounds(31, 623, 139, 24);
 		getContentPane().add(op42);
 
-		JRadioButton op43 = new JRadioButton(
-				"<html> A part in the equation that is required for an equation and there can only be 1");
-		op43.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op43 = new JRadioButton("Rope and Pulley");
 		op43.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op43.setBounds(31, 650, 228, 33);
+		op43.setBounds(31, 650, 114, 22);
 		getContentPane().add(op43);
 
 		ButtonGroup bg4 = new ButtonGroup();
@@ -134,22 +151,22 @@ public class FinalTest extends JFrame {
 		bg4.add(op42);
 		bg4.add(op41);
 
-		JLabel lblSolveThe = new JLabel("5.) Which of these best describes the Associative property");
+		JLabel lblSolveThe = new JLabel("5.) What part of a lever is the fulcrum?");
 		lblSolveThe.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblSolveThe.setBounds(462, 201, 350, 25);
 		getContentPane().add(lblSolveThe);
 
-		JRadioButton op51 = new JRadioButton("a(b+c) = ab + ac");
+		JRadioButton op51 = new JRadioButton("Always in the middle");
 		op51.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op51.setBounds(501, 233, 109, 23);
+		op51.setBounds(501, 233, 139, 23);
 		getContentPane().add(op51);
 
-		JRadioButton op52 = new JRadioButton("a+(b+c) = (a+b)+c");
+		JRadioButton op52 = new JRadioButton("Input force for a lever");
 		op52.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op52.setBounds(501, 259, 139, 23);
 		getContentPane().add(op52);
 
-		JRadioButton op53 = new JRadioButton("a+b=b+a");
+		JRadioButton op53 = new JRadioButton("Pivot point");
 		op53.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op53.setBounds(501, 285, 109, 23);
 		getContentPane().add(op53);
@@ -159,56 +176,26 @@ public class FinalTest extends JFrame {
 		bg5.add(op52);
 		bg5.add(op51);
 
-		JLabel lblIsThisA = new JLabel("6.) What is the difference betwen Commutative and Associative Property?");
+		JLabel lblIsThisA = new JLabel("6.) What arrangement of parts would result in a 3rd class lever?");
 		lblIsThisA.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblIsThisA.setBounds(462, 315, 350, 25);
 		getContentPane().add(lblIsThisA);
 
-		JLabel lblAStudentSolved = new JLabel(
-				"<html>7.) A student solved this equation using the properties of equalities, in which step did they make a mistake?");
+		JLabel lblAStudentSolved = new JLabel("<html>7.) A 2nd class lever is which of the following?");
 		lblAStudentSolved.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblAStudentSolved.setBounds(462, 481, 350, 33);
+		lblAStudentSolved.setBounds(463, 429, 350, 33);
 		getContentPane().add(lblAStudentSolved);
 		// 3x + 5 = 14 Division Property of Equality
-		JLabel lblNewLabel = new JLabel("2.) What is the value of 'x' in this equation: 9(x + 5) = 54");
+		JLabel lblNewLabel = new JLabel(
+				"<html>2.) Looking at this picture, identify the simple machine being depicted");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblNewLabel.setBounds(10, 315, 326, 24);
+		lblNewLabel.setBounds(10, 315, 386, 25);
 		getContentPane().add(lblNewLabel);
-
-		JLabel lblxDivisionProperty = new JLabel("6(x-9) = 36           Original");
-		lblxDivisionProperty.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblxDivisionProperty.setBounds(532, 525, 265, 16);
-		getContentPane().add(lblxDivisionProperty);
-
-		JLabel lblxSubtractionProperty = new JLabel("6x-54 = 36            Distributive Property \r\n");
-		lblxSubtractionProperty.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblxSubtractionProperty.setBounds(532, 549, 287, 16);
-		getContentPane().add(lblxSubtractionProperty);
-
-		JLabel lblXDivisionProperty = new JLabel("6x=-18             Subbtraction Property of Equality");
-		lblXDivisionProperty.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblXDivisionProperty.setBounds(532, 572, 287, 16);
-		getContentPane().add(lblXDivisionProperty);
-
-		JLabel label = new JLabel("1.)");
-		label.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label.setBounds(501, 520, 21, 25);
-		getContentPane().add(label);
-
-		JLabel label_1 = new JLabel("2.)");
-		label_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_1.setBounds(501, 546, 21, 25);
-		getContentPane().add(label_1);
-
-		JLabel label_2 = new JLabel("3.)");
-		label_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_2.setBounds(501, 571, 21, 25);
-		getContentPane().add(label_2);
 
 		JButton btnNewButton = new JButton("Submit");
 
 		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		btnNewButton.setBounds(1162, 632, 172, 40);
+		btnNewButton.setBounds(1152, 632, 172, 40);
 		getContentPane().add(btnNewButton);
 
 		JLabel lblFullName = new JLabel("Full Name");
@@ -223,28 +210,22 @@ public class FinalTest extends JFrame {
 
 		JLabel lbltest = new JLabel("-----------------------------Test----------------------------");
 		lbltest.setFont(new Font("Castellar", Font.PLAIN, 20));
-		lbltest.setBounds(70, 157, 683, 42);
+		lbltest.setBounds(69, 170, 683, 42);
 		getContentPane().add(lbltest);
 
-		JRadioButton op61 = new JRadioButton(
-				"<html>Associative Property is where signs are flipped, and Commutative is when the groups of parantheses are switched");
-		op61.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op61 = new JRadioButton("Fulcrum, Load, Effort");
 		op61.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op61.setBounds(490, 346, 350, 42);
+		op61.setBounds(490, 346, 350, 25);
 		getContentPane().add(op61);
 
-		JRadioButton op62 = new JRadioButton(
-				"<html>Commutative Property is where signs are flipped, and Assicative is when the groups of parantheses are switched");
-		op62.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op62 = new JRadioButton("Fulcrum, Effort, Load");
 		op62.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op62.setBounds(490, 391, 326, 42);
+		op62.setBounds(490, 371, 326, 25);
 		getContentPane().add(op62);
 
-		JRadioButton op63 = new JRadioButton(
-				"<html>Commutative Property is where signs are flipped, and Distributuve is when the groups of parantheses are switched");
-		op63.setVerticalAlignment(SwingConstants.TOP);
+		JRadioButton op63 = new JRadioButton("Load, Fulcrum, Effort\r\n");
 		op63.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op63.setBounds(490, 429, 310, 54);
+		op63.setBounds(490, 397, 310, 25);
 		getContentPane().add(op63);
 
 		ButtonGroup bg6 = new ButtonGroup();
@@ -252,61 +233,44 @@ public class FinalTest extends JFrame {
 		bg6.add(op62);
 		bg6.add(op61);
 
-		JLabel label_3 = new JLabel("4.)");
-		label_3.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_3.setBounds(501, 597, 21, 25);
-		getContentPane().add(label_3);
-
-		JLabel lblXDivisionProperty_1 = new JLabel("x=-3            Division Property of Equality");
-		lblXDivisionProperty_1.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblXDivisionProperty_1.setBounds(532, 598, 287, 16);
-		getContentPane().add(lblXDivisionProperty_1);
-
-		JRadioButton op71 = new JRadioButton("1\r\n");
+		JRadioButton op71 = new JRadioButton("Catapult");
 		op71.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op71.setBounds(501, 623, 46, 23);
+		op71.setBounds(501, 465, 88, 23);
 		getContentPane().add(op71);
 
-		JRadioButton op72 = new JRadioButton("2");
+		JRadioButton op72 = new JRadioButton("Seesaw");
 		op72.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op72.setBounds(501, 649, 36, 23);
+		op72.setBounds(501, 491, 88, 23);
 		getContentPane().add(op72);
 
-		JRadioButton op73 = new JRadioButton("3");
+		JRadioButton op73 = new JRadioButton("Bottle Opener");
 		op73.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op73.setBounds(553, 623, 36, 23);
+		op73.setBounds(501, 517, 109, 23);
 		getContentPane().add(op73);
 
-		JRadioButton op74 = new JRadioButton("4");
-		op74.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op74.setBounds(553, 650, 46, 23);
-		getContentPane().add(op74);
-
 		ButtonGroup bg7 = new ButtonGroup();
-		bg7.add(op74);
 		bg7.add(op73);
 		bg7.add(op72);
 		bg7.add(op71);
 
-		JLabel lblWhiciProperty = new JLabel(
-				"<html>8.) Which property is being described: You can set any value or variable equal to itself");
+		JLabel lblWhiciProperty = new JLabel("<html>8.) How can you increase the work done in an object");
 		lblWhiciProperty.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblWhiciProperty.setBounds(843, 52, 350, 33);
+		lblWhiciProperty.setBounds(462, 552, 350, 25);
 		getContentPane().add(lblWhiciProperty);
 
-		JRadioButton op81 = new JRadioButton("Reflexive\r\n");
+		JRadioButton op81 = new JRadioButton("Increase force applies");
 		op81.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op81.setBounds(886, 92, 109, 23);
+		op81.setBounds(501, 578, 139, 23);
 		getContentPane().add(op81);
 
-		JRadioButton op82 = new JRadioButton("Symmetrical");
+		JRadioButton op82 = new JRadioButton("Decrease the distance it is pushed by");
 		op82.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op82.setBounds(886, 118, 139, 23);
+		op82.setBounds(501, 604, 203, 23);
 		getContentPane().add(op82);
 
-		JRadioButton op83 = new JRadioButton("Transitive");
+		JRadioButton op83 = new JRadioButton("Add more mass to the object");
 		op83.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op83.setBounds(886, 144, 109, 23);
+		op83.setBounds(501, 630, 176, 23);
 		getContentPane().add(op83);
 
 		ButtonGroup bg8 = new ButtonGroup();
@@ -314,24 +278,29 @@ public class FinalTest extends JFrame {
 		bg8.add(op82);
 		bg8.add(op81);
 
-		JLabel lblForWhich = new JLabel("9.) For which of the following properties does Subbtraction not work?\r\n");
+		JLabel lblForWhich = new JLabel("9.) Calculate the work done by this object");
 		lblForWhich.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblForWhich.setBounds(843, 182, 375, 25);
+		lblForWhich.setBounds(823, 40, 375, 25);
 		getContentPane().add(lblForWhich);
 
-		JRadioButton op91 = new JRadioButton("Commutative AND Associative\r\n");
+		JLabel pic1 = new JLabel();
+		pic1.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\test.png"));
+		pic1.setBounds(833, 76, 297, 86);
+		getContentPane().add(pic1);
+
+		JRadioButton op91 = new JRadioButton("1.3333333Joules");
 		op91.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op91.setBounds(885, 213, 192, 23);
+		op91.setBounds(858, 172, 192, 23);
 		getContentPane().add(op91);
 
-		JRadioButton op92 = new JRadioButton("Associative AND Distributive");
+		JRadioButton op92 = new JRadioButton("300Joules");
 		op92.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op92.setBounds(885, 240, 192, 23);
+		op92.setBounds(858, 199, 192, 23);
 		getContentPane().add(op92);
 
-		JRadioButton op93 = new JRadioButton("Not Listed Above");
+		JRadioButton op93 = new JRadioButton(".75Joules");
 		op93.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op93.setBounds(885, 266, 176, 23);
+		op93.setBounds(858, 225, 176, 23);
 		getContentPane().add(op93);
 
 		ButtonGroup bg9 = new ButtonGroup();
@@ -339,24 +308,25 @@ public class FinalTest extends JFrame {
 		bg9.add(op92);
 		bg9.add(op91);
 
-		JLabel lblNegativeNumbers = new JLabel("10.) Negative numbers belong to which number group");
+		JLabel lblNegativeNumbers = new JLabel(
+				"<html>10.) If the amount of work done to the object above was 100 Joules, how much force should be applied to push the same distance");
 		lblNegativeNumbers.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblNegativeNumbers.setBounds(843, 302, 375, 25);
+		lblNegativeNumbers.setBounds(822, 259, 375, 33);
 		getContentPane().add(lblNegativeNumbers);
 
-		JRadioButton op101 = new JRadioButton("Natural");
+		JRadioButton op101 = new JRadioButton(".05Newtons");
 		op101.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op101.setBounds(886, 329, 192, 23);
+		op101.setBounds(864, 299, 192, 23);
 		getContentPane().add(op101);
 
-		JRadioButton op102 = new JRadioButton("Whole Numbers");
+		JRadioButton op102 = new JRadioButton("2000Newtons");
 		op102.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op102.setBounds(886, 356, 192, 23);
+		op102.setBounds(864, 326, 192, 23);
 		getContentPane().add(op102);
 
-		JRadioButton op103 = new JRadioButton("Integers");
+		JRadioButton op103 = new JRadioButton("5Newtons");
 		op103.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op103.setBounds(886, 382, 176, 23);
+		op103.setBounds(864, 352, 176, 23);
 		getContentPane().add(op103);
 
 		ButtonGroup bg10 = new ButtonGroup();
@@ -364,79 +334,76 @@ public class FinalTest extends JFrame {
 		bg10.add(op102);
 		bg10.add(op101);
 
-		JLabel lblSelectAll = new JLabel("11.) Select all that apply: Which are irrational numbers");
+		JLabel lblSelectAll = new JLabel("11.) What is ideal mechanical advantage used for?");
 		lblSelectAll.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblSelectAll.setBounds(843, 413, 375, 25);
+		lblSelectAll.setBounds(807, 397, 375, 25);
 		getContentPane().add(lblSelectAll);
 
-		JRadioButton op111 = new JRadioButton("1/3\r\n");
+		JRadioButton op111 = new JRadioButton("When only output and input forces are given");
 		op111.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op111.setBounds(886, 438, 62, 23);
+		op111.setBounds(833, 422, 249, 23);
 		getContentPane().add(op111);
 
-		JRadioButton op112 = new JRadioButton("1/6");
+		JRadioButton op112 = new JRadioButton("In a situation where no friction is present");
 		op112.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op112.setBounds(886, 465, 56, 23);
+		op112.setBounds(833, 449, 240, 23);
 		getContentPane().add(op112);
 
-		JRadioButton op113 = new JRadioButton("\u03C0");
+		JRadioButton op113 = new JRadioButton("When force and distances are given");
 		op113.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op113.setBounds(886, 491, 46, 23);
+		op113.setBounds(833, 475, 222, 23);
 		getContentPane().add(op113);
 
-		JRadioButton op114 = new JRadioButton("i");
-		op114.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op114.setBounds(959, 438, 70, 23);
-		getContentPane().add(op114);
+		ButtonGroup bg11 = new ButtonGroup();
+		bg11.add(op113);
+		bg11.add(op112);
+		bg11.add(op111);
 
-		JRadioButton op115 = new JRadioButton("e");
-		op115.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op115.setBounds(959, 465, 62, 23);
-		getContentPane().add(op115);
-
-		JRadioButton op116 = new JRadioButton("1/9");
-		op116.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op116.setBounds(959, 491, 46, 23);
-		getContentPane().add(op116);
-
-		JLabel lblSolveThis_1 = new JLabel("12.) Solve this equation: 6(x-2) + 3(3x-9) = 45");
+		JLabel lblSolveThis_1 = new JLabel("12.) Calculate the advantage of this object\r\n");
 		lblSolveThis_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblSolveThis_1.setBounds(838, 525, 239, 25);
+		lblSolveThis_1.setBounds(801, 501, 239, 25);
 		getContentPane().add(lblSolveThis_1);
 
-		JRadioButton op121 = new JRadioButton("84/15");
+		JLabel pic2 = new JLabel();
+		pic2.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\Question.png"));
+		pic2.setBounds(821, 527, 191, 77);
+		getContentPane().add(pic2);
+
+		JRadioButton op121 = new JRadioButton("3");
 		op121.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op121.setBounds(878, 552, 62, 23);
+		op121.setBounds(1018, 533, 62, 23);
 		getContentPane().add(op121);
 
-		JRadioButton op122 = new JRadioButton("15/84");
+		JRadioButton op122 = new JRadioButton("1/3");
 		op122.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op122.setBounds(967, 552, 91, 23);
+		op122.setBounds(1017, 559, 91, 23);
 		getContentPane().add(op122);
 
 		ButtonGroup bg12 = new ButtonGroup();
-
 		bg12.add(op122);
 		bg12.add(op121);
 
-		JLabel lblSolveThis_2 = new JLabel("13.) Solve this expression when 'x' = 7: 3x-7 + (x-5) * 3");
+		JLabel lblSolveThis_2 = new JLabel("13.) Why is mechanical advantage important to physics?");
 		lblSolveThis_2.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblSolveThis_2.setBounds(838, 578, 287, 25);
+		lblSolveThis_2.setBounds(746, 603, 310, 25);
 		getContentPane().add(lblSolveThis_2);
 
-		JRadioButton op131 = new JRadioButton("64");
+		JRadioButton op131 = new JRadioButton("<html>To find how efficent the machine is?");
+		op131.setVerticalAlignment(SwingConstants.TOP);
 		op131.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op131.setBounds(848, 601, 46, 23);
+		op131.setBounds(751, 630, 109, 53);
 		getContentPane().add(op131);
 
-		JRadioButton op132 = new JRadioButton("84");
+		JRadioButton op132 = new JRadioButton("<html>To determine the force multiplucation?");
+		op132.setVerticalAlignment(SwingConstants.TOP);
 		op132.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op132.setBounds(914, 601, 46, 23);
+		op132.setBounds(862, 638, 133, 34);
 		getContentPane().add(op132);
 
-		JRadioButton op133 = new JRadioButton("48");
+		JRadioButton op133 = new JRadioButton("<html>Determine the power of a machine");
+		op133.setVerticalAlignment(SwingConstants.TOP);
 		op133.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op133.setBounds(985, 601, 46, 23);
+		op133.setBounds(997, 630, 118, 48);
 		getContentPane().add(op133);
 
 		ButtonGroup bg13 = new ButtonGroup();
@@ -444,24 +411,29 @@ public class FinalTest extends JFrame {
 		bg13.add(op132);
 		bg13.add(op131);
 
-		JLabel lblSolveThis_3 = new JLabel("14.) Solve this expression when 'x' = 5: 4x-3 + (x-5) * 2");
+		JLabel lblSolveThis_3 = new JLabel("14.) Calculate the power of this object");
 		lblSolveThis_3.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblSolveThis_3.setBounds(838, 627, 287, 25);
+		lblSolveThis_3.setBounds(1102, 315, 222, 25);
 		getContentPane().add(lblSolveThis_3);
 
-		JRadioButton op141 = new JRadioButton("0");
+		JLabel p = new JLabel();
+		p.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\opB.PNG"));
+		p.setBounds(1127, 342, 166, 77);
+		getContentPane().add(p);
+
+		JRadioButton op141 = new JRadioButton("60");
 		op141.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op141.setBounds(843, 649, 46, 23);
+		op141.setBounds(1137, 426, 46, 23);
 		getContentPane().add(op141);
 
-		JRadioButton op142 = new JRadioButton("17");
+		JRadioButton op142 = new JRadioButton("6.75");
 		op142.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op142.setBounds(909, 649, 46, 23);
+		op142.setBounds(1203, 426, 46, 23);
 		getContentPane().add(op142);
 
-		JRadioButton op143 = new JRadioButton("7");
+		JRadioButton op143 = new JRadioButton("9.2");
 		op143.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op143.setBounds(980, 649, 46, 23);
+		op143.setBounds(1274, 426, 46, 23);
 		getContentPane().add(op143);
 
 		ButtonGroup bg14 = new ButtonGroup();
@@ -469,35 +441,35 @@ public class FinalTest extends JFrame {
 		bg14.add(op142);
 		bg14.add(op141);
 
-		JLabel lblWhatIs = new JLabel("15.) What is Order of Operations");
-		lblWhatIs.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblWhatIs.setBounds(1065, 460, 287, 25);
-		getContentPane().add(lblWhatIs);
+		JLabel lblcheckAnswersBefore = new JLabel("<html>CHECK ANSWERS BEFORE SUBMITTING\r\n");
+		lblcheckAnswersBefore.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblcheckAnswersBefore.setBounds(1152, 592, 172, 29);
+		getContentPane().add(lblcheckAnswersBefore);
 
-		JRadioButton op152 = new JRadioButton("DEMPAS");
-		op152.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op152.setBounds(1136, 512, 82, 23);
-		getContentPane().add(op152);
+		JLabel lblWhichOf = new JLabel("<html>15.) Which of the following concepts are a rate?");
+		lblWhichOf.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblWhichOf.setBounds(1092, 468, 421, 22);
+		getContentPane().add(lblWhichOf);
 
-		JRadioButton op151 = new JRadioButton("PEMDAS\r\n");
+		JRadioButton op151 = new JRadioButton("Efficiency");
 		op151.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op151.setBounds(1136, 482, 91, 23);
+		op151.setBounds(1119, 491, 301, 23);
 		getContentPane().add(op151);
 
-		JRadioButton op153 = new JRadioButton("SAMPED");
+		JRadioButton op152 = new JRadioButton("Power");
+		op152.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		op152.setBounds(1119, 517, 315, 23);
+		getContentPane().add(op152);
+
+		JRadioButton op153 = new JRadioButton("Work");
 		op153.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op153.setBounds(1136, 543, 91, 23);
+		op153.setBounds(1119, 543, 348, 23);
 		getContentPane().add(op153);
 
 		ButtonGroup bg15 = new ButtonGroup();
 		bg15.add(op153);
 		bg15.add(op152);
 		bg15.add(op151);
-
-		JLabel lblcheckAnswersBefore = new JLabel("<html>CHECK ANSWERS BEFORE SUBMITTING\r\n");
-		lblcheckAnswersBefore.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		lblcheckAnswersBefore.setBounds(1162, 592, 172, 29);
-		getContentPane().add(lblcheckAnswersBefore);
 
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -507,37 +479,37 @@ public class FinalTest extends JFrame {
 				frame.setVisible(true);
 				frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 				int maxScore = 0;
-				if (op3.isSelected()) {
+				if (op1.isSelected() && op2.isSelected() && op5.isSelected()) {
 					maxScore++;
 				}
 				if (op21.isSelected()) {
 					maxScore++;
 				}
-				if (op32.isSelected()) {
+				if (op33.isSelected()) {
 					maxScore++;
 				}
 				if (op42.isSelected()) {
 					maxScore++;
 				}
-				if (op52.isSelected()) {
+				if (op53.isSelected()) {
 					maxScore++;
 				}
 				if (op62.isSelected()) {
 					maxScore++;
 				}
-				if (op73.isSelected()) {
+				if (op71.isSelected()) {
 					maxScore++;
 				}
 				if (op81.isSelected()) {
 					maxScore++;
 				}
-				if (op93.isSelected()) {
+				if (op92.isSelected()) {
 					maxScore++;
 				}
 				if (op103.isSelected()) {
 					maxScore++;
 				}
-				if (op113.isSelected() && op115.isSelected()) {
+				if (op112.isSelected()) {
 					maxScore++;
 				}
 				if (op121.isSelected()) {
@@ -546,14 +518,13 @@ public class FinalTest extends JFrame {
 				if (op132.isSelected()) {
 					maxScore++;
 				}
-				if (op142.isSelected()) {
+				if (op141.isSelected()) {
 					maxScore++;
 				}
-				if (op151.isSelected()) {
+				if (op153.isSelected()) {
 					maxScore++;
 				}
 				frame.getContentPane().setLayout(null);
-				double percentage = (maxScore / 15) * 100;
 
 				final int ms = maxScore;
 				JLabel result = new JLabel("You scored " + maxScore + " out of 15");
