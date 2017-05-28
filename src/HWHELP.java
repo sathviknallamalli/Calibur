@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -16,41 +15,12 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import AlgebraTopics.EquationSolver;
-import AlgebraTopics.ExponentsAndPowers;
-import AlgebraTopics.Graphing;
-import AlgebraTopics.Inequalities;
-import AlgebraTopics.Polynomials;
-import AlgebraTopics.Quadratics;
-import AlgebraTopics.RationalEquations;
-import AlgebraTopics.SystemOfEquationsSolver;
-import AlgebraTopics.WordProblems;
-import GeometryTopics.Circle;
-import GeometryTopics.ConeSA;
-import GeometryTopics.CubeSA;
-import GeometryTopics.CylinderSA;
-import GeometryTopics.DegreesToRadiansConversions;
-import GeometryTopics.Distance;
-import GeometryTopics.Hypotnuese;
-import GeometryTopics.Midpoint;
-import GeometryTopics.RectangularPrisim;
-import GeometryTopics.Slope;
-import GeometryTopics.SphereSA;
-import GeometryTopics.Triangle;
-import GeometryTopics.TrigRatios;
-import GeometryTopics.UnitCircle;
-import GeometryTopics.Volumes;
-import PhysicsTopics.Effeciency;
-import PhysicsTopics.FMA;
-import PhysicsTopics.IdealMechanicalAdvantage;
-import PhysicsTopics.KineticEnergy;
-import PhysicsTopics.MechanicalAdvantage;
-import PhysicsTopics.MechanicalEnergy;
-import PhysicsTopics.Momentum;
-import PhysicsTopics.OhmsLaw;
-import PhysicsTopics.PotentialEnergy;
-import PhysicsTopics.Power;
-import PhysicsTopics.Work;
+import AlgebraTopics.*;
+
+import GeometryTopics.*;
+
+import PhysicsTopics.*;
+
 import ProbabilityTopics.Combinations;
 import TrigTopics.LawOfSines;
 
@@ -321,6 +291,34 @@ public class HWHELP {
 		btnPhsyicsReferences.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnPhsyicsReferences.setBounds(244, 249, 174, 23);
 		frame.getContentPane().add(btnPhsyicsReferences);
+
+		JLabel lblwantToLearn = new JLabel(
+				"<html>Want to learn how to make bohr models? You can learn more about the proper structure and method to make these!");
+		lblwantToLearn.setForeground(Color.BLUE);
+		lblwantToLearn.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblwantToLearn.setBackground(new Color(0, 204, 0));
+		lblwantToLearn.setBounds(433, 302, 167, 89);
+		frame.getContentPane().add(lblwantToLearn);
+
+		JButton btnBohrModels = new JButton("Bohr Models");
+		btnBohrModels.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String[] arguments = { "1", "2", "3" };
+				String website = "https://chem.libretexts.org/Core/Physical_and_Theoretical_Chemistry/Electronic_Structure_of_Atoms_and_Molecules/Bohr_Diagrams_of_Atoms_and_Ions";
+				try {
+					Browser.main(arguments, website);
+				} catch (IOException e1) {
+
+					e1.printStackTrace();
+				} catch (URISyntaxException e1) {
+
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnBohrModels.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnBohrModels.setBounds(433, 397, 174, 23);
+		frame.getContentPane().add(btnBohrModels);
 
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);

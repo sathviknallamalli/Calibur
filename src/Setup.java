@@ -82,6 +82,10 @@ public class Setup extends JFrame {
 		lblEnterEmailTo.setBounds(324, 166, 151, 23);
 
 		JButton send = new JButton("Send");
+		send.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		send.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		send.setBounds(505, 190, 89, 23);
 		getContentPane().add(send);
@@ -169,59 +173,15 @@ public class Setup extends JFrame {
 													pst2.execute();
 
 													JOptionPane.showMessageDialog(null,
-															"Your code has been saved, it can now be used to login to Calibur. A verification email has been sent");
+															"Your code has been saved, it can now be used to login to Calibur. You can send a verification email");
 
 													send.addActionListener(new ActionListener() {
 														public void actionPerformed(ActionEvent e) {
-															final String uanme = "caliburnoreply@gmail.com";
-															final String password = "Saibaba1214";
-															final String to = email.getText();
-															final String uname = username.getText();
 
-															Properties props = new Properties();
-															props.put("mail.smtp.host", "smtp.gmail.com");
-															props.put("mail.smtp.socketFactory.port", "465");
-															props.put("mail.smtp.socketFactory.class",
-																	"javax.net.ssl.SSLSocketFactory");
-															props.put("mail.smtp.auth", "true");
-															props.put("mail.smtp.port", "465");
-															props.put("mail.smtp.password", password);
-															props.put("mail.smtp.username", "caliburnoreply@gmail.com");
+															SignUp.sendEmail(email.getText(), "", username.getText(),
+																	"Pin Code Setup", "Hello, " + username.getText()
+																			+ "\nWe are glad that you would like to set up a pin code. Your pin code has been saved and it can be used to login to Calibur, along with your regular login information. This email is to ensure that the code has been saved and you are aware of this matter. You may now go back to the Home Page of Calibur and continue with your learning experience. ");
 
-															Session session = Session.getDefaultInstance(props,
-																	new javax.mail.Authenticator() {
-																		protected PasswordAuthentication getPasswordAuthentification() {
-																			return new PasswordAuthentication(
-																					"caliburnoreply@gmail.com",
-																					password);
-																		}
-
-																	}
-
-															);
-															try {
-																Message message = new MimeMessage(session);
-																message.setFrom(new InternetAddress(
-																		"caliburnoreply@gmail.com"));
-																message.setRecipients(Message.RecipientType.TO,
-																		InternetAddress.parse(to));
-																message.setSubject("Pin Code Setup");
-																message.setText("Hello, " + uname
-																		+ "\nWe are glad that you would like to set up a pin code. Your pin code has been saved and it can be used to login to Calibur, along with your regular login information. This email is to ensure that the code has been saved and you are aware of this matter. You may now go back to the Home Page of Calibur and continue with your learning experience. ");
-																Transport transport = session.getTransport("smtp");
-
-																transport.connect("smtp.gmail.com",
-																		"caliburnoreply@gmail.com", password);
-
-																Transport.send(message, "caliburnoreply@gmail.com",
-																		"Saibaba1214");
-																transport.close();
-
-															} catch (Exception a) {
-																JOptionPane.showMessageDialog(null, a);
-															}
-
-															// end of send email
 														}
 													});
 

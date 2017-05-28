@@ -31,6 +31,42 @@ public class SignUp extends JFrame {
 	private JPasswordField pd;
 	private JPasswordField confirmpd;
 
+	public static void sendEmail(String to, String name, String uname, String subject, String mess) {
+		final String username = "caliburnoreply@gmail.com";
+		final String password = "Saibaba1214";
+
+		Properties props = new Properties();
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.socketFactory.port", "465");
+		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.port", "465");
+		props.put("mail.smtp.password", password);
+		props.put("mail.smtp.username", "caliburnoreply@gmail.com");
+
+		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentification() {
+				return new PasswordAuthentication("caliburnoreply@gmail.com", password);
+			}
+		});
+		try {
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("caliburnoreply@gmail.com"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+			message.setSubject(subject);
+			message.setText(mess);
+			Transport transport = session.getTransport("smtp");
+
+			transport.connect("smtp.gmail.com", "caliburnoreply@gmail.com", password);
+
+			Transport.send(message, "caliburnoreply@gmail.com", "Saibaba1214");
+			transport.close();
+
+		} catch (Exception a) {
+			JOptionPane.showMessageDialog(null, a);
+		}
+	}
+
 	public SignUp() {
 		getContentPane().setLayout(null);
 
@@ -163,53 +199,15 @@ public class SignUp extends JFrame {
 									a.printStackTrace();
 								}
 
-								// send email
+								sendEmail(email.getText(), nametextField.getText(), UsernameTextField.getText(),
+										"Signed up for Calibur!",
+										"Hello, " + nametextField.getText()
+												+ "\nThank you for signing up for Calibur! Calibur is the ultimate learning experience for students of all ages. You have been successfully signed up and your username is "
+												+ UsernameTextField.getText()
+												+ ".\nYou will be receiving emails regarding your progress and promotions to this address. Calibur has almost all the tools you use on a computer that have been condensed into this one application! We hope that Calibur can be a frequent tool you use and optimizes your learning through our numerous features. You can go back to the Login Page of Calibur and experience the Virtual Student Hub.");
 
-								final String username = "caliburnoreply@gmail.com";
-								final String password = "Saibaba1214";
-								final String to = email.getText();
-								final String name = nametextField.getText();
-								final String uname = UsernameTextField.getText();
-
-								Properties props = new Properties();
-								props.put("mail.smtp.host", "smtp.gmail.com");
-								props.put("mail.smtp.socketFactory.port", "465");
-								props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-								props.put("mail.smtp.auth", "true");
-								props.put("mail.smtp.port", "465");
-								props.put("mail.smtp.password", password);
-								props.put("mail.smtp.username", "caliburnoreply@gmail.com");
-
-								Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
-									protected PasswordAuthentication getPasswordAuthentification() {
-										return new PasswordAuthentication("caliburnoreply@gmail.com", password);
-									}
-
-								}
-
-								);
-								try {
-									Message message = new MimeMessage(session);
-									message.setFrom(new InternetAddress("caliburnoreply@gmail.com"));
-									message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(em));
-									message.setSubject("Signed Up for Calibur!");
-									message.setText("Hello, " + name
-											+ "\nThank you for signing up for Calibur! Calibur is the ultimate learning experience for students of all ages. You have been successfully signed up and your username is "
-											+ uname
-											+ ". You will be receiving emails regarding your progress and promotions to this address. Calibur has almost all the tools you use on a computer that have been condensed into this one application! We hope that Calibur can be a frequent tool you use and optimizes your learning through our numerous features. You can go back to the Login Page of Calibur and experience the Virtual Student Hub.");
-									Transport transport = session.getTransport("smtp");
-
-									transport.connect("smtp.gmail.com", "caliburnoreply@gmail.com", password);
-
-									Transport.send(message, "caliburnoreply@gmail.com", "Saibaba1214");
-									transport.close();
-
-								} catch (Exception a) {
-									JOptionPane.showMessageDialog(null, a);
-								}
 							}
 
-							// end of send email
 						}
 
 						else if (same == false) {

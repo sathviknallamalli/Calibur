@@ -192,54 +192,12 @@ public class ForgotPassword {
 
 								randCode = concat(random, random2, random3);
 
-								// send email
-
-								final String username = "caliburnoreply@gmail.com";
-								final String password = "Saibaba1214";
-								final String to = email.getText();
-								final String name = uname.getText();
-
-								Properties props = new Properties();
-								props.put("mail.smtp.host", "smtp.gmail.com");
-								props.put("mail.smtp.socketFactory.port", "465");
-								props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-								props.put("mail.smtp.auth", "true");
-								props.put("mail.smtp.port", "465");
-								props.put("mail.smtp.password", password);
-								props.put("mail.smtp.username", "caliburnoreply@gmail.com");
-
-								Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
-									protected PasswordAuthentication getPasswordAuthentification() {
-										return new PasswordAuthentication("caliburnoreply@gmail.com", password);
-									}
-
-								}
-
-								);
-								try {
-									Message message = new MimeMessage(session);
-									message.setFrom(new InternetAddress("caliburnoreply@gmail.com"));
-									message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(em));
-									message.setSubject("Vericiation Code");
-									message.setText("Hello, " + name
-											+ " \nSorry you have forgotten your password, but we will try to help reset your password through this process. Calibur has sent this verification code. "
-											+ randCode
-											+ "\nPlease enter this code into the Application and proceed with the Reset process.");
-									Transport transport = session.getTransport("smtp");
-
-									transport.connect("smtp.gmail.com", "caliburnoreply@gmail.com", password);
-
-									Transport.send(message, "caliburnoreply@gmail.com", "Saibaba1214");
-									transport.close();
-
-									JOptionPane.showMessageDialog(null, "Please check the email you entered.");
-
-								} catch (Exception a) {
-									JOptionPane.showMessageDialog(null, a);
-								}
-
-								// end of send email
-
+								SignUp.sendEmail(email.getText(), "", uname.getText(), "Vericiation Code", "Hello, "
+										+ uname.getText()
+										+ " \nSorry you have forgotten your password, but we will try to help reset your password through this process. Calibur has sent this verification code. "
+										+ randCode
+										+ "\nPlease enter this code into the Application and proceed with the Reset process.");
+								JOptionPane.showMessageDialog(null, "Verification email has been sent");
 							} else {
 								JOptionPane.showMessageDialog(null, "The email you entered is an invalid domain");
 							}
@@ -300,6 +258,33 @@ public class ForgotPassword {
 							"Error: No verification code was sent, enter the username and email");
 				} else if (count == 3) {
 					JOptionPane.showMessageDialog(null, "Sorry. We will send another email with a DIFFERENT CODE");
+					String em = email.getText();
+					int UPL = 0 + (int) (Math.random() * 25);
+					int LWL = 0 + (int) (Math.random() * 25);
+					int num = 0 + (int) (Math.random() * 9);
+
+					String random = (lettersCapital[UPL]) + (lettersLowerCase[LWL]) + (numbers[num]);
+
+					int UPL2 = 0 + (int) (Math.random() * 25);
+					int LWL2 = 0 + (int) (Math.random() * 25);
+					int num2 = 0 + (int) (Math.random() * 9);
+
+					String random2 = (lettersLowerCase[LWL2]) + (numbers[num2]) + (lettersCapital[UPL2]);
+
+					int UPL3 = 0 + (int) (Math.random() * 25);
+					int LWL3 = 0 + (int) (Math.random() * 25);
+					int num3 = 0 + (int) (Math.random() * 9);
+
+					String random3 = (numbers[num3]) + (lettersCapital[UPL3]) + (lettersLowerCase[LWL3]);
+
+					randCode = concat(random, random2, random3);
+
+					SignUp.sendEmail(email.getText(), "", uname.getText(), "Vericiation Code", "Hello, "
+							+ uname.getText()
+							+ " \nSorry you have forgotten your password, but we will try to help reset your password through this process. Calibur has sent this verification code. "
+							+ randCode
+							+ "\nPlease enter this code into the Application and proceed with the Reset process.");
+					JOptionPane.showMessageDialog(null, "Verification email has been sent");
 				} else if (input.equals(randCode)) {
 					JOptionPane.showMessageDialog(null, "The verification codes matched!!");
 
@@ -331,7 +316,11 @@ public class ForgotPassword {
 
 									pst1.execute();
 									JOptionPane.showMessageDialog(null,
-											"Your password has been reset. Try logging in now!");
+											"Your password has been reset and we have sent an email as verification. Try logging in now!");
+
+									SignUp.sendEmail(email.getText(), "", uname.getText(), "Password Reset", "Hello ,"
+											+ uname.getText()
+											+ "\nWe have successfully reset your password and you can now login to Calibur with this password. This email can be used as a verification and keep it with you as reference.");
 								} catch (Exception a) {
 									JOptionPane.showMessageDialog(null, a);
 								}

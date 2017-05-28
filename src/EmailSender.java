@@ -17,7 +17,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 public class EmailSender extends JFrame {
 	private JTextField email;
@@ -95,26 +97,25 @@ public class EmailSender extends JFrame {
 
 		getContentPane().add(lblSubject);
 
-		subject = new JTextField();
+		subject = new JTextField("Subject here");
 		subject.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		subject.setColumns(10);
-
 		getContentPane().add(subject);
 
 		JLabel lblMessage = new JLabel("Message:");
 		lblMessage.setFont(new Font("Times New Roman", Font.BOLD, 14));
-
 		getContentPane().add(lblMessage);
 
-		message = new JTextField();
-		message.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		message.setColumns(10);
+		JScrollPane scrollPane_1 = new JScrollPane();
 
-		getContentPane().add(message);
+		scrollPane_1.setBounds(495, 191, 201, 65);
+
+		JTextPane message = new JTextPane();
+		message.setText("(Enter your message here)");
+		message.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 
 		JButton send = new JButton("Send!");
 		send.setFont(new Font("Times New Roman", Font.ITALIC, 13));
-
 		getContentPane().add(send);
 
 		pword = new JPasswordField();
@@ -131,7 +132,8 @@ public class EmailSender extends JFrame {
 				lblSubject.setBounds(420, 151, 60, 23);
 				subject.setBounds(485, 153, 147, 23);
 				lblMessage.setBounds(420, 189, 60, 23);
-				message.setBounds(495, 191, 201, 65);
+				getContentPane().add(scrollPane_1);
+				scrollPane_1.setViewportView(message);
 				JOptionPane.showMessageDialog(null, "Sucessfully connected!");
 
 			}
@@ -139,47 +141,8 @@ public class EmailSender extends JFrame {
 
 		send.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				final String username = email.getText();
-				final String password = pword.getText();
-				final String receiver = to.getText();
-				final String sub = subject.getText();
-				final String mess = message.getText();
-
-				Properties props = new Properties();
-				props.put("mail.smtp.host", "smtp.gmail.com");
-				props.put("mail.smtp.socketFactory.port", "465");
-				props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-				props.put("mail.smtp.auth", "true");
-				props.put("mail.smtp.port", "465");
-				props.put("mail.smtp.password", password);
-				props.put("mail.smtp.username", username);
-
-				Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
-					protected PasswordAuthentication getPasswordAuthentification() {
-						return new PasswordAuthentication(username, password);
-					}
-
-				}
-
-				);
-				try {
-					Message message = new MimeMessage(session);
-					message.setFrom(new InternetAddress(username));
-					message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(receiver));
-					message.setSubject(sub);
-					message.setText(mess);
-					Transport transport = session.getTransport("smtp");
-
-					transport.connect("smtp.gmail.com", username, password);
-
-					Transport.send(message, username, password);
-					transport.close();
-
-					JOptionPane.showMessageDialog(null, "Your email has been successfully sent!!");
-
-				} catch (Exception a) {
-					JOptionPane.showMessageDialog(null, a);
-				}
+				SignUp.sendEmail(to.getText(), "", "", subject.getText(), message.getText());
+				JOptionPane.showMessageDialog(null, "Your email has been successfully sent!!");
 
 			}
 		});
