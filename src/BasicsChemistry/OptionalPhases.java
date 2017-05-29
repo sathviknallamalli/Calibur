@@ -191,7 +191,7 @@ public class OptionalPhases extends JFrame {
 
 	public void newClass() {
 
-		setSize(1096, 602);
+		setSize(getSize());
 		setLocation(300, 100);
 		setVisible(true);
 		setResizable(false);

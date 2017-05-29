@@ -370,7 +370,7 @@ public class Lesson4 extends JFrame {
 
 	public void newClass() {
 
-		setSize(1084, 725);
+		setSize(getSize());
 		setLocation(300, 100);
 		setVisible(true);
 		setResizable(false);

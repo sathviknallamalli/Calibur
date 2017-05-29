@@ -229,7 +229,7 @@ public class Lesson3MoreCopy extends JFrame {
 
 	public void newClass() {
 
-		setSize(1116, 615);
+		setSize(getSize());
 		setLocation(300, 100);
 		setVisible(true);
 		setResizable(false);

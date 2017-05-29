@@ -287,7 +287,9 @@ public class Lesson2Review extends JFrame {
 
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-
+						Lesson3 l = new Lesson3();
+						l.newClass();
+						close();
 					}
 				});
 			}

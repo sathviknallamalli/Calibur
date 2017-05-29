@@ -644,13 +644,13 @@ public class TACALIBUR {
 		JButton btnPeriodicTable = new JButton("Periodic Table");
 
 		btnPeriodicTable.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnPeriodicTable.setBounds(10, 41, 138, 23);
+		btnPeriodicTable.setBounds(10, 28, 138, 23);
 		panel_3.add(btnPeriodicTable);
 
 		JButton btnBalancingEquations = new JButton("Balancing Equations");
 
 		btnBalancingEquations.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnBalancingEquations.setBounds(10, 73, 138, 23);
+		btnBalancingEquations.setBounds(10, 56, 138, 23);
 		panel_3.add(btnBalancingEquations);
 
 		JLabel description = new JLabel();
@@ -693,7 +693,7 @@ public class TACALIBUR {
 			}
 		});
 		btnBasicChemistry.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnBasicChemistry.setBounds(10, 11, 138, 23);
+		btnBasicChemistry.setBounds(10, 0, 138, 23);
 		panel_3.add(btnBasicChemistry);
 
 		JButton beginChem = new JButton("Begin Course!");
@@ -733,13 +733,13 @@ public class TACALIBUR {
 
 		JLabel testOffer = new JLabel("Special - Test Offer!!");
 		testOffer.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		testOffer.setBounds(10, 107, 184, 23);
+		testOffer.setBounds(10, 114, 184, 23);
 		panel_3.add(testOffer);
 
 		JLabel lblforThoseOf = new JLabel(
 				"<html>For those of you high school student getting ready for college, for this particular subject, we are offering a special test preparation tool for you to use that will help you prepare for standardized test such as AP and SAT Exams. Click below for which exam you would like and Calibur will do the rest.");
 		lblforThoseOf.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		lblforThoseOf.setBounds(10, 135, 524, 49);
+		lblforThoseOf.setBounds(10, 142, 524, 49);
 		panel_3.add(lblforThoseOf);
 
 		JButton btnSat = new JButton("SAT");
@@ -757,8 +757,13 @@ public class TACALIBUR {
 			}
 		});
 		btnSat.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnSat.setBounds(216, 107, 75, 23);
+		btnSat.setBounds(216, 114, 75, 23);
 		panel_3.add(btnSat);
+		
+		JButton btnAllTheElements = new JButton("All the Elements!!!!");
+		btnAllTheElements.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnAllTheElements.setBounds(10, 85, 138, 23);
+		panel_3.add(btnAllTheElements);
 
 		panel_4 = new JPanel();
 		panel_4.setBackground(Color.WHITE);
