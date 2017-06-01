@@ -62,6 +62,7 @@ public class PinCodeLogin {
 		frame.getContentPane().add(lblPinCodeLogin);
 
 		pc = new JPasswordField();
+		pc.setFont(new Font("Arial", Font.PLAIN, 13));
 		pc.setColumns(10);
 		pc.setBounds(338, 59, 188, 26);
 		frame.getContentPane().add(pc);

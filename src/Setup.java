@@ -44,6 +44,7 @@ public class Setup extends JFrame {
 		getContentPane().add(password);
 
 		untf = new JTextField();
+		untf.setFont(new Font("Arial", Font.PLAIN, 13));
 		untf.setColumns(10);
 		untf.setBounds(338, 85, 188, 26);
 		getContentPane().add(untf);
@@ -55,6 +56,7 @@ public class Setup extends JFrame {
 		getContentPane().add(lblPasswordsAreNot);
 
 		pdtf = new JPasswordField();
+		pdtf.setFont(new Font("Arial", Font.PLAIN, 13));
 		pdtf.setBounds(338, 116, 188, 26);
 		getContentPane().add(pdtf);
 
@@ -65,6 +67,7 @@ public class Setup extends JFrame {
 		getContentPane().add(lblToContinueWith);
 
 		email = new JTextField();
+		email.setFont(new Font("Arial", Font.PLAIN, 13));
 		getContentPane().add(email);
 
 		JLabel lblEnterEmailTo = new JLabel("Enter email to send verificaton");
@@ -142,7 +145,7 @@ public class Setup extends JFrame {
 											while (rs.next()) {
 												if (rs.getString("Code").equals(one)) {
 													JOptionPane.showMessageDialog(null,
-															"This Pin Code already exists, please try a different one.");
+															"This Pin Code already exists, please make a different one.");
 													exists = true;
 												}
 											}

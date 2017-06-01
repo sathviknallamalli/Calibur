@@ -56,9 +56,9 @@ public class Home extends JFrame {
 		getContentPane().add(lblNewLabel);
 		untf.requestFocusInWindow();
 
-		passwordField.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		passwordField.setFont(new Font("Arial", Font.PLAIN, 13));
 
-		untf.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		untf.setFont(new Font("Arial", Font.PLAIN, 13));
 		untf.setBounds(343, 99, 188, 26);
 		getContentPane().add(untf);
 		untf.setColumns(10);

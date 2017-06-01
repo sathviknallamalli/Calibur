@@ -128,21 +128,25 @@ public class SignUp extends JFrame {
 		getContentPane().add(lblConfrimPassword);
 
 		nametextField = new JTextField();
+		nametextField.setFont(new Font("Arial", Font.PLAIN, 13));
 		nametextField.setColumns(10);
 		nametextField.setBounds(340, 63, 188, 26);
 		getContentPane().add(nametextField);
 
 		lastnameTextField = new JTextField();
+		lastnameTextField.setFont(new Font("Arial", Font.PLAIN, 13));
 		lastnameTextField.setColumns(10);
 		lastnameTextField.setBounds(340, 94, 188, 26);
 		getContentPane().add(lastnameTextField);
 
 		email = new JTextField();
+		email.setFont(new Font("Arial", Font.PLAIN, 13));
 		email.setColumns(10);
 		email.setBounds(340, 125, 188, 26);
 		getContentPane().add(email);
 
 		UsernameTextField = new JTextField();
+		UsernameTextField.setFont(new Font("Arial", Font.PLAIN, 13));
 		UsernameTextField.setColumns(10);
 		UsernameTextField.setBounds(340, 156, 188, 26);
 		getContentPane().add(UsernameTextField);
@@ -159,7 +163,7 @@ public class SignUp extends JFrame {
 
 				String p = pd.getText();
 				String cp = confirmpd.getText();
-				String em = email.getText();
+
 				boolean same = p.equals(cp);
 				String un = UsernameTextField.getText();
 				boolean exists = false;
@@ -204,11 +208,14 @@ public class SignUp extends JFrame {
 									pst.setString(3, email.getText());
 									pst.setString(4, UsernameTextField.getText());
 									pst.setString(5, pd.getText());
+									//// Calendar.getInstance().getTime().getTime()
+									// java.sql.Date createdDate = getDate();
+
 									pst.setString(6, confirmpd.getText());
 
 									pst.execute();
 
-									//SignUp.createTable();
+									// SignUp.createTable();
 									JOptionPane.showMessageDialog(null,
 											"You have been signed up!! Please check your email for verification.");
 
@@ -216,7 +223,7 @@ public class SignUp extends JFrame {
 									close();
 
 								} catch (Exception a) {
-									a.printStackTrace();
+									JOptionPane.showMessageDialog(null, a);
 								}
 
 								sendEmail(email.getText(), nametextField.getText(), UsernameTextField.getText(),
@@ -247,10 +254,12 @@ public class SignUp extends JFrame {
 		getContentPane().add(btnNewButton);
 
 		pd = new JPasswordField();
+		pd.setFont(new Font("Arial", Font.PLAIN, 13));
 		pd.setBounds(340, 187, 188, 26);
 		getContentPane().add(pd);
 
 		confirmpd = new JPasswordField();
+		confirmpd.setFont(new Font("Arial", Font.PLAIN, 13));
 		confirmpd.setBounds(340, 218, 188, 26);
 		getContentPane().add(confirmpd);
 

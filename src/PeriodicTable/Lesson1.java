@@ -23,9 +23,9 @@ public class Lesson1 extends JFrame {
 		title.setBounds(365, 11, 488, 42);
 		getContentPane().add(title);
 
-		JLabel ae = new JLabel("What is an Atom?");
+		JLabel ae = new JLabel("Closer Look at an Atom");
 		ae.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		ae.setBounds(329, 64, 149, 32);
+		ae.setBounds(329, 64, 201, 32);
 		getContentPane().add(ae);
 
 		JLabel lblinOrderFor = new JLabel(
@@ -47,7 +47,7 @@ public class Lesson1 extends JFrame {
 			}
 		});
 		btnActivateCalibur.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		btnActivateCalibur.setBounds(488, 67, 132, 23);
+		btnActivateCalibur.setBounds(535, 70, 132, 23);
 		getContentPane().add(btnActivateCalibur);
 
 		JButton button_3 = new JButton("Take the Lesson Review");
@@ -66,60 +66,6 @@ public class Lesson1 extends JFrame {
 		label.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		label.setBounds(819, 349, 256, 16);
 		getContentPane().add(label);
-
-		JLabel lblTheCenterOf = new JLabel("The center of this particle is the ATOM, WHICH IS THE SMALLEST");
-		lblTheCenterOf.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblTheCenterOf.setBounds(395, 162, 368, 23);
-		getContentPane().add(lblTheCenterOf);
-
-		JLabel lblWhatIsA = new JLabel("What is a Molecule?");
-		lblWhatIsA.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		lblWhatIsA.setBounds(329, 209, 181, 32);
-		getContentPane().add(lblWhatIsA);
-
-		JLabel lblaMoleculeIs = new JLabel(
-				"<html>A MOLECULE IS A COMBINATION OF ATOMS. The same molecule is the same type of atoms. If you have only one molecule in matter, that is called a compound, you will learn more about this in Lesson 2 about classifying matter.");
-		lblaMoleculeIs.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblaMoleculeIs.setBounds(329, 245, 724, 42);
-		getContentPane().add(lblaMoleculeIs);
-
-		JLabel p1 = new JLabel();
-		p1.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\molecule.png"));
-		p1.setBounds(329, 297, 111, 77);
-		getContentPane().add(p1);
-
-		JLabel p3 = new JLabel();
-		p3.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\mat.png"));
-		p3.setBounds(6, 297, 111, 77);
-		getContentPane().add(p3);
-
-		JButton button = new JButton("Activate Calibur!");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				File Clap = new File("C:\\Users\\sathv\\Desktop\\WAV Audios\\Molecule.wav");
-				Audio.PlaySound(Clap);
-			}
-		});
-		button.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		button.setBounds(520, 212, 132, 23);
-		getContentPane().add(button);
-
-		JLabel lbltheAtomsThat = new JLabel(
-				"<html>The atoms that make this molecule ar hydrogen and oxygen, which can make up water as the matter!");
-		lbltheAtomsThat.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lbltheAtomsThat.setBounds(450, 313, 314, 42);
-		getContentPane().add(lbltheAtomsThat);
-
-		JLabel lblMatter = new JLabel("Matter");
-		lblMatter.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		lblMatter.setBounds(10, 255, 181, 32);
-		getContentPane().add(lblMatter);
-
-		JLabel lblthisIsAn = new JLabel(
-				"<html>This is an indepth look at atoms and its nucleus. This is what the nucleus is composed of with electrons and protons. Matter have both atoms and molecules and that is what is called a MIXTURE. MIXTURES ARE THE MOST COMMON THINGS WE USE. ");
-		lblthisIsAn.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblthisIsAn.setBounds(122, 283, 208, 129);
-		getContentPane().add(lblthisIsAn);
 
 		JCheckBox chckbxLesson_5 = new JCheckBox("Lesson 6 - Notable Families\r\n");
 		chckbxLesson_5.setForeground(Color.RED);
@@ -167,6 +113,17 @@ public class Lesson1 extends JFrame {
 		label_1.setFont(new Font("Times New Roman", Font.ITALIC, 14));
 		label_1.setBounds(25, 64, 112, 16);
 		getContentPane().add(label_1);
+
+		JButton btnPeriodictable = new JButton("Periodic Table");
+		btnPeriodictable.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PTable p = new PTable();
+				p.newClass();
+			}
+		});
+		btnPeriodictable.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnPeriodictable.setBounds(10, 14, 127, 40);
+		getContentPane().add(btnPeriodictable);
 
 	}
 

@@ -175,7 +175,7 @@ public class Main extends JFrame {
 		JButton btnAnyWebBrowser = new JButton("Any Web Browser");
 
 		website = new JTextField();
-		website.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		website.setFont(new Font("Arial", Font.PLAIN, 12));
 		getContentPane().add(website);
 		website.setColumns(10);
 		website.setBounds(562, 377, 184, 23);

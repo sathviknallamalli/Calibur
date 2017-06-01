@@ -283,10 +283,8 @@ public class HWHELP {
 				try {
 					Browser.main(arguments, website);
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				e1.printStackTrace();
 				} catch (URISyntaxException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
