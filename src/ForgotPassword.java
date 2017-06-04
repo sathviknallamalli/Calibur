@@ -149,7 +149,7 @@ public class ForgotPassword {
 					JOptionPane.showMessageDialog(null, "Email is a required field, please enter");
 				} else {
 					try {
-						String query = "select * from EmployeeInfo where username=?";
+						String query = "select * from UserInfo where username=?";
 						PreparedStatement pst = connection.prepareStatement(query);
 						pst.setString(1, uname.getText());
 
@@ -295,14 +295,14 @@ public class ForgotPassword {
 							if (en1.equals(en2)) {
 
 								try {
-									String sql = "update EmployeeInfo " + " set Password= '" + en1 + "'"
+									String sql = "update UserInfo " + " set Password= '" + en1 + "'"
 											+ " where Username= '" + uname.getText() + "'";
 
 									PreparedStatement pst = connection.prepareStatement(sql);
 
 									pst.execute();
 
-									String sql1 = "update EmployeeInfo " + " set ConfirmPassword= '" + en2 + "'"
+									String sql1 = "update UserInfo " + " set ConfirmPassword= '" + en2 + "'"
 											+ " where Username= '" + uname.getText() + "'";
 
 									PreparedStatement pst1 = connection.prepareStatement(sql1);

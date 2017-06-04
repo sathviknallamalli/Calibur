@@ -74,29 +74,20 @@ public class Setup extends JFrame {
 		lblEnterEmailTo.setFont(new Font("Times New Roman", Font.ITALIC, 12));
 		getContentPane().add(lblEnterEmailTo);
 
-		email.setBounds(307, 188, 188, 26);
-		lblEnterEmailTo.setBounds(324, 166, 151, 23);
-
 		JButton send = new JButton("Send");
-		send.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		send.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		send.setBounds(505, 190, 89, 23);
 		getContentPane().add(send);
 
 		JButton ver = new JButton("Verify!");
 		ver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					String query = "select * from EmployeeInfo where username=? and password=?";
+					String query = "select * from UserInfo where username=? and password=?";
 					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1, untf.getText());
 					pst.setString(2, pdtf.getText());
 					ResultSet rs = pst.executeQuery();
 					int count = 0;
-					String user = untf.getText();
 
 					while (rs.next()) {
 						count++;
@@ -139,7 +130,7 @@ public class Setup extends JFrame {
 
 									if (one.equals(two)) {
 										try {
-											String query = "select * from Pincode";
+											String query = "select * from Pin";
 											PreparedStatement pst = connection.prepareStatement(query);
 											ResultSet rs = pst.executeQuery();
 											while (rs.next()) {
@@ -152,16 +143,17 @@ public class Setup extends JFrame {
 
 											if (exists == false) {
 												try {
-													String query1 = "insert into Pincode (Code) values (?)";
+													String query1 = "insert into Pin (Username,Code) values (?,?)";
 													PreparedStatement pst1 = connection.prepareStatement(query1);
-													pst1.setString(1, one);
+													pst1.setString(1, temp);
+													pst1.setString(2, one);
 
 													pst1.execute();
 
 													pst1.close();
 													close();
 
-													String sql = "update EmployeeInfo " + " set Pincode= '" + one + "'"
+													String sql = "update UserInfo " + " set Pincode= '" + one + "'"
 															+ " where Username= '" + temp + "'";
 
 													PreparedStatement pst2 = connection.prepareStatement(sql);
@@ -170,6 +162,9 @@ public class Setup extends JFrame {
 
 													JOptionPane.showMessageDialog(null,
 															"Your code has been saved, it can now be used to login to Calibur. You can send a verification email");
+													email.setBounds(307, 188, 188, 26);
+													lblEnterEmailTo.setBounds(324, 166, 151, 23);
+													send.setBounds(505, 190, 89, 23);
 
 													send.addActionListener(new ActionListener() {
 														public void actionPerformed(ActionEvent e) {

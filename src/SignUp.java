@@ -7,7 +7,7 @@ import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -30,11 +30,11 @@ public class SignUp extends JFrame {
 	private JTextField UsernameTextField;
 	Connection connection = null;
 	static Connection connection1 = null;
+	Connection conn = null;
 	private JPasswordField pd;
 	private JPasswordField confirmpd;
 
 	public static void sendEmail(String to, String name, String uname, String subject, String mess) {
-		final String username = "caliburnoreply@gmail.com";
 		final String password = "Saibaba1214";
 
 		Properties props = new Properties();
@@ -69,27 +69,12 @@ public class SignUp extends JFrame {
 		}
 	}
 
-	public static void createTable() {
-		connection1 = sqliteConnection.c();
-
-		try {
-			PreparedStatement create = connection1.prepareStatement(
-					"CREATE TABLE IF NOT EXISTS tablename(id int NOT NULL AUTO_INCREMENT, first varchar(255), last varchar(255), PRIMARY KEY(id)");
-			create.executeUpdate();
-		} catch (SQLException e) {
-
-			JOptionPane.showMessageDialog(null, e);
-		} finally {
-			System.out.println("Function complete");
-		}
-		;
-	}
-
 	public SignUp() {
 		super("Sign-up!");
 		getContentPane().setLayout(null);
 
 		connection = sqliteConnection.c();
+		conn = sqliteConnection.ud();
 
 		JLabel lblSignUp = new JLabel("Sign - Up for Calibur");
 		lblSignUp.setFont(new Font("Castellar", Font.PLAIN, 34));
@@ -183,58 +168,90 @@ public class SignUp extends JFrame {
 							|| p.contains("S") || p.contains("T") || p.contains("U") || p.contains("V")
 							|| p.contains("W") || p.contains("X") || p.contains("Y") || p.contains("Z")) {
 						if (same == true) {
-							try {
-								String query = "select * from EmployeeInfo";
-								PreparedStatement pst = connection.prepareStatement(query);
-								ResultSet rs = pst.executeQuery();
-								while (rs.next()) {
-									if (rs.getString("Username").equals(un)) {
-										JOptionPane.showMessageDialog(null,
-												"This Username already exists, please try another one");
-										exists = true;
-										break;
-									}
-								}
-							} catch (Exception a) {
+							if (email.getText().contains("@")
+									&& (email.getText().contains(".com") || email.getText().contains(".org"))) {
 
-							}
-
-							if (exists == false) {
 								try {
-									String query = "insert into EmployeeInfo (Name,LastName,Email,Username,Password,ConfirmPassword) values (?, ?, ?, ?, ?, ?)";
+									String query = "select * from UserInfo";
 									PreparedStatement pst = connection.prepareStatement(query);
-									pst.setString(1, nametextField.getText());
-									pst.setString(2, lastnameTextField.getText());
-									pst.setString(3, email.getText());
-									pst.setString(4, UsernameTextField.getText());
-									pst.setString(5, pd.getText());
-									//// Calendar.getInstance().getTime().getTime()
-									// java.sql.Date createdDate = getDate();
-
-									pst.setString(6, confirmpd.getText());
-
-									pst.execute();
-
-									// SignUp.createTable();
-									JOptionPane.showMessageDialog(null,
-											"You have been signed up!! Please check your email for verification.");
-
-									pst.close();
-									close();
-
+									ResultSet rs = pst.executeQuery();
+									while (rs.next()) {
+										if (rs.getString("Username").equals(un)) {
+											JOptionPane.showMessageDialog(null,
+													"This Username already exists, please try another one");
+											exists = true;
+											break;
+										}
+									}
 								} catch (Exception a) {
-									JOptionPane.showMessageDialog(null, a);
+
 								}
 
-								sendEmail(email.getText(), nametextField.getText(), UsernameTextField.getText(),
-										"Signed up for Calibur!",
-										"Hello, " + nametextField.getText()
-												+ "\nThank you for signing up for Calibur! Calibur is the ultimate learning experience for students of all ages. You have been successfully signed up and your username is "
-												+ UsernameTextField.getText()
-												+ ".\nYou will be receiving emails regarding your progress and promotions to this address. Calibur has almost all the tools you use on a computer that have been condensed into this one application! We hope that Calibur can be a frequent tool you use and optimizes your learning through our numerous features. You can go back to the Login Page of Calibur and experience the Virtual Student Hub.");
+								if (exists == false) {
+									try {
+										String query = "insert into UserInfo (Name,LastName,Email,Username,Password) values (?, ?, ?, ?, ?)";
+										PreparedStatement pst = connection.prepareStatement(query);
+										pst.setString(1, nametextField.getText());
+										pst.setString(2, lastnameTextField.getText());
+										pst.setString(3, email.getText());
+										pst.setString(4, UsernameTextField.getText());
+										pst.setString(5, pd.getText());
 
+										pst.execute();
+
+										JOptionPane.showMessageDialog(null,
+												"You have been signed up!! Please check your email for verification.");
+
+										pst.close();
+										close();
+
+									} catch (Exception a) {
+										JOptionPane.showMessageDialog(null, a);
+									}
+
+									try {
+										String name = UsernameTextField.getText();
+										String sql = "CREATE TABLE " + name
+												+ " (Username TEXT PRIMARY KEY  NOT NULL  DEFAULT (null) ,FullName TEXT NOT NULL  DEFAULT (null) ,Password TEXT NOT NULL  DEFAULT (null) ,CreatedTime DATETIME NOT NULL  DEFAULT (null) ,Email TEXT NOT NULL  DEFAULT (null) ,LastLogin DATETIME NOT NULL  DEFAULT (null) ,Pincode TEXT DEFAULT (null) )";
+										PreparedStatement pst1 = conn.prepareStatement(sql);
+										pst1.execute();
+										pst1.close();
+										close();
+
+										String query = "insert into " + name
+												+ " (Username,FullName,Password,CreatedTime,Email,LastLogin) values (?, ?, ?, ?, ?, ?)";
+										PreparedStatement pst111 = conn.prepareStatement(query);
+										pst111.setString(1, UsernameTextField.getText());
+										pst111.setString(2,
+												nametextField.getText() + " " + lastnameTextField.getText());
+										pst111.setString(3, pd.getText());
+										pst111.setTimestamp(4, java.sql.Timestamp.from(java.time.Instant.now()));
+										pst111.setTimestamp(4,
+												java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
+										pst111.setString(5, email.getText());
+										pst111.setTimestamp(6, java.sql.Timestamp.from(java.time.Instant.now()));
+										pst111.setTimestamp(6,
+												java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
+										pst111.execute();
+										pst111.close();
+										close();
+
+									} catch (Exception e1) {
+										JOptionPane.showMessageDialog(null, e1);
+									}
+
+									sendEmail(email.getText(), nametextField.getText(), UsernameTextField.getText(),
+											"Signed up for Calibur!",
+											"Hello, " + nametextField.getText()
+													+ "\nThank you for signing up for Calibur! Calibur is the ultimate learning experience for students of all ages. You have been successfully signed up and your username is "
+													+ UsernameTextField.getText()
+													+ ".\nYou will be receiving emails regarding your progress and promotions to this address. Calibur has almost all the tools you use on a computer that have been condensed into this one application! We hope that Calibur can be a frequent tool you use and optimizes your learning through our numerous features. You can go back to the Login Page of Calibur and experience the Virtual Student Hub.");
+
+								}
+
+							} else {
+								JOptionPane.showMessageDialog(null, "Invalid email");
 							}
-
 						}
 
 						else if (same == false) {

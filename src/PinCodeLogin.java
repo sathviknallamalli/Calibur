@@ -76,7 +76,7 @@ public class PinCodeLogin {
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					String query = "select * from Pincode where code=?";
+					String query = "select * from Pin where code=?";
 					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1, pc.getText());
 					ResultSet rs = pst.executeQuery();

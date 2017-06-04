@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
@@ -67,7 +68,7 @@ public class Home extends JFrame {
 			public void keyPressed(KeyEvent arg0) {
 				if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
 					try {
-						String query = "select * from EmployeeInfo where username=? and password=?";
+						String query = "select * from UserInfo where username=? and password=?";
 						PreparedStatement pst = connection.prepareStatement(query);
 						pst.setString(1, untf.getText());
 						pst.setString(2, passwordField.getText());
@@ -77,7 +78,8 @@ public class Home extends JFrame {
 							count++;
 						}
 						if (count == 1) {
-
+							untf.setText("");
+							passwordField.setText("");
 							Main m = new Main();
 							m.newClass();
 
@@ -107,7 +109,7 @@ public class Home extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
-					String query = "select * from EmployeeInfo where username=? and password=?";
+					String query = "select * from UserInfo where username=? and password=?";
 					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1, untf.getText());
 					pst.setString(2, passwordField.getText());
@@ -118,7 +120,8 @@ public class Home extends JFrame {
 						count++;
 					}
 					if (count == 1) {
-
+						untf.setText("");
+						passwordField.setText("");
 						Main m = new Main();
 						m.newClass();
 
@@ -255,35 +258,12 @@ public class Home extends JFrame {
 
 		JLabel forgot = new JLabel("<html>Forgot password?");
 
-		forgot.addMouseListener(new MouseListener() {
+		forgot.addMouseListener(new MouseAdapter() {
 			public void mouseReleased(MouseEvent e) {
 				ForgotPassword fp = new ForgotPassword();
 				fp.newClass();
 			}
 
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
 		});
 
 		forgot.setForeground(Color.BLUE);
@@ -304,11 +284,6 @@ public class Home extends JFrame {
 		btnPinCodeLogin.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
 		btnPinCodeLogin.setBounds(541, 232, 124, 26);
 		getContentPane().add(btnPinCodeLogin);
-		
-		JButton btnDeleteAccount = new JButton("Delete Account");
-		btnDeleteAccount.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
-		btnDeleteAccount.setBounds(551, 189, 124, 26);
-		getContentPane().add(btnDeleteAccount);
 
 		btnSignup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
