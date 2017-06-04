@@ -759,11 +759,24 @@ public class TACALIBUR {
 		btnSat.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnSat.setBounds(216, 114, 75, 23);
 		panel_3.add(btnSat);
-		
+
 		JButton btnAllTheElements = new JButton("All the Elements!!!!");
 		btnAllTheElements.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnAllTheElements.setBounds(10, 85, 138, 23);
 		panel_3.add(btnAllTheElements);
+
+		JButton btnAtomsAndParticles = new JButton("Atoms and Particles");
+		btnAtomsAndParticles.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				title1.setText("Atoms and Particles");
+				description.setBounds(383, 35, 242, 90);
+				description.setText("<html>");
+				title1.setBounds(383, 11, 255, 23);
+			}
+		});
+		btnAtomsAndParticles.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnAtomsAndParticles.setBounds(153, 0, 138, 23);
+		panel_3.add(btnAtomsAndParticles);
 
 		panel_4 = new JPanel();
 		panel_4.setBackground(Color.WHITE);

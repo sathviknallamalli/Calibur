@@ -3,11 +3,14 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.GregorianCalendar;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -15,12 +18,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.JTextPane;
-import javax.swing.table.DefaultTableModel;
 
 import com.ibm.icu.util.Calendar;
-
-import net.proteanit.sql.DbUtils;
 
 public class Reminders {
 
@@ -48,12 +49,13 @@ public class Reminders {
 	Connection connection1 = null;
 	Connection connection2 = null;
 	private JTable table;
-	private JLabel label;
-	private JLabel label_1;
+	private JLabel lblAlarmsClocks;
+	private JLabel lblwelcomeToThe;
 	String s;
 	String m;
 	String h;
 	private JTextPane subject;
+	private JTextField txtTimer;
 
 	public void clock() {
 		Thread clock = new Thread() {
@@ -112,10 +114,9 @@ public class Reminders {
 	 */
 	private void initialize() {
 
-		System.out.println();
-		frame = new JFrame("Reminder Dashboard");
-		frame.getContentPane().setBackground(Color.YELLOW);
-		frame.setBounds(100, 100, 956, 445);
+		frame = new JFrame("Alarms and clocks");
+		frame.getContentPane().setBackground(new Color(51, 204, 0));
+		frame.setBounds(100, 100, 956, 367);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -136,8 +137,8 @@ public class Reminders {
 		month.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		frame.getContentPane().add(month);
 
-		JLabel lblSetReminder = new JLabel("Set Reminder:");
-		lblSetReminder.setBounds(21, 88, 115, 23);
+		JLabel lblSetReminder = new JLabel("Set Reminder / Alarm:");
+		lblSetReminder.setBounds(21, 88, 141, 23);
 		lblSetReminder.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		frame.getContentPane().add(lblSetReminder);
 
@@ -159,14 +160,14 @@ public class Reminders {
 		String[] sound = { "Alarm", "Chimes", "Guitar", "Xylophone", "Metal Drop", "Percussion" };
 
 		JComboBox noise = new JComboBox(sound);
-		noise.setBounds(639, 112, 115, 23);
+		noise.setBounds(245, 149, 115, 23);
 		noise.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		frame.getContentPane().add(noise);
 
 		String[] hour = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
 
 		JComboBox hr = new JComboBox(hour);
-		hr.setBounds(427, 106, 55, 35);
+		hr.setBounds(21, 143, 55, 35);
 		hr.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		frame.getContentPane().add(hr);
 
@@ -176,43 +177,45 @@ public class Reminders {
 				"49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" };
 
 		JComboBox min = new JComboBox(minute);
-		min.setBounds(500, 106, 55, 35);
+		min.setBounds(94, 143, 55, 35);
 		min.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		frame.getContentPane().add(min);
 
 		JLabel lblNewLabel_1 = new JLabel(":");
-		lblNewLabel_1.setBounds(487, 102, 16, 39);
+		lblNewLabel_1.setBounds(81, 139, 16, 39);
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 30));
 		frame.getContentPane().add(lblNewLabel_1);
 
 		String[] times = { "AM", "PM" };
 
 		JComboBox te = new JComboBox(times);
-		te.setBounds(565, 106, 55, 35);
+		te.setBounds(168, 143, 55, 35);
 		te.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		frame.getContentPane().add(te);
 
-		label = new JLabel("Reminder & Calendar\r\n");
-		label.setBounds(250, 11, 457, 42);
-		label.setFont(new Font("Castellar", Font.PLAIN, 34));
-		frame.getContentPane().add(label);
+		lblAlarmsClocks = new JLabel("Alarms & Clocks");
+		lblAlarmsClocks.setBounds(292, 11, 357, 42);
+		lblAlarmsClocks.setFont(new Font("Castellar", Font.PLAIN, 34));
+		frame.getContentPane().add(lblAlarmsClocks);
 
-		label_1 = new JLabel(
-				"<html>Welcome to the reminder dashboard. If you want to set a new reminder, enter the necessary parameters. To check existing reminders visit your dashboard. ");
-		label_1.setBounds(55, 53, 832, 23);
-		label_1.setFont(new Font("Times New Roman", Font.ITALIC, 13));
-		frame.getContentPane().add(label_1);
+		lblwelcomeToThe = new JLabel(
+				"<html>Welcome to the alarms dashboard. If you want to set a new alarm or reminder enter the necessary parameters. To check existing ones visit your dashboard. ");
+		lblwelcomeToThe.setBounds(48, 52, 845, 23);
+		lblwelcomeToThe.setFont(new Font("Times New Roman", Font.ITALIC, 13));
+		frame.getContentPane().add(lblwelcomeToThe);
 
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(21, 170, 251, 94);
+		scrollPane_1.setBounds(21, 213, 251, 94);
 		frame.getContentPane().add(scrollPane_1);
 
 		subject = new JTextPane();
+		subject.setFont(new Font("Arial", Font.PLAIN, 11));
 		scrollPane_1.setViewportView(subject);
 
-		JButton button = new JButton("Set Reminder!!");
-		button.setBounds(319, 160, 171, 42);
-		button.addActionListener(new ActionListener() {
+		JButton btnSetAlarm = new JButton("Set alarm\r\n");
+		btnSetAlarm.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
+		btnSetAlarm.setBounds(370, 149, 167, 35);
+		btnSetAlarm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String m = (String) month.getSelectedItem();
 				String dy = (String) day.getSelectedItem();
@@ -336,59 +339,152 @@ public class Reminders {
 
 			}
 		});
+		frame.getContentPane().add(btnSetAlarm);
 
-		JLabel lblVie = new JLabel("View Existing Reminders");
-		lblVie.setBounds(21, 275, 160, 23);
-		lblVie.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		frame.getContentPane().add(lblVie);
-
-		JButton del = new JButton("Delete Reminder");
-		del.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		frame.getContentPane().add(del);
-
-		JButton btnExistingReminders = new JButton("Existing Reminders\r\n");
-		btnExistingReminders.setBounds(21, 297, 152, 35);
-		btnExistingReminders.addActionListener(new ActionListener() {
-			DefaultTableModel model = new DefaultTableModel();
-
-			public void actionPerformed(ActionEvent e) {
-				del.setBounds(21, 337, 152, 35);
-				scrollPane.setBounds(319, 213, 594, 174);
-				try {
-					String query = "select * from Reminders";
-					PreparedStatement pst = connection1.prepareStatement(query);
-					ResultSet rs = pst.executeQuery();
-
-					table.setModel(DbUtils.resultSetToTableModel(rs));
-					table.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-
-				} catch (Exception a) {
-					a.printStackTrace();
-				}
-				del.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						JOptionPane.showMessageDialog(null, "Please select a reminder to delete");
-
-					}
-				});
-
-			}
-		});
-
-		btnExistingReminders.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		frame.getContentPane().add(btnExistingReminders);
-		button.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
-		frame.getContentPane().add(button);
-
-		JLabel lblSetReminderMessage = new JLabel("Set Reminder Subject and Info\r\n");
-		lblSetReminderMessage.setBounds(21, 146, 217, 23);
+		JLabel lblSetReminderMessage = new JLabel("Set Alarm Subject and Info\r\n");
+		lblSetReminderMessage.setBounds(21, 189, 217, 23);
 		lblSetReminderMessage.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		frame.getContentPane().add(lblSetReminderMessage);
 
 		lblCurrentTimeIs = new JLabel();
-		lblCurrentTimeIs.setBounds(498, 170, 350, 23);
-		lblCurrentTimeIs.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblCurrentTimeIs.setBounds(397, 103, 350, 35);
+		lblCurrentTimeIs.setFont(new Font("Arial", Font.BOLD, 20));
 		frame.getContentPane().add(lblCurrentTimeIs);
+
+		JLabel lblTimer = new JLabel("Timer");
+		lblTimer.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblTimer.setBounds(304, 190, 217, 23);
+		frame.getContentPane().add(lblTimer);
+
+		String[] hrs = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
+				"17", "18", "19", "20", "21", "22", "23" };
+
+		String[] mins = { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14",
+				"15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31",
+				"32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48",
+				"49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" };
+
+		String[] secs = { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14",
+				"15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31",
+				"32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48",
+				"49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" };
+
+		JComboBox hours = new JComboBox(hrs);
+		hours.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		hours.setBounds(304, 213, 41, 23);
+		frame.getContentPane().add(hours);
+
+		JComboBox ms = new JComboBox(mins);
+		ms.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		ms.setBounds(416, 213, 41, 23);
+		frame.getContentPane().add(ms);
+
+		JComboBox ss = new JComboBox(secs);
+		ss.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		ss.setBounds(528, 213, 41, 23);
+		frame.getContentPane().add(ss);
+
+		JLabel p = new JLabel();
+		p.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\titles.png"));
+		p.setBounds(304, 239, 265, 17);
+		frame.getContentPane().add(p);
+
+		JLabel label = new JLabel();
+		label.setText("00:00:00");
+		label.setFont(new Font("Arial", Font.BOLD, 20));
+		label.setBounds(585, 213, 127, 29);
+		frame.getContentPane().add(label);
+
+		JLabel p1 = new JLabel();
+		p1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+			}
+		});
+		p1.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\reset.png"));
+		p1.setBounds(675, 213, 63, 35);
+		frame.getContentPane().add(p1);
+
+		JLabel p11 = new JLabel();
+		p11.addMouseListener(new MouseAdapter() {
+			int count = 0;
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				count++;
+				if (count % 2 == 1) {
+					p11.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\pause.PNG"));
+					p11.setBounds(729, 215, 63, 35);
+					p1.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\laps.png"));
+					p1.setBounds(684, 213, 63, 35);
+					Countdown c = new Countdown();
+					c.countUp(label);
+				} else {
+					p11.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\play.PNG"));
+					p11.setBounds(725, 213, 63, 35);
+					p1.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\reset.png"));
+					p1.setBounds(675, 213, 63, 35);
+
+				}
+
+			}
+		});
+		p11.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\play.PNG"));
+		p11.setBounds(725, 213, 63, 35);
+		frame.getContentPane().add(p11);
+
+		JLabel lblTimerName = new JLabel("Timer name");
+		lblTimerName.setForeground(new Color(0, 0, 0));
+		lblTimerName.setFont(new Font("Times New Roman", Font.ITALIC, 14));
+		lblTimerName.setBounds(304, 257, 217, 23);
+		frame.getContentPane().add(lblTimerName);
+
+		txtTimer = new JTextField();
+		txtTimer.setText("Timer(1)");
+		txtTimer.setForeground(Color.GRAY);
+		txtTimer.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtTimer.setBounds(304, 277, 153, 20);
+		frame.getContentPane().add(txtTimer);
+		txtTimer.setColumns(10);
+
+		JButton btnViewCurrentAlarms = new JButton("View current alarms");
+		btnViewCurrentAlarms.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnViewCurrentAlarms.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
+		btnViewCurrentAlarms.setBounds(545, 149, 167, 35);
+		frame.getContentPane().add(btnViewCurrentAlarms);
+
+		JLabel displayTime = new JLabel();
+		displayTime.setFont(new Font("Arial", Font.BOLD, 14));
+		displayTime.setBounds(566, 277, 301, 20);
+		frame.getContentPane().add(displayTime);
+
+		JButton start = new JButton("Start");
+		start.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent arg0) {
+				int hsec = Integer.parseInt((String) hours.getSelectedItem()) * 3600;
+				int minsec = Integer.parseInt((String) ms.getSelectedItem()) * 60;
+				int ssec = Integer.parseInt((String) ss.getSelectedItem());
+				int totalsec = hsec + minsec + ssec;
+
+				Countdown.secondsPassed = totalsec + 1;
+				Countdown c = new Countdown();
+				c.start(displayTime, txtTimer.getText());
+
+			}
+		});
+		start.setFont(new Font("Arial", Font.PLAIN, 10));
+		start.setBounds(467, 277, 89, 20);
+		frame.getContentPane().add(start);
+
+		JLabel lblStopwatch = new JLabel("Stopwatch");
+		lblStopwatch.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblStopwatch.setBounds(585, 190, 217, 23);
+		frame.getContentPane().add(lblStopwatch);
 
 	}
 

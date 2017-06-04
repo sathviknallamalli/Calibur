@@ -9,11 +9,8 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.sql.Connection;
 import java.util.Random;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,15 +25,8 @@ public class Main extends JFrame {
 	JLabel instruct;
 	JButton HW;
 	JTextField input;
-	private final Action action = new SwingAction();
-	private final Action action_1 = new SwingAction_1();
-	private final Action action_4 = new SwingAction_4();
-	private final Action action_6 = new SwingAction_6();
-	private final Action action_7 = new SwingAction_7();
 
 	private JTextField website;
-	private final Action action_9 = new SwingAction_9();
-	private final Action action_10 = new SwingAction_10();
 	private Desktop desktop;
 	private String path = "C:\\Users\\sathv\\Desktop\\Saahore Baahubali Video Song Promo - Baahubali 2 Songs  Prabhas SS Rajamouli.mp4";
 
@@ -44,7 +34,7 @@ public class Main extends JFrame {
 		super("Calibur Home");
 		getContentPane().setBackground(new Color(0, 153, 255));
 
-		HW = new JButton("HWHELP");
+		HW = new JButton("Homework Help / Resources");
 		HW.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		HW.setBounds(10, 111, 209, 30);
 		HW.setAlignmentX(CENTER_ALIGNMENT);
@@ -52,8 +42,7 @@ public class Main extends JFrame {
 
 		HW.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				HWHELP h1 = new HWHELP();
-				h1.NewScreen();
+				HWHELP.NewScreen();
 			}
 		});
 
@@ -61,8 +50,7 @@ public class Main extends JFrame {
 		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TACALIBUR t1 = new TACALIBUR();
-				t1.NewScreen();
+				TACALIBUR.NewScreen();
 			}
 		});
 		btnNewButton.setBounds(266, 112, 218, 29);
@@ -92,7 +80,6 @@ public class Main extends JFrame {
 		HWInstructP1.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		getContentPane().add(HWInstructP1);
 
-		HW.setAction(action);
 		getContentPane().add(HW);
 
 		JLabel tagP1 = new JLabel(
@@ -119,14 +106,18 @@ public class Main extends JFrame {
 
 			}
 		});
-		randomNum.setAction(action_1);
 
 		randomNum.setBounds(540, 112, 218, 30);
 		getContentPane().add(randomNum);
 
 		JButton btnScientificCalulator = new JButton("Scientific Calulator");
+		btnScientificCalulator.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ScientificCaculator sc = new ScientificCaculator();
+				sc.newClass();
+			}
+		});
 		btnScientificCalulator.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnScientificCalulator.setAction(action_4);
 		btnScientificCalulator.setAlignmentY(0.5f);
 		btnScientificCalulator.setAlignmentX(0.5f);
 		btnScientificCalulator.setBounds(266, 224, 218, 30);
@@ -138,13 +129,15 @@ public class Main extends JFrame {
 		browser.setBounds(540, 261, 218, 50);
 		getContentPane().add(browser);
 
-		JButton btnIndepthTheory = new JButton("Set Reminder");
-		btnIndepthTheory.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		JButton btnIndepthTheory = new JButton("Alarms & Clock");
 		btnIndepthTheory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Reminders r = new Reminders();
+				r.newClass();
 			}
 		});
-		btnIndepthTheory.setAction(action_7);
+		btnIndepthTheory.setIcon(null);
+		btnIndepthTheory.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnIndepthTheory.setAlignmentY(0.5f);
 		btnIndepthTheory.setAlignmentX(0.5f);
 		btnIndepthTheory.setBounds(10, 227, 209, 30);
@@ -157,22 +150,36 @@ public class Main extends JFrame {
 		getContentPane().add(scdescrip);
 
 		JButton btnFormulas = new JButton("Formulas");
+		btnFormulas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Formulas f = new Formulas();
+				f.newClass();
+			}
+		});
 		btnFormulas.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnFormulas.setAction(action_6);
 		btnFormulas.setAlignmentY(0.5f);
 		btnFormulas.setAlignmentX(0.5f);
 		btnFormulas.setBounds(10, 332, 209, 30);
 		getContentPane().add(btnFormulas);
 
 		JButton btnConversions = new JButton("Conversions");
+		btnConversions.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Conversions c = new Conversions();
+				c.newClass();
+			}
+		});
 		btnConversions.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnConversions.setAction(action_10);
 		btnConversions.setAlignmentY(0.5f);
 		btnConversions.setAlignmentX(0.5f);
 		btnConversions.setBounds(266, 336, 218, 30);
 		getContentPane().add(btnConversions);
 
 		JButton btnAnyWebBrowser = new JButton("Any Web Browser");
+		btnAnyWebBrowser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 
 		website = new JTextField();
 		website.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -247,8 +254,22 @@ public class Main extends JFrame {
 		getContentPane().add(lbllifeAsA);
 
 		JButton btnGoogleWebBrowser = new JButton("Google Web Browser\r\n");
+		btnGoogleWebBrowser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String site = "https://google.com";
+				String[] arguments = { "1", "2", "3" };
+				try {
+					Browser.main(arguments, site);
+				} catch (IOException e1) {
+
+					e1.printStackTrace();
+				} catch (URISyntaxException e1) {
+
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnGoogleWebBrowser.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnGoogleWebBrowser.setAction(action_9);
 		btnGoogleWebBrowser.setAlignmentY(0.5f);
 		btnGoogleWebBrowser.setAlignmentX(0.5f);
 		btnGoogleWebBrowser.setBounds(540, 224, 218, 30);
@@ -377,143 +398,6 @@ public class Main extends JFrame {
 		btnFunGames.setBounds(638, 11, 136, 29);
 		getContentPane().add(btnFunGames);
 
-		Connection connection = null;
-		connection = sqliteConnection.c();
-
-	}
-
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "Homework Help / Resources");
-			putValue(SHORT_DESCRIPTION, "You've got a problem? We have the solution!");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
-
-	private class SwingAction_1 extends AbstractAction {
-		public SwingAction_1() {
-			putValue(NAME, "Random Number Generator");
-			putValue(SHORT_DESCRIPTION, "Try your luck!");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
-
-	private class SwingAction_2 extends AbstractAction {
-		public SwingAction_2() {
-			putValue(NAME, "Google Web Browser");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-
-			String[] arguments = { "1", "2", "3" };
-			String website = "http://google.com";
-			try {
-				Browser.main(arguments, website);
-			} catch (IOException e1) {
-
-				e1.printStackTrace();
-			} catch (URISyntaxException e1) {
-
-				e1.printStackTrace();
-			}
-
-		}
-	}
-
-	private class SwingAction_3 extends AbstractAction {
-		public SwingAction_3() {
-			putValue(NAME, "Back to Home Page");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-
-		}
-	}
-
-	private class SwingAction_4 extends AbstractAction {
-		public SwingAction_4() {
-			putValue(NAME, "Scientific Calculator");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			ScientificCaculator sc = new ScientificCaculator();
-			sc.newClass();
-		}
-	}
-
-	private class SwingAction_5 extends AbstractAction {
-		public SwingAction_5() {
-			putValue(NAME, "Calibur");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-
-		}
-	}
-
-	private class SwingAction_6 extends AbstractAction {
-		public SwingAction_6() {
-			putValue(NAME, "Formulas");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			Formulas f = new Formulas();
-			f.newClass();
-		}
-	}
-
-	private class SwingAction_7 extends AbstractAction {
-		public SwingAction_7() {
-			putValue(NAME, "Set Reminder");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			Reminders r = new Reminders();
-			r.newClass();
-		}
-	}
-
-	private class SwingAction_9 extends AbstractAction {
-		public SwingAction_9() {
-			putValue(NAME, "Google Web Browser");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			String site = "https://google.com";
-			String[] arguments = { "1", "2", "3" };
-			try {
-				Browser.main(arguments, site);
-			} catch (IOException e1) {
-
-				e1.printStackTrace();
-			} catch (URISyntaxException e1) {
-
-				e1.printStackTrace();
-			}
-		}
-	}
-
-	private class SwingAction_10 extends AbstractAction {
-		public SwingAction_10() {
-			putValue(NAME, "Conversions");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			Conversions c = new Conversions();
-			c.newClass();
-		}
 	}
 
 	public void newClass() {

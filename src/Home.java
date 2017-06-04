@@ -304,6 +304,11 @@ public class Home extends JFrame {
 		btnPinCodeLogin.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
 		btnPinCodeLogin.setBounds(541, 232, 124, 26);
 		getContentPane().add(btnPinCodeLogin);
+		
+		JButton btnDeleteAccount = new JButton("Delete Account");
+		btnDeleteAccount.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
+		btnDeleteAccount.setBounds(551, 189, 124, 26);
+		getContentPane().add(btnDeleteAccount);
 
 		btnSignup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -319,5 +324,4 @@ public class Home extends JFrame {
 		WindowEvent w = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(w);
 	}
-
 }
