@@ -7,7 +7,7 @@ import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -189,13 +189,16 @@ public class SignUp extends JFrame {
 
 								if (exists == false) {
 									try {
-										String query = "insert into UserInfo (Name,LastName,Email,Username,Password) values (?, ?, ?, ?, ?)";
+										String query = "insert into UserInfo (Name,LastName,Email,Username,Password,CreatedTime) values (?, ?, ?, ?, ?, ?)";
 										PreparedStatement pst = connection.prepareStatement(query);
 										pst.setString(1, nametextField.getText());
 										pst.setString(2, lastnameTextField.getText());
 										pst.setString(3, email.getText());
 										pst.setString(4, UsernameTextField.getText());
 										pst.setString(5, pd.getText());
+										Date date = new Date();
+										String cdate = date.toString();
+										pst.setString(6, cdate);
 
 										pst.execute();
 
@@ -225,13 +228,13 @@ public class SignUp extends JFrame {
 										pst111.setString(2,
 												nametextField.getText() + " " + lastnameTextField.getText());
 										pst111.setString(3, pd.getText());
-										pst111.setTimestamp(4, java.sql.Timestamp.from(java.time.Instant.now()));
-										pst111.setTimestamp(4,
-												java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
+
+										Date cdate = new Date();
+										String date = cdate.toString();
+										pst111.setString(4, date);
 										pst111.setString(5, email.getText());
-										pst111.setTimestamp(6, java.sql.Timestamp.from(java.time.Instant.now()));
-										pst111.setTimestamp(6,
-												java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
+										pst111.setString(6, date);
+
 										pst111.execute();
 										pst111.close();
 										close();

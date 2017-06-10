@@ -23,20 +23,20 @@ public class Lesson1 extends JFrame {
 		title.setBounds(365, 11, 488, 42);
 		getContentPane().add(title);
 
-		JLabel ae = new JLabel("Closer Look at an Atom");
+		JLabel ae = new JLabel("Subatomic Particles");
 		ae.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		ae.setBounds(329, 64, 201, 32);
 		getContentPane().add(ae);
 
 		JLabel lblinOrderFor = new JLabel(
-				"<html>AN ATOM IS THE SMALLEST PART OF ANY MATTER. What is matter though? Matter is anything that takes up space and has mass. So all objects that you see are made up of some particles that all have atoms. These atoms can also move, which make different  substance.");
+				"<html>You may have heard that atoms are the smallest thing, but there are even smaller things called SUBATOMIC PARTICLES. There are 3 primary ones that are very important to an atom, element, and the PERIODIC TABLE. They are the NEUTRON, PROTON, AND ELECTRON. ");
 		lblinOrderFor.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblinOrderFor.setBounds(329, 100, 724, 51);
 		getContentPane().add(lblinOrderFor);
 
 		JLabel p = new JLabel();
-		p.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\atom.png"));
-		p.setBounds(329, 153, 56, 58);
+		p.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\proton.png"));
+		p.setBounds(329, 177, 56, 56);
 		getContentPane().add(p);
 
 		JButton btnActivateCalibur = new JButton("Activate Calibur!");
@@ -47,7 +47,7 @@ public class Lesson1 extends JFrame {
 			}
 		});
 		btnActivateCalibur.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		btnActivateCalibur.setBounds(535, 70, 132, 23);
+		btnActivateCalibur.setBounds(510, 70, 132, 23);
 		getContentPane().add(btnActivateCalibur);
 
 		JButton button_3 = new JButton("Take the Lesson Review");
@@ -124,6 +124,24 @@ public class Lesson1 extends JFrame {
 		btnPeriodictable.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnPeriodictable.setBounds(10, 14, 127, 40);
 		getContentPane().add(btnPeriodictable);
+		
+		JLabel lblProton = new JLabel("Proton");
+		lblProton.setForeground(new Color(0, 0, 255));
+		lblProton.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblProton.setBounds(329, 151, 56, 23);
+		getContentPane().add(lblProton);
+		
+		JLabel lblNeutron = new JLabel("Neutron");
+		lblNeutron.setForeground(Color.BLUE);
+		lblNeutron.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblNeutron.setBounds(407, 151, 56, 23);
+		getContentPane().add(lblNeutron);
+		
+		JLabel lblElectron = new JLabel("Electron");
+		lblElectron.setForeground(Color.BLUE);
+		lblElectron.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblElectron.setBounds(490, 151, 56, 23);
+		getContentPane().add(lblElectron);
 
 	}
 

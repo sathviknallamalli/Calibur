@@ -7,12 +7,12 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -27,6 +27,7 @@ public class Home extends JFrame {
 
 	Connection connection = null;
 	Connection connection1 = null;
+	Connection connection2 = null;
 	JTextField untf = new JTextField();
 	JPasswordField passwordField = new JPasswordField();;
 
@@ -35,6 +36,7 @@ public class Home extends JFrame {
 		getContentPane().setBackground(new Color(240, 240, 240));
 		connection = sqliteConnection.c();
 		connection1 = sqliteConnection.c();
+		connection2 = sqliteConnection.ud();
 		setBounds(100, 100, 803, 313);
 		getContentPane().setLayout(null);
 
@@ -78,6 +80,13 @@ public class Home extends JFrame {
 							count++;
 						}
 						if (count == 1) {
+							Date date = new Date();
+							String cdate = date.toString();
+							String sql = "update " + untf.getText() + " set LastLogin= '" + cdate + "'"
+									+ " where Username= '" + untf.getText() + "'";
+							PreparedStatement pst1 = connection2.prepareStatement(sql);
+							pst1.execute();
+
 							untf.setText("");
 							passwordField.setText("");
 							Main m = new Main();
@@ -104,6 +113,7 @@ public class Home extends JFrame {
 		untf.requestFocusInWindow();
 		JButton login = new JButton("Login");
 
+
 		login.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -120,6 +130,13 @@ public class Home extends JFrame {
 						count++;
 					}
 					if (count == 1) {
+						Date date = new Date();
+						String cdate = date.toString();
+						String sql = "update " + untf.getText() + " set LastLogin= '" + cdate + "'"
+								+ " where Username= '" + untf.getText() + "'";
+						PreparedStatement pst1 = connection2.prepareStatement(sql);
+						pst1.execute();
+
 						untf.setText("");
 						passwordField.setText("");
 						Main m = new Main();

@@ -40,5 +40,7 @@
 	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/jcommon-1.0.23.jar"/>
 	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/jfreechart-1.0.19-demo.jar"/>
 	<classpathentry kind="lib" path="C:/Users/sathv/Downloads/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="JTimeChooser_0.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

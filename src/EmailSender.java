@@ -3,7 +3,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,7 +25,6 @@ public class EmailSender extends JFrame {
 	private JTextField email;
 	private JTextField to;
 	private JTextField subject;
-	private JTextField message;
 	private JPasswordField pword;
 
 	public EmailSender() {
@@ -117,25 +123,59 @@ public class EmailSender extends JFrame {
 
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pic.setBounds(377, 86, 29, 246);
-				lblCompseTheEmail.setBounds(420, 86, 113, 23);
-				lblTo.setBounds(420, 117, 29, 23);
-				send.setBounds(420, 278, 113, 33);
-				to.setBounds(475, 117, 147, 23);
-				lblSubject.setBounds(420, 151, 60, 23);
-				subject.setBounds(485, 153, 147, 23);
-				lblMessage.setBounds(420, 189, 60, 23);
-				getContentPane().add(scrollPane_1);
-				scrollPane_1.setViewportView(message);
-				JOptionPane.showMessageDialog(null, "Sucessfully connected!");
+				try {
+					pic.setBounds(377, 86, 29, 246);
+					lblCompseTheEmail.setBounds(420, 86, 113, 23);
+					lblTo.setBounds(420, 117, 29, 23);
+					send.setBounds(420, 278, 113, 33);
+					to.setBounds(475, 117, 147, 23);
+					lblSubject.setBounds(420, 151, 60, 23);
+					subject.setBounds(485, 153, 147, 23);
+					lblMessage.setBounds(420, 189, 60, 23);
+					getContentPane().add(scrollPane_1);
+					scrollPane_1.setViewportView(message);
+					JOptionPane.showMessageDialog(null, "Sucessfully connected!");
+
+				} catch (Exception a) {
+					JOptionPane.showMessageDialog(null, "Connection Error");
+				}
 
 			}
 		});
 
 		send.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				SignUp.sendEmail(to.getText(), "", "", subject.getText(), message.getText());
-				JOptionPane.showMessageDialog(null, "Your email has been successfully sent!!");
+				Properties props = new Properties();
+				props.put("mail.smtp.host", "smtp.gmail.com");
+				props.put("mail.smtp.socketFactory.port", "465");
+				props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+				props.put("mail.smtp.auth", "true");
+				props.put("mail.smtp.port", "465");
+				props.put("mail.smtp.password", pword.getText());
+				props.put("mail.smtp.username", email.getText());
+
+				Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+					protected PasswordAuthentication getPasswordAuthentification() {
+						return new PasswordAuthentication(email.getText(), pword.getText());
+					}
+				});
+				try {
+					Message mess = new MimeMessage(session);
+					mess.setFrom(new InternetAddress(email.getText()));
+					mess.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to.getText()));
+					mess.setSubject(subject.getText());
+					mess.setText(message.getText());
+					Transport transport = session.getTransport("smtp");
+
+					transport.connect("smtp.gmail.com", email.getText(), pword.getText());
+
+					Transport.send(mess, email.getText(), pword.getText());
+					transport.close();
+					JOptionPane.showMessageDialog(null, "Your email has been successfully sent!!");
+
+				} catch (Exception a) {
+					JOptionPane.showMessageDialog(null, "Error");
+				}
 
 			}
 		});

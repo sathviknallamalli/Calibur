@@ -330,6 +330,13 @@ public class Demo {
 					"https://en.wikipedia.org/wiki/Geek_Pride_Day", "Geek Pride Day",
 					"http://www.onthisday.com/birthdays/may/25");
 		}
+		// ENVIRONEMNT DAY
+		else if (calendar.get(Calendar.MONTH) == 5 && calendar.get(Calendar.DATE) == 4) {
+			famousDay("June", 5,
+					"Today is World Environment Day. Let us all appreciate the conditions we live in and thank Mother Nature. Click below for more.",
+					"https://en.wikipedia.org/wiki/World_Environment_Day", "World Environment Day",
+					"http://www.onthisday.com/birthdays/june/5");
+		}
 		// MICROSOFT DAY
 		else if (calendar.get(Calendar.MONTH) == 3 && calendar.get(Calendar.DATE) == 4) {
 			famousDay("April", 4,

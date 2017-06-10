@@ -64,14 +64,15 @@ public class AlarmClock extends Reminders {
 								} else if (mon == 11) {
 									finalMonth = "December";
 								}
-
-								String query = "delete from Reminders where Date='" + day + "' and Year='" + yr
-										+ "' and Hour='" + a + "' and Minute='" + b + "' and Time='" + te
-										+ "' and Message='" + subject + "' and Month='" + finalMonth + "'";
+								String alarm = finalMonth + " " + day + " " + yr;
+								String clockTime = a + ":" + b;
+								int val = file.indexOf('.');
+								String sub = file.substring(34, val);
+								String query = "delete from Reminders where Date=" + alarm + "and Time" + clockTime
+										+ " and AlarmType=" + sub + " and Message=" + subject;
 								PreparedStatement pst = connection.prepareStatement(query);
 								pst.execute();
-								// JOptionPane.showMessageDialog(null, "Message
-								// deleted");
+
 								pst.close();
 
 							} catch (Exception e) {

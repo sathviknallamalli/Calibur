@@ -8,7 +8,6 @@ import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.GregorianCalendar;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,11 +16,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
 import com.ibm.icu.util.Calendar;
+import com.toedter.calendar.JDateChooser;
 
 public class Reminders {
 
@@ -48,7 +47,6 @@ public class Reminders {
 	Connection connection = null;
 	Connection connection1 = null;
 	Connection connection2 = null;
-	private JTable table;
 	private JLabel lblAlarmsClocks;
 	private JLabel lblwelcomeToThe;
 	String s;
@@ -63,7 +61,6 @@ public class Reminders {
 				try {
 					for (;;) {
 
-						GregorianCalendar c = new GregorianCalendar();
 						Calendar calendar = Calendar.getInstance();
 						int hour = calendar.get(Calendar.HOUR);
 						int min = calendar.get(Calendar.MINUTE);
@@ -116,58 +113,32 @@ public class Reminders {
 
 		frame = new JFrame("Alarms and clocks");
 		frame.getContentPane().setBackground(new Color(51, 204, 0));
-		frame.setBounds(100, 100, 956, 367);
+		frame.setBounds(100, 100, 956, 353);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 0, 0);
-		scrollPane.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-
-		frame.getContentPane().add(scrollPane);
-
-		table = new JTable();
-		scrollPane.setViewportView(table);
-
-		String[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September",
-				"October", "November", "December" };
-
-		JComboBox month = new JComboBox(months);
-		month.setBounds(21, 112, 115, 23);
-		month.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		frame.getContentPane().add(month);
+		JDateChooser jd = new JDateChooser();
+		jd.getCalendarButton().setText("Please select a date");
+		jd.getCalendarButton().setFont(new Font("Arial", Font.PLAIN, 13));
+		jd.setBounds(20, 113, 318, 29);
+		frame.getContentPane().add(jd);
 
 		JLabel lblSetReminder = new JLabel("Set Reminder / Alarm:");
 		lblSetReminder.setBounds(21, 88, 141, 23);
 		lblSetReminder.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		frame.getContentPane().add(lblSetReminder);
 
-		String[] dates31 = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
-				"17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" };
-
-		JComboBox day = new JComboBox(dates31);
-		day.setBounds(146, 112, 115, 23);
-		day.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		frame.getContentPane().add(day);
-
-		String[] year = { "2017", "2018", "2019" };
-
-		JComboBox yr = new JComboBox(year);
-		yr.setBounds(271, 112, 115, 23);
-		yr.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		frame.getContentPane().add(yr);
-
 		String[] sound = { "Alarm", "Chimes", "Guitar", "Xylophone", "Metal Drop", "Percussion" };
 
 		JComboBox noise = new JComboBox(sound);
-		noise.setBounds(245, 149, 115, 23);
+		noise.setBounds(223, 155, 115, 23);
 		noise.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		frame.getContentPane().add(noise);
 
 		String[] hour = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
 
 		JComboBox hr = new JComboBox(hour);
-		hr.setBounds(21, 143, 55, 35);
+		hr.setBounds(20, 149, 55, 35);
 		hr.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		frame.getContentPane().add(hr);
 
@@ -177,19 +148,19 @@ public class Reminders {
 				"49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" };
 
 		JComboBox min = new JComboBox(minute);
-		min.setBounds(94, 143, 55, 35);
+		min.setBounds(93, 149, 55, 35);
 		min.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		frame.getContentPane().add(min);
 
 		JLabel lblNewLabel_1 = new JLabel(":");
-		lblNewLabel_1.setBounds(81, 139, 16, 39);
+		lblNewLabel_1.setBounds(80, 145, 16, 39);
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 30));
 		frame.getContentPane().add(lblNewLabel_1);
 
 		String[] times = { "AM", "PM" };
 
 		JComboBox te = new JComboBox(times);
-		te.setBounds(168, 143, 55, 35);
+		te.setBounds(158, 149, 55, 35);
 		te.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		frame.getContentPane().add(te);
 
@@ -204,50 +175,52 @@ public class Reminders {
 		lblwelcomeToThe.setFont(new Font("Times New Roman", Font.ITALIC, 13));
 		frame.getContentPane().add(lblwelcomeToThe);
 
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(21, 213, 251, 94);
-		frame.getContentPane().add(scrollPane_1);
-
-		subject = new JTextPane();
-		subject.setFont(new Font("Arial", Font.PLAIN, 11));
-		scrollPane_1.setViewportView(subject);
-
 		JButton btnSetAlarm = new JButton("Set alarm\r\n");
 		btnSetAlarm.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
-		btnSetAlarm.setBounds(370, 149, 167, 35);
+		btnSetAlarm.setBounds(348, 155, 167, 35);
 		btnSetAlarm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String m = (String) month.getSelectedItem();
-				String dy = (String) day.getSelectedItem();
-				String y = (String) yr.getSelectedItem();
-				String h = (String) hr.getSelectedItem();
-				String minute = (String) min.getSelectedItem();
-				String t = (String) te.getSelectedItem();
-				String a = (String) noise.getSelectedItem();
-				String s = subject.getText();
-
+				String day = "" + jd.getDate().getDate();
+				int month = jd.getDate().getMonth();
+				String m = "";
+				String year = jd.getDate().getYear() + 1900 + "";
+				if (month == 0) {
+					m = "January";
+				} else if (month == 1) {
+					m = "February";
+				} else if (month == 2) {
+					m = "March";
+				} else if (month == 3) {
+					m = "April";
+				} else if (month == 4) {
+					m = "May";
+				} else if (month == 5) {
+					m = "June";
+				} else if (month == 6) {
+					m = "July";
+				} else if (month == 7) {
+					m = "August";
+				} else if (month == 8) {
+					m = "September";
+				} else if (month == 9) {
+					m = "October";
+				} else if (month == 10) {
+					m = "November";
+				} else if (month == 11) {
+					m = "December";
+				}
+				String date = m + " " + day + " " + year;
+				String time = (String) hr.getSelectedItem() + ":" + (String) min.getSelectedItem();
 				try {
-					String query = "insert into Reminders (Month,Date,Year,Hour,Minute,Time,AlarmType,Message) values (?, ?, ?, ?, ?, ?, ?, ?)";
+					String query = "insert into Reminders (Date,Time,AlarmType,Message) values (?, ?, ?, ?)";
 					PreparedStatement pst = connection.prepareStatement(query);
-					pst.setString(1, m);
-					pst.setString(2, dy);
-					pst.setString(3, y);
-					pst.setString(4, h);
-					pst.setString(5, minute);
-					pst.setString(6, t);
-					pst.setString(7, a);
-					pst.setString(8, s);
+					pst.setString(1, date);
+					pst.setString(2, time);
+					pst.setString(3, (String) noise.getSelectedItem());
+					pst.setString(4, subject.getText());
 
 					pst.execute();
 
-					/*
-					 * SignUp.sendEmail(tempe, "", "", "Reminder Saved: " + s,
-					 * "We have successfully saved your reminder and you will be notified through the application of Calibur along with an email that will be sent to the registered email. \nThe reminder has been scheduled for "
-					 * + m + " " + dy + ", " + y + " and at " + h + ":" + minute
-					 * + " " + te +
-					 * ", the message has been recorded with information of: " +
-					 * s);
-					 */
 					JOptionPane.showMessageDialog(null, "Reminder has been saved");
 					pst.close();
 				} catch (Exception b) {
@@ -261,73 +234,77 @@ public class Reminders {
 					ResultSet rs = pst.executeQuery();
 
 					while (rs.next()) {
-						int hr = Integer.parseInt(rs.getString("Hour"));
-						int min = Integer.parseInt(rs.getString("Minute"));
-						int day = Integer.parseInt(rs.getString("Date"));
-						int year = Integer.parseInt(rs.getString("Year"));
-						int month = 0;
-						if (rs.getString("Month").equals("January")) {
-							month = 0;
-						} else if (rs.getString("Month").equals("February")) {
-							month = 1;
-						} else if (rs.getString("Month").equals("March")) {
-							month = 2;
-						} else if (rs.getString("Month").equals("April")) {
-							month = 3;
-						} else if (rs.getString("Month").equals("May")) {
-							month = 4;
-						} else if (rs.getString("Month").equals("June")) {
-							month = 5;
-						} else if (rs.getString("Month").equals("July")) {
-							month = 6;
-						} else if (rs.getString("Month").equals("August")) {
-							month = 7;
-						} else if (rs.getString("Month").equals("September")) {
-							month = 8;
-						} else if (rs.getString("Month").equals("October")) {
-							month = 9;
-						} else if (rs.getString("Month").equals("November")) {
-							month = 10;
-						} else if (rs.getString("Month").equals("December")) {
-							month = 11;
+						int hr = Integer.parseInt(rs.getString("Time").substring(0, 1));
+						int min = Integer.parseInt(rs.getString("Time").substring(2, 4));
+						int occ = rs.getString("Date").indexOf(" ");
+						int dayVal = Integer.parseInt(rs.getString("Date").substring(occ + 1, occ + 3));
+						int yearVal = Integer.parseInt(rs.getString("Date").substring(occ + 4, occ + 8));
+
+						String mv = rs.getString("Date").substring(0, occ);
+
+						int monthVal = 0;
+						if (mv.equals("January")) {
+							monthVal = 0;
+						} else if (mv.equals("February")) {
+							monthVal = 1;
+						} else if (mv.equals("March")) {
+							monthVal = 2;
+						} else if (mv.equals("April")) {
+							monthVal = 3;
+						} else if (mv.equals("May")) {
+							monthVal = 4;
+						} else if (mv.equals("June")) {
+							monthVal = 5;
+						} else if (mv.equals("July")) {
+							monthVal = 6;
+						} else if (mv.equals("August")) {
+							monthVal = 7;
+						} else if (mv.equals("September")) {
+							monthVal = 8;
+						} else if (mv.equals("October")) {
+							monthVal = 9;
+						} else if (mv.equals("November")) {
+							monthVal = 10;
+						} else if (mv.equals("December")) {
+							monthVal = 11;
 						}
 
-						int time = 0;
+						int timeofDay = 0;
 						if (te.getSelectedItem().toString().equals("AM")) {
-							time = 0;
+							timeofDay = 0;
 						} else if (te.getSelectedItem().toString().equals("PM")) {
-							time = 1;
+							timeofDay = 1;
 						}
 
-						if (a == "Alarm") {
+						if ((String) noise.getSelectedItem() == "Alarm") {
 							AlarmClock c = new AlarmClock();
-							c.checkAlarm(hr, min, "C:\\Users\\sathv\\Desktop\\WAV Audios\\AlarmNoise.wav", month, day,
-									year, time, s);
+							c.checkAlarm(hr, min, "C:\\Users\\sathv\\Desktop\\WAV Audios\\AlarmNoise.wav", monthVal,
+									dayVal, yearVal, timeofDay, subject.getText());
 
-						} else if (a == "Chimes") {
+						} else if ((String) noise.getSelectedItem() == "Chimes") {
 							AlarmClock c = new AlarmClock();
-							c.checkAlarm(hr, min, "C:\\Users\\sathv\\Desktop\\WAV Audios\\Chimes.wav", month, day, year,
-									time, s);
+							c.checkAlarm(hr, min, "C:\\Users\\sathv\\Desktop\\WAV Audios\\Chimes.wav", monthVal, dayVal,
+									yearVal, timeofDay, subject.getText());
 
-						} else if (a == "Guitar") {
+						} else if ((String) noise.getSelectedItem() == "Guitar") {
 							AlarmClock c = new AlarmClock();
-							c.checkAlarm(hr, min, "C:\\Users\\sathv\\Desktop\\WAV Audios\\Guitar.wav", month, day, year,
-									time, s);
+							c.checkAlarm(hr, min, "C:\\Users\\sathv\\Desktop\\WAV Audios\\Guitar.wav", monthVal, dayVal,
+									yearVal, timeofDay, subject.getText());
 
-						} else if (a == "Xylophone") {
+						} else if ((String) noise.getSelectedItem() == "Xylophone") {
 							AlarmClock c = new AlarmClock();
-							c.checkAlarm(hr, min, "C:\\Users\\sathv\\Desktop\\WAV Audios\\Xylophone.wav", month, day,
-									year, time, s);
+							c.checkAlarm(hr, min, "C:\\Users\\sathv\\Desktop\\WAV Audios\\Xylophone.wav", monthVal,
+									dayVal, yearVal, timeofDay, subject.getText());
 
-						} else if (a == "Metal Drop") {
+						} else if ((String) noise.getSelectedItem() == "Metal Drop") {
 							AlarmClock c = new AlarmClock();
-							c.checkAlarm(hr, min, "C:\\Users\\sathv\\Desktop\\WAV Audios\\Metal.wav", month, day, year,
-									time, s);
+							c.checkAlarm(hr, min, "C:\\Users\\sathv\\Desktop\\WAV Audios\\Metal.wav", monthVal, dayVal,
+									yearVal, timeofDay, subject.getText());
 
-						} else if (a == "Percussion") {
+						} else if ((String) noise.getSelectedItem() == "Percussion") {
 							AlarmClock c = new AlarmClock();
-							c.checkAlarm(hr, min, "C:\\Users\\sathv\\Desktop\\WAV Audios\\Percussion.wav", month, day,
-									year, time, s);
+							c.checkAlarm(hr, min, "C:\\Users\\sathv\\Desktop\\WAV Audios\\Percussion.wav", monthVal,
+									dayVal, yearVal, timeofDay, subject.getText());
 
 						}
 
@@ -339,15 +316,23 @@ public class Reminders {
 
 			}
 		});
+
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(20, 213, 251, 94);
+		frame.getContentPane().add(scrollPane_1);
+
+		subject = new JTextPane();
+		subject.setFont(new Font("Arial", Font.PLAIN, 11));
+		scrollPane_1.setViewportView(subject);
 		frame.getContentPane().add(btnSetAlarm);
 
 		JLabel lblSetReminderMessage = new JLabel("Set Alarm Subject and Info\r\n");
-		lblSetReminderMessage.setBounds(21, 189, 217, 23);
+		lblSetReminderMessage.setBounds(20, 189, 217, 23);
 		lblSetReminderMessage.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		frame.getContentPane().add(lblSetReminderMessage);
 
 		lblCurrentTimeIs = new JLabel();
-		lblCurrentTimeIs.setBounds(397, 103, 350, 35);
+		lblCurrentTimeIs.setBounds(342, 107, 350, 35);
 		lblCurrentTimeIs.setFont(new Font("Arial", Font.BOLD, 20));
 		frame.getContentPane().add(lblCurrentTimeIs);
 
@@ -399,7 +384,7 @@ public class Reminders {
 		p1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				
+
 			}
 		});
 		p1.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\reset.png"));
@@ -451,10 +436,13 @@ public class Reminders {
 		JButton btnViewCurrentAlarms = new JButton("View current alarms");
 		btnViewCurrentAlarms.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
+				ExistingReminders er = new ExistingReminders();
+				er.newClass();
 			}
 		});
 		btnViewCurrentAlarms.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
-		btnViewCurrentAlarms.setBounds(545, 149, 167, 35);
+		btnViewCurrentAlarms.setBounds(525, 155, 167, 35);
 		frame.getContentPane().add(btnViewCurrentAlarms);
 
 		JLabel displayTime = new JLabel();
@@ -490,7 +478,7 @@ public class Reminders {
 
 	public void newClass() {
 
-		frame.setSize(959, 456);
+		frame.setSize(frame.getSize());
 		frame.setLocation(300, 100);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
