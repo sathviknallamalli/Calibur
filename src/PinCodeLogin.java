@@ -42,7 +42,6 @@ public class PinCodeLogin {
 	 */
 	public PinCodeLogin() {
 		connection = sqliteConnection.c();
-
 		initialize();
 
 	}

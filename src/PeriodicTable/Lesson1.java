@@ -18,37 +18,10 @@ public class Lesson1 extends JFrame {
 	public Lesson1() {
 		getContentPane().setLayout(null);
 
-		JLabel title = new JLabel("Lesson 1 - Arrangement and Structure");
+		JLabel title = new JLabel("Lesson 1 - History\r\n");
 		title.setFont(new Font("Castellar", Font.PLAIN, 20));
-		title.setBounds(365, 11, 488, 42);
+		title.setBounds(426, 11, 217, 42);
 		getContentPane().add(title);
-
-		JLabel ae = new JLabel("Subatomic Particles");
-		ae.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		ae.setBounds(329, 64, 201, 32);
-		getContentPane().add(ae);
-
-		JLabel lblinOrderFor = new JLabel(
-				"<html>You may have heard that atoms are the smallest thing, but there are even smaller things called SUBATOMIC PARTICLES. There are 3 primary ones that are very important to an atom, element, and the PERIODIC TABLE. They are the NEUTRON, PROTON, AND ELECTRON. ");
-		lblinOrderFor.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblinOrderFor.setBounds(329, 100, 724, 51);
-		getContentPane().add(lblinOrderFor);
-
-		JLabel p = new JLabel();
-		p.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\proton.png"));
-		p.setBounds(329, 177, 56, 56);
-		getContentPane().add(p);
-
-		JButton btnActivateCalibur = new JButton("Activate Calibur!");
-		btnActivateCalibur.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				File Clap = new File("C:\\Users\\sathv\\Desktop\\WAV Audios\\Atom.wav");
-				Audio.PlaySound(Clap);
-			}
-		});
-		btnActivateCalibur.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		btnActivateCalibur.setBounds(510, 70, 132, 23);
-		getContentPane().add(btnActivateCalibur);
 
 		JButton button_3 = new JButton("Take the Lesson Review");
 		button_3.addActionListener(new ActionListener() {
@@ -59,54 +32,54 @@ public class Lesson1 extends JFrame {
 			}
 		});
 		button_3.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		button_3.setBounds(843, 376, 215, 36);
+		button_3.setBounds(635, 364, 215, 36);
 		getContentPane().add(button_3);
 
 		JLabel label = new JLabel("<html>You cannot access this page during the review\r\n\r\n");
 		label.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		label.setBounds(819, 349, 256, 16);
+		label.setBounds(611, 337, 256, 16);
 		getContentPane().add(label);
 
-		JCheckBox chckbxLesson_5 = new JCheckBox("Lesson 6 - Notable Families\r\n");
+		JCheckBox chckbxLesson_5 = new JCheckBox("Lesson 7 - Notable Families\r\n");
 		chckbxLesson_5.setForeground(Color.RED);
 		chckbxLesson_5.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		chckbxLesson_5.setEnabled(false);
-		chckbxLesson_5.setBounds(10, 210, 230, 23);
+		chckbxLesson_5.setBounds(10, 237, 230, 23);
 		getContentPane().add(chckbxLesson_5);
 
-		JCheckBox chckbxLesson_4 = new JCheckBox("Lesson 5 - Halogens & Noble Gases");
+		JCheckBox chckbxLesson_4 = new JCheckBox("Lesson 6 - Halogens & Noble Gases");
 		chckbxLesson_4.setForeground(Color.RED);
 		chckbxLesson_4.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		chckbxLesson_4.setEnabled(false);
-		chckbxLesson_4.setBounds(10, 184, 230, 23);
+		chckbxLesson_4.setBounds(10, 211, 230, 23);
 		getContentPane().add(chckbxLesson_4);
 
-		JCheckBox chckbxLesson_3 = new JCheckBox("Lesson 4 - Other metals, Metalloids, etc.");
+		JCheckBox chckbxLesson_3 = new JCheckBox("Lesson 5 - Other metals, Metalloids, etc.");
 		chckbxLesson_3.setForeground(Color.RED);
 		chckbxLesson_3.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		chckbxLesson_3.setEnabled(false);
-		chckbxLesson_3.setBounds(10, 160, 239, 23);
+		chckbxLesson_3.setBounds(10, 187, 239, 23);
 		getContentPane().add(chckbxLesson_3);
 
-		JCheckBox chckbxLesson_2 = new JCheckBox("Lesson 3 - Transition Metals");
+		JCheckBox chckbxLesson_2 = new JCheckBox("Lesson 4 - Transition Metals");
 		chckbxLesson_2.setForeground(Color.RED);
 		chckbxLesson_2.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		chckbxLesson_2.setEnabled(false);
-		chckbxLesson_2.setBounds(10, 135, 230, 23);
+		chckbxLesson_2.setBounds(10, 162, 230, 23);
 		getContentPane().add(chckbxLesson_2);
 
-		JCheckBox chckbxLesson_1 = new JCheckBox("Lesson 2 - Alkali Metals & Earth Metals");
+		JCheckBox chckbxLesson_1 = new JCheckBox("Lesson 3 - Alkali Metals & Earth Metals");
 		chckbxLesson_1.setForeground(Color.RED);
 		chckbxLesson_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		chckbxLesson_1.setEnabled(false);
-		chckbxLesson_1.setBounds(10, 109, 239, 23);
+		chckbxLesson_1.setBounds(10, 136, 239, 23);
 		getContentPane().add(chckbxLesson_1);
 
-		JCheckBox chckbxLesson = new JCheckBox("Lesson 1 - Arrangement and Structure");
+		JCheckBox chckbxLesson = new JCheckBox("Lesson 2 - Arrangement \r\n");
 		chckbxLesson.setForeground(Color.RED);
 		chckbxLesson.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		chckbxLesson.setEnabled(false);
-		chckbxLesson.setBounds(10, 83, 230, 23);
+		chckbxLesson.setBounds(10, 110, 230, 23);
 		getContentPane().add(chckbxLesson);
 
 		JLabel label_1 = new JLabel("Chapter Progress");
@@ -125,23 +98,32 @@ public class Lesson1 extends JFrame {
 		btnPeriodictable.setBounds(10, 14, 127, 40);
 		getContentPane().add(btnPeriodictable);
 		
-		JLabel lblProton = new JLabel("Proton");
-		lblProton.setForeground(new Color(0, 0, 255));
-		lblProton.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblProton.setBounds(329, 151, 56, 23);
-		getContentPane().add(lblProton);
+		JCheckBox chckbxLesson_6 = new JCheckBox("Lesson 1 - History!\r\n");
+		chckbxLesson_6.setForeground(Color.RED);
+		chckbxLesson_6.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		chckbxLesson_6.setEnabled(false);
+		chckbxLesson_6.setBounds(10, 84, 230, 23);
+		getContentPane().add(chckbxLesson_6);
 		
-		JLabel lblNeutron = new JLabel("Neutron");
-		lblNeutron.setForeground(Color.BLUE);
-		lblNeutron.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNeutron.setBounds(407, 151, 56, 23);
-		getContentPane().add(lblNeutron);
+		JLabel lblWhoWhatWhen = new JLabel("Who, What, When, Where, Why, AND HOW!?");
+		lblWhoWhatWhen.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		lblWhoWhatWhen.setBounds(256, 57, 378, 32);
+		getContentPane().add(lblWhoWhatWhen);
 		
-		JLabel lblElectron = new JLabel("Electron");
-		lblElectron.setForeground(Color.BLUE);
-		lblElectron.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblElectron.setBounds(490, 151, 56, 23);
-		getContentPane().add(lblElectron);
+		JLabel lblthisPeriodicTable = new JLabel("<html>This periodic table was developed by a famous Russian Scientist who displayed these elements with such brilliance that it is the epitome of all chemistry conventions developed. This mans name is DMITRI MENDELEEV. He had a rather rough life as a child and was able to prosper through the hard work of his mother. ");
+		lblthisPeriodicTable.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblthisPeriodicTable.setBounds(256, 95, 605, 48);
+		getContentPane().add(lblthisPeriodicTable);
+		
+		JButton button = new JButton("Activate Calibur!");
+		button.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		button.setBounds(644, 65, 132, 23);
+		getContentPane().add(button);
+		
+		JLabel lblDmitriMendeleev = new JLabel("Dmitri Mendeleev\r\n");
+		lblDmitriMendeleev.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		lblDmitriMendeleev.setBounds(256, 153, 378, 32);
+		getContentPane().add(lblDmitriMendeleev);
 
 	}
 

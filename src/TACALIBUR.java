@@ -3,6 +3,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -24,12 +26,15 @@ import Machines.Machines;
 import Motion.Motion;
 import PeriodicTable.PeriodicTable;
 import SegmentsAngleContents.SegmentsAngle;
+import javax.swing.JTextField;
 
 public class TACALIBUR {
 
 	JFrame frame;
 
 	private JPanel panel_4;
+	private JTextField word;
+	private JTextField wordt;
 
 	/**
 	 * Launch the application.
@@ -590,7 +595,7 @@ public class TACALIBUR {
 		frame.getContentPane().add(sol);
 
 		JLabel lblNewLabel = new JLabel("COURSE DASHBOARD");
-		lblNewLabel.setBounds(490, 110, 201, 19);
+		lblNewLabel.setBounds(530, 110, 201, 19);
 		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Castellar", Font.BOLD, 15));
 		frame.getContentPane().add(lblNewLabel);
@@ -644,13 +649,13 @@ public class TACALIBUR {
 		JButton btnPeriodicTable = new JButton("Periodic Table");
 
 		btnPeriodicTable.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnPeriodicTable.setBounds(10, 28, 138, 23);
+		btnPeriodicTable.setBounds(10, 33, 138, 23);
 		panel_3.add(btnPeriodicTable);
 
 		JButton btnBalancingEquations = new JButton("Balancing Equations");
 
 		btnBalancingEquations.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnBalancingEquations.setBounds(10, 56, 138, 23);
+		btnBalancingEquations.setBounds(10, 62, 138, 23);
 		panel_3.add(btnBalancingEquations);
 
 		JLabel description = new JLabel();
@@ -693,7 +698,7 @@ public class TACALIBUR {
 			}
 		});
 		btnBasicChemistry.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnBasicChemistry.setBounds(10, 0, 138, 23);
+		btnBasicChemistry.setBounds(10, 5, 138, 23);
 		panel_3.add(btnBasicChemistry);
 
 		JButton beginChem = new JButton("Begin Course!");
@@ -733,13 +738,13 @@ public class TACALIBUR {
 
 		JLabel testOffer = new JLabel("Special - Test Offer!!");
 		testOffer.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		testOffer.setBounds(10, 114, 184, 23);
+		testOffer.setBounds(10, 119, 184, 23);
 		panel_3.add(testOffer);
 
 		JLabel lblforThoseOf = new JLabel(
 				"<html>For those of you high school student getting ready for college, for this particular subject, we are offering a special test preparation tool for you to use that will help you prepare for standardized test such as AP and SAT Exams. Click below for which exam you would like and Calibur will do the rest.");
 		lblforThoseOf.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		lblforThoseOf.setBounds(10, 142, 524, 49);
+		lblforThoseOf.setBounds(10, 147, 524, 49);
 		panel_3.add(lblforThoseOf);
 
 		JButton btnSat = new JButton("SAT");
@@ -757,12 +762,12 @@ public class TACALIBUR {
 			}
 		});
 		btnSat.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnSat.setBounds(216, 114, 75, 23);
+		btnSat.setBounds(216, 122, 75, 23);
 		panel_3.add(btnSat);
 
 		JButton btnAllTheElements = new JButton("All the Elements!!!!");
 		btnAllTheElements.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnAllTheElements.setBounds(10, 85, 138, 23);
+		btnAllTheElements.setBounds(10, 91, 138, 23);
 		panel_3.add(btnAllTheElements);
 
 		JButton btnAtomsAndParticles = new JButton("Atoms and Particles");
@@ -775,7 +780,7 @@ public class TACALIBUR {
 			}
 		});
 		btnAtomsAndParticles.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnAtomsAndParticles.setBounds(153, 0, 138, 23);
+		btnAtomsAndParticles.setBounds(153, 5, 138, 23);
 		panel_3.add(btnAtomsAndParticles);
 
 		panel_4 = new JPanel();
@@ -884,6 +889,86 @@ public class TACALIBUR {
 		btnPlanetsAndThe.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnPlanetsAndThe.setBounds(10, 93, 143, 23);
 		panel_5.add(btnPlanetsAndThe);
+
+		JPanel panel_6 = new JPanel();
+		panel_6.setLayout(null);
+		panel_6.setBackground(Color.WHITE);
+		tabbedPane.addTab("Literature", null, panel_6, null);
+
+		JButton button_6 = new JButton("Begin Course!");
+		button_6.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		button_6.setBounds(848, 168, 146, 23);
+		panel_6.add(button_6);
+
+		JButton btnDictionary = new JButton("Dictionary");
+		btnDictionary.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				word.setBounds(163, 12, 104, 20);
+			}
+		});
+		btnDictionary.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnDictionary.setBounds(10, 11, 143, 23);
+		panel_6.add(btnDictionary);
+
+		word = new JTextField();
+		word.setBackground(Color.LIGHT_GRAY);
+		panel_6.add(word);
+		word.setColumns(10);
+
+		JButton btnThesaurus = new JButton("Thesaurus");
+		btnThesaurus.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				wordt.setBounds(163, 40, 104, 20);
+			}
+		});
+		btnThesaurus.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnThesaurus.setBounds(10, 40, 143, 23);
+		panel_6.add(btnThesaurus);
+
+		wordt = new JTextField();
+		wordt.setColumns(10);
+		wordt.setBackground(Color.LIGHT_GRAY);
+		panel_6.add(wordt);
+
+		wordt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+					String site = "http://www.thesaurus.com/browse/" + wordt.getText() + "?s=t";
+					String[] arguments = { "1", "2", "3" };
+					try {
+						Browser.main(arguments, site);
+						word.setText("");
+					} catch (IOException e1) {
+
+						e1.printStackTrace();
+					} catch (URISyntaxException e1) {
+
+						e1.printStackTrace();
+					}
+				}
+			}
+		});
+
+		word.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+					String site = "http://www.dictionary.com/browse/" + word.getText() + "?s=t";
+					String[] arguments = { "1", "2", "3" };
+					try {
+						Browser.main(arguments, site);
+						word.setText("");
+					} catch (IOException e1) {
+
+						e1.printStackTrace();
+					} catch (URISyntaxException e1) {
+
+						e1.printStackTrace();
+					}
+				}
+			}
+		});
 
 		energy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

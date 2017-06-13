@@ -113,7 +113,6 @@ public class Home extends JFrame {
 		untf.requestFocusInWindow();
 		JButton login = new JButton("Login");
 
-
 		login.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -302,9 +301,19 @@ public class Home extends JFrame {
 		btnPinCodeLogin.setBounds(541, 232, 124, 26);
 		getContentPane().add(btnPinCodeLogin);
 
+		JButton btnRateUs = new JButton("Rate Us!");
+		btnRateUs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RateCalibur rc = new RateCalibur();
+				rc.newClass();
+			}
+		});
+		btnRateUs.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
+		btnRateUs.setBounds(572, 187, 124, 26);
+		getContentPane().add(btnRateUs);
+
 		btnSignup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				SignUp s = new SignUp();
 				s.newClass();
 			}

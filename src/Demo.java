@@ -350,6 +350,13 @@ public class Demo {
 					"Today is when Google was Founded!! A small search engine that expanded to email, phones, computer and more! Click below for more.",
 					"https://en.wikipedia.org/wiki/Google", "Google", "http://www.onthisday.com/birthdays/september/8");
 		}
+		// JAI BALLAYA
+		else if (calendar.get(Calendar.MONTH) == 5 && calendar.get(Calendar.DATE) == 11) {
+			famousDay("June", 5,
+					"Today is Nanadamuri Balakrishnas Birthday! He is in Indian film actor and son of the notable politician NTR. Click below for more.",
+					"https://en.wikipedia.org/wiki/Nandamuri_Balakrishna", "Jai Ballaya!",
+					"http://www.onthisday.com/birthdays/june/11");
+		}
 
 	}
 
