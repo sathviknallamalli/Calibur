@@ -11,6 +11,7 @@ import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -87,6 +88,39 @@ public class Home extends JFrame {
 							PreparedStatement pst1 = connection2.prepareStatement(sql);
 							pst1.execute();
 
+							try {
+								String qry = "select * from " + untf.getText();
+								PreparedStatement pst11 = connection2.prepareStatement(qry);
+								ResultSet rs1 = pst11.executeQuery();
+								while (rs1.next()) {
+									String ctime = rs1.getString("CreatedTime");
+									Date d1 = new Date(ctime);
+
+									String ltime = rs1.getString("LastLogin");
+									Date d2 = new Date(ltime);
+
+									SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+									Date d3 = format.parse(format.format(d1));
+									Date d4 = format.parse(format.format(d2));
+
+									long diff = d2.getTime() - d1.getTime();
+									long hours = diff / (60 * 60 * 1000);
+									long days = hours / 24;
+
+									if (days >= 30) {
+										int p = JOptionPane.showConfirmDialog(null,
+												"NOTICE: You have used Calibur for more than 30 days, and for your own security please change your password. Click if you would like to change your password now",
+												"Password Change", JOptionPane.YES_NO_OPTION);
+										if (p == 0) {
+											ForgotPassword fp = new ForgotPassword();
+											fp.newClass();
+										}
+									}
+								}
+							} catch (Exception a) {
+								JOptionPane.showMessageDialog(null, a);
+							}
+
 							untf.setText("");
 							passwordField.setText("");
 							Main m = new Main();
@@ -135,6 +169,39 @@ public class Home extends JFrame {
 								+ " where Username= '" + untf.getText() + "'";
 						PreparedStatement pst1 = connection2.prepareStatement(sql);
 						pst1.execute();
+
+						try {
+							String qry = "select * from " + untf.getText();
+							PreparedStatement pst11 = connection2.prepareStatement(qry);
+							ResultSet rs1 = pst11.executeQuery();
+							while (rs1.next()) {
+								String ctime = rs1.getString("CreatedTime");
+								Date d1 = new Date(ctime);
+
+								String ltime = rs1.getString("LastLogin");
+								Date d2 = new Date(ltime);
+
+								SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+								Date d3 = format.parse(format.format(d1));
+								Date d4 = format.parse(format.format(d2));
+
+								long diff = d2.getTime() - d1.getTime();
+								long hours = diff / (60 * 60 * 1000);
+								long days = hours / 24;
+
+								if (days >= 30) {
+									int p = JOptionPane.showConfirmDialog(null,
+											"NOTICE: You have used Calibur for more than 30 days, and for your own security please change your password. Click if you would like to change your password now",
+											"Password Change", JOptionPane.YES_NO_OPTION);
+									if (p == 0) {
+										ForgotPassword fp = new ForgotPassword();
+										fp.newClass();
+									}
+								}
+							}
+						} catch (Exception a) {
+							JOptionPane.showMessageDialog(null, a);
+						}
 
 						untf.setText("");
 						passwordField.setText("");

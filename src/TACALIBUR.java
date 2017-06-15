@@ -595,7 +595,7 @@ public class TACALIBUR {
 		frame.getContentPane().add(sol);
 
 		JLabel lblNewLabel = new JLabel("COURSE DASHBOARD");
-		lblNewLabel.setBounds(530, 110, 201, 19);
+		lblNewLabel.setBounds(588, 110, 201, 19);
 		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Castellar", Font.BOLD, 15));
 		frame.getContentPane().add(lblNewLabel);
@@ -881,6 +881,10 @@ public class TACALIBUR {
 		panel_5.add(button_3);
 
 		JButton btnBasicsOfEarth = new JButton("Basics of Earth Science");
+		btnBasicsOfEarth.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnBasicsOfEarth.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnBasicsOfEarth.setBounds(10, 6, 143, 23);
 		panel_5.add(btnBasicsOfEarth);
@@ -929,6 +933,68 @@ public class TACALIBUR {
 		wordt.setColumns(10);
 		wordt.setBackground(Color.LIGHT_GRAY);
 		panel_6.add(wordt);
+
+		JLabel litd = new JLabel();
+		litd.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		panel_6.add(litd);
+
+		JLabel littit = new JLabel();
+		littit.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		panel_6.add(littit);
+
+		JButton te = new JButton("Text Editor");
+		te.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Editor a = new Editor();
+				a.newClass();
+			}
+		});
+		te.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		te.setBounds(10, 70, 143, 23);
+		panel_6.add(te);
+
+		JButton btnBasicGrammar = new JButton("Basic Grammar");
+		btnBasicGrammar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				littit.setText("Basic Grammar");
+				litd.setBounds(383, 35, 242, 90);
+				litd.setText("<html>");
+				littit.setBounds(383, 11, 255, 23);
+			}
+		});
+		btnBasicGrammar.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnBasicGrammar.setBounds(10, 98, 143, 23);
+		panel_6.add(btnBasicGrammar);
+
+		JButton btnEssayStructure = new JButton("Essay Structure");
+		btnEssayStructure.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				littit.setText("Essay Structure");
+				litd.setBounds(383, 35, 242, 90);
+				litd.setText("<html>");
+				littit.setBounds(383, 11, 255, 23);
+			}
+		});
+		btnEssayStructure.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnEssayStructure.setBounds(10, 127, 143, 23);
+		panel_6.add(btnEssayStructure);
+
+		JButton ka = new JButton("Khan Academy");
+		ka.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String[] arguments = { "1", "2", "3" };
+				try {
+					Browser.main(arguments, "https://www.khanacademy.org");
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				} catch (URISyntaxException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		ka.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		ka.setBounds(258, 380, 133, 32);
+		frame.getContentPane().add(ka);
 
 		wordt.addKeyListener(new KeyAdapter() {
 			@Override

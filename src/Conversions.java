@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 
 import Machines.Audio;
 import studentHub.Conversions.LengthConversions;
+import javax.swing.ImageIcon;
 
 public class Conversions {
 
@@ -64,7 +65,7 @@ public class Conversions {
 	private void initialize() {
 		frame = new JFrame("Calibur Converter");
 		frame.getContentPane().setBackground(Color.CYAN);
-		frame.setBounds(100, 100, 971, 587);
+		frame.setBounds(100, 100, 812, 587);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -78,13 +79,13 @@ public class Conversions {
 
 		JLabel label_2 = new JLabel("Conversions\r\n");
 		label_2.setFont(new Font("Castellar", Font.PLAIN, 34));
-		label_2.setBounds(340, 11, 274, 42);
+		label_2.setBounds(253, 11, 274, 42);
 		frame.getContentPane().add(label_2);
 
 		JLabel lbldetermineIfYou = new JLabel(
 				"<html>Determine if you want to convert length, mass, volume, etc and begin in that area. From there enter the parameters.");
 		lbldetermineIfYou.setFont(new Font("Times New Roman", Font.ITALIC, 13));
-		lbldetermineIfYou.setBounds(156, 52, 642, 23);
+		lbldetermineIfYou.setBounds(69, 52, 642, 23);
 		frame.getContentPane().add(lbldetermineIfYou);
 
 		JLabel label_1 = new JLabel("Length Converter");
@@ -103,17 +104,17 @@ public class Conversions {
 
 		length1 = new JComboBox(length);
 		length1.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		length1.setBounds(23, 161, 115, 23);
+		length1.setBounds(23, 161, 87, 23);
 		frame.getContentPane().add(length1);
 
 		JLabel label_3 = new JLabel("-->");
 		label_3.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_3.setBounds(148, 160, 24, 23);
+		label_3.setBounds(120, 160, 24, 23);
 		frame.getContentPane().add(label_3);
 
 		JComboBox length2 = new JComboBox(length);
 		length2.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		length2.setBounds(180, 161, 115, 23);
+		length2.setBounds(156, 161, 87, 23);
 		frame.getContentPane().add(length2);
 
 		JLabel label_4 = new JLabel("FROM");
@@ -125,10 +126,10 @@ public class Conversions {
 		JLabel label_5 = new JLabel("TO");
 		label_5.setForeground(Color.RED);
 		label_5.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_5.setBounds(180, 195, 51, 23);
+		label_5.setBounds(156, 195, 51, 23);
 		frame.getContentPane().add(label_5);
 
-		JLabel lengthResult = new JLabel("<html>");
+		JLabel lengthResult = new JLabel("erhsrth");
 		lengthResult.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lengthResult.setBounds(10, 253, 272, 32);
 		frame.getContentPane().add(lengthResult);
@@ -680,52 +681,52 @@ public class Conversions {
 			}
 		});
 		button.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		button.setBounds(86, 218, 115, 32);
+		button.setBounds(69, 218, 115, 32);
 		frame.getContentPane().add(button);
 
 		JLabel label_6 = new JLabel("Mass Converter");
 		label_6.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_6.setBounds(349, 86, 115, 23);
+		label_6.setBounds(501, 86, 115, 23);
 		frame.getContentPane().add(label_6);
 
 		m1 = new JTextField();
 		m1.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		m1.setColumns(10);
-		m1.setBounds(349, 120, 115, 32);
+		m1.setBounds(501, 120, 115, 32);
 		frame.getContentPane().add(m1);
 
 		String[] weight = { "Pound", "Ounce", "Gram", "Kilograms", "Milligram", "Decagram", "Ton" };
 
 		JComboBox mass1 = new JComboBox(weight);
 		mass1.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		mass1.setBounds(349, 161, 115, 23);
+		mass1.setBounds(501, 161, 87, 23);
 		frame.getContentPane().add(mass1);
 
 		JLabel label_7 = new JLabel("-->");
 		label_7.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_7.setBounds(474, 160, 24, 23);
+		label_7.setBounds(598, 160, 24, 23);
 		frame.getContentPane().add(label_7);
 
 		JComboBox mass2 = new JComboBox(weight);
 		mass2.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		mass2.setBounds(506, 161, 115, 23);
+		mass2.setBounds(632, 161, 80, 23);
 		frame.getContentPane().add(mass2);
 
 		JLabel label_8 = new JLabel("FROM");
 		label_8.setForeground(Color.RED);
 		label_8.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_8.setBounds(349, 195, 51, 23);
+		label_8.setBounds(501, 195, 51, 23);
 		frame.getContentPane().add(label_8);
 
 		JLabel label_9 = new JLabel("TO");
 		label_9.setForeground(Color.RED);
 		label_9.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_9.setBounds(506, 195, 51, 23);
+		label_9.setBounds(632, 195, 51, 23);
 		frame.getContentPane().add(label_9);
 
-		JLabel massResult = new JLabel("<html>");
+		JLabel massResult = new JLabel("rthrhrth");
 		massResult.setFont(new Font("Tahoma", Font.BOLD, 14));
-		massResult.setBounds(336, 253, 272, 32);
+		massResult.setBounds(488, 253, 272, 32);
 		frame.getContentPane().add(massResult);
 
 		JButton button_1 = new JButton("Convert!");
@@ -882,7 +883,7 @@ public class Conversions {
 			}
 		});
 		button_1.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		button_1.setBounds(412, 218, 115, 32);
+		button_1.setBounds(547, 218, 115, 32);
 		frame.getContentPane().add(button_1);
 
 		JLabel label_10 = new JLabel("Temperature Converter");
@@ -900,7 +901,7 @@ public class Conversions {
 
 		JComboBox temp1 = new JComboBox(temps);
 		temp1.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		temp1.setBounds(23, 367, 115, 23);
+		temp1.setBounds(23, 367, 87, 23);
 		frame.getContentPane().add(temp1);
 
 		JLabel label_11 = new JLabel("FROM");
@@ -911,10 +912,10 @@ public class Conversions {
 
 		JComboBox temp2 = new JComboBox(temps);
 		temp2.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		temp2.setBounds(180, 367, 115, 23);
+		temp2.setBounds(156, 367, 80, 23);
 		frame.getContentPane().add(temp2);
 
-		JLabel tempResult = new JLabel("<html>");
+		JLabel tempResult = new JLabel("tsrhrtshsrthrsh");
 		tempResult.setFont(new Font("Tahoma", Font.BOLD, 14));
 		tempResult.setBounds(10, 463, 296, 32);
 		frame.getContentPane().add(tempResult);
@@ -957,63 +958,63 @@ public class Conversions {
 			}
 		});
 		button_2.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		button_2.setBounds(86, 424, 115, 32);
+		button_2.setBounds(69, 423, 115, 32);
 		frame.getContentPane().add(button_2);
 
 		JLabel label_12 = new JLabel("TO");
 		label_12.setForeground(Color.RED);
 		label_12.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_12.setBounds(180, 401, 51, 23);
+		label_12.setBounds(156, 401, 51, 23);
 		frame.getContentPane().add(label_12);
 
 		JLabel label_13 = new JLabel("-->");
 		label_13.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_13.setBounds(148, 366, 24, 23);
+		label_13.setBounds(120, 366, 24, 23);
 		frame.getContentPane().add(label_13);
 
 		JLabel label_14 = new JLabel("Volume Converter");
 		label_14.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_14.setBounds(349, 288, 125, 23);
+		label_14.setBounds(501, 296, 125, 23);
 		frame.getContentPane().add(label_14);
 
 		v1 = new JTextField();
 		v1.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		v1.setColumns(10);
-		v1.setBounds(349, 322, 115, 32);
+		v1.setBounds(501, 330, 115, 32);
 		frame.getContentPane().add(v1);
 
 		String volumes[] = { "Liter", "Gallon", "Pint", "Cup", "Fluid Ounces", "Quart", "Milliliter" };
 
 		JComboBox vol1 = new JComboBox(volumes);
 		vol1.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		vol1.setBounds(349, 363, 115, 23);
+		vol1.setBounds(501, 371, 87, 23);
 		frame.getContentPane().add(vol1);
 
 		JLabel label_15 = new JLabel("-->");
 		label_15.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_15.setBounds(474, 362, 24, 23);
+		label_15.setBounds(598, 371, 24, 23);
 		frame.getContentPane().add(label_15);
 
 		JComboBox vol2 = new JComboBox(volumes);
 		vol2.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		vol2.setBounds(506, 363, 115, 23);
+		vol2.setBounds(632, 371, 80, 23);
 		frame.getContentPane().add(vol2);
 
 		JLabel label_16 = new JLabel("TO");
 		label_16.setForeground(Color.RED);
 		label_16.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_16.setBounds(506, 397, 51, 23);
+		label_16.setBounds(632, 405, 51, 23);
 		frame.getContentPane().add(label_16);
 
 		JLabel label_17 = new JLabel("FROM");
 		label_17.setForeground(Color.RED);
 		label_17.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_17.setBounds(349, 397, 51, 23);
+		label_17.setBounds(501, 405, 51, 23);
 		frame.getContentPane().add(label_17);
 
-		JLabel volResult = new JLabel("<html>");
+		JLabel volResult = new JLabel("srthrshtsrh");
 		volResult.setFont(new Font("Tahoma", Font.BOLD, 14));
-		volResult.setBounds(336, 463, 272, 32);
+		volResult.setBounds(488, 471, 272, 32);
 		frame.getContentPane().add(volResult);
 
 		JButton button_3 = new JButton("Convert!");
@@ -1170,7 +1171,7 @@ public class Conversions {
 			}
 		});
 		button_3.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		button_3.setBounds(412, 420, 115, 32);
+		button_3.setBounds(564, 428, 115, 32);
 		frame.getContentPane().add(button_3);
 
 		JButton button_4 = new JButton("Activate Calibur!");
@@ -1181,7 +1182,7 @@ public class Conversions {
 			}
 		});
 		button_4.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		button_4.setBounds(628, 18, 132, 23);
+		button_4.setBounds(541, 18, 132, 23);
 		frame.getContentPane().add(button_4);
 
 		JButton btnFormulasPage = new JButton("Formulas Page");
@@ -1192,46 +1193,46 @@ public class Conversions {
 			}
 		});
 		btnFormulasPage.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		btnFormulasPage.setBounds(225, 505, 201, 32);
+		btnFormulasPage.setBounds(300, 505, 201, 32);
 		frame.getContentPane().add(btnFormulasPage);
 
 		JLabel lblCurrencyConverter = new JLabel("Currency Converter\r\n\r\n");
 		lblCurrencyConverter.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblCurrencyConverter.setBounds(659, 195, 143, 23);
+		lblCurrencyConverter.setBounds(260, 204, 143, 23);
 		frame.getContentPane().add(lblCurrencyConverter);
 
 		c1 = new JTextField();
 		c1.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		c1.setColumns(10);
-		c1.setBounds(659, 225, 115, 32);
+		c1.setBounds(260, 234, 115, 32);
 		frame.getContentPane().add(c1);
 
 		String[] currency = { "Dollar", "Euros", "Pounds", "Rupee", "Wons", "Renminbi", "Yen", "Peso" };
 
 		JComboBox cur1 = new JComboBox(currency);
 		cur1.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		cur1.setBounds(659, 269, 115, 23);
+		cur1.setBounds(260, 278, 87, 23);
 		frame.getContentPane().add(cur1);
 
 		JLabel label = new JLabel("-->");
 		label.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label.setBounds(784, 268, 24, 23);
+		label.setBounds(357, 277, 24, 23);
 		frame.getContentPane().add(label);
 
 		JComboBox cur2 = new JComboBox(currency);
 		cur2.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		cur2.setBounds(816, 269, 115, 23);
+		cur2.setBounds(391, 278, 80, 23);
 		frame.getContentPane().add(cur2);
 
 		JLabel label_18 = new JLabel("FROM");
 		label_18.setForeground(Color.RED);
 		label_18.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_18.setBounds(659, 303, 51, 23);
+		label_18.setBounds(260, 312, 51, 23);
 		frame.getContentPane().add(label_18);
 
-		JLabel curResult = new JLabel("<html>");
+		JLabel curResult = new JLabel("strhstehsrt");
 		curResult.setFont(new Font("Tahoma", Font.BOLD, 14));
-		curResult.setBounds(659, 369, 272, 32);
+		curResult.setBounds(260, 378, 272, 32);
 		frame.getContentPane().add(curResult);
 
 		JButton button_5 = new JButton("Convert!");
@@ -1435,20 +1436,44 @@ public class Conversions {
 			}
 		});
 		button_5.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		button_5.setBounds(722, 326, 115, 32);
+		button_5.setBounds(300, 335, 115, 32);
 		frame.getContentPane().add(button_5);
 
 		JLabel label_19 = new JLabel("TO");
 		label_19.setForeground(Color.RED);
 		label_19.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		label_19.setBounds(816, 303, 51, 23);
+		label_19.setBounds(391, 312, 51, 23);
 		frame.getContentPane().add(label_19);
+
+		JLabel label_20 = new JLabel("");
+		label_20.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\arrow.png"));
+		label_20.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		label_20.setBounds(239, 120, 24, 375);
+		frame.getContentPane().add(label_20);
+
+		JLabel label_21 = new JLabel("");
+		label_21.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\arrow.png"));
+		label_21.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		label_21.setBounds(467, 120, 24, 375);
+		frame.getContentPane().add(label_21);
+		
+		JLabel label_22 = new JLabel("");
+		label_22.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\harrow.png"));
+		label_22.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		label_22.setBounds(0, 280, 250, 18);
+		frame.getContentPane().add(label_22);
+		
+		JLabel label_23 = new JLabel("");
+		label_23.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\harrow.png"));
+		label_23.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		label_23.setBounds(476, 280, 250, 18);
+		frame.getContentPane().add(label_23);
 
 	}
 
 	public void newClass() {
 
-		frame.setSize(971, 587);
+		frame.setSize(frame.getSize());
 		frame.setLocation(300, 100);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

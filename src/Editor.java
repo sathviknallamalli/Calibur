@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.BufferedReader;
@@ -331,27 +332,12 @@ public class Editor {
 		bold.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\bold.png"));
 		menuBar.add(bold);
 
-		bold.addMouseListener(new MouseListener() {
+		bold.addMouseListener(new MouseAdapter() {
 			public void mouseReleased(MouseEvent e) {
 				text.setFont(new Font(fonttype.getText(), Font.BOLD, Integer.parseInt(size.getText())));
 				bold.setForeground(Color.RED);
 			}
 
-			@Override
-			public void mouseEntered(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-			}
 		});
 		// italics
 		JLabel italic = new JLabel("Italics     ");
@@ -359,27 +345,12 @@ public class Editor {
 		italic.setFont(new Font("Arial", Font.ITALIC, 12));
 		menuBar.add(italic);
 
-		italic.addMouseListener(new MouseListener() {
+		italic.addMouseListener(new MouseAdapter() {
 			public void mouseReleased(MouseEvent e) {
 				text.setFont(new Font(fonttype.getText(), Font.ITALIC, Integer.parseInt(size.getText())));
 				italic.setForeground(Color.RED);
 			}
 
-			@Override
-			public void mouseEntered(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-			}
 		});
 
 		// underline
@@ -388,27 +359,13 @@ public class Editor {
 		underline.setFont(new Font("Arial", Font.PLAIN, 12));
 		menuBar.add(underline);
 
-		underline.addMouseListener(new MouseListener() {
+		underline.addMouseListener(new MouseAdapter() {
 			public void mouseReleased(MouseEvent e) {
+
 				text.setFont(new Font(fonttype.getText(), Font.PLAIN, Integer.parseInt(size.getText())));
 				underline.setForeground(Color.RED);
 			}
 
-			@Override
-			public void mouseEntered(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-			}
 		});
 
 		// size selections
@@ -751,10 +708,30 @@ public class Editor {
 				}
 			}
 		});
-		JLabel wordcount = new JLabel("Word Count: ");
+		JLabel wordcount = new JLabel("");
 		wordcount.setFont(new Font("Arial", Font.BOLD, 13));
-		wordcount.setBounds(616, 336, 135, 23);
+		wordcount.setBounds(622, 339, 119, 23);
 		frame.getContentPane().add(wordcount);
+
+		JButton wc = new JButton("Word Count");
+		wc.addActionListener(new ActionListener() {
+			int count;
+
+			public void actionPerformed(ActionEvent arg0) {
+				String enter = text.getText();
+				String[] words = enter.split(" ");
+				if (enter.equals("")) {
+					count = 0;
+				} else {
+					count = words.length;
+				}
+				wordcount.setText("Word Count: " + count);
+
+			}
+		});
+		wc.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		wc.setBounds(622, 309, 119, 27);
+		frame.getContentPane().add(wc);
 
 	}
 
