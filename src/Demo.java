@@ -357,6 +357,13 @@ public class Demo {
 					"https://en.wikipedia.org/wiki/Nandamuri_Balakrishna", "Jai Ballaya!",
 					"http://www.onthisday.com/birthdays/june/11");
 		}
+		// SUMMER SOLSITCE
+		else if (calendar.get(Calendar.MONTH) == 5 && calendar.get(Calendar.DATE) == 21) {
+			famousDay("June", 5,
+					"Today is the Summer Solstice! The first day of Summer has begun, and lets enjoy the amazing start of a new season. Click below for more.",
+					"https://www.google.com/search?q=summer+solstice+2017&oi=ddle&ct=summer-solstice-2017-northern-hemisphere-4910274078310400-law&hl=en",
+					"Summer Solstice", "http://www.onthisday.com/birthdays/june/21");
+		}
 
 	}
 

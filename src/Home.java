@@ -45,8 +45,6 @@ public class Home extends JFrame {
 		JTextField lname;
 		JTextField email;
 		JTextField un;
-		JPasswordField pd;
-		JPasswordField cpd;
 		JButton sendemail;
 
 		JLabel lblLoginToCalibur = new JLabel("Login to Calibur\r\n");
@@ -271,12 +269,6 @@ public class Home extends JFrame {
 		JLabel p = new JLabel("Password");
 		p.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		getContentPane().add(p);
-
-		pd = new JPasswordField();
-		getContentPane().add(pd);
-
-		cpd = new JPasswordField();
-		getContentPane().add(cpd);
 
 		JLabel cp = new JLabel("<html>Confrim Pasword");
 		cp.setFont(new Font("Times New Roman", Font.BOLD, 18));

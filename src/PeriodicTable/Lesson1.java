@@ -40,46 +40,39 @@ public class Lesson1 extends JFrame {
 		label.setBounds(611, 337, 256, 16);
 		getContentPane().add(label);
 
-		JCheckBox chckbxLesson_5 = new JCheckBox("Lesson 7 - Notable Families\r\n");
-		chckbxLesson_5.setForeground(Color.RED);
-		chckbxLesson_5.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		chckbxLesson_5.setEnabled(false);
-		chckbxLesson_5.setBounds(10, 237, 230, 23);
-		getContentPane().add(chckbxLesson_5);
-
 		JCheckBox chckbxLesson_4 = new JCheckBox("Lesson 6 - Halogens & Noble Gases");
 		chckbxLesson_4.setForeground(Color.RED);
 		chckbxLesson_4.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		chckbxLesson_4.setEnabled(false);
-		chckbxLesson_4.setBounds(10, 211, 230, 23);
+		chckbxLesson_4.setBounds(11, 188, 230, 23);
 		getContentPane().add(chckbxLesson_4);
 
-		JCheckBox chckbxLesson_3 = new JCheckBox("Lesson 5 - Other metals, Metalloids, etc.");
+		JCheckBox chckbxLesson_3 = new JCheckBox("Lesson 5 - Other Families\r\n");
 		chckbxLesson_3.setForeground(Color.RED);
 		chckbxLesson_3.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		chckbxLesson_3.setEnabled(false);
-		chckbxLesson_3.setBounds(10, 187, 239, 23);
+		chckbxLesson_3.setBounds(11, 164, 239, 23);
 		getContentPane().add(chckbxLesson_3);
 
 		JCheckBox chckbxLesson_2 = new JCheckBox("Lesson 4 - Transition Metals");
 		chckbxLesson_2.setForeground(Color.RED);
 		chckbxLesson_2.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		chckbxLesson_2.setEnabled(false);
-		chckbxLesson_2.setBounds(10, 162, 230, 23);
+		chckbxLesson_2.setBounds(11, 139, 230, 23);
 		getContentPane().add(chckbxLesson_2);
 
 		JCheckBox chckbxLesson_1 = new JCheckBox("Lesson 3 - Alkali Metals & Earth Metals");
 		chckbxLesson_1.setForeground(Color.RED);
 		chckbxLesson_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		chckbxLesson_1.setEnabled(false);
-		chckbxLesson_1.setBounds(10, 136, 239, 23);
+		chckbxLesson_1.setBounds(11, 113, 239, 23);
 		getContentPane().add(chckbxLesson_1);
 
 		JCheckBox chckbxLesson = new JCheckBox("Lesson 2 - Arrangement \r\n");
 		chckbxLesson.setForeground(Color.RED);
 		chckbxLesson.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		chckbxLesson.setEnabled(false);
-		chckbxLesson.setBounds(10, 110, 230, 23);
+		chckbxLesson.setBounds(11, 87, 230, 23);
 		getContentPane().add(chckbxLesson);
 
 		JLabel label_1 = new JLabel("Chapter Progress");
@@ -97,13 +90,6 @@ public class Lesson1 extends JFrame {
 		btnPeriodictable.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnPeriodictable.setBounds(10, 14, 127, 40);
 		getContentPane().add(btnPeriodictable);
-		
-		JCheckBox chckbxLesson_6 = new JCheckBox("Lesson 1 - History!\r\n");
-		chckbxLesson_6.setForeground(Color.RED);
-		chckbxLesson_6.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		chckbxLesson_6.setEnabled(false);
-		chckbxLesson_6.setBounds(10, 84, 230, 23);
-		getContentPane().add(chckbxLesson_6);
 		
 		JLabel lblWhoWhatWhen = new JLabel("Who, What, When, Where, Why, AND HOW!?");
 		lblWhoWhatWhen.setFont(new Font("Times New Roman", Font.ITALIC, 20));

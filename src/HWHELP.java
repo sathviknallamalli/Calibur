@@ -3,6 +3,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -52,6 +54,9 @@ import PhysicsTopics.Power;
 import PhysicsTopics.Work;
 import ProbabilityTopics.Combinations;
 import TrigTopics.LawOfSines;
+import javax.swing.JTextField;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class HWHELP {
 
@@ -99,6 +104,8 @@ public class HWHELP {
 	private final Action action_41 = new SwingAction_41();
 	private final Action action_42 = new SwingAction_42();
 	private final Action action_24 = new SwingAction_24();
+	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -129,7 +136,7 @@ public class HWHELP {
 	private void initialize() {
 		frame = new JFrame("Homework Help and Resources");
 		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
-		frame.setBounds(100, 50, 800, 643);
+		frame.setBounds(100, 50, 800, 564);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -153,25 +160,25 @@ public class HWHELP {
 		JLabel mRes = new JLabel("Math Resources");
 		mRes.setBackground(new Color(0, 204, 0));
 		mRes.setFont(new Font("Times New Roman", Font.PLAIN, 16));
-		mRes.setBounds(43, 143, 113, 23);
+		mRes.setBounds(43, 111, 113, 23);
 		frame.getContentPane().add(mRes);
 
 		JLabel lblPhysicsResources = new JLabel("Physics Resources");
 		lblPhysicsResources.setFont(new Font("Times New Roman", Font.PLAIN, 16));
 		lblPhysicsResources.setBackground(new Color(0, 204, 0));
-		lblPhysicsResources.setBounds(247, 143, 113, 23);
+		lblPhysicsResources.setBounds(247, 111, 113, 23);
 		frame.getContentPane().add(lblPhysicsResources);
 
 		JLabel lblChemistryResources = new JLabel("Chemistry Resources");
 		lblChemistryResources.setFont(new Font("Times New Roman", Font.PLAIN, 16));
 		lblChemistryResources.setBackground(new Color(0, 204, 0));
-		lblChemistryResources.setBounds(433, 143, 128, 23);
+		lblChemistryResources.setBounds(433, 111, 128, 23);
 		frame.getContentPane().add(lblChemistryResources);
 
 		JLabel lblConversionResources = new JLabel("Conversion Resources");
 		lblConversionResources.setFont(new Font("Times New Roman", Font.PLAIN, 16));
 		lblConversionResources.setBackground(new Color(0, 204, 0));
-		lblConversionResources.setBounds(615, 143, 136, 23);
+		lblConversionResources.setBounds(615, 111, 136, 23);
 		frame.getContentPane().add(lblConversionResources);
 
 		JButton main = new JButton("Back to Main Page");
@@ -182,7 +189,7 @@ public class HWHELP {
 		main.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		main.setAction(action_27);
 
-		main.setBounds(135, 549, 174, 23);
+		main.setBounds(133, 474, 174, 23);
 		frame.getContentPane().add(main);
 
 		JButton btnFormulasPage = new JButton("Formulas Page\r\n");
@@ -193,13 +200,13 @@ public class HWHELP {
 				f.newClass();
 			}
 		});
-		btnFormulasPage.setBounds(319, 549, 174, 23);
+		btnFormulasPage.setBounds(317, 474, 174, 23);
 		frame.getContentPane().add(btnFormulasPage);
 
 		JLabel lblLinksToHelp = new JLabel("Links to Help\r\n");
 		lblLinksToHelp.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblLinksToHelp.setBackground(new Color(0, 204, 0));
-		lblLinksToHelp.setBounds(10, 175, 79, 16);
+		lblLinksToHelp.setBounds(10, 143, 79, 16);
 		frame.getContentPane().add(lblLinksToHelp);
 
 		JLabel lblUnitCircle = new JLabel(
@@ -207,14 +214,14 @@ public class HWHELP {
 		lblUnitCircle.setForeground(Color.BLUE);
 		lblUnitCircle.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblUnitCircle.setBackground(new Color(0, 204, 0));
-		lblUnitCircle.setBounds(20, 200, 219, 64);
+		lblUnitCircle.setBounds(20, 168, 219, 64);
 		frame.getContentPane().add(lblUnitCircle);
 
 		JButton btnUnitCircle = new JButton("Unit Circle\r\n");
 		btnUnitCircle.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnUnitCircle.setAction(action_30);
 
-		btnUnitCircle.setBounds(43, 270, 174, 23);
+		btnUnitCircle.setBounds(43, 238, 174, 23);
 		frame.getContentPane().add(btnUnitCircle);
 
 		JLabel lbltrigonometricFunction = new JLabel(
@@ -222,13 +229,13 @@ public class HWHELP {
 		lbltrigonometricFunction.setForeground(Color.BLUE);
 		lbltrigonometricFunction.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lbltrigonometricFunction.setBackground(new Color(0, 204, 0));
-		lbltrigonometricFunction.setBounds(20, 302, 219, 80);
+		lbltrigonometricFunction.setBounds(20, 270, 219, 80);
 		frame.getContentPane().add(lbltrigonometricFunction);
 
 		JButton btnTrigTable = new JButton("Trig Table");
 		btnTrigTable.setAction(action_31);
 		btnTrigTable.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnTrigTable.setBounds(43, 387, 174, 23);
+		btnTrigTable.setBounds(43, 355, 174, 23);
 		frame.getContentPane().add(btnTrigTable);
 
 		JLabel lblprimeNumbersCan = new JLabel(
@@ -236,13 +243,13 @@ public class HWHELP {
 		lblprimeNumbersCan.setForeground(Color.BLUE);
 		lblprimeNumbersCan.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblprimeNumbersCan.setBackground(new Color(0, 204, 0));
-		lblprimeNumbersCan.setBounds(20, 421, 219, 47);
+		lblprimeNumbersCan.setBounds(20, 389, 219, 47);
 		frame.getContentPane().add(lblprimeNumbersCan);
 
 		JButton button = new JButton("Trig Table");
 		button.setAction(action_32);
 		button.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		button.setBounds(43, 472, 174, 23);
+		button.setBounds(43, 440, 174, 23);
 		frame.getContentPane().add(button);
 
 		JButton btnConverterByCalibur = new JButton("Converter by Calibur");
@@ -253,7 +260,7 @@ public class HWHELP {
 			}
 		});
 		btnConverterByCalibur.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnConverterByCalibur.setBounds(616, 177, 158, 23);
+		btnConverterByCalibur.setBounds(616, 145, 158, 23);
 		frame.getContentPane().add(btnConverterByCalibur);
 
 		JButton btnChartGenerator = new JButton("Chart Generator");
@@ -264,7 +271,7 @@ public class HWHELP {
 			}
 		});
 		btnChartGenerator.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnChartGenerator.setBounds(505, 549, 174, 23);
+		btnChartGenerator.setBounds(503, 474, 174, 23);
 		frame.getContentPane().add(btnChartGenerator);
 
 		JLabel lblunitCircle = new JLabel(
@@ -272,7 +279,7 @@ public class HWHELP {
 		lblunitCircle.setForeground(Color.BLUE);
 		lblunitCircle.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblunitCircle.setBackground(new Color(0, 204, 0));
-		lblunitCircle.setBounds(431, 175, 167, 89);
+		lblunitCircle.setBounds(431, 143, 167, 89);
 		frame.getContentPane().add(lblunitCircle);
 
 		JButton btnPeriodicTable = new JButton("Periodic Table\r\n");
@@ -283,14 +290,14 @@ public class HWHELP {
 				try {
 					Browser.main(arguments, website);
 				} catch (IOException e1) {
-				e1.printStackTrace();
+					e1.printStackTrace();
 				} catch (URISyntaxException e1) {
 					e1.printStackTrace();
 				}
 			}
 		});
 		btnPeriodicTable.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnPeriodicTable.setBounds(431, 270, 174, 23);
+		btnPeriodicTable.setBounds(431, 238, 174, 23);
 		frame.getContentPane().add(btnPeriodicTable);
 
 		JLabel lblthisContainsCommon = new JLabel(
@@ -298,7 +305,7 @@ public class HWHELP {
 		lblthisContainsCommon.setForeground(Color.BLUE);
 		lblthisContainsCommon.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblthisContainsCommon.setBackground(new Color(0, 204, 0));
-		lblthisContainsCommon.setBounds(244, 177, 167, 72);
+		lblthisContainsCommon.setBounds(244, 145, 167, 72);
 		frame.getContentPane().add(lblthisContainsCommon);
 
 		JButton btnPhsyicsReferences = new JButton("Phsyics References");
@@ -316,7 +323,7 @@ public class HWHELP {
 			}
 		});
 		btnPhsyicsReferences.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnPhsyicsReferences.setBounds(244, 249, 174, 23);
+		btnPhsyicsReferences.setBounds(244, 217, 174, 23);
 		frame.getContentPane().add(btnPhsyicsReferences);
 
 		JLabel lblwantToLearn = new JLabel(
@@ -324,7 +331,7 @@ public class HWHELP {
 		lblwantToLearn.setForeground(Color.BLUE);
 		lblwantToLearn.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblwantToLearn.setBackground(new Color(0, 204, 0));
-		lblwantToLearn.setBounds(433, 302, 167, 89);
+		lblwantToLearn.setBounds(433, 270, 167, 89);
 		frame.getContentPane().add(lblwantToLearn);
 
 		JButton btnBohrModels = new JButton("Bohr Models");
@@ -344,7 +351,7 @@ public class HWHELP {
 			}
 		});
 		btnBohrModels.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnBohrModels.setBounds(433, 397, 174, 23);
+		btnBohrModels.setBounds(433, 365, 174, 23);
 		frame.getContentPane().add(btnBohrModels);
 
 		JMenuBar menuBar = new JMenuBar();
@@ -637,8 +644,69 @@ public class HWHELP {
 
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Periodic Table");
 		mntmNewMenuItem_5.setAction(action_24);
-		mntmNewMenuItem_5.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		mntmNewMenuItem_5.setFont(new Font("Times New Roman", Font.PLAIN, 16));
 		mnChemistry.add(mntmNewMenuItem_5);
+
+		JMenu mnLiterature = new JMenu("Literature");
+		mnLiterature.setFont(new Font("Times New Roman", Font.PLAIN, 16));
+		menuBar.add(mnLiterature);
+
+		JMenu mnNewMenu = new JMenu("Dictionary");
+		mnNewMenu.setFont(new Font("Times New Roman", Font.PLAIN, 16));
+		mnLiterature.add(mnNewMenu);
+
+		textField = new JTextField();
+		textField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+					String site = "http://www.dictionary.com/browse/" + textField.getText() + "?s=t";
+					String[] arguments = { "1", "2", "3" };
+					try {
+						Browser.main(arguments, site);
+						textField.setText("");
+					} catch (IOException e1) {
+
+						e1.printStackTrace();
+					} catch (URISyntaxException e1) {
+
+						e1.printStackTrace();
+					}
+				}
+			}
+		});
+		textField.setFont(new Font("Arial", Font.PLAIN, 12));
+		mnNewMenu.add(textField);
+		textField.setColumns(10);
+
+		JMenu mnThesaurus = new JMenu("Thesaurus");
+		mnThesaurus.setFont(new Font("Times New Roman", Font.PLAIN, 16));
+		mnLiterature.add(mnThesaurus);
+
+		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Arial", Font.PLAIN, 12));
+		textField_1.setColumns(10);
+		mnThesaurus.add(textField_1);
+
+		textField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+					String site = "http://www.thesaurus.com/browse/" + textField_1.getText() + "?s=t";
+					String[] arguments = { "1", "2", "3" };
+					try {
+						Browser.main(arguments, site);
+						textField_1.setText("");
+					} catch (IOException e1) {
+
+						e1.printStackTrace();
+					} catch (URISyntaxException e1) {
+
+						e1.printStackTrace();
+					}
+				}
+			}
+		});
 
 	}
 

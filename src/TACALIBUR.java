@@ -35,6 +35,8 @@ public class TACALIBUR {
 	private JPanel panel_4;
 	private JTextField word;
 	private JTextField wordt;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -145,6 +147,10 @@ public class TACALIBUR {
 		String aTopic[] = { "", "Fundamentals of Algebra", "Linear Equations", "Inequalities", "Functions",
 				"Solving Real World Problems", "System of Equations", "Radical Expressions" };
 		JButton btnPrecalculus = new JButton("Pre-Calculus");
+		btnPrecalculus.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnPrecalculus.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnPrecalculus.setBounds(10, 157, 116, 23);
 		panel_1.add(btnPrecalculus);
@@ -183,6 +189,63 @@ public class TACALIBUR {
 
 		JComboBox alg2topics = new JComboBox(a2Topic);
 
+		// precalc comboBox
+		String pcTopic[] = { "", "Rational Functions", "Polynomial Equations", "Exponential Growth and Decay", "",
+				"Triginometric Equations", "Conics", "Probability" };
+
+		JComboBox pctopics = new JComboBox(pcTopic);
+
+		// precalc comboBox clicked
+		// trig comBox selected
+		pctopics.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				descrip.setText("");
+				titleD.setText("");
+
+				String tChosen = (String) pctopics.getSelectedItem();
+				titleD.setText(tChosen);
+
+				titleD.setBounds(636, 11, 287, 23);
+				switch (tChosen) {
+				case "Rational Functions":
+					descrip.setText("<html>");
+					descrip.setBounds(636, 20, 266, 115);
+					break;
+				case "Polynomial Equations":
+					descrip.setText("<html>");
+					descrip.setBounds(636, 20, 266, 115);
+					break;
+				case "Exponential Growth and Decay":
+					descrip.setText("");
+					descrip.setText(
+							"<html>This course will include theory about how the Unit Circle can be used to solve equations with limits on the quadrants on the coordinate grid");
+					descrip.setBounds(636, 20, 266, 115);
+					break;
+				case "Logarithms":
+					descrip.setText("");
+					descrip.setText("<html>This course will include theory about ");
+					descrip.setBounds(636, 20, 266, 115);
+					break;
+				case "Triginometric Equations":
+					descrip.setText("");
+					descrip.setText("<html>");
+					descrip.setBounds(636, 20, 266, 115);
+					break;
+				case "Conics":
+
+					descrip.setText("<html>");
+					descrip.setBounds(636, 20, 266, 115);
+					break;
+				case "Probability":
+
+					descrip.setText("<html>");
+					descrip.setBounds(636, 20, 266, 115);
+					break;
+
+				}
+			}
+		});
+
 		panel_1.add(alg2topics);
 		alg2topics.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 
@@ -198,43 +261,43 @@ public class TACALIBUR {
 				switch (a2Chosen) {
 				// sem 1
 				case "Equations and Inequalities":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will include theory about using order of operations to solve equations, different types of numbers and learn the properties of equality. Solve absolute value equations and solve compound sentences and inequalities");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Linear Relations and Functions":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will detail theory about how to graph fucntions and the rules of functions. Extrapolate an equation from a graph and predict the next points from scatterplots. Even solve inequalities by graphing and detetrming unions of sets. ");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Systems of Equations and Inequalities":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will include how to solve by graphing, use solving Cramers rule and the determinant. Learn linear programming and determine minimum and maximum. Solve equations with 3 variables.");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Matricies":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will detail how to calculate the determniant of matricies and perform scalalr mulitiplucation and you will learn how to add and subtract matricies. Identitiy and Inverse will also be taught along with multiplucation rules. Cramers Rule can also be utilized to solve these.");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Polynomials":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>Determining the degree of polynomials and the anataomy of them is also detailed. Divide, Multiply, Add and subtract polynomials. You will learn to factor and use synthetic division to factor polynomials");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Radical Expressions":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will detail how to use a calculator to estimate some root values. Add, subtract, multiply, and divide radical expressions will also be explained along with rationalizing the expressions. Solving equations, imaginary roots, and complex numbers will be talked about.");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Quadratic Equations":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>All the methods of solving quadratics will be discussed, factoring, graphing, and completing the square will be utilized. The features of a parabola will be discussed, along with the quadratic formula and its theory. Real world problems such as interest will be used as common references");
 					descrip.setBounds(636, 20, 266, 115);
@@ -242,43 +305,43 @@ public class TACALIBUR {
 
 				// sem 2
 				case "Conics":
-					descrip.setText("");
+
 					descrip.setText("");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Polynomial Functions":
-					descrip.setText("");
+
 					descrip.setText("");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Rational Functions":
-					descrip.setText("");
+
 					descrip.setText("");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Polynomial Expressions":
-					descrip.setText("");
+
 					descrip.setText("");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Exponential and Logarithmic Functions":
-					descrip.setText("");
+
 					descrip.setText("");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Sequence and Series":
-					descrip.setText("");
+
 					descrip.setText("");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Probability and Statistics":
-					descrip.setText("");
+
 					descrip.setText("");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Trigonometric Functions":
 					descrip.setText("");
-					descrip.setText("");
+
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 
@@ -298,46 +361,46 @@ public class TACALIBUR {
 				titleD.setBounds(636, 11, 287, 23);
 				switch (tChosen) {
 				case "Radian and Degree Measures":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will include theory about how degrees can be converted to radians and methods to convert to and from. The thery of radians and even GRADIANS will also be discussed, which is very important for future topics.");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Unit Circle":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will include theory about the unit circle and the speicial triangles used to compose it and how finding the trig functions without a calculator can be alot easier. The symmetry and the patterns in this circle are very interesting.");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Interval Solving":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will include theory about how the Unit Circle can be used to solve equations with limits on the quadrants on the coordinate grid");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Triginometric Equations":
-					descrip.setText("");
+
 					descrip.setText("<html>This course will include theory about ");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Triginometric Identities":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will include theory about how identities can be used to solve for missing trig functions and proofs using the pythagorean theorem. ");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Polar Coordinates":
-					descrip.setText("");
+
 					descrip.setText("<html>Polar Coordinate Description");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Vector Calculations":
-					descrip.setText("");
+
 					descrip.setText("<html>Vector Calculation Description");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "No calculator Test - Unit Circle":
-					descrip.setText("");
+
 					descrip.setText("<html>Get ready for the test! No calculator");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
@@ -356,32 +419,32 @@ public class TACALIBUR {
 				titleD.setBounds(636, 11, 287, 23);
 				switch (gChosen) {
 				case "Segments and Angles":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will include theory about the correlation between segments and angles. Different types of angles and include topics about perpendicular and parallel lines. The intersection of these segments will form angles which we will detail about.");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Parallel Lines & Transversal":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will detail theory about how angles will correlate when a line cuts through parallel lines and how angle calculations can be performed. When given side lengths and shapes are formed, you can use that information to solve missing sides. Quizzes and qestions will be included to ensure understanding");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Triangles":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will include an abundant amount of vocabulary with lines and their features in triangles, different typrs of triangles, and many proofs that make the triangle a very important feature in all of geometry. Reasonings for these proofs are availables and will make tests a whole lot easier!  You will learn how to prove that triangles are congruent and postulates such as SAS, SSA, AAS");
 					descrip.setBounds(636, 40, 266, 115);
 					break;
 				case "Polygons":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>Transformations and angle patterns are all reflected in this theory and many formulas about all the polygons areas are all incorporated.");
 					descrip.setBounds(636, 5, 266, 115);
 					;
 					break;
 				case "Proofs & Mathematical Reasoning":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will include the standard methods to prove things and how all simple things can be prooved and you will learn how to implement this by dealing with frequent quesitons. Congruency concepts will all be incorporated.");
 					descrip.setBounds(636, 20, 266, 115);
@@ -402,46 +465,46 @@ public class TACALIBUR {
 
 				switch (aChosen) {
 				case "Fundamentals of Algebra":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will include theory about the fundamentals of algebra such as variables, the anatomy of algebra, operations, and symbols you will be using throughout this entire course. This will also include an overview of order of operations");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Linear Equations":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will include theory about how you can graph equations and will detail the anatomy of standard form equations and different methods to make you solve anything very quickly, with rigorous practice.");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Inequalities":
-					descrip.setText("");
+
 					;
 					descrip.setText(
 							"<html>This course will detail theory about solving inequalities and the proper form of solving and how to graph these on a coordinate grid. Even compound inequalities along with using inequalities to solve real world problems");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Functions":
-					descrip.setText("");
+
 					descrip.setText(
 							"<html>This course will detail how to develop different types of functions and how to evaulate them through various techniques. Graphing different fuctions on a coordinate plan and as a table will alow you to understand better");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Solving Real World Problems":
-					descrip.setText("");
+
 					;
 					descrip.setText(
 							"<html>This course will detail theory about how you can use even simple algebra to solve the most complex word problems including percents, variable, equations, and how inequalities can set a threshold.");
 					descrip.setBounds(636, 15, 266, 115);
 					break;
 				case "System of Equations":
-					descrip.setText("");
+
 					;
 					descrip.setText(
 							"<html>This course will detail theory about how to solve equations with multiple variables using two main methods, Elimination and Substitution. Also including a bonus method of graphing these equations to solve for the right variables. A built-in graphing utility is also included");
 					descrip.setBounds(636, 20, 266, 115);
 					break;
 				case "Radical Expressions":
-					descrip.setText("");
+
 					;
 					descrip.setText(
 							"<html>This course will detail theory about how you can to solve radical expressions including things such as exponents and square roots and solving for even complex variables. Methods to even check your answer are also included so you can ensure the correct answer.");
@@ -595,7 +658,7 @@ public class TACALIBUR {
 		frame.getContentPane().add(sol);
 
 		JLabel lblNewLabel = new JLabel("COURSE DASHBOARD");
-		lblNewLabel.setBounds(588, 110, 201, 19);
+		lblNewLabel.setBounds(650, 110, 201, 19);
 		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Castellar", Font.BOLD, 15));
 		frame.getContentPane().add(lblNewLabel);
@@ -881,10 +944,7 @@ public class TACALIBUR {
 		panel_5.add(button_3);
 
 		JButton btnBasicsOfEarth = new JButton("Basics of Earth Science");
-		btnBasicsOfEarth.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+
 		btnBasicsOfEarth.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnBasicsOfEarth.setBounds(10, 6, 143, 23);
 		panel_5.add(btnBasicsOfEarth);
@@ -978,6 +1038,99 @@ public class TACALIBUR {
 		btnEssayStructure.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnEssayStructure.setBounds(10, 127, 143, 23);
 		panel_6.add(btnEssayStructure);
+
+		JPanel panel_7 = new JPanel();
+		panel_7.setLayout(null);
+		panel_7.setBackground(Color.WHITE);
+		tabbedPane.addTab("History", null, panel_7, null);
+
+		JButton button_4 = new JButton("Begin Course!");
+		button_4.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		button_4.setBounds(848, 168, 146, 23);
+		panel_7.add(button_4);
+
+		JLabel hisd = new JLabel();
+		hisd.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		panel_7.add(hisd);
+
+		JLabel hist = new JLabel();
+		hist.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		panel_7.add(hist);
+
+		JButton btnUsHistory = new JButton("U.S. History");
+		btnUsHistory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				hist.setText("U.S. History");
+				hisd.setBounds(383, 35, 242, 90);
+				hisd.setText("<html>");
+				hist.setBounds(383, 11, 255, 23);
+			}
+		});
+
+		btnUsHistory.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnUsHistory.setBounds(10, 11, 143, 23);
+		panel_7.add(btnUsHistory);
+
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBackground(Color.LIGHT_GRAY);
+		textField.setBounds(0, 0, 0, 0);
+		panel_7.add(textField);
+
+		JButton btnWorldHistory = new JButton("World History");
+		btnWorldHistory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				hist.setText("World History");
+				hisd.setBounds(383, 35, 242, 90);
+				hisd.setText("<html>");
+				hist.setBounds(383, 11, 255, 23);
+			}
+		});
+		btnWorldHistory.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnWorldHistory.setBounds(10, 40, 143, 23);
+		panel_7.add(btnWorldHistory);
+
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBackground(Color.LIGHT_GRAY);
+		textField_1.setBounds(0, 0, 0, 0);
+		panel_7.add(textField_1);
+
+		JLabel label_2 = new JLabel();
+		label_2.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		label_2.setBounds(0, 0, 0, 0);
+		panel_7.add(label_2);
+
+		JLabel label_3 = new JLabel();
+		label_3.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		label_3.setBounds(0, 0, 0, 0);
+		panel_7.add(label_3);
+
+		JButton btnMidevalTimesRoman = new JButton("Roman Times");
+		btnMidevalTimesRoman.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				hist.setText("Roman Times");
+				hisd.setBounds(383, 35, 242, 90);
+				hisd.setText("<html>");
+				hist.setBounds(383, 11, 255, 23);
+			}
+		});
+		btnMidevalTimesRoman.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnMidevalTimesRoman.setBounds(10, 70, 143, 23);
+		panel_7.add(btnMidevalTimesRoman);
+
+		JButton btnGreek = new JButton("Greek ");
+		btnGreek.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				hist.setText("Greek History");
+				hisd.setBounds(383, 35, 242, 90);
+				hisd.setText("<html>");
+				hist.setBounds(383, 11, 255, 23);
+			}
+		});
+		btnGreek.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnGreek.setBounds(10, 98, 143, 23);
+		panel_7.add(btnGreek);
 
 		JButton ka = new JButton("Khan Academy");
 		ka.addActionListener(new ActionListener() {

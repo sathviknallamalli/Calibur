@@ -19,13 +19,14 @@ import java.awt.event.ActionEvent;
 public class RateCalibur extends JFrame {
 
 	Connection connection = null;
+	private JTextField feedback;
 
 	public RateCalibur() {
 		super("Rate");
 		getContentPane().setBackground(new Color(240, 240, 240));
 		connection = sqliteConnection.c();
 
-		setBounds(100, 100, 613, 297);
+		setBounds(100, 100, 613, 324);
 		getContentPane().setLayout(null);
 
 		JTextField name;
@@ -184,7 +185,7 @@ public class RateCalibur extends JFrame {
 					pst.setString(4, (String) aspect.getSelectedItem());
 					pst.setString(5, (String) rating.getSelectedItem());
 					pst.setString(6, (String) yesNo.getSelectedItem());
-
+					pst.setString(7, (String) feedback.getText());
 					pst.execute();
 					JOptionPane.showMessageDialog(null, "Thank You! Your response has been recorded");
 
@@ -196,8 +197,19 @@ public class RateCalibur extends JFrame {
 			}
 		});
 		submit.setFont(new Font("Arial", Font.PLAIN, 11));
-		submit.setBounds(498, 222, 89, 25);
+		submit.setBounds(498, 248, 89, 25);
 		getContentPane().add(submit);
+
+		JLabel lbldoYouHave = new JLabel("<html>Do you have any feedback for Calibur?");
+		lbldoYouHave.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lbldoYouHave.setBounds(10, 227, 263, 20);
+		getContentPane().add(lbldoYouHave);
+
+		feedback = new JTextField();
+		feedback.setFont(new Font("Arial", Font.PLAIN, 11));
+		feedback.setBounds(10, 250, 204, 20);
+		getContentPane().add(feedback);
+		feedback.setColumns(10);
 
 	}
 

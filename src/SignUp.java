@@ -168,8 +168,7 @@ public class SignUp extends JFrame {
 							|| p.contains("S") || p.contains("T") || p.contains("U") || p.contains("V")
 							|| p.contains("W") || p.contains("X") || p.contains("Y") || p.contains("Z")) {
 						if (same == true) {
-							if (email.getText().contains("@")
-									&& (email.getText().contains(".com") || email.getText().contains(".org"))) {
+							if (email.getText().contains("@")) {
 
 								try {
 									String query = "select * from UserInfo";
