@@ -140,7 +140,7 @@ public class Lesson5MoreCopy extends JFrame {
 
 	public void newClass() {
 
-		setSize(getSize());
+		setSize(1006, 488);
 		setLocation(300, 100);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);

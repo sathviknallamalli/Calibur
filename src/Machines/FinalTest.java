@@ -16,9 +16,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import AInterfaces.TACALIBUR;
+
 public class FinalTest extends JFrame {
 	static public JTextField textField;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	public FinalTest() {
 		getContentPane().setLayout(null);
@@ -543,6 +544,7 @@ public class FinalTest extends JFrame {
 							Dup w = new Dup();
 							w.newClass();
 							close();
+							TACALIBUR.courseComplete(title);
 						} else {
 							JOptionPane.showMessageDialog(null,
 									"Sorry, but you failed, no certificate for you. You can redo this course and try to get the achievement certificate. ");

@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/AInterfaces/sqliteConnection.java=UTF-8
 encoding//src/BasicsChemistry/Lesson1.java=UTF-8
 encoding//src/BasicsChemistry/Lesson1Copy.java=UTF-8
 encoding//src/BasicsChemistry/Lesson2.java=UTF-8
@@ -24,4 +25,3 @@ encoding//src/Machines/Lesson2Review.java=UTF-8
 encoding//src/Machines/Lesson3Review.java=UTF-8
 encoding//src/Machines/Lesson4Review.java=UTF-8
 encoding//src/PeriodicTable/Lesson1.java=UTF-8
-encoding//src/sqliteConnection.java=UTF-8

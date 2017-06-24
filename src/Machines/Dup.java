@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import FundamentalsOfAlgebraContents.FileTypeFilter;
+import FundamentalsOfAlgebra.FileTypeFilter;
 import Magnetism.Magnetism;
 
 public class Dup extends JFrame {

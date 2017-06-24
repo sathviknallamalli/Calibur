@@ -99,7 +99,7 @@ public class Lesson3Copy extends JFrame {
 		JButton btnContinue = new JButton("Continue >>");
 		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Lesson3MoreCopy l = new Lesson3MoreCopy();
+				Lesson3More l = new Lesson3More();
 				l.newClass();
 				close();
 			}
@@ -321,7 +321,7 @@ public class Lesson3Copy extends JFrame {
 
 	public void newClass() {
 
-		setSize(getSize());
+		setSize(1117, 615);
 		setLocation(300, 100);
 		setVisible(true);
 		setResizable(false);

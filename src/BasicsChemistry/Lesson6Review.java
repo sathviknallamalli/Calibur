@@ -111,17 +111,17 @@ public class Lesson6Review extends JFrame {
 
 		JRadioButton op41 = new JRadioButton("Celsius");
 		op41.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op41.setBounds(31, 445, 289, 25);
+		op41.setBounds(31, 445, 69, 25);
 		getContentPane().add(op41);
 
 		JRadioButton op42 = new JRadioButton("Farenheit");
 		op42.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op42.setBounds(31, 473, 289, 25);
+		op42.setBounds(105, 445, 71, 25);
 		getContentPane().add(op42);
 
 		JRadioButton op43 = new JRadioButton("Kelvin");
 		op43.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op43.setBounds(31, 501, 242, 25);
+		op43.setBounds(183, 445, 242, 25);
 		getContentPane().add(op43);
 
 		ButtonGroup bg4 = new ButtonGroup();
@@ -171,7 +171,7 @@ public class Lesson6Review extends JFrame {
 
 		JRadioButton op73 = new JRadioButton("x+273");
 		op73.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op73.setBounds(458, 427, 348, 25);
+		op73.setBounds(458, 427, 88, 25);
 		getContentPane().add(op73);
 
 		ButtonGroup bg7 = new ButtonGroup();
@@ -181,7 +181,7 @@ public class Lesson6Review extends JFrame {
 
 		JButton btnNewButton = new JButton("Submit");
 		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		btnNewButton.setBounds(628, 489, 128, 37);
+		btnNewButton.setBounds(628, 433, 128, 37);
 		getContentPane().add(btnNewButton);
 
 		JRadioButton op61 = new JRadioButton(
@@ -274,7 +274,7 @@ public class Lesson6Review extends JFrame {
 
 	public void newClass() {
 
-		setSize(getSize());
+		setSize(783, 520);
 		setLocation(300, 100);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);

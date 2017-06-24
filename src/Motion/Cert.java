@@ -48,7 +48,7 @@ public class Cert {
 		frame.setBounds(100, 100, 599, 523);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		String name = FinalTest.textField.getText();
+		// String name = FinalTest.textField.getText();
 		frame.getContentPane().setLayout(null);
 
 		JButton btnNewButton = new JButton("Course Database");
@@ -65,13 +65,13 @@ public class Cert {
 		button.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		button.setBounds(10, 430, 117, 40);
 		frame.getContentPane().add(button);
-		
+
 		JLabel pic = new JLabel();
 		pic.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Certificates\\MotionCer.png"));
 		pic.setBounds(0, 0, 581, 425);
 		frame.getContentPane().add(pic);
-		
-		JLabel lab = new JLabel(name);
+
+		JLabel lab = new JLabel();
 
 		lab.setFont(new Font("Bradley Hand ITC", Font.PLAIN, 20));
 		lab.setBackground(Color.RED);

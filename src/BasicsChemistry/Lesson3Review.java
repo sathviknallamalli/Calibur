@@ -300,7 +300,7 @@ public class Lesson3Review extends JFrame {
 
 	public void newClass() {
 
-		setSize(getSize());
+		setSize(906, 521);
 		setLocation(300, 100);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);

@@ -189,7 +189,7 @@ public class OptionalPhasesCopy extends JFrame {
 
 	public void newClass() {
 
-		setSize(getSize());
+		setSize(1057, 527);
 		setLocation(300, 100);
 		setVisible(true);
 		setResizable(false);

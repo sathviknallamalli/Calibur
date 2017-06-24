@@ -231,7 +231,7 @@ public class Lesson3More extends JFrame {
 
 	public void newClass() {
 
-		setSize(getSize());
+		setSize(1189, 498);
 		setLocation(300, 100);
 		setVisible(true);
 		setResizable(false);

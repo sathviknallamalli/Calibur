@@ -197,7 +197,7 @@ public class End extends JFrame {
 
 	public void newClass() {
 
-		setSize(getSize());
+		setSize(986, 488);
 		setLocation(300, 100);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
