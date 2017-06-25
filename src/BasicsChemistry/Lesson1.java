@@ -175,9 +175,6 @@ public class Lesson1 extends JFrame {
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(w);
 	}
 
-	public static void music() {
-
-	}
 
 	public void newClass() {
 

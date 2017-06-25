@@ -14,15 +14,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import Machines.Audio;
-import javax.swing.ImageIcon;
 
-public class Lesson1 extends JFrame {
-	public Lesson1() {
+public class Preview extends JFrame {
+	public Preview() {
 		getContentPane().setLayout(null);
 
-		JLabel title = new JLabel("Lesson 1 - Arrangement & Structure");
+		JLabel title = new JLabel("Preview");
 		title.setFont(new Font("Castellar", Font.PLAIN, 20));
-		title.setBounds(285, 11, 453, 42);
+		title.setBounds(443, 11, 103, 42);
 		getContentPane().add(title);
 
 		JCheckBox chckbxLesson_4 = new JCheckBox("Lesson 6 - Halogens & Noble Gases");
@@ -76,27 +75,32 @@ public class Lesson1 extends JFrame {
 		btnPeriodictable.setBounds(10, 14, 127, 40);
 		getContentPane().add(btnPeriodictable);
 
-		JLabel lblWhoWhatWhen = new JLabel("Arrangement");
+		JLabel lblWhoWhatWhen = new JLabel("First Organization Method");
 		lblWhoWhatWhen.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		lblWhoWhatWhen.setBounds(256, 57, 112, 32);
+		lblWhoWhatWhen.setBounds(256, 57, 230, 32);
 		getContentPane().add(lblWhoWhatWhen);
 
 		JLabel lblthisPeriodicTable = new JLabel(
-				"<html>The periodic table consists of 7 rows and 18 columns. New elements will continously be added to the table based on the propertues. A ROW IS CALLED A PERIOD and a COLUMN is called a GROUP. They are arranged by similar CHEMICAL PROPERTIES");
+				"<html>The first method was a SIMPLE TABLE organized by COLUMNS if they were METALS, NONMETALS, GASES, EARTHS. This was developed by ANTOINE LAVASIOER. ");
 		lblthisPeriodicTable.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblthisPeriodicTable.setBounds(256, 90, 605, 58);
+		lblthisPeriodicTable.setBounds(256, 95, 605, 42);
 		getContentPane().add(lblthisPeriodicTable);
 
 		JButton button = new JButton("Activate Calibur!");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				File Clap = new File("C:\\Users\\sathv\\Desktop\\WAV Audios\\Arrangement.wav");
+				File Clap = new File("C:\\Users\\sathv\\Desktop\\WAV Audios\\Preview.wav");
 				Audio.PlaySound(Clap);
 			}
 		});
 		button.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		button.setBounds(378, 66, 132, 23);
+		button.setBounds(421, 170, 132, 23);
 		getContentPane().add(button);
+
+		JLabel lblDmitriMendeleev = new JLabel("Dmitri Mendeleev\r\n");
+		lblDmitriMendeleev.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		lblDmitriMendeleev.setBounds(255, 166, 378, 32);
+		getContentPane().add(lblDmitriMendeleev);
 
 		JCheckBox chckbxLesson_5 = new JCheckBox("Lesson 4 - Transition Metals");
 		chckbxLesson_5.setForeground(Color.RED);
@@ -113,74 +117,56 @@ public class Lesson1 extends JFrame {
 		getContentPane().add(chckbxLesson_6);
 
 		JCheckBox chckbxPreview = new JCheckBox("Preview");
-		chckbxPreview.setSelected(true);
 		chckbxPreview.setForeground(Color.RED);
 		chckbxPreview.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		chckbxPreview.setEnabled(false);
 		chckbxPreview.setBounds(11, 87, 230, 23);
 		getContentPane().add(chckbxPreview);
 
+		JLabel lblthisMethodWas = new JLabel(
+				"<html>This method was ineffective because more elements were discovered and the table became too crowded.");
+		lblthisMethodWas.setForeground(Color.RED);
+		lblthisMethodWas.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblthisMethodWas.setBounds(256, 141, 605, 19);
+		getContentPane().add(lblthisMethodWas);
+
+		JLabel lblhisTableWas = new JLabel(
+				"<html>His table was arranged like a MATRIX of ROWS AND COLUMNS. He arranged them based on similar properties and the atomic mass. Since there were only 63 elements at the time, he neede to leave space for more. SO HE LEFT BLANKS for future scientists to find out. His table was like a puzzle that scientists solved.");
+		lblhisTableWas.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblhisTableWas.setBounds(256, 196, 605, 56);
+		getContentPane().add(lblhisTableWas);
+
+		JLabel lblPeriodicTable = new JLabel("Periodic Table");
+		lblPeriodicTable.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		lblPeriodicTable.setBounds(255, 254, 378, 32);
+		getContentPane().add(lblPeriodicTable);
+
+		JLabel lblthisTableBecame = new JLabel(
+				"<html>This table became known as the PERIODIC TABLE because it was arranged based on periods too. A chart that organizes elements by their chemical properties and increasing atomic number.");
+		lblthisTableBecame.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblthisTableBecame.setBounds(256, 286, 605, 42);
+		getContentPane().add(lblthisTableBecame);
+
 		JButton button_1 = new JButton("Continue!");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Lesson1Structure l = new Lesson1Structure();
+				Lesson1 l = new Lesson1();
 				l.newClass();
-				close();
 			}
 		});
 		button_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		button_1.setBounds(646, 441, 215, 36);
+		button_1.setBounds(642, 331, 215, 36);
 		getContentPane().add(button_1);
-
-		JLabel lblPeriod = new JLabel("Period");
-		lblPeriod.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		lblPeriod.setBounds(256, 150, 65, 32);
-		getContentPane().add(lblPeriod);
-
-		JLabel lblaPeriodIndicates = new JLabel(
-				"<html>A period indicates the number of ENERGY LEVELS in the atom. So if an element is in the 5th period, that means it contains 5 shells");
-		lblaPeriodIndicates.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblaPeriodIndicates.setBounds(256, 183, 254, 58);
-		getContentPane().add(lblaPeriodIndicates);
-
-		JLabel lblGroup = new JLabel("Group");
-		lblGroup.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		lblGroup.setBounds(520, 158, 65, 32);
-		getContentPane().add(lblGroup);
-
-		JLabel lblaGroupRepresents = new JLabel(
-				"<html>A group represents a FAMILY of elements. A group contains elements that have similar chemical properties such as their metal classification and reactivity. ");
-		lblaGroupRepresents.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblaGroupRepresents.setBounds(520, 190, 297, 51);
-		getContentPane().add(lblaGroupRepresents);
-
-		JLabel lblsoAsYou = new JLabel(
-				"<html>So as you move to the right, the number of electrons increase. The family will also begin to change based on column. ");
-		lblsoAsYou.setForeground(Color.RED);
-		lblsoAsYou.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblsoAsYou.setBounds(256, 244, 604, 40);
-		getContentPane().add(lblsoAsYou);
-
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\period.PNG"));
-		lblNewLabel.setBounds(256, 285, 283, 131);
-		getContentPane().add(lblNewLabel);
-
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\group.PNG"));
-		label.setBounds(577, 274, 254, 154);
-		getContentPane().add(label);
 
 	}
 
-	public void close() {
-		WindowEvent w = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
-		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(w);
+	public static void music() {
+
 	}
 
 	public void newClass() {
 
-		setSize(888, 527);
+		setSize(886, 414);
 		setLocation(300, 100);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);

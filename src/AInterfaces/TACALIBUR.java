@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Date;
 
 import javax.swing.AbstractAction;
@@ -69,11 +70,12 @@ public class TACALIBUR {
 
 	public static void courseComplete(JLabel from) {
 		Connection conn = sqliteConnection.ud();
+		Connection conn2 = sqliteConnection.c();
 		Date date = new Date();
 		String cdate = date.toString();
 
 		String fromHome = Home.username;
-		int index = from.getText().length() - 11;
+		int index = from.getText().length() - 10;
 		String courseName = from.getText().substring(0, index);
 
 		try {
@@ -84,6 +86,23 @@ public class TACALIBUR {
 
 			pst.execute();
 			pst.close();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
+		// retrieve email ID
+		try {
+			String qry = "select * from UserInfo";
+			PreparedStatement pst11 = conn2.prepareStatement(qry);
+			ResultSet rs1 = pst11.executeQuery();
+			while (rs1.next()) {
+				if (rs1.getString("Username").equals(fromHome)) {
+					String emailID = rs1.getString("Email");
+					SignUp.sendEmail(emailID, rs1.getString("Name"), fromHome, "Course completion: " + courseName, "Hi "
+							+ rs1.getString("Name") + ", \nYou have successfully completed the course of " + courseName
+							+ ". Your progress has been saved and you are welcome to revisit the material too. Your certificate of completion has also been attached.");
+
+				}
+			}
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 		}
@@ -621,7 +640,7 @@ public class TACALIBUR {
 
 		JCheckBox theory = new JCheckBox("Theory");
 		theory.setForeground(Color.BLACK);
-		theory.setBounds(31, 432, 157, 23);
+		theory.setBounds(200, 380, 157, 23);
 		theory.setEnabled(false);
 		theory.setSelected(true);
 		theory.setFont(new Font("Times New Roman", Font.PLAIN, 12));
@@ -678,7 +697,7 @@ public class TACALIBUR {
 
 		JCheckBox sol = new JCheckBox("Solutions");
 		sol.setForeground(Color.BLACK);
-		sol.setBounds(31, 458, 157, 23);
+		sol.setBounds(200, 406, 157, 23);
 		sol.setEnabled(false);
 		sol.setSelected(true);
 		sol.setFont(new Font("Times New Roman", Font.PLAIN, 12));
@@ -691,7 +710,7 @@ public class TACALIBUR {
 		lblNewLabel.setFont(new Font("Castellar", Font.BOLD, 15));
 		frame.getContentPane().add(lblNewLabel);
 
-		frame.setBounds(100, 100, 1074, 540);
+		frame.setBounds(100, 100, 1074, 484);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		// PHYSICS OPTIONS
@@ -861,10 +880,10 @@ public class TACALIBUR {
 		btnAllTheElements.setBounds(10, 91, 138, 23);
 		panel_3.add(btnAllTheElements);
 
-		JButton btnAtomsAndParticles = new JButton("Atoms and Particles");
+		JButton btnAtomsAndParticles = new JButton("Element Structure");
 		btnAtomsAndParticles.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				title1.setText("Atoms and Particles");
+				title1.setText("Element Structure");
 				description.setBounds(383, 35, 242, 90);
 				description.setText("<html>");
 				title1.setBounds(383, 11, 255, 23);
@@ -954,7 +973,7 @@ public class TACALIBUR {
 
 		JButton btnChemistryOfThe = new JButton("Chemistry of the Earth");
 		btnChemistryOfThe.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnChemistryOfThe.setBounds(10, 35, 143, 23);
+		btnChemistryOfThe.setBounds(10, 40, 143, 23);
 		panel_5.add(btnChemistryOfThe);
 
 		JButton btnSignificantMatter = new JButton("Significant Matter");
@@ -963,7 +982,7 @@ public class TACALIBUR {
 			}
 		});
 		btnSignificantMatter.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnSignificantMatter.setBounds(10, 64, 143, 23);
+		btnSignificantMatter.setBounds(10, 69, 143, 23);
 		panel_5.add(btnSignificantMatter);
 
 		JButton button_3 = new JButton("Begin Course!");
@@ -974,12 +993,12 @@ public class TACALIBUR {
 		JButton btnBasicsOfEarth = new JButton("Basics of Earth Science");
 
 		btnBasicsOfEarth.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnBasicsOfEarth.setBounds(10, 6, 143, 23);
+		btnBasicsOfEarth.setBounds(10, 11, 143, 23);
 		panel_5.add(btnBasicsOfEarth);
 
 		JButton btnPlanetsAndThe = new JButton("Planets and the Moon");
 		btnPlanetsAndThe.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnPlanetsAndThe.setBounds(10, 93, 143, 23);
+		btnPlanetsAndThe.setBounds(10, 98, 143, 23);
 		panel_5.add(btnPlanetsAndThe);
 
 		JPanel panel_6 = new JPanel();
@@ -1159,23 +1178,6 @@ public class TACALIBUR {
 		btnGreek.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnGreek.setBounds(10, 98, 143, 23);
 		panel_7.add(btnGreek);
-
-		JButton ka = new JButton("Khan Academy");
-		ka.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				String[] arguments = { "1", "2", "3" };
-				try {
-					Browser.main(arguments, "https://www.khanacademy.org");
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				} catch (URISyntaxException e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
-		ka.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		ka.setBounds(258, 380, 133, 32);
-		frame.getContentPane().add(ka);
 
 		wordt.addKeyListener(new KeyAdapter() {
 			@Override

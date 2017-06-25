@@ -53,7 +53,7 @@ public class ScientificCaculator {
 	 */
 	private void initialize() {
 		frame = new JFrame("Scientific Calculator");
-		frame.setBounds(100, 100, 523, 346);
+		frame.setBounds(100, 100, 523, 303);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		JMenuBar menuBar = new JMenuBar();
@@ -597,18 +597,6 @@ public class ScientificCaculator {
 		pi.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		pi.setBounds(265, 83, 53, 34);
 		frame.getContentPane().add(pi);
-
-		JButton btnNewButton = new JButton("Back to Main Page");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Main m = new Main();
-				m.setVisible(true);
-				m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				m.setSize(800, 600);
-			}
-		});
-		btnNewButton.setBounds(136, 250, 166, 23);
-		frame.getContentPane().add(btnNewButton);
 	}
 
 	private class SwingAction extends AbstractAction {

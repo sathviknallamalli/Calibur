@@ -153,7 +153,7 @@ public class HWHELP {
 		JLabel rInfo = new JLabel(
 				"There are also some common useful tools that can be used for subjects such as a trig table, unit circle, physics formula sheet and more");
 		rInfo.setFont(new Font("Times New Roman", Font.ITALIC, 12));
-		rInfo.setBounds(31, 77, 780, 30);
+		rInfo.setBounds(62, 77, 649, 30);
 		frame.getContentPane().add(rInfo);
 
 		JLabel mRes = new JLabel("Math Resources");

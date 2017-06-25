@@ -1,4 +1,5 @@
 package AInterfaces;
+
 import java.awt.Color;
 import java.io.File;
 import java.util.Timer;
@@ -11,6 +12,7 @@ import PeriodicTable.Audio;
 
 public class Countdown {
 	static int secondsPassed = 1;
+	static int secPass = 0;
 
 	public void start(JLabel from, String timerType) {
 		Timer timer = new Timer();
@@ -38,16 +40,17 @@ public class Countdown {
 	}
 
 	public void countUp(JLabel from) {
-		Timer timer = new Timer();
-		TimerTask task = new TimerTask() {
+
+		Timer tim = new Timer();
+		TimerTask t = new TimerTask() {
 			public void run() {
-				from.setText("00:00:0" + secondsPassed);
-				if (secondsPassed >= 10) {
-					from.setText("00:00:" + secondsPassed);
+				from.setText("00:00:0" + secPass);
+				if (secPass >= 10) {
+					from.setText("00:00:" + secPass);
 				}
-				if (secondsPassed >= 60) {
-					int minholder = secondsPassed / 60;
-					int secholder = secondsPassed % 60;
+				if (secPass >= 60) {
+					int minholder = secPass / 60;
+					int secholder = secPass % 60;
 					String mm;
 					if (minholder >= 10) {
 						mm = "" + minholder;
@@ -60,10 +63,10 @@ public class Countdown {
 						from.setText("00:" + mm + ":0" + secholder);
 					}
 				}
-				if (secondsPassed >= 3600) {
-					int hourholder = secondsPassed / 3600;
-					int minholder = (secondsPassed % 3600) / 60;
-					int secholder = (secondsPassed % 3600) % 60;
+				if (secPass >= 3600) {
+					int hourholder = secPass / 3600;
+					int minholder = (secPass % 3600) / 60;
+					int secholder = (secPass % 3600) % 60;
 					String hh;
 					String mm;
 					String ss;
@@ -86,27 +89,12 @@ public class Countdown {
 					from.setText(hh + ":" + mm + ":" + ss + ":");
 
 				}
-				secondsPassed++;
+				secPass++;
 
 			}
 		};
 
-		timer.scheduleAtFixedRate(task, 1000, 1000);
-
-	}
-
-	public void puase(JLabel from) {
-		Timer timer = new Timer();
-
-		TimerTask task = new TimerTask() {
-			public void run() {
-
-				timer.cancel();
-
-			}
-		};
-
-		timer.scheduleAtFixedRate(task, 1000, 1000);
+		tim.scheduleAtFixedRate(t, 1000, 1000);
 
 	}
 

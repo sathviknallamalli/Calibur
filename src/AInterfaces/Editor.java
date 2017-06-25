@@ -1,4 +1,5 @@
 package AInterfaces;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -26,6 +27,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
 import FundamentalsOfAlgebra.FileTypeFilter;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Editor {
 

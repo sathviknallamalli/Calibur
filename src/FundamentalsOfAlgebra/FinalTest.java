@@ -571,10 +571,11 @@ public class FinalTest extends JFrame {
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						if (ms >= 12) {
+							TACALIBUR.courseComplete(title);
 							Dup w = new Dup();
 							w.newClass();
 							close();
-							TACALIBUR.courseComplete(title);
+
 						} else {
 							JOptionPane.showMessageDialog(null,
 									"Sorry, but you failed, no certificate for you. You can redo this course and try to get the achievement certificate. ");

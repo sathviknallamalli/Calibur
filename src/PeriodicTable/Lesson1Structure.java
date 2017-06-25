@@ -16,8 +16,8 @@ import javax.swing.JLabel;
 import Machines.Audio;
 import javax.swing.ImageIcon;
 
-public class Lesson1 extends JFrame {
-	public Lesson1() {
+public class Lesson1Structure extends JFrame {
+	public Lesson1Structure() {
 		getContentPane().setLayout(null);
 
 		JLabel title = new JLabel("Lesson 1 - Arrangement & Structure");
@@ -76,26 +76,26 @@ public class Lesson1 extends JFrame {
 		btnPeriodictable.setBounds(10, 14, 127, 40);
 		getContentPane().add(btnPeriodictable);
 
-		JLabel lblWhoWhatWhen = new JLabel("Arrangement");
+		JLabel lblWhoWhatWhen = new JLabel("How to read it");
 		lblWhoWhatWhen.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		lblWhoWhatWhen.setBounds(256, 57, 112, 32);
+		lblWhoWhatWhen.setBounds(256, 57, 127, 32);
 		getContentPane().add(lblWhoWhatWhen);
 
 		JLabel lblthisPeriodicTable = new JLabel(
-				"<html>The periodic table consists of 7 rows and 18 columns. New elements will continously be added to the table based on the propertues. A ROW IS CALLED A PERIOD and a COLUMN is called a GROUP. They are arranged by similar CHEMICAL PROPERTIES");
+				"<html>Each elemental block consists of the mass number, atomic number, atomic symbol, and element name. There are 118 elements that follow this format. Reading it can help determine the chemical structure of it");
 		lblthisPeriodicTable.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblthisPeriodicTable.setBounds(256, 90, 605, 58);
+		lblthisPeriodicTable.setBounds(256, 90, 605, 42);
 		getContentPane().add(lblthisPeriodicTable);
 
 		JButton button = new JButton("Activate Calibur!");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				File Clap = new File("C:\\Users\\sathv\\Desktop\\WAV Audios\\Arrangement.wav");
+				File Clap = new File("C:\\Users\\sathv\\Desktop\\WAV Audios\\HowToRead.wav");
 				Audio.PlaySound(Clap);
 			}
 		});
 		button.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		button.setBounds(378, 66, 132, 23);
+		button.setBounds(390, 66, 132, 23);
 		getContentPane().add(button);
 
 		JCheckBox chckbxLesson_5 = new JCheckBox("Lesson 4 - Transition Metals");
@@ -120,56 +120,96 @@ public class Lesson1 extends JFrame {
 		chckbxPreview.setBounds(11, 87, 230, 23);
 		getContentPane().add(chckbxPreview);
 
-		JButton button_1 = new JButton("Continue!");
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\element.png"));
+		lblNewLabel.setBounds(255, 140, 102, 103);
+		getContentPane().add(lblNewLabel);
+
+		JLabel lblMassNumber = new JLabel("Atomic number - 1");
+		lblMassNumber.setForeground(Color.BLUE);
+		lblMassNumber.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblMassNumber.setBounds(377, 140, 112, 23);
+		getContentPane().add(lblMassNumber);
+
+		JLabel lblAtomicSymbol = new JLabel("Atomic symbol - H");
+		lblAtomicSymbol.setForeground(Color.BLUE);
+		lblAtomicSymbol.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblAtomicSymbol.setBounds(377, 166, 112, 23);
+		getContentPane().add(lblAtomicSymbol);
+
+		JLabel lblElementName = new JLabel("Element name - Hydrogen");
+		lblElementName.setForeground(Color.BLUE);
+		lblElementName.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblElementName.setBounds(377, 192, 162, 23);
+		getContentPane().add(lblElementName);
+
+		JLabel lblAtomicMass = new JLabel("Atomic mass - 1.008");
+		lblAtomicMass.setForeground(Color.BLUE);
+		lblAtomicMass.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblAtomicMass.setBounds(377, 218, 162, 23);
+		getContentPane().add(lblAtomicMass);
+
+		JLabel lblatomicNumberIs = new JLabel("<html>Atomic number is the number of protons & electrons in the atom");
+		lblatomicNumberIs.setForeground(Color.RED);
+		lblatomicNumberIs.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblatomicNumberIs.setBounds(509, 140, 352, 23);
+		getContentPane().add(lblatomicNumberIs);
+
+		JLabel lblatomicSymbolIs = new JLabel(
+				"<html>Atomic symbol is only 1 or 2 letters that can be used in equations");
+		lblatomicSymbolIs.setForeground(Color.RED);
+		lblatomicSymbolIs.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblatomicSymbolIs.setBounds(525, 166, 336, 32);
+		getContentPane().add(lblatomicSymbolIs);
+
+		JLabel lblelementNameUsually = new JLabel("<html>Element name usually occurs below the atomic symbol");
+		lblelementNameUsually.setForeground(Color.RED);
+		lblelementNameUsually.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblelementNameUsually.setBounds(525, 205, 336, 23);
+		getContentPane().add(lblelementNameUsually);
+
+		JLabel lblatomicMassIs = new JLabel(
+				"<html>Atomic mass is a weighted average of all stable isotopes mass number. MASS NUMBER is SUM of PROTONS and NEUTRONS");
+		lblatomicMassIs.setForeground(Color.RED);
+		lblatomicMassIs.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblatomicMassIs.setBounds(525, 226, 336, 53);
+		getContentPane().add(lblatomicMassIs);
+
+		JLabel lblthisElementIs = new JLabel("<html>This element is found in Period 1, so it has only 1 energy level");
+		lblthisElementIs.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblthisElementIs.setBounds(256, 244, 196, 53);
+		getContentPane().add(lblthisElementIs);
+
+		JLabel lblallElementsIn = new JLabel(
+				"<html>All elements in the periodic table are stable and balanced so they have the same number of protons and electrons which can be determined by the mass number or the rounded atomic mass. ");
+		lblallElementsIn.setForeground(Color.BLUE);
+		lblallElementsIn.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblallElementsIn.setBounds(10, 320, 336, 63);
+		getContentPane().add(lblallElementsIn);
+
+		JLabel label = new JLabel("<html>You cannot access this page during the review\r\n\r\n");
+		label.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		label.setBounds(377, 360, 261, 23);
+		getContentPane().add(label);
+
+		JButton button_1 = new JButton("Lesson Review");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Lesson1Structure l = new Lesson1Structure();
+				Lesson1Review l = new Lesson1Review();
 				l.newClass();
 				close();
 			}
 		});
 		button_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		button_1.setBounds(646, 441, 215, 36);
+		button_1.setBounds(646, 354, 215, 36);
 		getContentPane().add(button_1);
 
-		JLabel lblPeriod = new JLabel("Period");
-		lblPeriod.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		lblPeriod.setBounds(256, 150, 65, 32);
-		getContentPane().add(lblPeriod);
-
-		JLabel lblaPeriodIndicates = new JLabel(
-				"<html>A period indicates the number of ENERGY LEVELS in the atom. So if an element is in the 5th period, that means it contains 5 shells");
-		lblaPeriodIndicates.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblaPeriodIndicates.setBounds(256, 183, 254, 58);
-		getContentPane().add(lblaPeriodIndicates);
-
-		JLabel lblGroup = new JLabel("Group");
-		lblGroup.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		lblGroup.setBounds(520, 158, 65, 32);
-		getContentPane().add(lblGroup);
-
-		JLabel lblaGroupRepresents = new JLabel(
-				"<html>A group represents a FAMILY of elements. A group contains elements that have similar chemical properties such as their metal classification and reactivity. ");
-		lblaGroupRepresents.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblaGroupRepresents.setBounds(520, 190, 297, 51);
-		getContentPane().add(lblaGroupRepresents);
-
-		JLabel lblsoAsYou = new JLabel(
-				"<html>So as you move to the right, the number of electrons increase. The family will also begin to change based on column. ");
-		lblsoAsYou.setForeground(Color.RED);
-		lblsoAsYou.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblsoAsYou.setBounds(256, 244, 604, 40);
-		getContentPane().add(lblsoAsYou);
-
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\period.PNG"));
-		lblNewLabel.setBounds(256, 285, 283, 131);
-		getContentPane().add(lblNewLabel);
-
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\group.PNG"));
-		label.setBounds(577, 274, 254, 154);
-		getContentPane().add(label);
+		JLabel lblwhenGivenThe = new JLabel(
+				"<html>When given the atomic number and atomic mass, you can easily find the number of neutrons by subbtracting the two. Because atomic number is protons and mass number is protons + neutrons, you are isolating neutrons");
+		lblwhenGivenThe.setForeground(Color.RED);
+		lblwhenGivenThe.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblwhenGivenThe.setBounds(377, 290, 471, 53);
+		getContentPane().add(lblwhenGivenThe);
 
 	}
 
@@ -180,7 +220,7 @@ public class Lesson1 extends JFrame {
 
 	public void newClass() {
 
-		setSize(888, 527);
+		setSize(889, 440);
 		setLocation(300, 100);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);

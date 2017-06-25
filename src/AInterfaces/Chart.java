@@ -1,4 +1,5 @@
 package AInterfaces;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -467,7 +468,6 @@ public class Chart {
 		frame.getContentPane().add(ins);
 
 		JButton insc = new JButton("Insert New Column\r\n");
-
 		insc.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		insc.setBounds(688, 130, 159, 31);
 		frame.getContentPane().add(insc);
@@ -714,8 +714,8 @@ public class Chart {
 					});
 					insc.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							newCol.setBounds(688, 184, 105, 23);
-							add.setBounds(796, 184, 74, 23);
+							newCol.setBounds(688, 97, 105, 23);
+							add.setBounds(796, 97, 74, 23);
 							add.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent a) {
 									String nc = newCol.getText();
@@ -885,8 +885,8 @@ public class Chart {
 					});
 					insc.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							newCol.setBounds(688, 184, 105, 23);
-							add.setBounds(796, 184, 74, 23);
+							newCol.setBounds(688, 97, 105, 23);
+							add.setBounds(796, 97, 74, 23);
 							add.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent a) {
 									String nc = newCol.getText();
@@ -938,8 +938,8 @@ public class Chart {
 					});
 					insc.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							newCol.setBounds(688, 184, 105, 23);
-							add.setBounds(796, 184, 74, 23);
+							newCol.setBounds(688, 97, 105, 23);
+							add.setBounds(796, 97, 74, 23);
 							add.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent a) {
 									String nc = newCol.getText();
@@ -991,8 +991,8 @@ public class Chart {
 					});
 					insc.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							newCol.setBounds(688, 184, 105, 23);
-							add.setBounds(796, 184, 74, 23);
+							newCol.setBounds(688, 97, 105, 23);
+							add.setBounds(796, 97, 74, 23);
 							add.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent a) {
 									String nc = newCol.getText();
@@ -1043,8 +1043,8 @@ public class Chart {
 					});
 					insc.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							newCol.setBounds(688, 184, 105, 23);
-							add.setBounds(796, 184, 74, 23);
+							newCol.setBounds(688, 97, 105, 23);
+							add.setBounds(796, 97, 74, 23);
 							add.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent a) {
 									String nc = newCol.getText();
@@ -1097,8 +1097,8 @@ public class Chart {
 					});
 					insc.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							newCol.setBounds(688, 184, 105, 23);
-							add.setBounds(796, 184, 74, 23);
+							newCol.setBounds(688, 97, 105, 23);
+							add.setBounds(796, 97, 74, 23);
 							add.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent a) {
 									String nc = newCol.getText();
@@ -1150,8 +1150,8 @@ public class Chart {
 					});
 					insc.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							newCol.setBounds(688, 184, 105, 23);
-							add.setBounds(796, 184, 74, 23);
+							newCol.setBounds(688, 97, 105, 23);
+							add.setBounds(796, 97, 74, 23);
 							add.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent a) {
 									String nc = newCol.getText();
@@ -1204,8 +1204,8 @@ public class Chart {
 					});
 					insc.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							newCol.setBounds(688, 184, 105, 23);
-							add.setBounds(796, 184, 74, 23);
+							newCol.setBounds(688, 97, 105, 23);
+							add.setBounds(796, 97, 74, 23);
 							add.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent a) {
 									String nc = newCol.getText();
@@ -1258,8 +1258,8 @@ public class Chart {
 					});
 					insc.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							newCol.setBounds(688, 184, 105, 23);
-							add.setBounds(796, 184, 74, 23);
+							newCol.setBounds(688, 97, 105, 23);
+							add.setBounds(796, 97, 74, 23);
 							add.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent a) {
 									String nc = newCol.getText();
@@ -1314,8 +1314,8 @@ public class Chart {
 					});
 					insc.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							newCol.setBounds(688, 184, 105, 23);
-							add.setBounds(796, 184, 74, 23);
+							newCol.setBounds(688, 97, 105, 23);
+							add.setBounds(796, 97, 74, 23);
 							add.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent a) {
 									String nc = newCol.getText();
@@ -1370,8 +1370,8 @@ public class Chart {
 					});
 					insc.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							newCol.setBounds(688, 184, 105, 23);
-							add.setBounds(796, 184, 74, 23);
+							newCol.setBounds(688, 97, 105, 23);
+							add.setBounds(796, 97, 74, 23);
 							add.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent a) {
 									String nc = newCol.getText();
@@ -1427,8 +1427,8 @@ public class Chart {
 					});
 					insc.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							newCol.setBounds(688, 184, 105, 23);
-							add.setBounds(796, 184, 74, 23);
+							newCol.setBounds(688, 97, 105, 23);
+							add.setBounds(796, 97, 74, 23);
 							add.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent a) {
 									String nc = newCol.getText();
@@ -1484,8 +1484,8 @@ public class Chart {
 					});
 					insc.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							newCol.setBounds(688, 184, 105, 23);
-							add.setBounds(796, 184, 74, 23);
+							newCol.setBounds(688, 97, 105, 23);
+							add.setBounds(796, 97, 74, 23);
 							add.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent a) {
 									String nc = newCol.getText();
@@ -1544,8 +1544,8 @@ public class Chart {
 					});
 					insc.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							newCol.setBounds(688, 206, 105, 23);
-							add.setBounds(796, 206, 74, 23);
+							newCol.setBounds(688, 97, 105, 23);
+							add.setBounds(796, 97, 74, 23);
 							add.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent a) {
 									String nc = newCol.getText();

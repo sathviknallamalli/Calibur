@@ -16,13 +16,13 @@ import javax.swing.JLabel;
 import Machines.Audio;
 import javax.swing.ImageIcon;
 
-public class Lesson1 extends JFrame {
-	public Lesson1() {
+public class Lesson2 extends JFrame {
+	public Lesson2() {
 		getContentPane().setLayout(null);
 
-		JLabel title = new JLabel("Lesson 1 - Arrangement & Structure");
+		JLabel title = new JLabel("Lesson 2 - Alkali Metals");
 		title.setFont(new Font("Castellar", Font.PLAIN, 20));
-		title.setBounds(285, 11, 453, 42);
+		title.setBounds(338, 11, 300, 42);
 		getContentPane().add(title);
 
 		JCheckBox chckbxLesson_4 = new JCheckBox("Lesson 6 - Halogens & Noble Gases");
@@ -54,6 +54,7 @@ public class Lesson1 extends JFrame {
 		getContentPane().add(chckbxLesson_1);
 
 		JCheckBox chckbxLesson = new JCheckBox("Lesson 1 - Arrangement & Structure");
+		chckbxLesson.setSelected(true);
 		chckbxLesson.setForeground(Color.RED);
 		chckbxLesson.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		chckbxLesson.setEnabled(false);
@@ -76,21 +77,22 @@ public class Lesson1 extends JFrame {
 		btnPeriodictable.setBounds(10, 14, 127, 40);
 		getContentPane().add(btnPeriodictable);
 
-		JLabel lblWhoWhatWhen = new JLabel("Arrangement");
+		JLabel lblWhoWhatWhen = new JLabel("Alkali Metals");
 		lblWhoWhatWhen.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		lblWhoWhatWhen.setBounds(256, 57, 112, 32);
 		getContentPane().add(lblWhoWhatWhen);
 
 		JLabel lblthisPeriodicTable = new JLabel(
-				"<html>The periodic table consists of 7 rows and 18 columns. New elements will continously be added to the table based on the propertues. A ROW IS CALLED A PERIOD and a COLUMN is called a GROUP. They are arranged by similar CHEMICAL PROPERTIES");
-		lblthisPeriodicTable.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+				"<html>The alkali metals are in GROUP 1. HYDROGEN is in group 1, but IS NOT part of the Alkali Metals group. There are only 6 elements in this group that all end in the suffix 'IUM'. They are HIGHLY REACTIVE metals that are SOFT. If you have seen pure sodium, its very soft to cut. ");
+		lblthisPeriodicTable.setForeground(Color.RED);
+		lblthisPeriodicTable.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		lblthisPeriodicTable.setBounds(256, 90, 605, 58);
 		getContentPane().add(lblthisPeriodicTable);
 
 		JButton button = new JButton("Activate Calibur!");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				File Clap = new File("C:\\Users\\sathv\\Desktop\\WAV Audios\\Arrangement.wav");
+				File Clap = new File("C:\\Users\\sathv\\Desktop\\WAV Audios\\AlkaliMetals.wav");
 				Audio.PlaySound(Clap);
 			}
 		});
@@ -120,56 +122,95 @@ public class Lesson1 extends JFrame {
 		chckbxPreview.setBounds(11, 87, 230, 23);
 		getContentPane().add(chckbxPreview);
 
-		JButton button_1 = new JButton("Continue!");
+		JLabel lblGroup = new JLabel("Electron Configuration- Bohr Model");
+		lblGroup.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		lblGroup.setBounds(256, 210, 306, 32);
+		getContentPane().add(lblGroup);
+
+		JLabel lblaGroupRepresents = new JLabel(
+				"<html>These elements has one ELECTRON ON THE OUTER SHELL. They want to be complete and get rid of it, so it makes them HIGHLY REACTIVE. All the elements will have this extra electron. ");
+		lblaGroupRepresents.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblaGroupRepresents.setBounds(256, 242, 297, 73);
+		getContentPane().add(lblaGroupRepresents);
+
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\am.PNG"));
+		label.setBounds(566, 165, 295, 229);
+		getContentPane().add(label);
+
+		JLabel lblLithium = new JLabel("Lithium");
+		lblLithium.setForeground(Color.BLUE);
+		lblLithium.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblLithium.setBounds(256, 159, 96, 19);
+		getContentPane().add(lblLithium);
+
+		JLabel lblSodium = new JLabel("Sodium");
+		lblSodium.setForeground(Color.BLUE);
+		lblSodium.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblSodium.setBounds(256, 182, 96, 19);
+		getContentPane().add(lblSodium);
+
+		JLabel lblPotassiu = new JLabel("Potassium");
+		lblPotassiu.setForeground(Color.BLUE);
+		lblPotassiu.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblPotassiu.setBounds(338, 161, 96, 19);
+		getContentPane().add(lblPotassiu);
+
+		JLabel lblRubidium = new JLabel("Rubidium");
+		lblRubidium.setForeground(Color.BLUE);
+		lblRubidium.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblRubidium.setBounds(338, 184, 96, 19);
+		getContentPane().add(lblRubidium);
+
+		JLabel lblCesium = new JLabel("Cesium");
+		lblCesium.setForeground(Color.BLUE);
+		lblCesium.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblCesium.setBounds(417, 161, 96, 19);
+		getContentPane().add(lblCesium);
+
+		JLabel lblFrancium = new JLabel("Francium");
+		lblFrancium.setForeground(Color.BLUE);
+		lblFrancium.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblFrancium.setBounds(417, 184, 96, 19);
+		getContentPane().add(lblFrancium);
+
+		JLabel label_2 = new JLabel("");
+		label_2.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\sodium.PNG"));
+		label_2.setBounds(387, 405, 101, 85);
+		getContentPane().add(label_2);
+
+		JLabel label_3 = new JLabel("");
+		label_3.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\left.png"));
+		label_3.setBounds(479, 353, 53, 50);
+		getContentPane().add(label_3);
+
+		JLabel lblExtraElectron = new JLabel("Extra electron");
+		lblExtraElectron.setForeground(Color.BLUE);
+		lblExtraElectron.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lblExtraElectron.setBounds(403, 358, 96, 19);
+		getContentPane().add(lblExtraElectron);
+
+		JLabel label_4 = new JLabel("");
+		label_4.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\ampt.PNG"));
+		label_4.setBounds(11, 316, 366, 196);
+		getContentPane().add(label_4);
+
+		JButton button_1 = new JButton("Lesson Review");
 		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Lesson1Structure l = new Lesson1Structure();
-				l.newClass();
+			public void actionPerformed(ActionEvent arg0) {
+				Lesson2Review l2 = new Lesson2Review();
+				l2.newClass();
 				close();
 			}
 		});
 		button_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		button_1.setBounds(646, 441, 215, 36);
+		button_1.setBounds(657, 477, 215, 36);
 		getContentPane().add(button_1);
 
-		JLabel lblPeriod = new JLabel("Period");
-		lblPeriod.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		lblPeriod.setBounds(256, 150, 65, 32);
-		getContentPane().add(lblPeriod);
-
-		JLabel lblaPeriodIndicates = new JLabel(
-				"<html>A period indicates the number of ENERGY LEVELS in the atom. So if an element is in the 5th period, that means it contains 5 shells");
-		lblaPeriodIndicates.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblaPeriodIndicates.setBounds(256, 183, 254, 58);
-		getContentPane().add(lblaPeriodIndicates);
-
-		JLabel lblGroup = new JLabel("Group");
-		lblGroup.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		lblGroup.setBounds(520, 158, 65, 32);
-		getContentPane().add(lblGroup);
-
-		JLabel lblaGroupRepresents = new JLabel(
-				"<html>A group represents a FAMILY of elements. A group contains elements that have similar chemical properties such as their metal classification and reactivity. ");
-		lblaGroupRepresents.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblaGroupRepresents.setBounds(520, 190, 297, 51);
-		getContentPane().add(lblaGroupRepresents);
-
-		JLabel lblsoAsYou = new JLabel(
-				"<html>So as you move to the right, the number of electrons increase. The family will also begin to change based on column. ");
-		lblsoAsYou.setForeground(Color.RED);
-		lblsoAsYou.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblsoAsYou.setBounds(256, 244, 604, 40);
-		getContentPane().add(lblsoAsYou);
-
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\period.PNG"));
-		lblNewLabel.setBounds(256, 285, 283, 131);
-		getContentPane().add(lblNewLabel);
-
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\group.PNG"));
-		label.setBounds(577, 274, 254, 154);
-		getContentPane().add(label);
+		JLabel label_5 = new JLabel("<html>You cannot access this page during the review\r\n\r\n");
+		label_5.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		label_5.setBounds(621, 443, 261, 23);
+		getContentPane().add(label_5);
 
 	}
 
@@ -180,7 +221,7 @@ public class Lesson1 extends JFrame {
 
 	public void newClass() {
 
-		setSize(888, 527);
+		setSize(898, 563);
 		setLocation(300, 100);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);

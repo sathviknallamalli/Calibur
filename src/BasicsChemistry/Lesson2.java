@@ -250,7 +250,7 @@ public class Lesson2 extends JFrame {
 	public void newClass() {
 
 		setSize(1096, 602);
-		setLocation(300, 100);
+		setLocation(150, 100);
 		setVisible(true);
 		setResizable(false);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);

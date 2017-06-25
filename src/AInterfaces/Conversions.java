@@ -1,4 +1,5 @@
 package AInterfaces;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -66,7 +67,7 @@ public class Conversions {
 	private void initialize() {
 		frame = new JFrame("Calibur Converter");
 		frame.getContentPane().setBackground(Color.CYAN);
-		frame.setBounds(100, 100, 812, 587);
+		frame.setBounds(100, 100, 812, 544);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -130,7 +131,7 @@ public class Conversions {
 		label_5.setBounds(156, 195, 51, 23);
 		frame.getContentPane().add(label_5);
 
-		JLabel lengthResult = new JLabel("erhsrth");
+		JLabel lengthResult = new JLabel("");
 		lengthResult.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lengthResult.setBounds(10, 253, 272, 32);
 		frame.getContentPane().add(lengthResult);
@@ -725,7 +726,7 @@ public class Conversions {
 		label_9.setBounds(632, 195, 51, 23);
 		frame.getContentPane().add(label_9);
 
-		JLabel massResult = new JLabel("rthrhrth");
+		JLabel massResult = new JLabel("");
 		massResult.setFont(new Font("Tahoma", Font.BOLD, 14));
 		massResult.setBounds(488, 253, 272, 32);
 		frame.getContentPane().add(massResult);
@@ -916,7 +917,7 @@ public class Conversions {
 		temp2.setBounds(156, 367, 80, 23);
 		frame.getContentPane().add(temp2);
 
-		JLabel tempResult = new JLabel("tsrhrtshsrthrsh");
+		JLabel tempResult = new JLabel("");
 		tempResult.setFont(new Font("Tahoma", Font.BOLD, 14));
 		tempResult.setBounds(10, 463, 296, 32);
 		frame.getContentPane().add(tempResult);
@@ -1013,7 +1014,7 @@ public class Conversions {
 		label_17.setBounds(501, 405, 51, 23);
 		frame.getContentPane().add(label_17);
 
-		JLabel volResult = new JLabel("srthrshtsrh");
+		JLabel volResult = new JLabel("");
 		volResult.setFont(new Font("Tahoma", Font.BOLD, 14));
 		volResult.setBounds(488, 471, 272, 32);
 		frame.getContentPane().add(volResult);
@@ -1194,7 +1195,7 @@ public class Conversions {
 			}
 		});
 		btnFormulasPage.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		btnFormulasPage.setBounds(300, 505, 201, 32);
+		btnFormulasPage.setBounds(290, 463, 201, 32);
 		frame.getContentPane().add(btnFormulasPage);
 
 		JLabel lblCurrencyConverter = new JLabel("Currency Converter\r\n\r\n");
@@ -1457,13 +1458,13 @@ public class Conversions {
 		label_21.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		label_21.setBounds(467, 120, 24, 375);
 		frame.getContentPane().add(label_21);
-		
+
 		JLabel label_22 = new JLabel("");
 		label_22.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\harrow.png"));
 		label_22.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		label_22.setBounds(0, 280, 250, 18);
 		frame.getContentPane().add(label_22);
-		
+
 		JLabel label_23 = new JLabel("");
 		label_23.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\harrow.png"));
 		label_23.setFont(new Font("Times New Roman", Font.BOLD, 14));

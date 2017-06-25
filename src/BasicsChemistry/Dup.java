@@ -50,7 +50,7 @@ public class Dup {
 		frame.setBounds(100, 100, 599, 582);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		// String name = FinalTest.textField.getText();
+		String name = FinalTest.textField.getText();
 		frame.getContentPane().setLayout(null);
 
 		JButton btnNewButton = new JButton("Course Database");
@@ -73,7 +73,7 @@ public class Dup {
 		pic.setBounds(0, 0, 581, 425);
 		frame.getContentPane().add(pic);
 
-		JLabel lab = new JLabel();
+		JLabel lab = new JLabel(name);
 		lab.setFont(new Font("Bradley Hand ITC", Font.PLAIN, 20));
 		lab.setBackground(Color.RED);
 		lab.setForeground(Color.BLACK);

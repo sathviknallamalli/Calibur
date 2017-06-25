@@ -347,7 +347,7 @@ public class BasicsOfChemistry extends JFrame {
 	public void newClass() {
 
 		setSize(800, 631);
-		setLocation(300, 100);
+		setLocation(200, 50);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 

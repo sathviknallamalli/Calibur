@@ -1,4 +1,5 @@
 package AInterfaces;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -380,7 +381,7 @@ public class Reminders {
 		JLabel label = new JLabel();
 		label.setText("00:00:00");
 		label.setFont(new Font("Arial", Font.BOLD, 20));
-		label.setBounds(557, 224, 127, 29);
+		label.setBounds(557, 224, 96, 29);
 		frame.getContentPane().add(label);
 
 		JLabel resetLaps = new JLabel();
@@ -403,9 +404,9 @@ public class Reminders {
 				count++;
 				if (count % 2 == 1) {
 					pausePlay.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\pause.PNG"));
-					pausePlay.setBounds(729, 215, 63, 35);
+					pausePlay.setBounds(680, 223, 55, 35);
 					resetLaps.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\laps.png"));
-					resetLaps.setBounds(684, 213, 63, 35);
+					resetLaps.setBounds(634, 224, 63, 29);
 					Countdown c = new Countdown();
 					c.countUp(label);
 
@@ -430,9 +431,9 @@ public class Reminders {
 					});
 				} else {
 					pausePlay.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\play.PNG"));
-					pausePlay.setBounds(698, 221, 63, 35);
+					pausePlay.setBounds(676, 221, 63, 35);
 					resetLaps.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\reset.png"));
-					resetLaps.setBounds(648, 221, 63, 35);
+					resetLaps.setBounds(626, 221, 63, 35);
 
 				}
 

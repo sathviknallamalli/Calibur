@@ -1,4 +1,5 @@
 package AInterfaces;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -12,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
 import BrickBreaker.Center;
-import ColorGame.Driver;
 import FlappyBird.FlappyBird;
 import Simulations.DiceRolling;
 import Simulations.HeadsTails;
@@ -86,12 +86,12 @@ public class Games {
 			}
 		});
 		btnRandomGuessingGame.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnRandomGuessingGame.setBounds(45, 184, 178, 29);
+		btnRandomGuessingGame.setBounds(37, 172, 178, 29);
 		frame.getContentPane().add(btnRandomGuessingGame);
 
 		JLabel lbltryAndGuess = new JLabel("<html>Try and guess the number!!! There are different versions too!");
 		lbltryAndGuess.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		lbltryAndGuess.setBounds(55, 218, 161, 51);
+		lbltryAndGuess.setBounds(47, 206, 161, 51);
 		frame.getContentPane().add(lbltryAndGuess);
 
 		JButton btnDiceRollingSimulation = new JButton("Dice Rolling Simulation");
@@ -128,7 +128,7 @@ public class Games {
 
 		JLabel pt = new JLabel();
 		pt.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\qmark.png"));
-		pt.setBounds(111, 255, 46, 67);
+		pt.setBounds(103, 243, 46, 67);
 		frame.getContentPane().add(pt);
 
 		JLabel label = new JLabel();
@@ -143,7 +143,7 @@ public class Games {
 
 		JLabel lab1 = new JLabel();
 		lab1.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\random.png"));
-		lab1.setBounds(40, 122, 188, 51);
+		lab1.setBounds(32, 110, 188, 51);
 		frame.getContentPane().add(lab1);
 
 		JLabel lab2 = new JLabel();
@@ -200,17 +200,17 @@ public class Games {
 			}
 		});
 		btnRapidColorFire.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnRapidColorFire.setBounds(353, 350, 178, 29);
+		btnRapidColorFire.setBounds(353, 336, 178, 29);
 		frame.getContentPane().add(btnRapidColorFire);
 
 		JLabel lblchooseTheColor = new JLabel("<html>Choose the color that it says as fast as possible!!!");
 		lblchooseTheColor.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		lblchooseTheColor.setBounds(363, 385, 161, 32);
+		lblchooseTheColor.setBounds(363, 371, 161, 32);
 		frame.getContentPane().add(lblchooseTheColor);
 
 		JLabel lab6 = new JLabel();
 		lab6.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\breaker.PNG"));
-		lab6.setBounds(216, 447, 107, 96);
+		lab6.setBounds(216, 447, 105, 97);
 		frame.getContentPane().add(lab6);
 
 		JButton btnBreakOut = new JButton("Break Out!!");
@@ -236,17 +236,17 @@ public class Games {
 			}
 		});
 		btnFlappyBird.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnFlappyBird.setBounds(353, 460, 178, 29);
+		btnFlappyBird.setBounds(353, 428, 178, 29);
 		frame.getContentPane().add(btnFlappyBird);
 
 		JLabel lblaCultClassic = new JLabel("<html>A cult classic game that has addicted people accross the nation");
 		lblaCultClassic.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		lblaCultClassic.setBounds(360, 493, 161, 50);
+		lblaCultClassic.setBounds(360, 461, 161, 50);
 		frame.getContentPane().add(lblaCultClassic);
 
 		JLabel lab7 = new JLabel();
 		lab7.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\flap.PNG"));
-		lab7.setBounds(541, 471, 75, 72);
+		lab7.setBounds(541, 428, 75, 72);
 		frame.getContentPane().add(lab7);
 
 	}

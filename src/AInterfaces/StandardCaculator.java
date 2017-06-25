@@ -47,7 +47,7 @@ public class StandardCaculator {
 	 */
 	private void initialize() {
 		frame = new JFrame("Standard Calculator");
-		frame.setBounds(100, 100, 279, 320);
+		frame.setBounds(100, 100, 279, 282);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -341,17 +341,5 @@ public class StandardCaculator {
 		btnx.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnx.setBounds(202, 120, 53, 34);
 		frame.getContentPane().add(btnx);
-
-		JButton btnNewButton = new JButton("Back to Main Page");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Main m = new Main();
-				m.setVisible(true);
-				m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				m.setSize(800, 600);
-			}
-		});
-		btnNewButton.setBounds(40, 251, 166, 23);
-		frame.getContentPane().add(btnNewButton);
 	}
 }

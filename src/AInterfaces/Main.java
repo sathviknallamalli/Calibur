@@ -1,4 +1,5 @@
 package AInterfaces;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Desktop;
@@ -173,7 +174,7 @@ public class Main extends JFrame {
 		btnConversions.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnConversions.setAlignmentY(0.5f);
 		btnConversions.setAlignmentX(0.5f);
-		btnConversions.setBounds(266, 336, 218, 30);
+		btnConversions.setBounds(266, 332, 218, 30);
 		getContentPane().add(btnConversions);
 
 		JButton btnAnyWebBrowser = new JButton("Any Web Browser");
@@ -188,12 +189,12 @@ public class Main extends JFrame {
 		website.setFont(new Font("Arial", Font.PLAIN, 12));
 		getContentPane().add(website);
 		website.setColumns(10);
-		website.setBounds(562, 377, 184, 23);
+		website.setBounds(562, 373, 184, 23);
 
 		JButton go = new JButton("GO!!");
 		go.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		getContentPane().add(go);
-		go.setBounds(610, 411, 89, 23);
+		go.setBounds(610, 407, 89, 23);
 		btnAnyWebBrowser.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 
 		website.addKeyListener(new KeyAdapter() {
@@ -218,30 +219,35 @@ public class Main extends JFrame {
 
 		go.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				String site = "www." + website.getText();
-				String[] arguments = { "1", "2", "3" };
-				try {
-					Browser.main(arguments, site);
-					website.setText("");
-				} catch (IOException e1) {
+				if (site.contains(".com") || site.contains(".org") || site.contains(".net")) {
+					String[] arguments = { "1", "2", "3" };
+					try {
+						Browser.main(arguments, site);
+						website.setText("");
+					} catch (IOException e1) {
 
-					e1.printStackTrace();
-				} catch (URISyntaxException e1) {
-
-					e1.printStackTrace();
+						e1.printStackTrace();
+					} catch (URISyntaxException e1) {
+						e1.printStackTrace();
+					}
+				} else {
+					JOptionPane.showMessageDialog(null, "Invalid website");
 				}
+
 			}
 		});
 
 		btnAnyWebBrowser.setAlignmentY(0.5f);
 		btnAnyWebBrowser.setAlignmentX(0.5f);
-		btnAnyWebBrowser.setBounds(540, 336, 218, 30);
+		btnAnyWebBrowser.setBounds(540, 332, 218, 30);
 		getContentPane().add(btnAnyWebBrowser);
 
 		JLabel lblaConverterThat = new JLabel(
 				"<html>A converter that deals with length, mass, volume, and even currency. In the airport and wanting to convert for money, this part of the app will allow ease for that. ");
 		lblaConverterThat.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblaConverterThat.setBounds(266, 371, 218, 64);
+		lblaConverterThat.setBounds(266, 367, 218, 64);
 		getContentPane().add(lblaConverterThat);
 
 		JLabel lblanEntireResource = new JLabel(
@@ -302,7 +308,7 @@ public class Main extends JFrame {
 		btnEmailDomainSender.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnEmailDomainSender.setAlignmentY(0.5f);
 		btnEmailDomainSender.setAlignmentX(0.5f);
-		btnEmailDomainSender.setBounds(540, 449, 218, 30);
+		btnEmailDomainSender.setBounds(540, 445, 218, 30);
 		getContentPane().add(btnEmailDomainSender);
 
 		JLabel lblenterInThe = new JLabel(
@@ -314,7 +320,7 @@ public class Main extends JFrame {
 		JLabel lblyouCanSend = new JLabel(
 				"<html>You can send an email from your account and is a complete interface including a subject, message, and reciever. ");
 		lblyouCanSend.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblyouCanSend.setBounds(540, 491, 218, 57);
+		lblyouCanSend.setBounds(540, 487, 218, 57);
 		getContentPane().add(lblyouCanSend);
 
 		JButton btnWordDocument = new JButton("Word Document / Text Editor");

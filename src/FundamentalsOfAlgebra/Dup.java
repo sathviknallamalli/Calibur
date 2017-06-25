@@ -1,7 +1,6 @@
 package FundamentalsOfAlgebra;
 
 import java.awt.Color;
-import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -22,9 +21,6 @@ import LinearEquationsContents.LinearEquations;
 public class Dup extends JFrame {
 
 	public Dup() {
-
-		Desktop desktop;
-		String path = "C:\\Users\\sathv\\Desktop\\Saahore Baahubali Video Song Promo - Baahubali 2 Songs  Prabhas SS Rajamouli.mp4";
 
 		String name = FinalTest.textField.getText();
 		getContentPane().setLayout(null);
