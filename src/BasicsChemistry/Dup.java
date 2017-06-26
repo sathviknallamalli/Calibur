@@ -3,8 +3,10 @@ package BasicsChemistry;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.io.File;
 
 import javax.swing.ImageIcon;
@@ -13,6 +15,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import AInterfaces.TACALIBUR;
 import PeriodicTable.PeriodicTable;
 
 public class Dup {
@@ -47,7 +50,7 @@ public class Dup {
 	 */
 	private void initialize() {
 		frame = new JFrame("Certification");
-		frame.setBounds(100, 100, 599, 582);
+		frame.setBounds(100, 100, 600, 582);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		String name = FinalTest.textField.getText();
@@ -60,13 +63,8 @@ public class Dup {
 			}
 		});
 		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnNewButton.setBounds(225, 430, 117, 40);
+		btnNewButton.setBounds(10, 430, 117, 40);
 		frame.getContentPane().add(btnNewButton);
-
-		JButton button = new JButton("Save!!");
-		button.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		button.setBounds(10, 430, 117, 40);
-		frame.getContentPane().add(button);
 
 		JLabel pic = new JLabel();
 		pic.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Certificates\\BasicsChemistry.png"));
@@ -92,19 +90,19 @@ public class Dup {
 			public void actionPerformed(ActionEvent e) {
 				PeriodicTable p = new PeriodicTable();
 				p.newClass();
+
 			}
 		});
 		button_1.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		button_1.setBounds(456, 430, 117, 40);
 		frame.getContentPane().add(button_1);
 
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JFileChooser fs = new JFileChooser(new File("C:\\"));
-				fs.setDialogTitle("Save a file");
+		JLabel lblThisCertificateHas = new JLabel("This certificate has been saved in the 'Calibur' folder on your PC");
+		lblThisCertificateHas.setForeground(Color.BLUE);
+		lblThisCertificateHas.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		lblThisCertificateHas.setBounds(137, 443, 315, 27);
+		frame.getContentPane().add(lblThisCertificateHas);
 
-			}
-		});
 	}
 
 	public void newClass() {
@@ -113,6 +111,6 @@ public class Dup {
 		frame.setLocation(300, 100);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
+		TACALIBUR.saveCertificate("BasicsofChemistry");
 	}
 }

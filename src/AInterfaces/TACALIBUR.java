@@ -1,12 +1,19 @@
 package AInterfaces;
 
+import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.Connection;
@@ -14,6 +21,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Date;
 
+import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -75,7 +83,7 @@ public class TACALIBUR {
 		String cdate = date.toString();
 
 		String fromHome = Home.username;
-		int index = from.getText().length() - 10;
+		int index = from.getText().length() - 11;
 		String courseName = from.getText().substring(0, index);
 
 		try {
@@ -99,7 +107,7 @@ public class TACALIBUR {
 					String emailID = rs1.getString("Email");
 					SignUp.sendEmail(emailID, rs1.getString("Name"), fromHome, "Course completion: " + courseName, "Hi "
 							+ rs1.getString("Name") + ", \nYou have successfully completed the course of " + courseName
-							+ ". Your progress has been saved and you are welcome to revisit the material too. Your certificate of completion has also been attached.");
+							+ ". Your progress has been saved and you are welcome to revisit the material too. Your certificate of completion has been saved in the Certificates Folder of your Calibur folder on your desktop.");
 
 				}
 			}
@@ -107,6 +115,23 @@ public class TACALIBUR {
 			JOptionPane.showMessageDialog(null, e);
 		}
 
+	}
+
+	public static void saveCertificate(String courseName) {
+		try {
+			Robot robot = new Robot();
+			String format = "jpg";
+			String fileName = courseName + "." + format;
+
+			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+			BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
+			ImageIO.write(screenFullImage, format,
+					new File("C:\\Users\\sathv\\Desktop\\jellobello_Calibur\\Certificates\\" + fileName));
+
+			System.out.println("A full screenshot saved!");
+		} catch (AWTException | IOException ex) {
+			System.err.println(ex);
+		}
 	}
 
 	/**

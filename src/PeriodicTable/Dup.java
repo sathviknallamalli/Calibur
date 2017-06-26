@@ -13,6 +13,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import AInterfaces.TACALIBUR;
 import BalancingEquations.BalancingEquations;
 
 public class Dup {
@@ -113,6 +114,6 @@ public class Dup {
 		frame.setLocation(300, 100);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
+		TACALIBUR.saveCertificate("PeriodicTable");
 	}
 }

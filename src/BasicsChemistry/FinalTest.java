@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -316,8 +317,6 @@ public class FinalTest extends JFrame {
 		lblSolveThis_1.setBounds(822, 440, 350, 25);
 		getContentPane().add(lblSolveThis_1);
 
-		ButtonGroup bg12 = new ButtonGroup();
-
 		JLabel lblSolveThis_2 = new JLabel("13.) What is the order of phase changes from gas to solid");
 		lblSolveThis_2.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblSolveThis_2.setBounds(823, 569, 310, 25);
@@ -595,10 +594,11 @@ public class FinalTest extends JFrame {
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						if (ms >= 12) {
+							TACALIBUR.courseComplete(title);
 							Dup w = new Dup();
 							w.newClass();
 							close();
-							TACALIBUR.courseComplete(title);
+
 						} else {
 							JOptionPane.showMessageDialog(null,
 									"Sorry, but you failed, no certificate for you. You can redo this course and try to get the achievement certificate. ");

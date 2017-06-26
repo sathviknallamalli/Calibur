@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import AInterfaces.TACALIBUR;
 import FundamentalsOfAlgebra.FileTypeFilter;
 import Magnetism.Magnetism;
 
@@ -104,7 +105,7 @@ public class Dup extends JFrame {
 		setLocation(300, 100);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
+		TACALIBUR.saveCertificate("Physics-Machines");
 	}
 
 }

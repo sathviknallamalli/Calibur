@@ -1,10 +1,12 @@
 package AInterfaces;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -202,8 +204,21 @@ public class SignUp extends JFrame {
 										pst.setString(7, cdate);
 										pst.execute();
 
+										String filename = UsernameTextField.getText() + "_Calibur";
+
+										File dir = new File(
+												"C:\\Users\\sathv\\Desktop\\" + filename + "\\Certificates");
+										dir.mkdirs();
+										File dir1 = new File("C:\\Users\\sathv\\Desktop\\" + filename + "\\SentEmails");
+										dir1.mkdirs();
+										File dir2 = new File("C:\\Users\\sathv\\Desktop\\" + filename + "\\Alarms");
+										dir2.mkdirs();
+										File dir3 = new File("C:\\Users\\sathv\\Desktop\\" + filename + "\\Charts");
+										dir3.mkdirs();
+
 										JOptionPane.showMessageDialog(null,
-												"You have been signed up!! Please check your email for verification.");
+												"You have been signed up!! Please check your email for verification. A Calibur folder has also been saved under "
+														+ UsernameTextField.getText() + "_Calibur at your desktop");
 
 										pst.close();
 										close();
@@ -230,7 +245,9 @@ public class SignUp extends JFrame {
 											"Hello, " + nametextField.getText()
 													+ "\nThank you for signing up for Calibur! Calibur is the ultimate learning experience for students of all ages. You have been successfully signed up and your username is "
 													+ UsernameTextField.getText()
-													+ ".\nYou will be receiving emails regarding your progress and promotions to this address. Calibur has almost all the tools you use on a computer that have been condensed into this one application! We hope that Calibur can be a frequent tool you use and optimizes your learning through our numerous features. You can go back to the Login Page of Calibur and experience the Virtual Student Hub.");
+													+ ".\nYou will be receiving emails regarding your progress and promotions to this address. A folder under the name of "
+													+ UsernameTextField.getText()
+													+ "_Calibur has been created. Calibur has almost all the tools you use on a computer that have been condensed into this one application! We hope that Calibur can be a frequent tool you use and optimizes your learning through our numerous features. You can go back to the Login Page of Calibur and experience the Virtual Student Hub.");
 
 								}
 

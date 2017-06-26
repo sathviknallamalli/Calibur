@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import AInterfaces.TACALIBUR;
 import LinearEquationsContents.LinearEquations;
 
 public class Dup extends JFrame {
@@ -103,7 +104,7 @@ public class Dup extends JFrame {
 		setLocation(300, 100);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
+		TACALIBUR.saveCertificate("FundamentalsofAlgebra");
 	}
 
 }
