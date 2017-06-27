@@ -544,7 +544,7 @@ public class FinalTest extends JFrame {
 							Dup w = new Dup();
 							w.newClass();
 							close();
-							TACALIBUR.courseComplete(title);
+							TACALIBUR.courseComplete("Physics- Machines");
 						} else {
 							JOptionPane.showMessageDialog(null,
 									"Sorry, but you failed, no certificate for you. You can redo this course and try to get the achievement certificate. ");

@@ -76,15 +76,13 @@ public class TACALIBUR {
 		initialize();
 	}
 
-	public static void courseComplete(JLabel from) {
+	public static void courseComplete(String courseName) {
 		Connection conn = sqliteConnection.ud();
 		Connection conn2 = sqliteConnection.c();
 		Date date = new Date();
 		String cdate = date.toString();
 
 		String fromHome = Home.username;
-		int index = from.getText().length() - 11;
-		String courseName = from.getText().substring(0, index);
 
 		try {
 			String query = "insert into " + fromHome + " (CompletedTime,Course) values (?, ?)";
@@ -132,6 +130,30 @@ public class TACALIBUR {
 		} catch (AWTException | IOException ex) {
 			System.err.println(ex);
 		}
+	}
+
+	public static String verifyIfCourseComplete(String courseName, String certName) {
+		Connection conn = sqliteConnection.ud();
+		String fromHome = Home.username;
+		int val = 0;
+		try {
+			String query = "select * from " + fromHome;
+			PreparedStatement pst = conn.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				if (rs.getString("Course").equals(courseName)) {
+					val++;
+					certName = certName + "_" + val;
+				}
+			}
+
+			pst.execute();
+			pst.close();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
+		return certName;
+
 	}
 
 	/**

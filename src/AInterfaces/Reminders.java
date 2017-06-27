@@ -230,6 +230,8 @@ public class Reminders {
 				} catch (Exception b) {
 					JOptionPane.showMessageDialog(null, b);
 				}
+				//save alarm into folder
+				
 
 				// check alarm
 				try {

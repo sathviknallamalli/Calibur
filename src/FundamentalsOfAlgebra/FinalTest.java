@@ -555,14 +555,13 @@ public class FinalTest extends JFrame {
 					maxScore++;
 				}
 				frame.getContentPane().setLayout(null);
-				double percentage = (maxScore / 15) * 100;
 
-				final int ms = maxScore;
 				JLabel result = new JLabel("You scored " + maxScore + " out of 15");
 				result.setFont(new Font("Times New Roman", Font.BOLD, 14));
 				result.setBounds(27, 39, 272, 27);
 				frame.getContentPane().add(result);
 
+				final int ms = maxScore;
 				JButton next = new JButton("Continue");
 				next.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 				next.setBounds(142, 77, 168, 23);
@@ -571,7 +570,7 @@ public class FinalTest extends JFrame {
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						if (ms >= 12) {
-							TACALIBUR.courseComplete(title);
+							TACALIBUR.courseComplete("Fundamentals of Algebra");
 							Dup w = new Dup();
 							w.newClass();
 							close();

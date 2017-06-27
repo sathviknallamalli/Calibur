@@ -114,6 +114,7 @@ public class Dup {
 		frame.setLocation(300, 100);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		TACALIBUR.saveCertificate("PeriodicTable");
+		String cName = TACALIBUR.verifyIfCourseComplete("Chemistry- Periodic Table", "PeriodicTable");
+		TACALIBUR.saveCertificate(cName);
 	}
 }

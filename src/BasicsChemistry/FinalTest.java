@@ -594,7 +594,7 @@ public class FinalTest extends JFrame {
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						if (ms >= 12) {
-							TACALIBUR.courseComplete(title);
+							TACALIBUR.courseComplete("Chemistry- Basics of Chemistry");
 							Dup w = new Dup();
 							w.newClass();
 							close();
