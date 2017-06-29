@@ -130,6 +130,7 @@ public class TACALIBUR {
 		} catch (AWTException | IOException ex) {
 			System.err.println(ex);
 		}
+
 	}
 
 	public static String verifyIfCourseComplete(String courseName, String certName) {

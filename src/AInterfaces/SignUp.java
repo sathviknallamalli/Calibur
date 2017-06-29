@@ -7,6 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,6 +28,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CreationHelper;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 
 public class SignUp extends JFrame {
 	private JTextField nametextField;
@@ -70,6 +80,29 @@ public class SignUp extends JFrame {
 		} catch (Exception a) {
 			JOptionPane.showMessageDialog(null, a);
 		}
+	}
+
+	public static void addFile(String overallFolder, String subFolder, int r, String c1, String c2, String c3,
+			String c4) throws IOException {
+		Workbook wb = new HSSFWorkbook();
+		// Workbook wb = new XSSFWorkbook();
+		// Create a row and put some cells in it. Rows are 0 based.
+		CreationHelper createHelper = wb.getCreationHelper();
+		Sheet sheet = wb.createSheet("Alarms");
+		Row row = sheet.createRow((short) r);
+
+		// Or do it on one line.
+
+		row.createCell(0).setCellValue(createHelper.createRichTextString(c1));
+		row.createCell(1).setCellValue(createHelper.createRichTextString(c2));
+		row.createCell(2).setCellValue(createHelper.createRichTextString(c3));
+		row.createCell(3).setCellValue(createHelper.createRichTextString(c4));
+
+		// Write the output to a file
+		FileOutputStream fileOut = new FileOutputStream(
+				"C:\\Users\\sathv\\Desktop\\" + overallFolder + "\\" + subFolder + "\\Alarms and Reminders.xls");
+		wb.write(fileOut);
+		fileOut.close();
 	}
 
 	public SignUp() {
@@ -216,6 +249,9 @@ public class SignUp extends JFrame {
 										File dir3 = new File("C:\\Users\\sathv\\Desktop\\" + filename + "\\Charts");
 										dir3.mkdirs();
 
+										// create alarms excel
+									
+										// end
 										JOptionPane.showMessageDialog(null,
 												"You have been signed up!! Please check your email for verification. A Calibur folder has also been saved under "
 														+ UsernameTextField.getText() + "_Calibur at your desktop");

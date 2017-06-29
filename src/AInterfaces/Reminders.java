@@ -7,6 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,6 +24,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CreationHelper;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 
 import com.ibm.icu.util.Calendar;
 import com.toedter.calendar.JDateChooser;
@@ -58,6 +67,7 @@ public class Reminders {
 	private JTextPane subject;
 	private JTextPane subject_1;
 	private JTextField txtTimer;
+	String fromHome = Home.username;
 
 	public void clock() {
 		Thread clock = new Thread() {
@@ -214,14 +224,17 @@ public class Reminders {
 					m = "December";
 				}
 				String date = m + " " + day + " " + year;
-				String time = (String) hr.getSelectedItem() + ":" + (String) min.getSelectedItem();
+				String time = (String) hr.getSelectedItem() + ":" + (String) min.getSelectedItem() + " "
+						+ (String) te.getSelectedItem();
+				String sound = (String) noise.getSelectedItem();
 				try {
-					String query = "insert into Reminders (Date,Time,AlarmType,Message) values (?, ?, ?, ?)";
+					String query = "insert into Reminders (Date,Time,AlarmType,Message,Username) values (?, ?, ?, ?, ?)";
 					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1, date);
 					pst.setString(2, time);
-					pst.setString(3, (String) noise.getSelectedItem());
+					pst.setString(3, sound);
 					pst.setString(4, subject.getText());
+					pst.setString(5, Home.username);
 
 					pst.execute();
 
@@ -230,8 +243,59 @@ public class Reminders {
 				} catch (Exception b) {
 					JOptionPane.showMessageDialog(null, b);
 				}
-				//save alarm into folder
-				
+				//alarm to excel
+				Workbook wb = new HSSFWorkbook();
+				CreationHelper createHelper = wb.getCreationHelper();
+				Sheet sheet = wb.createSheet("Alarms");
+				Row row = sheet.createRow((short) 0);
+
+				row.createCell(0).setCellValue(createHelper.createRichTextString("Time"));
+				row.createCell(1).setCellValue(createHelper.createRichTextString("Date"));
+				row.createCell(2).setCellValue(createHelper.createRichTextString("Noise"));
+				row.createCell(3).setCellValue(createHelper.createRichTextString("Message/ Information"));
+
+				FileOutputStream fileOut;
+				try {
+					fileOut = new FileOutputStream(
+							"C:\\Users\\sathv\\Desktop\\" + fromHome + "_Calibur\\Alarms\\Alarms and Reminders.xls");
+
+					// save alarm
+					String sub = subject.getText();
+					if (sub.equals("")) {
+						sub = "No message";
+					}
+					// retrieve reminder info drom table
+					try {
+						String query = "select * from Reminders";
+						PreparedStatement pst = connection.prepareStatement(query);
+						ResultSet rs = pst.executeQuery();
+						int count = 0;
+						while (rs.next()) {
+							if (rs.getString("Username").equals(Home.username)) {
+								count++;
+								String rTime = rs.getString("Time");
+								String rDate = rs.getString("Date");
+								String rType = rs.getString("AlarmType");
+								String rMessage = rs.getString("Message");
+								Row r = sheet.createRow((short) count);
+
+								r.createCell(0).setCellValue(createHelper.createRichTextString(rTime));
+								r.createCell(1).setCellValue(createHelper.createRichTextString(rDate));
+								r.createCell(2).setCellValue(createHelper.createRichTextString(rType));
+								r.createCell(3).setCellValue(createHelper.createRichTextString(rMessage));
+							}
+						}
+					} catch (Exception a) {
+						JOptionPane.showMessageDialog(null, a);
+					}
+					wb.write(fileOut);
+					fileOut.close();
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
 				// check alarm
 				try {
@@ -332,7 +396,7 @@ public class Reminders {
 		scrollPane_1.setViewportView(subject);
 		frame.getContentPane().add(btnSetAlarm);
 
-		JLabel lblSetReminderMessage = new JLabel("Set Alarm Subject and Info\r\n");
+		JLabel lblSetReminderMessage = new JLabel("Alarm Subject and Info\r\n");
 		lblSetReminderMessage.setBounds(20, 189, 217, 23);
 		lblSetReminderMessage.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		frame.getContentPane().add(lblSetReminderMessage);
@@ -418,7 +482,7 @@ public class Reminders {
 						@Override
 						public void mouseReleased(MouseEvent arg0) {
 							JScrollPane scrollPane = new JScrollPane();
-							scrollPane.setBounds(586, 239, 126, 62);
+							scrollPane.setBounds(557, 250, 126, 62);
 							frame.getContentPane().add(scrollPane);
 
 							subject_1 = new JTextPane();
@@ -462,7 +526,6 @@ public class Reminders {
 		JButton btnViewCurrentAlarms = new JButton("View current alarms");
 		btnViewCurrentAlarms.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
 				ExistingReminders er = new ExistingReminders();
 				er.newClass();
 			}

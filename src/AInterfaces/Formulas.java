@@ -1,4 +1,5 @@
 package AInterfaces;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -229,6 +230,34 @@ public class Formulas extends JFrame {
 
 		tabbedPane.setFont(new Font("Times New Roman", Font.ITALIC, 15));
 		tabbedPane.setFont(new Font("Times New Roman", Font.ITALIC, 15));
+
+		JPanel panel_5 = new JPanel();
+		tabbedPane.addTab("Trig Table", null, panel_5, null);
+		panel_5.setLayout(null);
+
+		JLabel tt1 = new JLabel();
+		tt1.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\tt1.PNG"));
+		tt1.setBounds(10, 0, 262, 310);
+		panel_5.add(tt1);
+
+		JLabel tt2 = new JLabel();
+		tt2.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\T.PNG"));
+		tt2.setBounds(282, 9, 252, 301);
+		panel_5.add(tt2);
+
+		JLabel tt3 = new JLabel();
+		tt3.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\tt3.PNG"));
+		tt3.setBounds(544, 9, 252, 301);
+		panel_5.add(tt3);
+
+		JPanel panel_4 = new JPanel();
+		tabbedPane.addTab("Unit Circle", null, panel_4, null);
+		panel_4.setLayout(null);
+
+		JLabel uc = new JLabel();
+		uc.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\uc.PNG"));
+		uc.setBounds(58, 11, 366, 296);
+		panel_4.add(uc);
 
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Physics", null, panel_1, null);
@@ -471,15 +500,15 @@ public class Formulas extends JFrame {
 		label_4.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		label_4.setBounds(651, 140, 123, 18);
 		panel_1.add(label_4);
+		tabbedPane.setFont(new Font("Times New Roman", Font.ITALIC, 15));
 
 		JPanel panel_2 = new JPanel();
 		tabbedPane.addTab("Chemistry", null, panel_2, null);
-		tabbedPane.setFont(new Font("Times New Roman", Font.ITALIC, 15));
 		panel_2.setLayout(null);
 
 		JLabel label_15 = new JLabel();
 		label_15.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\thing.PNG"));
-		label_15.setBounds(10, 11, 498, 307);
+		label_15.setBounds(10, 26, 498, 278);
 		panel_2.add(label_15);
 
 		JLabel label_16 = new JLabel();
@@ -492,24 +521,16 @@ public class Formulas extends JFrame {
 		lblNewLabel_2.setBounds(12, 5, 95, 22);
 		panel_2.add(lblNewLabel_2);
 
-		JPanel panel_5 = new JPanel();
-		tabbedPane.addTab("Trig Table", null, panel_5, null);
-		panel_5.setLayout(null);
-
-		JLabel tt1 = new JLabel();
-		tt1.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\tt1.PNG"));
-		tt1.setBounds(10, 0, 262, 310);
-		panel_5.add(tt1);
-
-		JLabel tt2 = new JLabel();
-		tt2.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\T.PNG"));
-		tt2.setBounds(282, 9, 252, 301);
-		panel_5.add(tt2);
-
-		JLabel tt3 = new JLabel();
-		tt3.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\tt3.PNG"));
-		tt3.setBounds(544, 9, 252, 301);
-		panel_5.add(tt3);
+		JButton btnNewButton_1 = new JButton("Full PTable");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PTable pt = new PTable();
+				pt.newClass();
+			}
+		});
+		btnNewButton_1.setFont(new Font("Arial", Font.PLAIN, 11));
+		btnNewButton_1.setBounds(10, 300, 89, 23);
+		panel_2.add(btnNewButton_1);
 
 		JPanel panel_3 = new JPanel();
 		tabbedPane.addTab("Conversions", null, panel_3, null);
@@ -661,15 +682,6 @@ public class Formulas extends JFrame {
 		lblFurlong.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		lblFurlong.setBounds(243, 169, 65, 19);
 		panel_3.add(lblFurlong);
-
-		JPanel panel_4 = new JPanel();
-		tabbedPane.addTab("Unit Circle", null, panel_4, null);
-		panel_4.setLayout(null);
-
-		JLabel uc = new JLabel();
-		uc.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\uc.PNG"));
-		uc.setBounds(58, 11, 366, 296);
-		panel_4.add(uc);
 
 	}
 
