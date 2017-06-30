@@ -9,8 +9,6 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Lesson1Copy extends JFrame {
 	public Lesson1Copy() {

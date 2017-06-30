@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -18,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PiePlot;
@@ -29,7 +32,7 @@ import GraphTemplates.BarChart;
 import GraphTemplates.Histogram;
 import GraphTemplates.ScienceFair;
 
-public class Chart {
+public class ChartGenerator {
 
 	private JFrame frame;
 	private JTextField newCol;
@@ -41,7 +44,7 @@ public class Chart {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Chart window = new Chart();
+					ChartGenerator window = new ChartGenerator();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,7 +56,7 @@ public class Chart {
 	/**
 	 * Create the application.
 	 */
-	public Chart() {
+	public ChartGenerator() {
 		initialize();
 
 	}
@@ -70,12 +73,12 @@ public class Chart {
 		frame = new JFrame("Chart Generator");
 		frame.getContentPane().setBackground(new Color(102, 204, 255));
 		frame.getContentPane().setLayout(null);
-		frame.setSize(891, 613);
+		frame.setSize(891, 560);
 		frame.setLocation(300, 150);
 
 		JLabel lblChartGenerator = new JLabel("Chart Generator");
 		lblChartGenerator.setFont(new Font("Castellar", Font.PLAIN, 34));
-		lblChartGenerator.setBounds(244, 11, 377, 42);
+		lblChartGenerator.setBounds(249, 11, 377, 42);
 		frame.getContentPane().add(lblChartGenerator);
 
 		JLabel lblinitializeTheSize = new JLabel(
@@ -482,9 +485,8 @@ public class Chart {
 		frame.getContentPane().add(add);
 
 		JButton gen = new JButton("Generate!");
-
 		gen.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		gen.setBounds(713, 367, 117, 23);
+		gen.setBounds(713, 359, 117, 23);
 		frame.getContentPane().add(gen);
 
 		String ops[] = { "Choose a Chart: ", "Bar Chart", "Histogram", "Pie Chart", "Scatterplot",
@@ -492,7 +494,7 @@ public class Chart {
 
 		JComboBox charts = new JComboBox(ops);
 		charts.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		charts.setBounds(688, 325, 159, 31);
+		charts.setBounds(688, 325, 159, 23);
 		frame.getContentPane().add(charts);
 
 		JButton del = new JButton("Delete Row");
@@ -503,7 +505,7 @@ public class Chart {
 
 		JTable jt = new JTable();
 		JScrollPane js = new JScrollPane(jt);
-		js.setBounds(21, 272, 639, 221);
+		js.setBounds(21, 272, 639, 239);
 
 		DefaultTableModel model = new DefaultTableModel();
 		jt.setModel(model);
@@ -558,32 +560,41 @@ public class Chart {
 											"A Bar Chart can only be generated with 2 columns");
 								} else {
 									if (cc == 1) {
-										int rowCount = model.getRowCount();
-										int columnCount = model.getColumnCount();
+										if (!tf2.getText().equals(model.getColumnName(1))) {
+											int rowCount = model.getRowCount();
+											int columnCount = model.getColumnCount();
 
-										DefaultCategoryDataset ds = new DefaultCategoryDataset();
+											DefaultCategoryDataset ds = new DefaultCategoryDataset();
 
-										String title = tf1.getText() + " V.S. " + newCol.getText();
-										String x = tf1.getText();
-										String y = newCol.getText();
+											String title = tf1.getText() + " V.S. " + newCol.getText();
+											String x = tf1.getText();
+											String y = newCol.getText();
 
-										for (int i = 0; i < rowCount; i++) {
+											for (int i = 0; i < rowCount; i++) {
 
-											for (int j = 0; j < columnCount - 1; j++) {
-												String name = (String) model.getValueAt(i, j);
-												int a = Integer.parseInt((String) model.getValueAt(i, 1));
-												ds.setValue(a, y, name);
+												for (int j = 0; j < columnCount - 1; j++) {
+													String name = (String) model.getValueAt(i, j);
+													int a = Integer.parseInt((String) model.getValueAt(i, 1));
+													ds.setValue(a, y, name);
+												}
+											}
 
+											JFreeChart chart = ChartFactory.createBarChart(title, x, y, ds,
+													PlotOrientation.VERTICAL, false, true, false);
+											CategoryPlot p = chart.getCategoryPlot();
+											p.setRangeGridlinePaint(Color.BLACK);
+											ChartFrame f = new ChartFrame("Bar Chart", chart);
+											f.setVisible(true);
+											f.setSize(450, 350);
+											try {
+												ChartUtilities.saveChartAsPNG(
+														new File("C:\\Users\\sathv\\Desktop\\" + Home.username
+																+ "_Calibur\\Charts\\" + title + "_BARCHART" + ".PNG"),
+														chart, 500, 300);
+											} catch (IOException b) {
 											}
 										}
 
-										JFreeChart chart = ChartFactory.createBarChart(title, x, y, ds,
-												PlotOrientation.VERTICAL, false, true, false);
-										CategoryPlot p = chart.getCategoryPlot();
-										p.setRangeGridlinePaint(Color.BLACK);
-										ChartFrame f = new ChartFrame("Bar Chart", chart);
-										f.setVisible(true);
-										f.setSize(450, 350);
 									}
 
 								}
@@ -596,11 +607,8 @@ public class Chart {
 									if (cc == 1) {
 
 										int rowCount = model.getRowCount();
-										int columnCount = model.getColumnCount();
 
 										String title = tf1.getText() + " and " + newCol.getText();
-										String x = tf1.getText();
-										String y = newCol.getText();
 
 										DefaultPieDataset pie = new DefaultPieDataset();
 
@@ -617,6 +625,13 @@ public class Chart {
 										f.setVisible(true);
 										f.setSize(450, 500);
 										f.setLocation(100, 100);
+										try {
+											ChartUtilities.saveChartAsPNG(
+													new File("C:\\Users\\sathv\\Desktop\\" + Home.username
+															+ "_Calibur\\Charts\\" + title + "_PIECHART" + ".PNG"),
+													chart, 500, 300);
+										} catch (IOException b) {
+										}
 									}
 
 								}
@@ -653,6 +668,13 @@ public class Chart {
 									ChartFrame f = new ChartFrame("Bar Chart 3D", chart);
 									f.setVisible(true);
 									f.setSize(450, 350);
+									try {
+										ChartUtilities.saveChartAsPNG(
+												new File("C:\\Users\\sathv\\Desktop\\" + Home.username
+														+ "_Calibur\\Charts\\" + title + "_3DBARCHART" + ".PNG"),
+												chart, 500, 300);
+									} catch (IOException b) {
+									}
 								}
 
 							} else if (selected.equals("Line Chart")) {
@@ -687,6 +709,13 @@ public class Chart {
 									ChartFrame f = new ChartFrame("Line Chart", chart);
 									f.setVisible(true);
 									f.setSize(450, 350);
+									try {
+										ChartUtilities.saveChartAsPNG(
+												new File("C:\\Users\\sathv\\Desktop\\" + Home.username
+														+ "_Calibur\\Charts\\" + title + "_LINECHART" + ".PNG"),
+												chart, 500, 300);
+									} catch (IOException b) {
+									}
 								}
 							}
 						}
@@ -763,6 +792,13 @@ public class Chart {
 									ChartFrame f = new ChartFrame("Bar Chart", chart);
 									f.setVisible(true);
 									f.setSize(450, 350);
+									try {
+										ChartUtilities.saveChartAsPNG(
+												new File("C:\\Users\\sathv\\Desktop\\" + Home.username
+														+ "_Calibur\\Charts\\" + title + "_BARCHART" + ".PNG"),
+												chart, 500, 300);
+									} catch (IOException b) {
+									}
 								}
 
 							} else if (selected.equals("Pie Chart")) {
@@ -790,6 +826,13 @@ public class Chart {
 									f.setVisible(true);
 									f.setSize(450, 500);
 									f.setLocation(100, 100);
+									try {
+										ChartUtilities.saveChartAsPNG(
+												new File("C:\\Users\\sathv\\Desktop\\" + Home.username
+														+ "_Calibur\\Charts\\" + title + "_PIECHART" + ".PNG"),
+												chart, 500, 300);
+									} catch (IOException b) {
+									}
 
 								}
 
@@ -826,6 +869,13 @@ public class Chart {
 									ChartFrame f = new ChartFrame("Bar Chart 3D", chart);
 									f.setVisible(true);
 									f.setSize(450, 350);
+									try {
+										ChartUtilities.saveChartAsPNG(
+												new File("C:\\Users\\sathv\\Desktop\\" + Home.username
+														+ "_Calibur\\Charts\\" + title + "_3DBARCHART" + ".PNG"),
+												chart, 500, 300);
+									} catch (IOException b) {
+									}
 								}
 							} else if (selected.equals("Line Chart")) {
 								if (model.getColumnCount() != 2) {
@@ -860,6 +910,13 @@ public class Chart {
 									ChartFrame f = new ChartFrame("Line Chart", chart);
 									f.setVisible(true);
 									f.setSize(450, 350);
+									try {
+										ChartUtilities.saveChartAsPNG(
+												new File("C:\\Users\\sathv\\Desktop\\" + Home.username
+														+ "_Calibur\\Charts\\" + title + "_LINECHART" + ".PNG"),
+												chart, 500, 300);
+									} catch (IOException b) {
+									}
 								}
 							}
 						}
@@ -1082,7 +1139,6 @@ public class Chart {
 
 					String cols[] = { tf1.getText(), tf2.getText(), tf3.getText(), tf4.getText(), tf5.getText(),
 							tf6.getText(), tf7.getText() };
-					String stats[][] = {};
 
 					model.setColumnIdentifiers(cols);
 
@@ -1525,7 +1581,6 @@ public class Chart {
 					String cols[] = { tf1.getText(), tf2.getText(), tf3.getText(), tf4.getText(), tf5.getText(),
 							tf6.getText(), tf7.getText(), tf8.getText(), tf9.getText(), tf10.getText(), tf11.getText(),
 							tf12.getText(), tf13.getText(), tf14.getText(), tf15.getText() };
-					String stats[][] = {};
 
 					model.setColumnIdentifiers(cols);
 
@@ -1605,7 +1660,7 @@ public class Chart {
 
 		JLabel lblDataTableTemplate = new JLabel("Data Table Template for Graphs");
 		lblDataTableTemplate.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblDataTableTemplate.setBounds(688, 396, 182, 23);
+		lblDataTableTemplate.setBounds(675, 394, 182, 23);
 		frame.getContentPane().add(lblDataTableTemplate);
 
 		String dataTableOps[] = { "Bar Chart Data Table", "Histogram Data Table", "Two-Way Data Table",
@@ -1613,7 +1668,7 @@ public class Chart {
 
 		JComboBox tabs = new JComboBox(dataTableOps);
 		tabs.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		tabs.setBounds(688, 421, 159, 23);
+		tabs.setBounds(694, 415, 136, 23);
 		frame.getContentPane().add(tabs);
 
 		JButton create = new JButton("Create!");
@@ -1633,14 +1688,13 @@ public class Chart {
 			}
 		});
 		create.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		create.setBounds(713, 449, 117, 23);
+		create.setBounds(713, 446, 117, 23);
 		frame.getContentPane().add(create);
 
 		JButton reset = new JButton("Reset Table");
 		reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cols[] = {};
-
 				model.setColumnIdentifiers(cols);
 			}
 		});
@@ -1648,7 +1702,7 @@ public class Chart {
 		reset.setBounds(123, 237, 95, 23);
 		frame.getContentPane().add(reset);
 
-		JButton btnCreateAForm = new JButton("Create a Form or Survey!!");
+		JButton btnCreateAForm = new JButton("Create a Survey!!");
 		btnCreateAForm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FormSurvey fs = new FormSurvey();
@@ -1656,7 +1710,7 @@ public class Chart {
 			}
 		});
 		btnCreateAForm.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		btnCreateAForm.setBounds(397, 515, 182, 42);
+		btnCreateAForm.setBounds(688, 480, 169, 31);
 		frame.getContentPane().add(btnCreateAForm);
 
 	}

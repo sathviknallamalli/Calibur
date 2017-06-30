@@ -287,7 +287,7 @@ public class Main extends JFrame {
 		JButton btnChartAndData = new JButton("Chart and Data \r\n");
 		btnChartAndData.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Chart c = new Chart();
+				ChartGenerator c = new ChartGenerator();
 				c.newClass();
 			}
 		});

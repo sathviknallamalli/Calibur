@@ -8,13 +8,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.File;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import Machines.Audio;
-import javax.swing.ImageIcon;
 
 public class Lesson1 extends JFrame {
 	public Lesson1() {
