@@ -570,7 +570,7 @@ public class FinalTest extends JFrame {
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						if (ms >= 12) {
-							TACALIBUR.courseComplete("Fundamentals of Algebra");
+							TACALIBUR.courseComplete("Fundamentals of Algebra", ms);
 							Dup w = new Dup();
 							w.newClass();
 							close();

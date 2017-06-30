@@ -128,7 +128,7 @@ public class Main extends JFrame {
 		JLabel browser = new JLabel(
 				"<html>If you want to look something up or need more help, this will take you to Google.com");
 		browser.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		browser.setBounds(540, 261, 234, 42);
+		browser.setBounds(540, 261, 218, 42);
 		getContentPane().add(browser);
 
 		JButton btnIndepthTheory = new JButton("Alarms & Clock");
@@ -178,11 +178,6 @@ public class Main extends JFrame {
 		getContentPane().add(btnConversions);
 
 		JButton btnAnyWebBrowser = new JButton("Any Web Browser");
-		btnAnyWebBrowser.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-
 		website = new JTextField();
 		website.setForeground(Color.GRAY);
 		website.setText("Enter site here");

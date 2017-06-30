@@ -27,12 +27,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
 import FundamentalsOfAlgebra.FileTypeFilter;
+import javax.swing.JTextField;
 
 public class Editor {
 
 	private JFrame frame;
 
 	private JTextPane text;
+	private JTextField docTitle;
 
 	/**
 	 * Launch the application.
@@ -80,12 +82,6 @@ public class Editor {
 		lblChartGenerator.setBounds(252, 11, 250, 42);
 		lblChartGenerator.setFont(new Font("Castellar", Font.PLAIN, 34));
 		frame.getContentPane().add(lblChartGenerator);
-
-		JLabel lblinitializeTheSize = new JLabel(
-				"<html>Enter the text and you can perform any action with font or review you want.");
-		lblinitializeTheSize.setBounds(172, 52, 419, 23);
-		lblinitializeTheSize.setFont(new Font("Times New Roman", Font.ITALIC, 13));
-		frame.getContentPane().add(lblinitializeTheSize);
 
 		JLabel lblEnterTheCategory = new JLabel("<html>Enter the category names of each column");
 		lblEnterTheCategory.setBounds(0, 0, 0, 0);
@@ -733,6 +729,17 @@ public class Editor {
 		wc.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		wc.setBounds(622, 309, 119, 27);
 		frame.getContentPane().add(wc);
+
+		JLabel lblDocumentName = new JLabel("Document name: ");
+		lblDocumentName.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblDocumentName.setBounds(10, 56, 110, 23);
+		frame.getContentPane().add(lblDocumentName);
+
+		docTitle = new JTextField();
+		docTitle.setFont(new Font("Arial", Font.PLAIN, 11));
+		docTitle.setBounds(122, 58, 119, 20);
+		frame.getContentPane().add(docTitle);
+		docTitle.setColumns(10);
 
 	}
 

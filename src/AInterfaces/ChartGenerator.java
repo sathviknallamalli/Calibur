@@ -7,6 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -56,8 +59,11 @@ public class ChartGenerator {
 	/**
 	 * Create the application.
 	 */
+	static Connection connection = null;
+
 	public ChartGenerator() {
 		initialize();
+		connection = sqliteConnection.c();
 
 	}
 
@@ -67,6 +73,18 @@ public class ChartGenerator {
 	public JTable table() {
 		JTable jt = null;
 		return jt;
+	}
+
+	public static void updateTable(String username, String cType, String title) {
+		try {
+			String query = "insert into Charts (Username,ChartType,Title) values (?, ?, ?)";
+			PreparedStatement pst = connection.prepareStatement(query);
+			pst.setString(1, username);
+			pst.setString(2, cType);
+			pst.setString(3, title);
+			pst.execute();
+		} catch (Exception e) {
+		}
 	}
 
 	private void initialize() {
@@ -593,6 +611,8 @@ public class ChartGenerator {
 														chart, 500, 300);
 											} catch (IOException b) {
 											}
+											ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(),
+													title);
 										}
 
 									}
@@ -632,6 +652,8 @@ public class ChartGenerator {
 													chart, 500, 300);
 										} catch (IOException b) {
 										}
+										ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(),
+												title);
 									}
 
 								}
@@ -675,6 +697,7 @@ public class ChartGenerator {
 												chart, 500, 300);
 									} catch (IOException b) {
 									}
+									ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(), title);
 								}
 
 							} else if (selected.equals("Line Chart")) {
@@ -716,6 +739,7 @@ public class ChartGenerator {
 												chart, 500, 300);
 									} catch (IOException b) {
 									}
+									ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(), title);
 								}
 							}
 						}
@@ -799,6 +823,7 @@ public class ChartGenerator {
 												chart, 500, 300);
 									} catch (IOException b) {
 									}
+									ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(), title);
 								}
 
 							} else if (selected.equals("Pie Chart")) {
@@ -833,6 +858,7 @@ public class ChartGenerator {
 												chart, 500, 300);
 									} catch (IOException b) {
 									}
+									ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(), title);
 
 								}
 
@@ -876,6 +902,7 @@ public class ChartGenerator {
 												chart, 500, 300);
 									} catch (IOException b) {
 									}
+									ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(), title);
 								}
 							} else if (selected.equals("Line Chart")) {
 								if (model.getColumnCount() != 2) {
@@ -917,6 +944,7 @@ public class ChartGenerator {
 												chart, 500, 300);
 									} catch (IOException b) {
 									}
+									ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(), title);
 								}
 							}
 						}

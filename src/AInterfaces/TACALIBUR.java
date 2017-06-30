@@ -75,7 +75,7 @@ public class TACALIBUR {
 		initialize();
 	}
 
-	public static void courseComplete(String courseName) {
+	public static void courseComplete(String courseName, int score) {
 		Connection conn = sqliteConnection.ud();
 		Connection conn2 = sqliteConnection.c();
 		Date date = new Date();
@@ -84,11 +84,11 @@ public class TACALIBUR {
 		String fromHome = Home.username;
 
 		try {
-			String query = "insert into " + fromHome + " (CompletedTime,Course) values (?, ?)";
+			String query = "insert into " + fromHome + " (CompletedTime,Course,Percentage) values (?, ?, ?)";
 			PreparedStatement pst = conn.prepareStatement(query);
 			pst.setString(1, cdate);
 			pst.setString(2, courseName);
-
+			pst.setDouble(3, score);
 			pst.execute();
 			pst.close();
 		} catch (Exception e) {

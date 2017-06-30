@@ -1,4 +1,5 @@
 package AInterfaces;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -60,7 +61,6 @@ import TrigTopics.LawOfSines;
 public class HWHELP {
 
 	private JFrame frame;
-	private final Action action = new SwingAction();
 	private final Action action_1 = new SwingAction_1();
 	private final Action action_2 = new SwingAction_2();
 	private final Action action_3 = new SwingAction_3();
@@ -267,8 +267,7 @@ public class HWHELP {
 		JButton btnChartGenerator = new JButton("Teacher Assistant");
 		btnChartGenerator.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				TACALIBUR c = new TACALIBUR();
-				c.NewScreen();
+				TACALIBUR.NewScreen();
 			}
 		});
 		btnChartGenerator.setFont(new Font("Times New Roman", Font.PLAIN, 12));
@@ -720,7 +719,7 @@ public class HWHELP {
 		mntmNewMenuItem_5.setAction(action_24);
 		mntmNewMenuItem_5.setFont(new Font("Times New Roman", Font.PLAIN, 16));
 		mnChemistry.add(mntmNewMenuItem_5);
-		
+
 		JMenu mnBiology = new JMenu("Biology");
 		mnBiology.setFont(new Font("Times New Roman", Font.PLAIN, 16));
 		menuBar.add(mnBiology);
@@ -765,7 +764,7 @@ public class HWHELP {
 		textField_1.setFont(new Font("Arial", Font.PLAIN, 12));
 		textField_1.setColumns(10);
 		mnThesaurus.add(textField_1);
-		
+
 		JMenu mnHistory = new JMenu("History");
 		mnHistory.setFont(new Font("Times New Roman", Font.PLAIN, 16));
 		menuBar.add(mnHistory);
@@ -792,19 +791,12 @@ public class HWHELP {
 
 	}
 
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "Equation Solver");
-
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			EquationSolver f1 = new EquationSolver();
-			f1.newClass();
-		}
-	}
-
 	private class SwingAction_1 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_1() {
 			putValue(NAME, "System of Equations");
 
@@ -817,6 +809,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_2 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_2() {
 			putValue(NAME, "Inequalities");
 
@@ -829,6 +826,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_3 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_3() {
 			putValue(NAME, "Word Problems");
 
@@ -841,6 +843,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_4 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_4() {
 			putValue(NAME, "Graphing");
 
@@ -853,6 +860,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_5 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_5() {
 			putValue(NAME, "Quadratics");
 
@@ -865,6 +877,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_6 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_6() {
 			putValue(NAME, "Exponents & Powers");
 
@@ -877,6 +894,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_7 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_7() {
 			putValue(NAME, "Rational Equations");
 
@@ -889,6 +911,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_8 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_8() {
 			putValue(NAME, "Polynomials");
 
@@ -901,6 +928,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_9 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_9() {
 			putValue(NAME, "Midpoint");
 
@@ -913,6 +945,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_10 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_10() {
 			putValue(NAME, "Work");
 
@@ -925,6 +962,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_11 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_11() {
 			putValue(NAME, "Momentum");
 
@@ -937,6 +979,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_12 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_12() {
 			putValue(NAME, "Hypotnuese");
 
@@ -949,6 +996,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_13 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_13() {
 			putValue(NAME, "Power");
 
@@ -961,6 +1013,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_14 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_14() {
 			putValue(NAME, "Effeciency");
 
@@ -973,6 +1030,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_15 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_15() {
 			putValue(NAME, "2nd Law");
 
@@ -985,6 +1047,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_16 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_16() {
 			putValue(NAME, "Kinetic Energy");
 
@@ -997,6 +1064,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_17 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_17() {
 			putValue(NAME, "Potential Energy");
 
@@ -1009,6 +1081,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_18 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_18() {
 			putValue(NAME, "Mechanical Energy");
 
@@ -1021,6 +1098,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_19 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_19() {
 			putValue(NAME, "Mechanical Advantage");
 
@@ -1033,6 +1115,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_20 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_20() {
 			putValue(NAME, "Ideal Mechanical Advantage");
 
@@ -1045,6 +1132,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_21 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_21() {
 			putValue(NAME, "Distance");
 
@@ -1057,6 +1149,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_22 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_22() {
 			putValue(NAME, "Slope");
 
@@ -1069,6 +1166,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_23 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_23() {
 			putValue(NAME, "Right Triangle Ratios - SIN, COSINE, TANGENT, COSECANT, SECANT, COTANGENT");
 
@@ -1081,6 +1183,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_25 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_25() {
 			putValue(NAME, "Degrees To Radians Conversions");
 
@@ -1093,6 +1200,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_26 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_26() {
 			putValue(NAME, "Unit Circle");
 
@@ -1106,6 +1218,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_27 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_27() {
 			putValue(NAME, "Back to Main Page");
 
@@ -1120,6 +1237,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_28 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_28() {
 			putValue(NAME, "Combinations");
 
@@ -1132,6 +1254,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_29 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_29() {
 			putValue(NAME, "Rectangular Prisim");
 
@@ -1144,6 +1271,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_30 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_30() {
 			putValue(NAME, "Unit Circle Browser");
 
@@ -1155,16 +1287,19 @@ public class HWHELP {
 			try {
 				Browser.main(arguments, website);
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} catch (URISyntaxException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
 	}
 
 	private class SwingAction_31 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_31() {
 			putValue(NAME, "Trig Table");
 
@@ -1176,16 +1311,19 @@ public class HWHELP {
 			try {
 				Browser.main(arguments, website);
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} catch (URISyntaxException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
 	}
 
 	private class SwingAction_32 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_32() {
 			putValue(NAME, "Prime Numbers");
 
@@ -1197,16 +1335,19 @@ public class HWHELP {
 			try {
 				Browser.main(arguments, website);
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} catch (URISyntaxException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
 	}
 
 	private class SwingAction_33 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_33() {
 			putValue(NAME, "Volume Calculator");
 
@@ -1219,6 +1360,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_34 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_34() {
 			putValue(NAME, "Law of Sines");
 
@@ -1231,6 +1377,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_35 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_35() {
 			putValue(NAME, "Triangle");
 
@@ -1243,6 +1394,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_36 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_36() {
 			putValue(NAME, "Circle");
 
@@ -1255,6 +1411,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_37 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_37() {
 			putValue(NAME, "Sphere");
 
@@ -1267,6 +1428,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_38 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_38() {
 			putValue(NAME, "Cylinder");
 
@@ -1279,6 +1445,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_39 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_39() {
 			putValue(NAME, "Cone");
 
@@ -1291,6 +1462,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_40 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_40() {
 			putValue(NAME, "Cube");
 
@@ -1303,6 +1479,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_41 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_41() {
 			putValue(NAME, "Ohms Law");
 
@@ -1315,6 +1496,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_42 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_42() {
 			putValue(NAME, "Graphing Utility");
 
@@ -1327,6 +1513,11 @@ public class HWHELP {
 	}
 
 	private class SwingAction_24 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public SwingAction_24() {
 			putValue(NAME, "Periodic Table");
 

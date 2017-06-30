@@ -52,7 +52,8 @@ public class StandardCaculator {
 		frame.getContentPane().setLayout(null);
 
 		txtDisplay = new JTextField();
-		txtDisplay.setBounds(10, 11, 237, 27);
+		txtDisplay.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtDisplay.setBounds(10, 11, 245, 27);
 		frame.getContentPane().add(txtDisplay);
 		txtDisplay.setColumns(10);
 

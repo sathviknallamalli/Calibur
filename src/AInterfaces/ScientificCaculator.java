@@ -69,6 +69,7 @@ public class ScientificCaculator {
 		frame.getContentPane().setLayout(null);
 
 		txtDisplay = new JTextField();
+		txtDisplay.setFont(new Font("Arial", Font.PLAIN, 11));
 		txtDisplay.setBounds(10, 11, 237, 27);
 		frame.getContentPane().add(txtDisplay);
 		txtDisplay.setColumns(10);

@@ -145,14 +145,14 @@ public class Reminders {
 		String[] sound = { "Alarm", "Chimes", "Guitar", "Xylophone", "Metal Drop", "Percussion" };
 
 		JComboBox noise = new JComboBox(sound);
-		noise.setBounds(223, 155, 115, 23);
+		noise.setBounds(214, 155, 96, 23);
 		noise.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		frame.getContentPane().add(noise);
 
 		String[] hour = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
 
 		JComboBox hr = new JComboBox(hour);
-		hr.setBounds(20, 149, 55, 35);
+		hr.setBounds(20, 152, 46, 29);
 		hr.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		frame.getContentPane().add(hr);
 
@@ -162,19 +162,19 @@ public class Reminders {
 				"49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" };
 
 		JComboBox min = new JComboBox(minute);
-		min.setBounds(93, 149, 55, 35);
+		min.setBounds(93, 152, 46, 29);
 		min.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		frame.getContentPane().add(min);
 
 		JLabel lblNewLabel_1 = new JLabel(":");
-		lblNewLabel_1.setBounds(80, 145, 16, 39);
+		lblNewLabel_1.setBounds(73, 145, 16, 39);
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 30));
 		frame.getContentPane().add(lblNewLabel_1);
 
 		String[] times = { "AM", "PM" };
 
 		JComboBox te = new JComboBox(times);
-		te.setBounds(158, 149, 55, 35);
+		te.setBounds(158, 152, 46, 29);
 		te.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		frame.getContentPane().add(te);
 
@@ -185,13 +185,13 @@ public class Reminders {
 
 		lblwelcomeToThe = new JLabel(
 				"<html>Welcome to the alarms dashboard. If you want to set a new alarm or reminder enter the necessary parameters. ");
-		lblwelcomeToThe.setBounds(62, 50, 594, 23);
+		lblwelcomeToThe.setBounds(72, 50, 594, 23);
 		lblwelcomeToThe.setFont(new Font("Times New Roman", Font.ITALIC, 13));
 		frame.getContentPane().add(lblwelcomeToThe);
 
 		JButton btnSetAlarm = new JButton("Set alarm\r\n");
 		btnSetAlarm.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
-		btnSetAlarm.setBounds(348, 155, 153, 29);
+		btnSetAlarm.setBounds(320, 152, 153, 29);
 		btnSetAlarm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String day = "" + jd.getDate().getDate();
@@ -531,7 +531,7 @@ public class Reminders {
 			}
 		});
 		btnViewCurrentAlarms.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
-		btnViewCurrentAlarms.setBounds(507, 155, 153, 29);
+		btnViewCurrentAlarms.setBounds(479, 152, 153, 29);
 		frame.getContentPane().add(btnViewCurrentAlarms);
 
 		JLabel displayTime = new JLabel();
