@@ -16,13 +16,13 @@ import javax.swing.JLabel;
 
 import Machines.Audio;
 
-public class Lesson2 extends JFrame {
-	public Lesson2() {
+public class Lesson3 extends JFrame {
+	public Lesson3() {
 		getContentPane().setLayout(null);
 
-		JLabel title = new JLabel("Lesson 2 - Alkali Metals");
+		JLabel title = new JLabel("Lesson 3 - Alkaline Earth Metals");
 		title.setFont(new Font("Castellar", Font.PLAIN, 20));
-		title.setBounds(338, 11, 300, 42);
+		title.setBounds(292, 11, 414, 42);
 		getContentPane().add(title);
 
 		JCheckBox chckbxLesson_4 = new JCheckBox("Lesson 6 - Halogens & Noble Gases");
@@ -47,6 +47,7 @@ public class Lesson2 extends JFrame {
 		getContentPane().add(chckbxLesson_2);
 
 		JCheckBox chckbxLesson_1 = new JCheckBox("Lesson 2 - Alkali Metals ");
+		chckbxLesson_1.setSelected(true);
 		chckbxLesson_1.setForeground(Color.RED);
 		chckbxLesson_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		chckbxLesson_1.setEnabled(false);
@@ -77,9 +78,9 @@ public class Lesson2 extends JFrame {
 		btnPeriodictable.setBounds(10, 14, 127, 40);
 		getContentPane().add(btnPeriodictable);
 
-		JLabel lblWhoWhatWhen = new JLabel("Alkali Metals");
+		JLabel lblWhoWhatWhen = new JLabel("Alkaline Earth Metals\r\n");
 		lblWhoWhatWhen.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		lblWhoWhatWhen.setBounds(256, 57, 112, 32);
+		lblWhoWhatWhen.setBounds(256, 57, 187, 32);
 		getContentPane().add(lblWhoWhatWhen);
 
 		JLabel lblthisPeriodicTable = new JLabel(
@@ -97,7 +98,7 @@ public class Lesson2 extends JFrame {
 			}
 		});
 		button.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		button.setBounds(378, 66, 132, 23);
+		button.setBounds(450, 62, 132, 23);
 		getContentPane().add(button);
 
 		JCheckBox chckbxLesson_5 = new JCheckBox("Lesson 4 - Transition Metals");
@@ -134,41 +135,41 @@ public class Lesson2 extends JFrame {
 		getContentPane().add(lblaGroupRepresents);
 
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\am.PNG"));
+		label.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\ame.PNG"));
 		label.setBounds(566, 165, 295, 229);
 		getContentPane().add(label);
 
-		JLabel lblLithium = new JLabel("Lithium");
+		JLabel lblLithium = new JLabel("Beryillium");
 		lblLithium.setForeground(Color.BLUE);
 		lblLithium.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblLithium.setBounds(256, 159, 96, 19);
 		getContentPane().add(lblLithium);
 
-		JLabel lblSodium = new JLabel("Sodium");
+		JLabel lblSodium = new JLabel("Strontium");
 		lblSodium.setForeground(Color.BLUE);
 		lblSodium.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblSodium.setBounds(256, 182, 96, 19);
 		getContentPane().add(lblSodium);
 
-		JLabel lblPotassiu = new JLabel("Potassium");
+		JLabel lblPotassiu = new JLabel("Magnesium");
 		lblPotassiu.setForeground(Color.BLUE);
 		lblPotassiu.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblPotassiu.setBounds(338, 161, 96, 19);
 		getContentPane().add(lblPotassiu);
 
-		JLabel lblRubidium = new JLabel("Rubidium");
+		JLabel lblRubidium = new JLabel("Barium");
 		lblRubidium.setForeground(Color.BLUE);
 		lblRubidium.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblRubidium.setBounds(338, 184, 96, 19);
 		getContentPane().add(lblRubidium);
 
-		JLabel lblCesium = new JLabel("Cesium");
+		JLabel lblCesium = new JLabel("Calcium");
 		lblCesium.setForeground(Color.BLUE);
 		lblCesium.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblCesium.setBounds(417, 161, 96, 19);
 		getContentPane().add(lblCesium);
 
-		JLabel lblFrancium = new JLabel("Francium");
+		JLabel lblFrancium = new JLabel("Radium");
 		lblFrancium.setForeground(Color.BLUE);
 		lblFrancium.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblFrancium.setBounds(417, 184, 96, 19);
@@ -190,11 +191,6 @@ public class Lesson2 extends JFrame {
 		lblExtraElectron.setBounds(403, 358, 96, 19);
 		getContentPane().add(lblExtraElectron);
 
-		JLabel label_4 = new JLabel("");
-		label_4.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\ampt.PNG"));
-		label_4.setBounds(11, 316, 366, 196);
-		getContentPane().add(label_4);
-
 		JButton button_1 = new JButton("Lesson Review");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -215,7 +211,7 @@ public class Lesson2 extends JFrame {
 		JLabel lblClassificationMetals = new JLabel("Classification - METALS");
 		lblClassificationMetals.setForeground(Color.BLUE);
 		lblClassificationMetals.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblClassificationMetals.setBounds(536, 58, 261, 28);
+		lblClassificationMetals.setBounds(600, 58, 261, 28);
 		getContentPane().add(lblClassificationMetals);
 
 	}

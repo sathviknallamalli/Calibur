@@ -243,7 +243,7 @@ public class Reminders {
 				} catch (Exception b) {
 					JOptionPane.showMessageDialog(null, b);
 				}
-				//alarm to excel
+				// alarm to excel
 				Workbook wb = new HSSFWorkbook();
 				CreationHelper createHelper = wb.getCreationHelper();
 				Sheet sheet = wb.createSheet("Alarms");

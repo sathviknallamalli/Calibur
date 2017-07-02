@@ -1,9 +1,11 @@
 package AInterfaces;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -228,61 +230,26 @@ public class FormSurvey {
 		send.setFont(new Font("Arial", Font.PLAIN, 13));
 		send.setBounds(536, 336, 138, 33);
 		frame.getContentPane().add(send);
-		
+
 		JButton btnPreviewForm = new JButton("Preview Form");
 		btnPreviewForm.setFont(new Font("Arial", Font.PLAIN, 13));
 		btnPreviewForm.setBounds(536, 295, 138, 33);
 		frame.getContentPane().add(btnPreviewForm);
 
-		add.addMouseListener(new MouseListener() {
+		add.addMouseListener(new MouseAdapter() {
 			public void mouseReleased(MouseEvent e) {
 				op2.setBounds(5, 229, 259, 23);
 			}
 
-			@Override
-			public void mouseEntered(MouseEvent e) {
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-			}
 		});
-		newquestion.addMouseListener(new MouseListener() {
+
+		newquestion.addMouseListener(new MouseAdapter() {
 			public void mouseReleased(MouseEvent e) {
 				label.setBounds(286, 302, 26, 33);
 				ops2.setBounds(231, 276, 138, 23);
 				ques2.setBounds(5, 276, 203, 23);
 			}
 
-			@Override
-			public void mouseEntered(MouseEvent e) {
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-			}
 		});
 	}
 

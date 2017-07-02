@@ -44,7 +44,8 @@ public class Main extends JFrame {
 
 		HW.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				HWHELP.NewScreen();
+				HWHELP hw = new HWHELP();
+				hw.newClass();
 			}
 		});
 
@@ -128,7 +129,7 @@ public class Main extends JFrame {
 		JLabel browser = new JLabel(
 				"<html>If you want to look something up or need more help, this will take you to Google.com");
 		browser.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		browser.setBounds(540, 261, 218, 42);
+		browser.setBounds(540, 261, 234, 42);
 		getContentPane().add(browser);
 
 		JButton btnIndepthTheory = new JButton("Alarms & Clock");
@@ -178,6 +179,11 @@ public class Main extends JFrame {
 		getContentPane().add(btnConversions);
 
 		JButton btnAnyWebBrowser = new JButton("Any Web Browser");
+		btnAnyWebBrowser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+
 		website = new JTextField();
 		website.setForeground(Color.GRAY);
 		website.setText("Enter site here");
@@ -292,7 +298,7 @@ public class Main extends JFrame {
 		btnChartAndData.setBounds(10, 449, 209, 30);
 		getContentPane().add(btnChartAndData);
 
-		JButton btnEmailDomainSender = new JButton("Email Domain Sender");
+		JButton btnEmailDomainSender = new JButton("Email Sender");
 		btnEmailDomainSender.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EmailSender se = new EmailSender();
@@ -380,17 +386,6 @@ public class Main extends JFrame {
 		t.setBounds(652, 179, 110, 23);
 		getContentPane().add(t);
 
-		JButton btnMk = new JButton("Activate Calibur!");
-		btnMk.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				File Clap = new File("C:\\Users\\sathv\\Desktop\\WAV Audios\\Welcome.wav");
-				Audio.PlaySound(Clap);
-			}
-		});
-		btnMk.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		btnMk.setBounds(10, 11, 136, 29);
-		getContentPane().add(btnMk);
-
 		JButton btnFunGames = new JButton("Fun Games!");
 		btnFunGames.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -401,6 +396,12 @@ public class Main extends JFrame {
 		btnFunGames.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		btnFunGames.setBounds(638, 11, 136, 29);
 		getContentPane().add(btnFunGames);
+
+		JLabel welcome = new JLabel("Welcome " + Home.username + ",");
+		welcome.setForeground(Color.RED);
+		welcome.setFont(new Font("Arial", Font.BOLD, 19));
+		welcome.setBounds(10, 11, 234, 23);
+		getContentPane().add(welcome);
 
 	}
 

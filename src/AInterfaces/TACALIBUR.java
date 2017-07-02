@@ -620,8 +620,7 @@ public class TACALIBUR {
 						fa.newClass();
 					}
 
-				}
-				if (chosen == "Linear Equations") {
+				} else if (chosen == "Linear Equations") {
 					int p = JOptionPane.showConfirmDialog(null,
 							"Are you sure you want this course: Linear Equations and start now?", "",
 							JOptionPane.YES_NO_OPTION);
@@ -629,8 +628,7 @@ public class TACALIBUR {
 						LinearEquations fa = new LinearEquations();
 						fa.newClass();
 					}
-				}
-				if (chosen == "Segments and Angles") {
+				} else if (chosen == "Segments and Angles") {
 					int p = JOptionPane.showConfirmDialog(null,
 							"Are you sure you want this course: Segments & Angles and start now?", "",
 							JOptionPane.YES_NO_OPTION);

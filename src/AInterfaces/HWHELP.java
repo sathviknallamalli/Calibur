@@ -107,22 +107,6 @@ public class HWHELP {
 	private JTextField textField_1;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void NewScreen() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					HWHELP window = new HWHELP();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public HWHELP() {
@@ -135,7 +119,7 @@ public class HWHELP {
 	private void initialize() {
 		frame = new JFrame("Homework Help and Resources");
 		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
-		frame.setBounds(100, 50, 800, 543);
+		frame.setBounds(100, 50, 801, 543);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -183,6 +167,8 @@ public class HWHELP {
 		JButton main = new JButton("Back to Main Page");
 		main.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Main m = new Main();
+				m.newClass();
 			}
 		});
 		main.setFont(new Font("Times New Roman", Font.PLAIN, 12));
@@ -263,16 +249,6 @@ public class HWHELP {
 		btnConverterByCalibur.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnConverterByCalibur.setBounds(616, 145, 158, 23);
 		frame.getContentPane().add(btnConverterByCalibur);
-
-		JButton btnChartGenerator = new JButton("Teacher Assistant");
-		btnChartGenerator.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				TACALIBUR.NewScreen();
-			}
-		});
-		btnChartGenerator.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnChartGenerator.setBounds(503, 450, 174, 23);
-		frame.getContentPane().add(btnChartGenerator);
 
 		JLabel lblunitCircle = new JLabel(
 				"<html>Periodic Table - All 118 Elements are expressed in this elegant Periodic Table and you can learn about the history here.\r\n");
@@ -426,6 +402,17 @@ public class HWHELP {
 		btnKhanAcademy.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnKhanAcademy.setBounds(417, 399, 244, 40);
 		frame.getContentPane().add(btnKhanAcademy);
+
+		JButton btnTeacherAssistant = new JButton("Teacher Assistant");
+		btnTeacherAssistant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TACALIBUR TA = new TACALIBUR();
+
+			}
+		});
+		btnTeacherAssistant.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnTeacherAssistant.setBounds(501, 450, 174, 23);
+		frame.getContentPane().add(btnTeacherAssistant);
 
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
@@ -1527,5 +1514,15 @@ public class HWHELP {
 			PTable p = new PTable();
 			p.newClass();
 		}
+	}
+
+	public void newClass() {
+
+		frame.setSize(801, 543);
+		frame.setLocation(300, 100);
+		frame.setResizable(false);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 	}
 }

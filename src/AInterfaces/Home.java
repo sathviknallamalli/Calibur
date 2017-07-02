@@ -10,6 +10,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,6 +29,12 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CreationHelper;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+
 public class Home extends JFrame {
 
 	Connection connection = null;
@@ -34,6 +43,7 @@ public class Home extends JFrame {
 	JTextField untf = new JTextField();
 	JPasswordField passwordField = new JPasswordField();;
 	static String username;
+
 
 	public Home() {
 
@@ -44,12 +54,6 @@ public class Home extends JFrame {
 		connection2 = sqliteConnection.ud();
 		setBounds(100, 100, 803, 313);
 		getContentPane().setLayout(null);
-
-		JTextField name;
-		JTextField lname;
-		JTextField email;
-		JTextField un;
-		JButton sendemail;
 
 		JLabel lblLoginToCalibur = new JLabel("Login to Calibur\r\n");
 		lblLoginToCalibur.setFont(new Font("Castellar", Font.PLAIN, 34));
@@ -213,7 +217,6 @@ public class Home extends JFrame {
 						Main m = new Main();
 						m.newClass();
 
-					} else {
 						JOptionPane.showMessageDialog(null, "Username or password is not correct. Try again");
 					}
 					rs.close();
@@ -241,50 +244,6 @@ public class Home extends JFrame {
 		btnSignup.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
 		btnSignup.setBounds(420, 180, 124, 41);
 		getContentPane().add(btnSignup);
-
-		name = new JTextField();
-		getContentPane().add(name);
-		name.setColumns(10);
-
-		JLabel n = new JLabel("Name\r\n");
-		n.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		getContentPane().add(n);
-
-		lname = new JTextField();
-		lname.setColumns(10);
-		getContentPane().add(lname);
-
-		JLabel ln = new JLabel("Last name\r\n");
-		ln.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		getContentPane().add(ln);
-
-		email = new JTextField();
-		email.setColumns(10);
-		getContentPane().add(email);
-
-		JLabel el = new JLabel("Email");
-		el.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		getContentPane().add(el);
-
-		un = new JTextField();
-		un.setColumns(10);
-		getContentPane().add(un);
-
-		JLabel u = new JLabel("Username\r\n");
-		u.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		getContentPane().add(u);
-
-		JLabel p = new JLabel("Password");
-		p.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		getContentPane().add(p);
-
-		JLabel cp = new JLabel("<html>Confrim Pasword");
-		cp.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		getContentPane().add(cp);
-
-		sendemail = new JButton("Send Email!");
-		sendemail.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
-		getContentPane().add(sendemail);
 
 		JLabel pic = new JLabel();
 		pic.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\profile.png"));

@@ -6,9 +6,12 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -21,6 +24,11 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CreationHelper;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.ChartUtilities;
@@ -85,6 +93,51 @@ public class ChartGenerator {
 			pst.execute();
 		} catch (Exception e) {
 		}
+	}
+
+	public static void chartToExcel() {
+		// chart to excel
+		Workbook wb = new HSSFWorkbook();
+		CreationHelper createHelper = wb.getCreationHelper();
+		Sheet sheet = wb.createSheet("Charts");
+		Row row = sheet.createRow((short) 0);
+
+		row.createCell(0).setCellValue(createHelper.createRichTextString("Type of Chart"));
+		row.createCell(1).setCellValue(createHelper.createRichTextString("Chart Title"));
+
+		FileOutputStream fileOut;
+		try {
+			fileOut = new FileOutputStream(
+					"C:\\Users\\sathv\\Desktop\\" + Home.username + "_Calibur\\Charts\\Charts.xls");
+
+			// retrieve chart info drom table
+			try {
+				String query = "select * from Charts";
+				PreparedStatement pst = connection.prepareStatement(query);
+				ResultSet rs = pst.executeQuery();
+				int count = 0;
+				while (rs.next()) {
+					if (rs.getString("Username").equals(Home.username)) {
+						count++;
+						String rcType = rs.getString("ChartType");
+						String rTitle = rs.getString("Title");
+						Row r = sheet.createRow((short) count);
+
+						r.createCell(0).setCellValue(createHelper.createRichTextString(rcType));
+						r.createCell(1).setCellValue(createHelper.createRichTextString(rTitle));
+					}
+				}
+			} catch (Exception a) {
+				JOptionPane.showMessageDialog(null, a);
+			}
+			wb.write(fileOut);
+			fileOut.close();
+		} catch (FileNotFoundException b) {
+			b.printStackTrace();
+		} catch (IOException c) {
+			c.printStackTrace();
+		}
+
 	}
 
 	private void initialize() {
@@ -613,6 +666,8 @@ public class ChartGenerator {
 											}
 											ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(),
 													title);
+											ChartGenerator.chartToExcel();
+
 										}
 
 									}
@@ -654,6 +709,7 @@ public class ChartGenerator {
 										}
 										ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(),
 												title);
+										ChartGenerator.chartToExcel();
 									}
 
 								}
@@ -698,6 +754,7 @@ public class ChartGenerator {
 									} catch (IOException b) {
 									}
 									ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(), title);
+									ChartGenerator.chartToExcel();
 								}
 
 							} else if (selected.equals("Line Chart")) {
@@ -740,6 +797,7 @@ public class ChartGenerator {
 									} catch (IOException b) {
 									}
 									ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(), title);
+									ChartGenerator.chartToExcel();
 								}
 							}
 						}
@@ -824,6 +882,7 @@ public class ChartGenerator {
 									} catch (IOException b) {
 									}
 									ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(), title);
+									ChartGenerator.chartToExcel();
 								}
 
 							} else if (selected.equals("Pie Chart")) {
@@ -859,6 +918,7 @@ public class ChartGenerator {
 									} catch (IOException b) {
 									}
 									ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(), title);
+									ChartGenerator.chartToExcel();
 
 								}
 
@@ -903,6 +963,7 @@ public class ChartGenerator {
 									} catch (IOException b) {
 									}
 									ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(), title);
+									ChartGenerator.chartToExcel();
 								}
 							} else if (selected.equals("Line Chart")) {
 								if (model.getColumnCount() != 2) {
@@ -945,6 +1006,7 @@ public class ChartGenerator {
 									} catch (IOException b) {
 									}
 									ChartGenerator.updateTable(Home.username, (String) charts.getSelectedItem(), title);
+									ChartGenerator.chartToExcel();
 								}
 							}
 						}

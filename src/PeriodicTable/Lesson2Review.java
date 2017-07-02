@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,40 +15,39 @@ import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
 public class Lesson2Review extends JFrame {
-	private JRadioButton op81;
 
 	public Lesson2Review() {
 		getContentPane().setLayout(null);
 
 		JLabel title = new JLabel("Lesson 2 Review");
 		title.setFont(new Font("Castellar", Font.PLAIN, 20));
-		title.setBounds(346, 11, 200, 42);
+		title.setBounds(279, 11, 200, 42);
 		getContentPane().add(title);
 
 		JLabel quizIntro = new JLabel(
 				"This review is used to see how well you understood the material do not use any outside resources.");
 		quizIntro.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		quizIntro.setBounds(167, 48, 558, 16);
+		quizIntro.setBounds(100, 48, 558, 16);
 		getContentPane().add(quizIntro);
 
-		JLabel q1 = new JLabel("1.) Identify the period of the element Cobalt");
+		JLabel q1 = new JLabel("1.) All of the following are Alkali metals EXCEPT");
 		q1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		q1.setBounds(10, 83, 251, 25);
+		q1.setBounds(10, 83, 261, 25);
 		getContentPane().add(q1);
 
-		JRadioButton op1 = new JRadioButton("9");
+		JRadioButton op1 = new JRadioButton("Lithium");
 		op1.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op1.setBounds(31, 107, 224, 23);
+		op1.setBounds(31, 107, 72, 23);
 		getContentPane().add(op1);
 
-		JRadioButton op2 = new JRadioButton("4");
+		JRadioButton op2 = new JRadioButton("Beryillium");
 		op2.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op2.setBounds(31, 133, 192, 23);
+		op2.setBounds(31, 133, 86, 23);
 		getContentPane().add(op2);
 
-		JRadioButton op3 = new JRadioButton("27");
+		JRadioButton op3 = new JRadioButton("Francium");
 		op3.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op3.setBounds(31, 159, 176, 23);
+		op3.setBounds(31, 159, 80, 23);
 		getContentPane().add(op3);
 
 		ButtonGroup b = new ButtonGroup();
@@ -55,25 +55,25 @@ public class Lesson2Review extends JFrame {
 		b.add(op2);
 		b.add(op1);
 
-		JLabel lblWhatIs = new JLabel(
-				"<html>2.) If the atomic number of Fluorine is 9 and it has a mass of 19, find the missing information");
+		JLabel lblWhatIs = new JLabel("<html>2.) Which bohr model represents that of an alkali metal?");
 		lblWhatIs.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblWhatIs.setBounds(10, 182, 410, 37);
+		lblWhatIs.setBounds(10, 182, 393, 25);
 		getContentPane().add(lblWhatIs);
 
-		JRadioButton op21 = new JRadioButton("Neutrons - 9, Electrons -10");
+		JRadioButton op21 = new JRadioButton();
+		op21.setText("Option 1");
 		op21.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op21.setBounds(31, 226, 159, 23);
+		op21.setBounds(31, 211, 72, 23);
 		getContentPane().add(op21);
 
-		JRadioButton op22 = new JRadioButton("Neutrons - 19, Electrons 9");
+		JRadioButton op22 = new JRadioButton("Option 2");
 		op22.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op22.setBounds(31, 254, 159, 23);
+		op22.setBounds(31, 239, 80, 23);
 		getContentPane().add(op22);
 
-		JRadioButton op23 = new JRadioButton("Neutrons - 10, Electrons - 9");
+		JRadioButton op23 = new JRadioButton("Option 3");
 		op23.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op23.setBounds(31, 280, 176, 23);
+		op23.setBounds(31, 265, 72, 23);
 		getContentPane().add(op23);
 
 		ButtonGroup b2 = new ButtonGroup();
@@ -81,35 +81,36 @@ public class Lesson2Review extends JFrame {
 		b2.add(op22);
 		b2.add(op21);
 
-		JLabel lblSolveThis = new JLabel("3.) What does a group define in the periodic table");
+		JLabel lblSolveThis = new JLabel("3.) Which description matches that of alkali metals");
 		lblSolveThis.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblSolveThis.setBounds(10, 304, 322, 25);
 		getContentPane().add(lblSolveThis);
 
-		JRadioButton op31 = new JRadioButton("<html>The number of energy levels of the electrons in the atom");
+		JRadioButton op31 = new JRadioButton(
+				"<html>It is a low reactive material that is highly durable and has high density making it difficult to cut through and break");
 		op31.setVerticalAlignment(SwingConstants.TOP);
 		op31.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op31.setBounds(31, 330, 301, 25);
+		op31.setBounds(31, 330, 317, 37);
 		getContentPane().add(op31);
 
-		JLabel lblWhatIs_1 = new JLabel("4.) If an element has 4 protons and 5 neutrons, what is the mass number");
+		JLabel lblWhatIs_1 = new JLabel("4.) Where are the alkali elements located on the periodic table");
 		lblWhatIs_1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblWhatIs_1.setBounds(10, 411, 380, 25);
+		lblWhatIs_1.setBounds(424, 83, 330, 25);
 		getContentPane().add(lblWhatIs_1);
 
-		JRadioButton op41 = new JRadioButton("9");
+		JRadioButton op41 = new JRadioButton("Left most");
 		op41.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op41.setBounds(31, 443, 159, 23);
+		op41.setBounds(447, 107, 159, 23);
 		getContentPane().add(op41);
 
-		JRadioButton op42 = new JRadioButton("4");
+		JRadioButton op42 = new JRadioButton("Middle row");
 		op42.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op42.setBounds(31, 469, 62, 23);
+		op42.setBounds(447, 133, 86, 23);
 		getContentPane().add(op42);
 
-		JRadioButton op43 = new JRadioButton("5");
+		JRadioButton op43 = new JRadioButton("Right most");
 		op43.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op43.setBounds(95, 469, 37, 23);
+		op43.setBounds(447, 159, 99, 23);
 		getContentPane().add(op43);
 
 		ButtonGroup bg4 = new ButtonGroup();
@@ -117,14 +118,15 @@ public class Lesson2Review extends JFrame {
 		bg4.add(op42);
 		bg4.add(op41);
 
-		JLabel lblSolveThe = new JLabel("5.) What group does the element Silver belong to");
+		JLabel lblSolveThe = new JLabel(
+				"<html>5.) What element is in the same column as the alkali metals, but not part of the group?");
 		lblSolveThe.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblSolveThe.setBounds(437, 83, 261, 25);
+		lblSolveThe.setBounds(424, 183, 330, 37);
 		getContentPane().add(lblSolveThe);
 
-		JLabel lblAStudentSolved = new JLabel("6.) How created the periodic table");
+		JLabel lblAStudentSolved = new JLabel("6.) What is the classification of alkali metals?");
 		lblAStudentSolved.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblAStudentSolved.setBounds(437, 189, 294, 25);
+		lblAStudentSolved.setBounds(424, 298, 294, 25);
 		getContentPane().add(lblAStudentSolved);
 
 		JButton btnNewButton = new JButton("Submit");
@@ -132,44 +134,24 @@ public class Lesson2Review extends JFrame {
 		btnNewButton.setBounds(626, 455, 128, 37);
 		getContentPane().add(btnNewButton);
 
-		JRadioButton op61 = new JRadioButton("Antoine Lavasioer");
+		JRadioButton op61 = new JRadioButton("Nonmetals");
 		op61.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op61.setBounds(472, 213, 159, 23);
+		op61.setBounds(447, 319, 159, 23);
 		getContentPane().add(op61);
 
-		JRadioButton op62 = new JRadioButton("Dmitri Mendeleev");
+		JRadioButton op62 = new JRadioButton("Metals");
 		op62.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op62.setBounds(472, 239, 159, 23);
+		op62.setBounds(447, 345, 159, 23);
 		getContentPane().add(op62);
 
-		JLabel lblWhichOf = new JLabel("<html>7.) Which element in Period 5 has the least number of electrons");
+		JLabel lblWhichOf = new JLabel("<html>7.) What is the suffix of all alkali metals?");
 		lblWhichOf.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblWhichOf.setBounds(437, 293, 317, 36);
+		lblWhichOf.setBounds(414, 396, 342, 25);
 		getContentPane().add(lblWhichOf);
 
-		JLabel lblAcoordingTo = new JLabel("8.) How many periods in the periodic table");
-		lblAcoordingTo.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblAcoordingTo.setBounds(437, 411, 251, 16);
-		getContentPane().add(lblAcoordingTo);
-
-		op81 = new JRadioButton("18");
-		op81.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op81.setBounds(447, 434, 301, 23);
-		getContentPane().add(op81);
-
-		JRadioButton op82 = new JRadioButton("7");
-		op82.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op82.setBounds(447, 456, 224, 23);
-		getContentPane().add(op82);
-
-		JRadioButton op83 = new JRadioButton("118");
-		op83.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op83.setBounds(447, 476, 86, 23);
-		getContentPane().add(op83);
-
-		JRadioButton op63 = new JRadioButton("Albert Einstein");
+		JRadioButton op63 = new JRadioButton("Metalloids");
 		op63.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op63.setBounds(472, 265, 186, 23);
+		op63.setBounds(447, 371, 186, 23);
 		getContentPane().add(op63);
 
 		ButtonGroup bg6 = new ButtonGroup();
@@ -177,26 +159,18 @@ public class Lesson2Review extends JFrame {
 		bg6.add(op62);
 		bg6.add(op61);
 
-		JButton button = new JButton("Periodic Table");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				PTable p = new PTable();
-				p.newClass();
-			}
-		});
-		button.setFont(new Font("Arial", Font.PLAIN, 14));
-		button.setBounds(10, 11, 127, 40);
-		getContentPane().add(button);
-
-		JRadioButton op32 = new JRadioButton("<html>Similar chemical properties of the elements in the group");
+		JRadioButton op32 = new JRadioButton(
+				"<html>A soft metal that has low reactivity and when mixed with other chemicals only changes color but not create a compound");
+		op32.setVerticalAlignment(SwingConstants.TOP);
 		op32.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op32.setBounds(31, 356, 301, 25);
+		op32.setBounds(31, 370, 301, 51);
 		getContentPane().add(op32);
 
-		JRadioButton op33 = new JRadioButton("<html>Elements that occur in the same color in their normal phase");
+		JRadioButton op33 = new JRadioButton(
+				"<html>Soft metals that have high reactivity making explosions when mixed with other elements");
 		op33.setVerticalAlignment(SwingConstants.TOP);
 		op33.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op33.setBounds(31, 382, 301, 37);
+		op33.setBounds(31, 420, 301, 37);
 		getContentPane().add(op33);
 
 		ButtonGroup bg3 = new ButtonGroup();
@@ -204,19 +178,19 @@ public class Lesson2Review extends JFrame {
 		bg3.add(op32);
 		bg3.add(op31);
 
-		JRadioButton op51 = new JRadioButton("Actinoids");
+		JRadioButton op51 = new JRadioButton("Hydrogen");
 		op51.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op51.setBounds(472, 107, 159, 23);
+		op51.setBounds(445, 220, 159, 23);
 		getContentPane().add(op51);
 
-		JRadioButton op52 = new JRadioButton("Transition Metals");
+		JRadioButton op52 = new JRadioButton("Rubidium");
 		op52.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op52.setBounds(472, 133, 159, 23);
+		op52.setBounds(445, 246, 159, 23);
 		getContentPane().add(op52);
 
-		JRadioButton op53 = new JRadioButton("Metals");
+		JRadioButton op53 = new JRadioButton("Boron");
 		op53.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op53.setBounds(472, 159, 186, 23);
+		op53.setBounds(445, 272, 186, 23);
 		getContentPane().add(op53);
 
 		ButtonGroup bg5 = new ButtonGroup();
@@ -224,25 +198,62 @@ public class Lesson2Review extends JFrame {
 		bg5.add(op52);
 		bg5.add(op51);
 
-		JRadioButton op71 = new JRadioButton("Xenon");
+		JRadioButton op71 = new JRadioButton("'GEN'");
 		op71.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op71.setBounds(472, 330, 159, 23);
+		op71.setBounds(447, 420, 159, 23);
 		getContentPane().add(op71);
 
-		JRadioButton op72 = new JRadioButton("Strontium");
+		JRadioButton op72 = new JRadioButton("'IUM'");
 		op72.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op72.setBounds(472, 356, 159, 23);
+		op72.setBounds(447, 446, 159, 23);
 		getContentPane().add(op72);
 
-		JRadioButton op73 = new JRadioButton("Rubidium");
+		JRadioButton op73 = new JRadioButton("'INE'");
 		op73.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		op73.setBounds(472, 382, 186, 23);
+		op73.setBounds(447, 472, 186, 23);
 		getContentPane().add(op73);
 
 		ButtonGroup bg7 = new ButtonGroup();
 		bg7.add(op73);
 		bg7.add(op72);
 		bg7.add(op71);
+
+		JRadioButton op4 = new JRadioButton("Cesium");
+		op4.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		op4.setBounds(124, 107, 224, 23);
+		getContentPane().add(op4);
+
+		JRadioButton op5 = new JRadioButton("Potassium");
+		op5.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		op5.setBounds(124, 133, 224, 23);
+		getContentPane().add(op5);
+
+		JRadioButton op6 = new JRadioButton("Sodium");
+		op6.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		op6.setBounds(124, 159, 224, 23);
+		getContentPane().add(op6);
+
+		b.add(op6);
+		b.add(op5);
+		b.add(op4);
+
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\less.PNG"));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel.setBounds(109, 209, 91, 84);
+		getContentPane().add(lblNewLabel);
+
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\full.PNG"));
+		label.setHorizontalAlignment(SwingConstants.LEFT);
+		label.setBounds(210, 211, 72, 84);
+		getContentPane().add(label);
+
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\extra.PNG"));
+		label_1.setHorizontalAlignment(SwingConstants.LEFT);
+		label_1.setBounds(292, 211, 98, 84);
+		getContentPane().add(label_1);
 
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -252,32 +263,30 @@ public class Lesson2Review extends JFrame {
 				frame.setVisible(true);
 				frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 				int maxScore = 0;
-				if (op2.isSelected()) {
+				if (op1.isSelected()) {
 					maxScore++;
 				}
 				if (op23.isSelected()) {
 					maxScore++;
 				}
-				if (op32.isSelected()) {
+				if (op33.isSelected()) {
 					maxScore++;
 				}
 				if (op41.isSelected()) {
 					maxScore++;
 				}
-				if (op52.isSelected()) {
+				if (op51.isSelected()) {
 					maxScore++;
 				}
 				if (op62.isSelected()) {
 					maxScore++;
 				}
-				if (op73.isSelected()) {
+				if (op72.isSelected()) {
 					maxScore++;
 				}
-				if (op82.isSelected()) {
-					maxScore++;
-				}
+
 				frame.getContentPane().setLayout(null);
-				JLabel result = new JLabel("You scored " + maxScore + " out of 8");
+				JLabel result = new JLabel("You scored " + maxScore + " out of 7");
 				result.setFont(new Font("Times New Roman", Font.BOLD, 14));
 				result.setBounds(27, 39, 272, 27);
 				frame.getContentPane().add(result);
@@ -289,7 +298,7 @@ public class Lesson2Review extends JFrame {
 
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						Lesson2 l = new Lesson2();
+						Lesson3 l = new Lesson3();
 						l.newClass();
 						close();
 					}
@@ -305,7 +314,7 @@ public class Lesson2Review extends JFrame {
 
 	public void newClass() {
 
-		setSize(781, 545);
+		setSize(782, 544);
 		setLocation(300, 100);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
