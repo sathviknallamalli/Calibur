@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -57,8 +58,6 @@ public class Reminders {
 	}
 
 	Connection connection = null;
-	Connection connection1 = null;
-	Connection connection2 = null;
 	private JLabel lblAlarmsClocks;
 	private JLabel lblwelcomeToThe;
 	String s;
@@ -113,9 +112,7 @@ public class Reminders {
 	 * Create the application.
 	 */
 	public Reminders() {
-		connection = sqliteConnection.c();
-		connection1 = sqliteConnection.c();
-		connection2 = sqliteConnection.c();
+		connection = sqlConnection.sqlExpress();
 		initialize();
 		clock();
 	}
@@ -195,45 +192,32 @@ public class Reminders {
 		btnSetAlarm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String day = "" + jd.getDate().getDate();
-				int month = jd.getDate().getMonth();
-				String m = "";
+				int month = jd.getDate().getMonth() + 1;
 				String year = jd.getDate().getYear() + 1900 + "";
-				if (month == 0) {
-					m = "January";
-				} else if (month == 1) {
-					m = "February";
-				} else if (month == 2) {
-					m = "March";
-				} else if (month == 3) {
-					m = "April";
-				} else if (month == 4) {
-					m = "May";
-				} else if (month == 5) {
-					m = "June";
-				} else if (month == 6) {
-					m = "July";
-				} else if (month == 7) {
-					m = "August";
-				} else if (month == 8) {
-					m = "September";
-				} else if (month == 9) {
-					m = "October";
-				} else if (month == 10) {
-					m = "November";
-				} else if (month == 11) {
-					m = "December";
-				}
-				String date = m + " " + day + " " + year;
+
 				String time = (String) hr.getSelectedItem() + ":" + (String) min.getSelectedItem() + " "
 						+ (String) te.getSelectedItem();
 				String sound = (String) noise.getSelectedItem();
 				try {
 					String query = "insert into Reminders (Date,Time,AlarmType,Message,Username) values (?, ?, ?, ?, ?)";
 					PreparedStatement pst = connection.prepareStatement(query);
-					pst.setString(1, date);
+					try {
+						String date = month + "/" + day + "/" + year;
+						SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+						java.util.Date parsed = format.parse(date);
+						java.sql.Date sql_date = new java.sql.Date(parsed.getTime());
+						pst.setDate(1, sql_date);
+					} catch (Exception a) {
+
+					}
+
+					String sub = subject.getText();
+					if (sub.equals("")) {
+						sub = "No message";
+					}
 					pst.setString(2, time);
 					pst.setString(3, sound);
-					pst.setString(4, subject.getText());
+					pst.setString(4, sub);
 					pst.setString(5, Home.username);
 
 					pst.execute();
@@ -243,6 +227,7 @@ public class Reminders {
 				} catch (Exception b) {
 					JOptionPane.showMessageDialog(null, b);
 				}
+
 				// alarm to excel
 				Workbook wb = new HSSFWorkbook();
 				CreationHelper createHelper = wb.getCreationHelper();
@@ -260,10 +245,7 @@ public class Reminders {
 							"C:\\Users\\sathv\\Desktop\\" + fromHome + "_Calibur\\Alarms\\Alarms and Reminders.xls");
 
 					// save alarm
-					String sub = subject.getText();
-					if (sub.equals("")) {
-						sub = "No message";
-					}
+
 					// retrieve reminder info drom table
 					try {
 						String query = "select * from Reminders";
@@ -277,6 +259,10 @@ public class Reminders {
 								String rDate = rs.getString("Date");
 								String rType = rs.getString("AlarmType");
 								String rMessage = rs.getString("Message");
+
+								if (rMessage.equals("")) {
+									rMessage = "No message";
+								}
 								Row r = sheet.createRow((short) count);
 
 								r.createCell(0).setCellValue(createHelper.createRichTextString(rTime));
@@ -293,51 +279,22 @@ public class Reminders {
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 
 				// check alarm
 				try {
 					String query = "select * from Reminders";
-					PreparedStatement pst = connection2.prepareStatement(query);
+					PreparedStatement pst = connection.prepareStatement(query);
 					ResultSet rs = pst.executeQuery();
 
 					while (rs.next()) {
 						int hr = Integer.parseInt(rs.getString("Time").substring(0, 1));
 						int min = Integer.parseInt(rs.getString("Time").substring(2, 4));
-						int occ = rs.getString("Date").indexOf(" ");
-						int dayVal = Integer.parseInt(rs.getString("Date").substring(occ + 1, occ + 3));
-						int yearVal = Integer.parseInt(rs.getString("Date").substring(occ + 4, occ + 8));
-
-						String mv = rs.getString("Date").substring(0, occ);
-
-						int monthVal = 0;
-						if (mv.equals("January")) {
-							monthVal = 0;
-						} else if (mv.equals("February")) {
-							monthVal = 1;
-						} else if (mv.equals("March")) {
-							monthVal = 2;
-						} else if (mv.equals("April")) {
-							monthVal = 3;
-						} else if (mv.equals("May")) {
-							monthVal = 4;
-						} else if (mv.equals("June")) {
-							monthVal = 5;
-						} else if (mv.equals("July")) {
-							monthVal = 6;
-						} else if (mv.equals("August")) {
-							monthVal = 7;
-						} else if (mv.equals("September")) {
-							monthVal = 8;
-						} else if (mv.equals("October")) {
-							monthVal = 9;
-						} else if (mv.equals("November")) {
-							monthVal = 10;
-						} else if (mv.equals("December")) {
-							monthVal = 11;
-						}
+						int dayVal = Integer.parseInt(rs.getString("Date").substring(8, 10));
+						int yearVal = Integer.parseInt(rs.getString("Date").substring(0, 4));
+						int monthVal = Integer.parseInt(rs.getString("Date").substring(5, 7));
 
 						int timeofDay = 0;
 						if (te.getSelectedItem().toString().equals("AM")) {
@@ -451,12 +408,6 @@ public class Reminders {
 		frame.getContentPane().add(label);
 
 		JLabel resetLaps = new JLabel();
-		resetLaps.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-
-			}
-		});
 		resetLaps.setIcon(new ImageIcon("C:\\Users\\sathv\\Desktop\\Pics\\reset.png"));
 		resetLaps.setBounds(626, 221, 63, 35);
 		frame.getContentPane().add(resetLaps);

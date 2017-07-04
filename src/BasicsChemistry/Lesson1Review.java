@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import AInterfaces.TACALIBUR;
+
 public class Lesson1Review extends JFrame {
 	private JRadioButton op81;
 	private JTextField enter;
@@ -223,6 +225,16 @@ public class Lesson1Review extends JFrame {
 		getContentPane().add(enter);
 		enter.setColumns(10);
 
+		JLabel bs = new JLabel("");
+		bs.setFont(new Font("Arial", Font.BOLD, 18));
+		bs.setBounds(594, 11, 160, 30);
+		getContentPane().add(bs);
+
+		boolean exists = TACALIBUR.startCourseVerify("Basics of Chemistry: Lesson 1 Review");
+		if (exists == true) {
+			TACALIBUR.scoreShow(bs, "Basics of Chemistry: Lesson 1 Review");
+		}
+
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFrame frame = new JFrame();
@@ -265,9 +277,11 @@ public class Lesson1Review extends JFrame {
 				next.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 				next.setBounds(142, 77, 168, 23);
 				frame.getContentPane().add(next);
+				final int score = maxScore;
 
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
+						TACALIBUR.courseComplete("Basics of Chemistry: Lesson 1 Review", score);
 						Lesson2 l = new Lesson2();
 						l.newClass();
 						close();

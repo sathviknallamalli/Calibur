@@ -1,4 +1,4 @@
-package AInterfaces;
+package CRUDOps;
 
 import java.awt.EventQueue;
 
@@ -11,6 +11,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import com.toedter.calendar.JDateChooser;
 
+import AInterfaces.sqlConnection;
 import FundamentalsOfAlgebra.FundamentalsAlg;
 
 import java.awt.event.ActionListener;
@@ -19,6 +20,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
@@ -31,7 +33,7 @@ import java.awt.Color;
 public class UpdateDelete {
 
 	private JFrame frame;
-	private JTextField ssid;
+	public static JTextField ssid;
 
 	/**
 	 * Launch the application.
@@ -58,7 +60,7 @@ public class UpdateDelete {
 
 	public UpdateDelete() {
 		initialize();
-		conn = sqliteConnection.c();
+		conn = sqlConnection.sqlExpress();
 	}
 
 	/**
@@ -91,15 +93,16 @@ public class UpdateDelete {
 		ssid.setBounds(10, 27, 119, 20);
 		frame.getContentPane().add(ssid);
 
-		String genders[] = { "", "Male", "Female" };
+		String genders[] = { " ", "Male", "Female" };
 
 		JComboBox gens = new JComboBox(genders);
-		gens.setEnabled(false);
 		gens.setEditable(true);
+		gens.setEnabled(false);
+
 		gens.setFont(new Font("Arial", Font.BOLD, 13));
 		frame.getContentPane().add(gens);
 
-		String states[] = { "", "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN",
+		String states[] = { " ", "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN",
 				"IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM",
 				"NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV",
 				"WI", "WY" };
@@ -107,6 +110,7 @@ public class UpdateDelete {
 		JComboBox st = new JComboBox(states);
 		st.setEditable(true);
 		st.setEnabled(false);
+
 		st.setFont(new Font("Arial", Font.BOLD, 13));
 		frame.getContentPane().add(st);
 
@@ -145,7 +149,6 @@ public class UpdateDelete {
 		JButton editSave = new JButton("Edit");
 		editSave.setFont(new Font("Arial", Font.PLAIN, 13));
 		frame.getContentPane().add(editSave);
-
 		st.setBounds(126, 187, 76, 20);
 		gens.setBounds(10, 187, 76, 20);
 
@@ -201,12 +204,24 @@ public class UpdateDelete {
 				editSave.setText("Save");
 				gens.setEnabled(true);
 				st.setEnabled(true);
+				gens.setEditable(true);
+				st.setEditable(true);
 				name.setEditable(true);
 				date.setBounds(0, 0, 0, 0);
 				jd.setBounds(10, 139, 181, 20);
 				String cSSID = ssid.getText();
+				String d = date.getText();
+				java.util.Date date2;
+				try {
+					date2 = new SimpleDateFormat("yyyy-MM-dd").parse(d);
+					jd.setDate(date2);
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
+
 				editSave.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent a) {
+
 						try {
 							PreparedStatement update = conn.prepareStatement(
 									"UPDATE PersonDetails SET Name = ?, DOB = ?, SSID = ?, Gender = ?, State = ? WHERE SSID = "
@@ -214,20 +229,30 @@ public class UpdateDelete {
 
 							update.setString(1, name.getText());
 
-							String BD = (new java.text.SimpleDateFormat("MM/dd/yyyy")).format(jd.getDate());
-
-							update.setString(2, BD);
-							String input;
-							if (gens.getSelectedItem().equals("Male")) {
+							String input = "";
+							String raw = (String) gens.getSelectedItem();
+							if (raw.equals("Male")) {
 								input = "M";
-							} else if (gens.getSelectedItem().equals("Female")) {
+							} else if (raw.equals("Female")) {
 								input = "F";
 							} else {
 								input = "NS";
 							}
+
+							java.util.Date d = jd.getDate();
+							java.sql.Date sqldate = null;
+							if (d == null) {
+								System.out.println("No date specified!");
+							} else {
+								sqldate = new java.sql.Date(d.getTime());
+								// Do something with sqldate
+							}
+
+							update.setDate(2, sqldate);
 							update.setString(3, ssid.getText());
 							update.setString(4, input);
-							update.setString(5, (String) st.getSelectedItem());
+							String state = (String) st.getSelectedItem();
+							update.setString(5, state);
 							update.executeUpdate();
 							JOptionPane.showMessageDialog(null, "Saved!");
 						} catch (Exception e) {
@@ -256,7 +281,8 @@ public class UpdateDelete {
 					try {
 						String sql = "delete from PersonDetails where SSID= " + ssid.getText();
 						PreparedStatement stmt = conn.prepareStatement(sql);
-						stmt.executeUpdate();
+						stmt.execute();
+						JOptionPane.showMessageDialog(null, "Deleted!");
 					} catch (Exception a) {
 						JOptionPane.showMessageDialog(null, a);
 					}
@@ -264,5 +290,12 @@ public class UpdateDelete {
 			}
 		});
 
+	}
+
+	public void newClass() {
+		frame.setSize(396, 300);
+		frame.setLocation(300, 100);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 }

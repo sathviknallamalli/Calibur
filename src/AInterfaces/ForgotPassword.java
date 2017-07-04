@@ -37,9 +37,7 @@ public class ForgotPassword {
 	}
 
 	Connection connection = null;
-	Connection conn = null;
 
-	private JTable table_1;
 	String s;
 	String m;
 	String h;
@@ -55,8 +53,7 @@ public class ForgotPassword {
 	 * Create the application.
 	 */
 	public ForgotPassword() {
-		connection = sqliteConnection.c();
-		conn = sqliteConnection.c();
+		connection = sqlConnection.sqlExpress();
 		initialize();
 
 	}
@@ -150,7 +147,7 @@ public class ForgotPassword {
 					JOptionPane.showMessageDialog(null, "Email is a required field, please enter");
 				} else {
 					try {
-						String query = "select * from UserInfo where username=?";
+						String query = "select * from UserData where username=?";
 						PreparedStatement pst = connection.prepareStatement(query);
 						pst.setString(1, uname.getText());
 
@@ -165,7 +162,6 @@ public class ForgotPassword {
 
 								// generate code
 
-								String em = email.getText();
 								int UPL = 0 + (int) (Math.random() * 25);
 								int LWL = 0 + (int) (Math.random() * 25);
 								int num = 0 + (int) (Math.random() * 9);
@@ -252,7 +248,7 @@ public class ForgotPassword {
 							"Error: No verification code was sent, enter the username and email");
 				} else if (count == 3) {
 					JOptionPane.showMessageDialog(null, "Sorry. We will send another email with a DIFFERENT CODE");
-					String em = email.getText();
+
 					int UPL = 0 + (int) (Math.random() * 25);
 					int LWL = 0 + (int) (Math.random() * 25);
 					int num = 0 + (int) (Math.random() * 9);
@@ -296,7 +292,7 @@ public class ForgotPassword {
 							if (en1.equals(en2)) {
 
 								try {
-									String sql = "update UserInfo " + " set Password= '" + en1 + "'"
+									String sql = "update UserData " + " set Password= '" + en1 + "'"
 											+ " where Username= '" + uname.getText() + "'";
 
 									PreparedStatement pst = connection.prepareStatement(sql);

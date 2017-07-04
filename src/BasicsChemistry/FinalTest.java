@@ -524,6 +524,16 @@ public class FinalTest extends JFrame {
 		op124.setBounds(849, 543, 222, 23);
 		getContentPane().add(op124);
 
+		JLabel bs = new JLabel("");
+		bs.setFont(new Font("Arial", Font.BOLD, 18));
+		bs.setBounds(676, 11, 160, 30);
+		getContentPane().add(bs);
+
+		boolean exists = TACALIBUR.startCourseVerify("Chemistry- Basics of Chemistry");
+		if (exists == true) {
+			TACALIBUR.scoreShow(bs, "Chemistry- Basics of Chemistry");
+		}
+
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFrame frame = new JFrame();
@@ -593,9 +603,12 @@ public class FinalTest extends JFrame {
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						if (ms >= 12) {
-							TACALIBUR.courseComplete("Chemistry- Basics of Chemistry", ms);
 							Dup w = new Dup();
 							w.newClass();
+							String cName = TACALIBUR.verifyIfCourseComplete("Chemistry- Basics of Chemistry",
+									"BasicsofChemsitry");
+							TACALIBUR.saveCertificate(cName);
+							TACALIBUR.courseComplete("Chemistry- Basics of Chemistry", ms);
 							close();
 
 						} else {

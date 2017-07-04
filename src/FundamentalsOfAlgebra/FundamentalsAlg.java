@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
+import AInterfaces.TACALIBUR;
+
 public class FundamentalsAlg extends JFrame {
 
 	public FundamentalsAlg() {
@@ -239,6 +241,16 @@ public class FundamentalsAlg extends JFrame {
 		btnNewButton.setBounds(664, 450, 109, 37);
 		getContentPane().add(btnNewButton);
 
+		JLabel bs = new JLabel("");
+		bs.setFont(new Font("Arial", Font.BOLD, 18));
+		bs.setBounds(614, 8, 160, 30);
+		getContentPane().add(bs);
+
+		boolean exists = TACALIBUR.startCourseVerify("Pre-test: Fundamentals of Algebra");
+		if (exists == true) {
+			TACALIBUR.scoreShow(bs, "Pre-test: Fundamentals of Algebra");
+		}
+
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFrame frame = new JFrame();
@@ -279,12 +291,12 @@ public class FundamentalsAlg extends JFrame {
 				next.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 				next.setBounds(142, 77, 168, 23);
 				frame.getContentPane().add(next);
-
+				final int score = maxScore;
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
+						TACALIBUR.courseComplete("Pre-test: Fundamentals of Algebra", score);
 						Lesson1 w = new Lesson1();
 						w.newClass();
-
 						close();
 					}
 				});

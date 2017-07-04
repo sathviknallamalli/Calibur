@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -64,7 +65,7 @@ public class EmailSender {
 	 */
 	public EmailSender() {
 		initialize();
-		connection = sqliteConnection.c();
+		connection = sqlConnection.sqlExpress();
 	}
 
 	/**
@@ -220,13 +221,17 @@ public class EmailSender {
 
 					// insert email to table
 					try {
-						String query = "insert into EmailSender (CaliburUsername,FromEmail,ReceiverEmail,Subject,Message) values (?, ?, ?, ?, ?)";
+						String query = "insert into EmailSender (CaliburUsername,FromEmail,ReceiverEmail,Subject,Message,SentTime) values (?, ?, ?, ?, ?, ?)";
 						PreparedStatement pst = connection.prepareStatement(query);
 						pst.setString(1, Home.username);
 						pst.setString(2, email.getText());
 						pst.setString(3, to.getText());
 						pst.setString(4, subject.getText());
 						pst.setString(5, message.getText());
+
+						Date d = new Date();
+						String cd = d.toString();
+						pst.setString(6, cd);
 
 						pst.execute();
 						pst.close();

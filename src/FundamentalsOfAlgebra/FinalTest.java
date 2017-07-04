@@ -501,6 +501,16 @@ public class FinalTest extends JFrame {
 		lblcheckAnswersBefore.setBounds(1162, 592, 172, 29);
 		getContentPane().add(lblcheckAnswersBefore);
 
+		JLabel bs = new JLabel("");
+		bs.setFont(new Font("Arial", Font.BOLD, 18));
+		bs.setBounds(671, 11, 160, 30);
+		getContentPane().add(bs);
+
+		boolean exists = TACALIBUR.startCourseVerify("Fundamentals of Algebra");
+		if (exists == true) {
+			TACALIBUR.scoreShow(bs, "Fundamentals of Algebra");
+		}
+
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFrame frame = new JFrame();
@@ -570,9 +580,12 @@ public class FinalTest extends JFrame {
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						if (ms >= 12) {
-							TACALIBUR.courseComplete("Fundamentals of Algebra", ms);
 							Dup w = new Dup();
 							w.newClass();
+							String cName = TACALIBUR.verifyIfCourseComplete("Fundamentals of Algebra",
+									"FundamentalsofAlgebra");
+							TACALIBUR.saveCertificate(cName);
+							TACALIBUR.courseComplete("Fundamentals of Algebra", ms);
 							close();
 
 						} else {

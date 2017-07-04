@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
+import AInterfaces.TACALIBUR;
+
 public class Lesson3Review extends JFrame {
 
 	public Lesson3Review() {
@@ -119,7 +121,8 @@ public class Lesson3Review extends JFrame {
 		lblWhatIs_1.setBounds(10, 451, 382, 25);
 		getContentPane().add(lblWhatIs_1);
 
-		JLabel lblSolveThe = new JLabel("<html>5.) Calculate the input distance if the IMA is 25 and the output distance is 5 meters\r\n");
+		JLabel lblSolveThe = new JLabel(
+				"<html>5.) Calculate the input distance if the IMA is 25 and the output distance is 5 meters\r\n");
 		lblSolveThe.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblSolveThe.setBounds(447, 83, 399, 25);
 		getContentPane().add(lblSolveThe);
@@ -196,8 +199,7 @@ public class Lesson3Review extends JFrame {
 		bg6.add(op62);
 		bg6.add(op61);
 
-		JLabel lblWhichOf = new JLabel(
-				"<html>7.) What is Advantage, generacilly?");
+		JLabel lblWhichOf = new JLabel("<html>7.) What is Advantage, generacilly?");
 		lblWhichOf.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblWhichOf.setBounds(447, 313, 421, 32);
 		getContentPane().add(lblWhichOf);
@@ -219,7 +221,7 @@ public class Lesson3Review extends JFrame {
 		op43.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op43.setBounds(31, 532, 222, 25);
 		getContentPane().add(op43);
-		
+
 		ButtonGroup bg4 = new ButtonGroup();
 		bg4.add(op43);
 		bg4.add(op42);
@@ -252,6 +254,16 @@ public class Lesson3Review extends JFrame {
 		bg8.add(op83);
 		bg8.add(op82);
 		bg8.add(op81);
+
+		JLabel bs = new JLabel("");
+		bs.setFont(new Font("Arial", Font.BOLD, 18));
+		bs.setBounds(699, 11, 160, 30);
+		getContentPane().add(bs);
+
+		boolean exists = TACALIBUR.startCourseVerify("Machines: Lesson 3 Review");
+		if (exists == true) {
+			TACALIBUR.scoreShow(bs, "Machines: Lesson 3 Review");
+		}
 
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -296,9 +308,10 @@ public class Lesson3Review extends JFrame {
 				next.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 				next.setBounds(142, 77, 168, 23);
 				frame.getContentPane().add(next);
-
+				final int score = maxScore;
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
+						TACALIBUR.courseComplete("Machines: Lesson 3 Review", score);
 						Lesson4 l = new Lesson4();
 						l.newClass();
 						close();

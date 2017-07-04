@@ -71,7 +71,7 @@ public class ChartGenerator {
 
 	public ChartGenerator() {
 		initialize();
-		connection = sqliteConnection.c();
+		connection = sqlConnection.sqlExpress();
 
 	}
 

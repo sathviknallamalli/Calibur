@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
 
@@ -40,7 +41,6 @@ public class SignUp extends JFrame {
 	private JTextField email;
 	private JTextField UsernameTextField;
 	Connection connection = null;
-	static Connection connection1 = null;
 	Connection conn = null;
 	private JPasswordField pd;
 	private JPasswordField confirmpd;
@@ -107,8 +107,8 @@ public class SignUp extends JFrame {
 		super("Sign-up!");
 		getContentPane().setLayout(null);
 
-		connection = sqliteConnection.c();
-		conn = sqliteConnection.ud();
+		connection = sqlConnection.sqlExpress();
+		conn = sqlConnection.sqlExpressUserData();
 
 		JLabel lblSignUp = new JLabel("Sign - Up for Calibur");
 		lblSignUp.setFont(new Font("Castellar", Font.PLAIN, 34));
@@ -217,18 +217,18 @@ public class SignUp extends JFrame {
 										}
 									}
 								} catch (Exception a) {
-
 								}
 
 								if (exists == false) {
 									try {
-										String query = "insert into UserInfo (Name,LastName,Email,Username,Password,CreatedTime,LastLogin) values (?, ?, ?, ?, ?, ?, ?)";
+										String query = "insert into UserData (Name,LastName,Email,Username,Password,CreatedTime,LastLogin) values (?, ?, ?, ?, ?, ?, ?)";
 										PreparedStatement pst = connection.prepareStatement(query);
 										pst.setString(1, nametextField.getText());
 										pst.setString(2, lastnameTextField.getText());
 										pst.setString(3, email.getText());
 										pst.setString(4, UsernameTextField.getText());
 										pst.setString(5, pd.getText());
+
 										Date date = new Date();
 										String cdate = date.toString();
 										pst.setString(6, cdate);
@@ -248,7 +248,7 @@ public class SignUp extends JFrame {
 										dir3.mkdirs();
 
 										// create alarms excel
-									
+
 										// end
 										JOptionPane.showMessageDialog(null,
 												"You have been signed up!! Please check your email for verification. A Calibur folder has also been saved under "
@@ -264,7 +264,7 @@ public class SignUp extends JFrame {
 									try {
 										String name = UsernameTextField.getText();
 										String sql = "CREATE TABLE " + name
-												+ " (CompletedTime DATETIME NOT NULL  DEFAULT (null) , Course TEXT DEFAULT null)";
+												+ "(CompletedTime TEXT NOT NULL  DEFAULT (null) ,CourseOrLessonReview TEXT DEFAULT (null) ,Score INTEGER DEFAULT (null) )";
 										PreparedStatement pst1 = conn.prepareStatement(sql);
 										pst1.execute();
 										pst1.close();

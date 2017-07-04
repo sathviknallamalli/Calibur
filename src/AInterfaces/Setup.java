@@ -26,7 +26,7 @@ public class Setup extends JFrame {
 	public Setup() {
 		getContentPane().setLayout(null);
 
-		connection = sqliteConnection.c();
+		connection = sqlConnection.sqlExpress();
 
 		JLabel lblSignUp = new JLabel("Setup Pin Code");
 		lblSignUp.setFont(new Font("Castellar", Font.PLAIN, 34));
@@ -83,7 +83,7 @@ public class Setup extends JFrame {
 		ver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					String query = "select * from UserInfo where username=? and password=?";
+					String query = "select * from UserData where username=? and password=?";
 					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1, untf.getText());
 					pst.setString(2, pdtf.getText());
@@ -154,7 +154,7 @@ public class Setup extends JFrame {
 													pst1.close();
 													close();
 
-													String sql = "update UserInfo " + " set Pincode= '" + one + "'"
+													String sql = "update UserData " + " set Pincode= '" + one + "'"
 															+ " where Username= '" + temp + "'";
 
 													PreparedStatement pst2 = connection.prepareStatement(sql);

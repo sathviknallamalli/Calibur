@@ -1,4 +1,5 @@
 package AInterfaces;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -23,7 +24,6 @@ public class ScientificCaculator {
 	double result;
 	String operations;
 	String answer;
-	private final Action action = new SwingAction();
 
 	/**
 	 * Launch the application.
@@ -63,8 +63,13 @@ public class ScientificCaculator {
 		menuBar.add(mnFile);
 
 		JMenuItem mntmStandardCalculator = new JMenuItem("Standard Calculator");
+		mntmStandardCalculator.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				StandardCalculator sc = new StandardCalculator();
+				sc.newClass();
+			}
+		});
 		mntmStandardCalculator.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		mntmStandardCalculator.setAction(action);
 		mnFile.add(mntmStandardCalculator);
 		frame.getContentPane().setLayout(null);
 
@@ -600,15 +605,4 @@ public class ScientificCaculator {
 		frame.getContentPane().add(pi);
 	}
 
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "Standard Calculator");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			StandardCaculator sc = new StandardCaculator();
-			sc.newClass();
-		}
-	}
 }

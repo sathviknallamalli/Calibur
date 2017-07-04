@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
+import AInterfaces.TACALIBUR;
+
 public class Lesson1Review extends JFrame {
 
 	public Lesson1Review() {
@@ -208,6 +210,16 @@ public class Lesson1Review extends JFrame {
 		lblWhichOf.setBounds(342, 285, 421, 25);
 		getContentPane().add(lblWhichOf);
 
+		JLabel bs = new JLabel("");
+		bs.setFont(new Font("Arial", Font.BOLD, 18));
+		bs.setBounds(613, 11, 160, 30);
+		getContentPane().add(bs);
+
+		boolean exists = TACALIBUR.startCourseVerify("Fundamentals of Algebra: Lesson 1 Review");
+		if (exists == true) {
+			TACALIBUR.scoreShow(bs, "Fundamentals of Algebra: Lesson 1 Review");
+		}
+
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -248,9 +260,10 @@ public class Lesson1Review extends JFrame {
 				next.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 				next.setBounds(142, 77, 168, 23);
 				frame.getContentPane().add(next);
-
+				final int score = maxScore;
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
+						TACALIBUR.courseComplete("Fundamentals of Algebra: Lesson 1 Review", score);
 						Lesson2 w = new Lesson2();
 						w.newClass();
 						close();
@@ -273,5 +286,4 @@ public class Lesson1Review extends JFrame {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 	}
-
 }

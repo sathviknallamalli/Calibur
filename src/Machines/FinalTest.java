@@ -472,6 +472,16 @@ public class FinalTest extends JFrame {
 		bg15.add(op152);
 		bg15.add(op151);
 
+		JLabel bs = new JLabel("");
+		bs.setFont(new Font("Arial", Font.BOLD, 18));
+		bs.setBounds(594, 11, 160, 30);
+		getContentPane().add(bs);
+
+		boolean exists = TACALIBUR.startCourseVerify("Physics- Machines");
+		if (exists == true) {
+			TACALIBUR.scoreShow(bs, "Physics- Machines");
+		}
+
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFrame frame = new JFrame();
@@ -543,8 +553,10 @@ public class FinalTest extends JFrame {
 						if (ms >= 12) {
 							Dup w = new Dup();
 							w.newClass();
-							close();
+							String cName = TACALIBUR.verifyIfCourseComplete("Physics- Machines", "Machines");
+							TACALIBUR.saveCertificate(cName);
 							TACALIBUR.courseComplete("Physics- Machines", ms);
+							close();
 						} else {
 							JOptionPane.showMessageDialog(null,
 									"Sorry, but you failed, no certificate for you. You can redo this course and try to get the achievement certificate. ");

@@ -1,7 +1,9 @@
 package AInterfaces;
+
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JOptionPane;
 
@@ -17,7 +19,7 @@ public class AlarmClock extends Reminders {
 		Thread t = new Thread() {
 
 			public void run() {
-				connection = sqliteConnection.c();
+				connection = sqlConnection.sqlExpress();
 				try {
 					for (;;) {
 						Calendar calendar = Calendar.getInstance();
@@ -26,7 +28,7 @@ public class AlarmClock extends Reminders {
 						int mins = calendar.get(Calendar.MINUTE);
 						int secs = calendar.get(Calendar.SECOND);
 
-						int month = calendar.get((Calendar.MONTH));
+						int month = calendar.get((Calendar.MONTH)) + 1;
 						int date = calendar.get((Calendar.DATE));
 						int year = calendar.get((Calendar.YEAR));
 						int time = calendar.get((Calendar.AM_PM));
@@ -39,39 +41,31 @@ public class AlarmClock extends Reminders {
 									"Snooze and de-activate alarm? Message: " + subject, "Snooze",
 									JOptionPane.YES_NO_OPTION);
 							try {
-								String finalMonth = "";
-								if (mon == 0) {
-									finalMonth = "January";
-								} else if (mon == 1) {
-									finalMonth = "February";
-								} else if (mon == 2) {
-									finalMonth = "March";
-								} else if (mon == 3) {
-									finalMonth = "April";
-								} else if (mon == 4) {
-									finalMonth = "May";
-								} else if (mon == 5) {
-									finalMonth = "June";
-								} else if (mon == 6) {
-									finalMonth = "July";
-								} else if (mon == 7) {
-									finalMonth = "August";
-								} else if (mon == 8) {
-									finalMonth = "September";
-								} else if (mon == 9) {
-									finalMonth = "October";
-								} else if (mon == 10) {
-									finalMonth = "November";
-								} else if (mon == 11) {
-									finalMonth = "December";
+								String am_PM = "";
+								if (time == 0) {
+									am_PM = "AM";
+								} else {
+									am_PM = "PM";
 								}
-								String alarm = finalMonth + " " + day + " " + yr;
-								String clockTime = a + ":" + b;
+								String alarm = yr + "-" + mon + "-" + day;
+								String clockTime = a + ":" + b + " " + am_PM;
 								int val = file.indexOf('.');
 								String sub = file.substring(34, val);
-								String query = "delete from Reminders where Date=" + alarm + "and Time" + clockTime
-										+ " and AlarmType=" + sub + " and Message=" + subject;
+								String query = "delete from Reminders where Date=?, Time= ?, AlarmType=?, Message=?";
 								PreparedStatement pst = connection.prepareStatement(query);
+
+								try {
+									SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+									java.util.Date parsed = format.parse(alarm);
+									java.sql.Date sql_date = new java.sql.Date(parsed.getTime());
+									pst.setDate(1, sql_date);
+								} catch (Exception a) {
+
+								}
+								pst.setString(2, clockTime);
+								pst.setString(3, sub);
+								pst.setString(4, subject);
+
 								pst.execute();
 
 								pst.close();

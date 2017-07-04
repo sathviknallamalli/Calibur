@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
+import AInterfaces.TACALIBUR;
+
 public class Lesson1Review extends JFrame {
 
 	public Lesson1Review() {
@@ -127,15 +129,15 @@ public class Lesson1Review extends JFrame {
 		op54.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op54.setBounds(472, 183, 178, 23);
 		getContentPane().add(op54);
-		
-		ButtonGroup bg5= new ButtonGroup();
+
+		ButtonGroup bg5 = new ButtonGroup();
 		bg5.add(op54);
 		bg5.add(op53);
 		bg5.add(op52);
 		bg5.add(op51);
-		
 
-		JLabel lblAStudentSolved = new JLabel("<html>6.) Which simple machine does this description correlate to: A wheel with teeth");
+		JLabel lblAStudentSolved = new JLabel(
+				"<html>6.) Which simple machine does this description correlate to: A wheel with teeth");
 		lblAStudentSolved.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblAStudentSolved.setBounds(447, 211, 394, 42);
 		getContentPane().add(lblAStudentSolved);
@@ -154,7 +156,7 @@ public class Lesson1Review extends JFrame {
 		op73.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op73.setBounds(472, 381, 348, 23);
 		getContentPane().add(op73);
-		
+
 		ButtonGroup bg7 = new ButtonGroup();
 		bg7.add(op73);
 		bg7.add(op72);
@@ -175,7 +177,7 @@ public class Lesson1Review extends JFrame {
 		op62.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op62.setBounds(472, 281, 109, 23);
 		getContentPane().add(op62);
-		
+
 		ButtonGroup bg6 = new ButtonGroup();
 		bg6.add(op62);
 		bg6.add(op61);
@@ -243,31 +245,45 @@ public class Lesson1Review extends JFrame {
 		bg4.add(op43);
 		bg4.add(op42);
 		bg4.add(op41);
-		
-		JLabel lblWhatIs_2 = new JLabel("<html>8.) What is the difference between the effort and load force on a lever\r\n");
+
+		JLabel lblWhatIs_2 = new JLabel(
+				"<html>8.) What is the difference between the effort and load force on a lever\r\n");
 		lblWhatIs_2.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblWhatIs_2.setBounds(447, 414, 421, 25);
 		getContentPane().add(lblWhatIs_2);
-		
-		JRadioButton op81 = new JRadioButton("<html>The effort force is on the left side, and the load force is on the right end of a lever");
+
+		JRadioButton op81 = new JRadioButton(
+				"<html>The effort force is on the left side, and the load force is on the right end of a lever");
 		op81.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op81.setBounds(472, 440, 315, 42);
 		getContentPane().add(op81);
-		
-		JRadioButton op82 = new JRadioButton("<html>The effort force is where the input is and the load is the output force\r\n");
+
+		JRadioButton op82 = new JRadioButton(
+				"<html>The effort force is where the input is and the load is the output force\r\n");
 		op82.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op82.setBounds(472, 480, 315, 40);
 		getContentPane().add(op82);
-		
-		JRadioButton op83 = new JRadioButton("<html>The effort force is the output force on the left hand of a lever and the load is the input force on the right side.");
+
+		JRadioButton op83 = new JRadioButton(
+				"<html>The effort force is the output force on the left hand of a lever and the load is the input force on the right side.");
 		op83.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op83.setBounds(472, 520, 372, 42);
 		getContentPane().add(op83);
-		
+
 		ButtonGroup bg8 = new ButtonGroup();
 		bg8.add(op83);
 		bg8.add(op82);
 		bg8.add(op81);
+
+		JLabel bs = new JLabel("");
+		bs.setFont(new Font("Arial", Font.BOLD, 18));
+		bs.setBounds(687, 11, 160, 30);
+		getContentPane().add(bs);
+
+		boolean exists = TACALIBUR.startCourseVerify("Machines: Lesson 1 Review");
+		if (exists == true) {
+			TACALIBUR.scoreShow(bs, "Machines: Lesson 1 Review");
+		}
 
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -286,7 +302,7 @@ public class Lesson1Review extends JFrame {
 				if (op32.isSelected()) {
 					maxScore++;
 				}
-				if(op41.isSelected()&& op44.isSelected()&& op46.isSelected()) {
+				if (op41.isSelected() && op44.isSelected() && op46.isSelected()) {
 					maxScore++;
 				}
 
@@ -312,9 +328,10 @@ public class Lesson1Review extends JFrame {
 				next.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 				next.setBounds(142, 77, 168, 23);
 				frame.getContentPane().add(next);
-
+				final int score = maxScore;
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
+						TACALIBUR.courseComplete("Machines: Lesson 1 Review", score);
 						Lesson2 l = new Lesson2();
 						l.newClass();
 						close();

@@ -38,20 +38,16 @@ import org.apache.poi.ss.usermodel.Workbook;
 public class Home extends JFrame {
 
 	Connection connection = null;
-	Connection connection1 = null;
 	Connection connection2 = null;
 	JTextField untf = new JTextField();
 	JPasswordField passwordField = new JPasswordField();;
 	static String username;
 
-
 	public Home() {
 
 		super("Login");
 		getContentPane().setBackground(new Color(240, 240, 240));
-		connection = sqliteConnection.c();
-		connection1 = sqliteConnection.c();
-		connection2 = sqliteConnection.ud();
+		connection = sqlConnection.sqlExpress();
 		setBounds(100, 100, 803, 313);
 		getContentPane().setLayout(null);
 
@@ -79,7 +75,7 @@ public class Home extends JFrame {
 			public void keyPressed(KeyEvent arg0) {
 				if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
 					try {
-						String query = "select * from UserInfo where username=? and password=?";
+						String query = "select * from UserData where username=? and password=?";
 						PreparedStatement pst = connection.prepareStatement(query);
 						pst.setString(1, untf.getText());
 						pst.setString(2, passwordField.getText());
@@ -91,13 +87,13 @@ public class Home extends JFrame {
 						if (count == 1) {
 							Date date = new Date();
 							String cdate = date.toString();
-							String sql = "update UserInfo set LastLogin= '" + cdate + "'" + " where Username= '"
+							String sql = "update UserData set LastLogin= '" + cdate + "'" + " where Username= '"
 									+ untf.getText() + "'";
 							PreparedStatement pst1 = connection.prepareStatement(sql);
 							pst1.execute();
 
 							try {
-								String qry = "select * from UserInfo";
+								String qry = "select * from UserData";
 								PreparedStatement pst11 = connection.prepareStatement(qry);
 								ResultSet rs1 = pst11.executeQuery();
 								while (rs1.next()) {
@@ -160,7 +156,7 @@ public class Home extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
-					String query = "select * from UserInfo where username=? and password=?";
+					String query = "select * from UserData where username=? and password=?";
 					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1, untf.getText());
 					pst.setString(2, passwordField.getText());
@@ -179,7 +175,7 @@ public class Home extends JFrame {
 						pst1.execute();
 
 						try {
-							String qry = "select * from UserInfo";
+							String qry = "select * from UserData";
 							PreparedStatement pst11 = connection.prepareStatement(qry);
 							ResultSet rs1 = pst11.executeQuery();
 							while (rs1.next()) {
@@ -223,7 +219,7 @@ public class Home extends JFrame {
 					pst.close();
 
 				} catch (Exception a) {
-					JOptionPane.showMessageDialog(null, "Exception caught");
+					JOptionPane.showMessageDialog(null, "Please try again");
 				}
 
 			}
@@ -275,7 +271,7 @@ public class Home extends JFrame {
 
 		try {
 			String query1 = "select * from Trivia";
-			PreparedStatement pst1 = connection1.prepareStatement(query1);
+			PreparedStatement pst1 = connection.prepareStatement(query1);
 			ResultSet rs1 = pst1.executeQuery();
 			ArrayList al = new ArrayList();
 			while (rs1.next()) {

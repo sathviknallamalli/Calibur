@@ -56,8 +56,8 @@ public class Conversions {
 	 * Create the application.
 	 */
 	public Conversions() {
-		connection = sqliteConnection.c();
-		connection1 = sqliteConnection.c();
+		connection = sqlConnection.c();
+		connection1 = sqlConnection.c();
 		initialize();
 	}
 

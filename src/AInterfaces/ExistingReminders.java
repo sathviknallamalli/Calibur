@@ -1,4 +1,5 @@
 package AInterfaces;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -43,7 +44,7 @@ public class ExistingReminders {
 	 * Create the application.
 	 */
 	public ExistingReminders() {
-		connection = sqliteConnection.c();
+		connection = sqlConnection.sqlExpress();
 
 		initialize();
 

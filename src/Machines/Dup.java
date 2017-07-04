@@ -105,8 +105,7 @@ public class Dup extends JFrame {
 		setLocation(300, 100);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		String cName = TACALIBUR.verifyIfCourseComplete("Physics- Machines", "Machines");
-		TACALIBUR.saveCertificate(cName);
+		
 	}
 
 }

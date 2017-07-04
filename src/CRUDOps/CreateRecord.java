@@ -1,4 +1,4 @@
-package AInterfaces;
+package CRUDOps;
 
 import java.awt.EventQueue;
 
@@ -10,6 +10,9 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JTextField;
 import com.toedter.calendar.JDateChooser;
+
+import AInterfaces.sqlConnection;
+
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.Date;
@@ -52,7 +55,8 @@ public class CreateRecord {
 
 	public CreateRecord() {
 		initialize();
-		conn = sqliteConnection.c();
+		conn = sqlConnection.sqlExpress();
+		// System.out.println("Connection value in create Record===" + conn);
 	}
 
 	/**
@@ -152,52 +156,69 @@ public class CreateRecord {
 					personGender = "M";
 				} else {
 					personGender = "F";
+				}
+				String state = (String) st.getSelectedItem();
+				// verify if ssid is already there - READ
+				boolean exists = false;
+				try {
+					// System.out.println("Connection value in submit===" +
+					// conn);
 
-					String state = (String) st.getSelectedItem();
-					// verify if ssid is already there - READ
-					boolean exists = false;
+					String query = "select * from PersonDetails";
+					PreparedStatement pst = conn.prepareStatement(query);
+					ResultSet rs = pst.executeQuery();
+					while (rs.next()) {
+						if (rs.getString("SSID").equals(personSSID)) {
+							exists = true;
+
+						}
+					}
+					rs.close();
+					pst.close();
+					// conn.close();
+					if (exists == true) {
+						JOptionPane.showMessageDialog(null, "ERROR: This record already exists");
+					}
+
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, e);
+				}
+				// CREATE RECORD
+				if (exists == false) {
 					try {
+						String query1 = "insert into PersonDetails (Name,DOB,SSID,Gender,State) values (?, ?, ?, ?, ?)";
+						PreparedStatement pst1 = conn.prepareStatement(query1);
+						pst1.setString(1, personName);
 
-						String query = "select * from PersonDetails";
-						PreparedStatement pst = conn.prepareStatement(query);
-						ResultSet rs = pst.executeQuery();
-						while (rs.next()) {
-							if (rs.getString("SSID").equals(personSSID)) {
-								exists = true;
+						try {
+							int day = jd.getDate().getDate();
+							int month = jd.getDate().getMonth() + 1;
+							int year = jd.getDate().getYear() + 1900;
 
-							}
+							String date = month + "/" + day + "/" + year;
+							SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+							java.util.Date parsed = format.parse(date);
+							java.sql.Date sql_date = new java.sql.Date(parsed.getTime());
+							pst1.setDate(2, sql_date);
+						} catch (Exception e) {
+							JOptionPane.showMessageDialog(null, e);
 						}
-						if (exists == true) {
-							JOptionPane.showMessageDialog(null, "ERROR: This record already exists");
-						}
+
+						pst1.setString(3, personSSID);
+						pst1.setString(4, personGender);
+						pst1.setString(5, state);
+						pst1.execute();
+						pst1.close();
+						JOptionPane.showMessageDialog(null, "Success!");
 
 					} catch (Exception e) {
 						JOptionPane.showMessageDialog(null, e);
+
 					}
-					// CREATE RECORD
-					if (exists == false) {
-						try {
-							String query1 = "insert into PersonDetails (Name,DOB,SSID,Gender,State) values (?, ?, ?, ?, ?)";
-							PreparedStatement pst1 = conn.prepareStatement(query1);
-							pst1.setString(1, personName);
-
-							String BD = (new java.text.SimpleDateFormat("MM/dd/yyyy")).format(jd.getDate());
-							pst1.setString(2, BD);
-							pst1.setString(3, personSSID);
-							pst1.setString(4, personGender);
-							pst1.setString(5, state);
-							pst1.execute();
-							pst1.close();
-							JOptionPane.showMessageDialog(null, "Success!");
-
-						} catch (Exception e) {
-							JOptionPane.showMessageDialog(null, e);
-
-						}
-					}
-
 				}
+
 			}
+
 		});
 		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 13));
 		btnNewButton.setBounds(162, 222, 100, 28);
@@ -215,5 +236,12 @@ public class CreateRecord {
 		btnCancel.setFont(new Font("Arial", Font.PLAIN, 13));
 		btnCancel.setBounds(269, 222, 100, 28);
 		frame.getContentPane().add(btnCancel);
+	}
+
+	public void newClass() {
+		frame.setSize(395, 300);
+		frame.setLocation(300, 100);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 }

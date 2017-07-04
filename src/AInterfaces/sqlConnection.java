@@ -1,10 +1,13 @@
 package AInterfaces;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.swing.JOptionPane;
 
-public class sqliteConnection {
+public class sqlConnection {
 	Connection conn = null;
 
 	public static Connection c() {
@@ -31,6 +34,34 @@ public class sqliteConnection {
 			JOptionPane.showMessageDialog(null, e);
 			return null;
 		}
+
+	}
+
+	public static Connection sqlExpress() {
+		Connection conn = null;
+		try {
+			String url = "jdbc:sqlserver://localhost:62761;databaseName=calibur";
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			conn = DriverManager.getConnection(url, "sa", "Saibaba");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
+
+	}
+
+	public static Connection sqlExpressUserData() {
+		Connection conn = null;
+		try {
+			String url = "jdbc:sqlserver://localhost:62761;databaseName=UserCourseCompletion";
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			conn = DriverManager.getConnection(url, "sa", "Saibaba");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
 
 	}
 

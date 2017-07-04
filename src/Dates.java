@@ -274,6 +274,13 @@ public class Dates {
 					"https://www.google.com/search?q=summer+solstice+2017&oi=ddle&ct=summer-solstice-2017-northern-hemisphere-4910274078310400-law&hl=en",
 					"Summer Solstice", "http://www.onthisday.com/birthdays/june/21");
 		}
+		// JULY 4TH
+		else if (calendar.get(Calendar.MONTH) == 6 && calendar.get(Calendar.DATE) == 4) {
+			Demo.famousDay("July", 6,
+					"Today is the July 4th! Today is when the U.S. became independent of the British rule and is a great historical day. Click below for more.",
+					"https://en.wikipedia.org/wiki/Independence_Day_(United_States)", "July 4th",
+					"http://www.onthisday.com/birthdays/july/4");
+		}
 
 	}
 }

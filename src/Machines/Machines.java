@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
+import AInterfaces.TACALIBUR;
+
 public class Machines extends JFrame {
 
 	public Machines() {
@@ -259,6 +261,16 @@ public class Machines extends JFrame {
 		bg8.add(op82);
 		bg8.add(op81);
 
+		JLabel bs = new JLabel("");
+		bs.setFont(new Font("Arial", Font.BOLD, 18));
+		bs.setBounds(611, 11, 160, 30);
+		getContentPane().add(bs);
+
+		boolean exists = TACALIBUR.startCourseVerify("Pre-test: Machines");
+		if (exists == true) {
+			TACALIBUR.scoreShow(bs, "Pre-test: Machines");
+		}
+
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFrame frame = new JFrame();
@@ -302,13 +314,14 @@ public class Machines extends JFrame {
 				next.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 				next.setBounds(142, 77, 168, 23);
 				frame.getContentPane().add(next);
-				
+				final int score = maxScore;
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
+						TACALIBUR.courseComplete("Pre-test: Machines", score);
 						Lesson1 l1 = new Lesson1();
 						l1.newClass();
 						close();
-						
+
 					}
 				});
 

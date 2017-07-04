@@ -104,8 +104,7 @@ public class Dup extends JFrame {
 		setLocation(300, 100);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		String cName = TACALIBUR.verifyIfCourseComplete("Fundamentals of Algebra", "FundamentalsofAlgebra");
-		TACALIBUR.saveCertificate(cName);
+		
 	}
 
 }

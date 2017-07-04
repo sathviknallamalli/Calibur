@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-public class StandardCaculator {
+public class StandardCalculator {
 
 	private JFrame frame;
 	private JTextField txtDisplay;
@@ -26,7 +26,7 @@ public class StandardCaculator {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					StandardCaculator window = new StandardCaculator();
+					StandardCalculator window = new StandardCalculator();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +38,7 @@ public class StandardCaculator {
 	/**
 	 * Create the application.
 	 */
-	public StandardCaculator() {
+	public StandardCalculator() {
 		initialize();
 	}
 

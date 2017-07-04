@@ -43,7 +43,7 @@ public class PinCodeLogin {
 	 * Create the application.
 	 */
 	public PinCodeLogin() {
-		connection = sqliteConnection.c();
+		connection = sqlConnection.sqlExpress();
 		initialize();
 
 	}
@@ -89,7 +89,7 @@ public class PinCodeLogin {
 					if (count == 1) {
 						Date date = new Date();
 						String cdate = date.toString();
-						String sql = "update UserInfo " + " set LastLogin= '" + cdate + "'" + " where Pincode= '"
+						String sql = "update UserData " + " set LastLogin= '" + cdate + "'" + " where Pincode= '"
 								+ pc.getText() + "'";
 
 						PreparedStatement pst2 = connection.prepareStatement(sql);

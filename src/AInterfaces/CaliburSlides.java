@@ -79,7 +79,7 @@ public class CaliburSlides {
 	}
 
 	public CaliburSlides() {
-		connection = sqliteConnection.c();
+		connection = sqlConnection.c();
 
 		initialize();
 

@@ -24,7 +24,7 @@ public class RateCalibur extends JFrame {
 	public RateCalibur() {
 		super("Rate");
 		getContentPane().setBackground(new Color(240, 240, 240));
-		connection = sqliteConnection.c();
+		connection = sqlConnection.sqlExpress();
 
 		setBounds(100, 100, 613, 324);
 		getContentPane().setLayout(null);

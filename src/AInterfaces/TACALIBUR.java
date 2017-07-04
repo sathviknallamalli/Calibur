@@ -75,19 +75,19 @@ public class TACALIBUR {
 		initialize();
 	}
 
-	public static void courseComplete(String courseName, int score) {
-		Connection conn = sqliteConnection.ud();
-		Connection conn2 = sqliteConnection.c();
+	public static void courseComplete(String name, int score) {
+		Connection conn = sqlConnection.sqlExpressUserData();
+		Connection conn2 = sqlConnection.sqlExpress();
 		Date date = new Date();
 		String cdate = date.toString();
 
 		String fromHome = Home.username;
 
 		try {
-			String query = "insert into " + fromHome + " (CompletedTime,Course,Percentage) values (?, ?, ?)";
+			String query = "insert into " + fromHome + " (CompletedTime,CourseOrLessonReview,Score) values (?, ?, ?)";
 			PreparedStatement pst = conn.prepareStatement(query);
 			pst.setString(1, cdate);
-			pst.setString(2, courseName);
+			pst.setString(2, name);
 			pst.setDouble(3, score);
 			pst.execute();
 			pst.close();
@@ -96,14 +96,14 @@ public class TACALIBUR {
 		}
 		// retrieve email ID
 		try {
-			String qry = "select * from UserInfo";
+			String qry = "select * from UserData";
 			PreparedStatement pst11 = conn2.prepareStatement(qry);
 			ResultSet rs1 = pst11.executeQuery();
 			while (rs1.next()) {
 				if (rs1.getString("Username").equals(fromHome)) {
 					String emailID = rs1.getString("Email");
-					SignUp.sendEmail(emailID, rs1.getString("Name"), fromHome, "Course completion: " + courseName, "Hi "
-							+ rs1.getString("Name") + ", \nYou have successfully completed the course of " + courseName
+					SignUp.sendEmail(emailID, rs1.getString("Name"), fromHome, "Course Completion: " + name, "Hi "
+							+ rs1.getString("Name") + ", \nYou have successfully completed the course of " + name
 							+ ". Your progress has been saved and you are welcome to revisit the material too. Your certificate of completion has been saved in the Certificates Folder of your Calibur folder on your desktop.");
 
 				}
@@ -123,7 +123,7 @@ public class TACALIBUR {
 			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
 			BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
 			ImageIO.write(screenFullImage, format,
-					new File("C:\\Users\\sathv\\Desktop\\jellobello_Calibur\\Certificates\\" + fileName));
+					new File("C:\\Users\\sathv\\Desktop\\" + Home.username + "_Calibur\\Certificates\\" + fileName));
 
 			System.out.println("A full screenshot saved!");
 		} catch (AWTException | IOException ex) {
@@ -133,7 +133,7 @@ public class TACALIBUR {
 	}
 
 	public static String verifyIfCourseComplete(String courseName, String certName) {
-		Connection conn = sqliteConnection.ud();
+		Connection conn = sqlConnection.sqlExpressUserData();
 		String fromHome = Home.username;
 		int val = 0;
 		try {
@@ -141,7 +141,7 @@ public class TACALIBUR {
 			PreparedStatement pst = conn.prepareStatement(query);
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				if (rs.getString("Course").equals(courseName)) {
+				if (rs.getString("CourseOrLessonReview").equals(courseName)) {
 					val++;
 					certName = certName + "_" + val;
 				}
@@ -154,6 +154,53 @@ public class TACALIBUR {
 		}
 		return certName;
 
+	}
+
+	public static boolean startCourseVerify(String courseName) {
+		Connection conn = sqlConnection.sqlExpressUserData();
+		String fromHome = Home.username;
+		boolean exists = false;
+		try {
+			String query = "select * from " + fromHome;
+			PreparedStatement pst = conn.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				if (rs.getString("CourseOrLessonReview").equals(courseName)) {
+					exists = true;
+				}
+			}
+
+			pst.execute();
+			pst.close();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
+		return exists;
+	}
+
+	public static void scoreShow(JLabel from, String name) {
+		Connection conn = sqlConnection.sqlExpressUserData();
+		String fromHome = Home.username;
+		try {
+			String query = "select * from " + fromHome;
+			PreparedStatement pst = conn.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+			double score = 0;
+			while (rs.next()) {
+				if (rs.getString("CourseOrLessonReview").equals(name)) {
+					if (rs.getDouble("Score") > 0) {
+						score = rs.getDouble("Score");
+					}
+
+				}
+			}
+			from.setText("Best Score: " + score);
+
+			pst.execute();
+			pst.close();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
 	}
 
 	/**
@@ -616,8 +663,20 @@ public class TACALIBUR {
 							"Are you sure you want this course: Fundamentals of Algebra and start now?", "",
 							JOptionPane.YES_NO_OPTION);
 					if (p == 0) {
-						FundamentalsAlg fa = new FundamentalsAlg();
-						fa.newClass();
+						boolean exists = TACALIBUR.startCourseVerify(chosen);
+						if (exists == true) {
+							int j = JOptionPane.showConfirmDialog(null,
+									"You have already completed this course, would you still like to take it?", "",
+									JOptionPane.YES_NO_OPTION);
+							if (j == 0) {
+								FundamentalsAlg fa = new FundamentalsAlg();
+								fa.newClass();
+							}
+						} else {
+							FundamentalsAlg fa = new FundamentalsAlg();
+							fa.newClass();
+						}
+
 					}
 
 				} else if (chosen == "Linear Equations") {
@@ -625,16 +684,39 @@ public class TACALIBUR {
 							"Are you sure you want this course: Linear Equations and start now?", "",
 							JOptionPane.YES_NO_OPTION);
 					if (p == 0) {
-						LinearEquations fa = new LinearEquations();
-						fa.newClass();
+						boolean exists = TACALIBUR.startCourseVerify(chosen);
+						if (exists == true) {
+							int j = JOptionPane.showConfirmDialog(null,
+									"You have already completed this course, would you still like to take it?", "",
+									JOptionPane.YES_NO_OPTION);
+							if (j == 0) {
+								LinearEquations fa = new LinearEquations();
+								fa.newClass();
+							}
+						} else {
+							LinearEquations fa = new LinearEquations();
+							fa.newClass();
+						}
 					}
 				} else if (chosen == "Segments and Angles") {
 					int p = JOptionPane.showConfirmDialog(null,
 							"Are you sure you want this course: Segments & Angles and start now?", "",
 							JOptionPane.YES_NO_OPTION);
 					if (p == 0) {
-						SegmentsAngle s = new SegmentsAngle();
-						s.newClass();
+
+						boolean exists = TACALIBUR.startCourseVerify(chosen);
+						if (exists == true) {
+							int j = JOptionPane.showConfirmDialog(null,
+									"You have already completed this course, would you still like to take it?", "",
+									JOptionPane.YES_NO_OPTION);
+							if (j == 0) {
+								SegmentsAngle fa = new SegmentsAngle();
+								fa.newClass();
+							}
+						} else {
+							SegmentsAngle fa = new SegmentsAngle();
+							fa.newClass();
+						}
 					}
 
 				}

@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
+import AInterfaces.TACALIBUR;
+
 public class Lesson2Review extends JFrame {
 
 	public Lesson2Review() {
@@ -225,28 +227,24 @@ public class Lesson2Review extends JFrame {
 		op43.setBounds(31, 563, 222, 42);
 		getContentPane().add(op43);
 
-		JLabel lblWhatIs_2 = new JLabel(
-				"<html>8.) What is work in terms of Physics\r\n\r\n");
+		JLabel lblWhatIs_2 = new JLabel("<html>8.) What is work in terms of Physics\r\n\r\n");
 		lblWhatIs_2.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		lblWhatIs_2.setBounds(447, 444, 421, 25);
 		getContentPane().add(lblWhatIs_2);
 
-		JRadioButton op81 = new JRadioButton(
-				"<html>Being a hard worker and good student\r\n");
+		JRadioButton op81 = new JRadioButton("<html>Being a hard worker and good student\r\n");
 		op81.setVerticalAlignment(SwingConstants.TOP);
 		op81.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op81.setBounds(472, 476, 315, 25);
 		getContentPane().add(op81);
 
-		JRadioButton op82 = new JRadioButton(
-				"<html> A correlation between force and distance\r\n");
+		JRadioButton op82 = new JRadioButton("<html> A correlation between force and distance\r\n");
 		op82.setVerticalAlignment(SwingConstants.TOP);
 		op82.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op82.setBounds(472, 504, 315, 25);
 		getContentPane().add(op82);
 
-		JRadioButton op83 = new JRadioButton(
-				"<html> A correlation between force and mass\r\n");
+		JRadioButton op83 = new JRadioButton("<html> A correlation between force and mass\r\n");
 		op83.setVerticalAlignment(SwingConstants.TOP);
 		op83.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		op83.setBounds(472, 532, 372, 25);
@@ -257,6 +255,16 @@ public class Lesson2Review extends JFrame {
 		bg8.add(op82);
 		bg8.add(op81);
 
+		JLabel bs = new JLabel("");
+		bs.setFont(new Font("Arial", Font.BOLD, 18));
+		bs.setBounds(708, 11, 160, 30);
+		getContentPane().add(bs);
+
+		boolean exists = TACALIBUR.startCourseVerify("Machines: Lesson 2 Review");
+		if (exists == true) {
+			TACALIBUR.scoreShow(bs, "Machines: Lesson 2 Review");
+		}
+		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFrame frame = new JFrame();
@@ -300,9 +308,10 @@ public class Lesson2Review extends JFrame {
 				next.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 				next.setBounds(142, 77, 168, 23);
 				frame.getContentPane().add(next);
-
+				final int score = maxScore;
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
+						TACALIBUR.courseComplete("Machines: Lesson 2 Review", score);
 						Lesson3 l = new Lesson3();
 						l.newClass();
 						close();
