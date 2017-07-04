@@ -13,6 +13,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.Connection;
@@ -31,6 +33,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CreationHelper;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 
 import BalancingEquations.BalancingEquations;
 import BasicsChemistry.BasicsOfChemistry;
@@ -94,7 +102,9 @@ public class TACALIBUR {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 		}
+
 		// retrieve email ID
+
 		try {
 			String qry = "select * from UserData";
 			PreparedStatement pst11 = conn2.prepareStatement(qry);
@@ -110,8 +120,29 @@ public class TACALIBUR {
 			}
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e);
+
 		}
 
+	}
+
+	public static void lessonComplete(String name, int score) {
+		Connection conn = sqlConnection.sqlExpressUserData();
+		Date date = new Date();
+		String cdate = date.toString();
+
+		String fromHome = Home.username;
+
+		try {
+			String query = "insert into " + fromHome + " (CompletedTime,CourseOrLessonReview,Score) values (?, ?, ?)";
+			PreparedStatement pst = conn.prepareStatement(query);
+			pst.setString(1, cdate);
+			pst.setString(2, name);
+			pst.setDouble(3, score);
+			pst.execute();
+			pst.close();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
 	}
 
 	public static void saveCertificate(String courseName) {
@@ -185,11 +216,11 @@ public class TACALIBUR {
 			String query = "select * from " + fromHome;
 			PreparedStatement pst = conn.prepareStatement(query);
 			ResultSet rs = pst.executeQuery();
-			double score = 0;
+			int score = 0;
 			while (rs.next()) {
 				if (rs.getString("CourseOrLessonReview").equals(name)) {
 					if (rs.getDouble("Score") > 0) {
-						score = rs.getDouble("Score");
+						score = rs.getInt("Score");
 					}
 
 				}
@@ -201,6 +232,83 @@ public class TACALIBUR {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 		}
+	}
+
+	public static void saveProgress(String excelName) {
+		// email to excel
+		Workbook wb = new HSSFWorkbook();
+		CreationHelper createHelper = wb.getCreationHelper();
+		Sheet sheet = wb.createSheet("CourseProgress");
+		Row row = sheet.createRow((short) 0);
+
+		row.createCell(0).setCellValue(createHelper.createRichTextString("TimeCompleted"));
+		row.createCell(1).setCellValue(createHelper.createRichTextString("Course/Lesson"));
+		row.createCell(2).setCellValue(createHelper.createRichTextString("Score"));
+
+		FileOutputStream fileOut;
+		try {
+			fileOut = new FileOutputStream(
+					"C:\\Users\\sathv\\Desktop\\" + Home.username + "_Calibur\\CourseProgress\\" + excelName + ".xls");
+
+			// retrieve email info drom table
+			try {
+				Connection connection = sqlConnection.sqlExpressUserData();
+				String query = "select * from " + Home.username;
+				PreparedStatement pst = connection.prepareStatement(query);
+				ResultSet rs = pst.executeQuery();
+				int count = 0;
+				while (rs.next()) {
+					if (rs.getString("CourseOrLessonReview").contains(excelName)) {
+						count++;
+						String time = rs.getString("CompletedTime");
+						String clr = rs.getString("CourseOrLessonReview");
+						String score = rs.getInt("Score") + "";
+
+						Row r = sheet.createRow((short) count);
+
+						r.createCell(0).setCellValue(createHelper.createRichTextString(time));
+						r.createCell(1).setCellValue(createHelper.createRichTextString(clr));
+						r.createCell(2).setCellValue(createHelper.createRichTextString(score));
+					}
+				}
+			} catch (Exception a) {
+				JOptionPane.showMessageDialog(null, a);
+			}
+			wb.write(fileOut);
+			fileOut.close();
+		} catch (FileNotFoundException b) {
+			b.printStackTrace();
+		} catch (IOException c) {
+			c.printStackTrace();
+		}
+	}
+
+	public static double finalGrade(String search) {
+		Connection conn = sqlConnection.sqlExpressUserData();
+		String home = Home.username;
+		double totalScore = 0;
+		try {
+			String sql = "select * from " + home;
+			PreparedStatement pst = conn.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			int lessonScore = 0;
+			int finalScore = 0;
+			while (rs.next()) {
+				if (rs.getString("CourseOrLessonReview").equals(search)) {
+					finalScore = rs.getInt("Score");
+				} else if (rs.getString("CourseOrLessonReview").contains(search)) {
+					if (rs.getString("CourseOrLessonReview").contains("Lesson")) {
+						lessonScore += rs.getInt("Score");
+					}
+				}
+				
+			}
+			totalScore = ((lessonScore * .4) + (finalScore * .6));
+
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
+		return totalScore;
 	}
 
 	/**

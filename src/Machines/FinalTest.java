@@ -556,6 +556,9 @@ public class FinalTest extends JFrame {
 							String cName = TACALIBUR.verifyIfCourseComplete("Physics- Machines", "Machines");
 							TACALIBUR.saveCertificate(cName);
 							TACALIBUR.courseComplete("Physics- Machines", ms);
+							TACALIBUR.saveProgress("Machines");
+							double score = TACALIBUR.finalGrade("Machines");
+							JOptionPane.showMessageDialog(null, "Your FINAL GRADE is " + score);
 							close();
 						} else {
 							JOptionPane.showMessageDialog(null,

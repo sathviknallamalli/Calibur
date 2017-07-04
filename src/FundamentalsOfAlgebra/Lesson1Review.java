@@ -263,7 +263,8 @@ public class Lesson1Review extends JFrame {
 				final int score = maxScore;
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						TACALIBUR.courseComplete("Fundamentals of Algebra: Lesson 1 Review", score);
+						TACALIBUR.lessonComplete("Fundamentals of Algebra: Lesson 1 Review", score);
+						TACALIBUR.saveProgress("Fundamentals of Algebra");
 						Lesson2 w = new Lesson2();
 						w.newClass();
 						close();

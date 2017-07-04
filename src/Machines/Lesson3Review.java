@@ -311,7 +311,8 @@ public class Lesson3Review extends JFrame {
 				final int score = maxScore;
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						TACALIBUR.courseComplete("Machines: Lesson 3 Review", score);
+						TACALIBUR.lessonComplete("Machines: Lesson 3 Review", score);
+						TACALIBUR.saveProgress("Machines");
 						Lesson4 l = new Lesson4();
 						l.newClass();
 						close();

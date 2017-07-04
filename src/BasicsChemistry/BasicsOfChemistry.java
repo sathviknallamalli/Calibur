@@ -342,7 +342,8 @@ public class BasicsOfChemistry extends JFrame {
 
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						TACALIBUR.courseComplete("Pre-test: Basics of Chemistry", score);
+						TACALIBUR.lessonComplete("Pre-test: Basics of Chemistry", score);
+						TACALIBUR.saveProgress("Basics of Chemistry");
 						Lesson2 l = new Lesson2();
 						l.newClass();
 						close();

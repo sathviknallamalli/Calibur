@@ -80,29 +80,6 @@ public class SignUp extends JFrame {
 		}
 	}
 
-	public static void addFile(String overallFolder, String subFolder, int r, String c1, String c2, String c3,
-			String c4) throws IOException {
-		Workbook wb = new HSSFWorkbook();
-		// Workbook wb = new XSSFWorkbook();
-		// Create a row and put some cells in it. Rows are 0 based.
-		CreationHelper createHelper = wb.getCreationHelper();
-		Sheet sheet = wb.createSheet("Alarms");
-		Row row = sheet.createRow((short) r);
-
-		// Or do it on one line.
-
-		row.createCell(0).setCellValue(createHelper.createRichTextString(c1));
-		row.createCell(1).setCellValue(createHelper.createRichTextString(c2));
-		row.createCell(2).setCellValue(createHelper.createRichTextString(c3));
-		row.createCell(3).setCellValue(createHelper.createRichTextString(c4));
-
-		// Write the output to a file
-		FileOutputStream fileOut = new FileOutputStream(
-				"C:\\Users\\sathv\\Desktop\\" + overallFolder + "\\" + subFolder + "\\Alarms and Reminders.xls");
-		wb.write(fileOut);
-		fileOut.close();
-	}
-
 	public SignUp() {
 		super("Sign-up!");
 		getContentPane().setLayout(null);
@@ -246,6 +223,9 @@ public class SignUp extends JFrame {
 										dir2.mkdirs();
 										File dir3 = new File("C:\\Users\\sathv\\Desktop\\" + filename + "\\Charts");
 										dir3.mkdirs();
+										File dir4 = new File(
+												"C:\\Users\\sathv\\Desktop\\" + filename + "\\CourseProgress");
+										dir4.mkdirs();
 
 										// create alarms excel
 

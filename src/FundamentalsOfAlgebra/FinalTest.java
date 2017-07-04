@@ -586,6 +586,9 @@ public class FinalTest extends JFrame {
 									"FundamentalsofAlgebra");
 							TACALIBUR.saveCertificate(cName);
 							TACALIBUR.courseComplete("Fundamentals of Algebra", ms);
+							TACALIBUR.saveProgress("Fundamentals of Algebra");
+							double score = TACALIBUR.finalGrade("Fundamentals of Algebra");
+							JOptionPane.showMessageDialog(null, "Your FINAL GRADE is " + score);
 							close();
 
 						} else {

@@ -270,7 +270,8 @@ public class Lesson6Review extends JFrame {
 				final int score = maxScore;
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						TACALIBUR.courseComplete("Basics of Chemistry: Lesson 6 Review", score);
+						TACALIBUR.lessonComplete("Basics of Chemistry: Lesson 6 Review", score);
+						TACALIBUR.saveProgress("Basics of Chemistry");
 						End e = new End();
 						e.newClass();
 						close();

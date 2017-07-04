@@ -609,6 +609,10 @@ public class FinalTest extends JFrame {
 									"BasicsofChemsitry");
 							TACALIBUR.saveCertificate(cName);
 							TACALIBUR.courseComplete("Chemistry- Basics of Chemistry", ms);
+							TACALIBUR.saveProgress("Basics of Chemistry");
+
+							double score = TACALIBUR.finalGrade("Basics of Chemistry");
+							JOptionPane.showMessageDialog(null, "Your FINAL GRADE is " + score);
 							close();
 
 						} else {

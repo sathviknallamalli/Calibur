@@ -294,7 +294,8 @@ public class FundamentalsAlg extends JFrame {
 				final int score = maxScore;
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						TACALIBUR.courseComplete("Pre-test: Fundamentals of Algebra", score);
+						TACALIBUR.lessonComplete("Pre-test: Fundamentals of Algebra", score);
+						TACALIBUR.saveProgress("Fundamentals of Algebra");
 						Lesson1 w = new Lesson1();
 						w.newClass();
 						close();

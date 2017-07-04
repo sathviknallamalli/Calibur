@@ -169,7 +169,7 @@ public class Home extends JFrame {
 					if (count == 1) {
 						Date date = new Date();
 						String cdate = date.toString();
-						String sql = "update UserInfo set LastLogin= '" + cdate + "'" + " where Username= '"
+						String sql = "update UserData set LastLogin= '" + cdate + "'" + " where Username= '"
 								+ untf.getText() + "'";
 						PreparedStatement pst1 = connection.prepareStatement(sql);
 						pst1.execute();

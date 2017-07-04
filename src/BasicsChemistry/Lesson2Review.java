@@ -300,7 +300,8 @@ public class Lesson2Review extends JFrame {
 				next.addActionListener(new ActionListener() {
 
 					public void actionPerformed(ActionEvent arg0) {
-						TACALIBUR.courseComplete("Basics of Chemistry: Lesson 2 Review", score);
+						TACALIBUR.lessonComplete("Basics of Chemistry: Lesson 2 Review", score);
+						TACALIBUR.saveProgress("Basics of Chemistry");
 						Lesson3 l = new Lesson3();
 						l.newClass();
 						close();

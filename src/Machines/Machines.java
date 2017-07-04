@@ -317,7 +317,8 @@ public class Machines extends JFrame {
 				final int score = maxScore;
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						TACALIBUR.courseComplete("Pre-test: Machines", score);
+						TACALIBUR.lessonComplete("Pre-test: Machines", score);
+						TACALIBUR.saveProgress("Machines");
 						Lesson1 l1 = new Lesson1();
 						l1.newClass();
 						close();
