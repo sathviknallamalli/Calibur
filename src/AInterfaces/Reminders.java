@@ -123,7 +123,7 @@ public class Reminders {
 	private void initialize() {
 
 		frame = new JFrame("Alarms and clocks");
-		frame.getContentPane().setBackground(new Color(51, 204, 0));
+		frame.getContentPane().setBackground(Color.YELLOW);
 		frame.setBounds(100, 100, 756, 377);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);

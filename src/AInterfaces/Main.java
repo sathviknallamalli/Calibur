@@ -19,8 +19,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import Machines.Audio;
-
 public class Main extends JFrame {
 	JLabel sh;
 	JLabel tagLineOne;

@@ -293,6 +293,7 @@ public class PeriodicTable extends JFrame {
 
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				close();
 				JFrame frame = new JFrame();
 				frame.setSize(348, 145);
 				frame.setLocation(600, 300);
@@ -331,7 +332,7 @@ public class PeriodicTable extends JFrame {
 				}
 				frame.getContentPane().setLayout(null);
 				JLabel result = new JLabel("You scored " + maxScore + " out of 10");
-				result.setFont(new Font("Arial", Font.BOLD, 14));
+				result.setFont(new Font("Times New Roman", Font.BOLD, 14));
 				result.setBounds(27, 39, 272, 27);
 				frame.getContentPane().add(result);
 
@@ -342,7 +343,8 @@ public class PeriodicTable extends JFrame {
 
 				next.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-
+						Lesson1 l = new Lesson1();
+						l.newClass();
 					}
 				});
 

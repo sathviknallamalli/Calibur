@@ -16,7 +16,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import AInterfaces.TACALIBUR;
 import FundamentalsOfAlgebra.FileTypeFilter;
 import Magnetism.Magnetism;
 

@@ -11,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import AInterfaces.TACALIBUR;
 import PeriodicTable.PeriodicTable;
 
 public class Dup {

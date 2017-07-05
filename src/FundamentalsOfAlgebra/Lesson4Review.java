@@ -223,6 +223,7 @@ public class Lesson4Review extends JFrame {
 
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				close();
 				JFrame frame = new JFrame();
 				frame.setSize(348, 145);
 				frame.setLocation(600, 300);

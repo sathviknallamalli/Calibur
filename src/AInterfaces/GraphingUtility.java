@@ -4,9 +4,8 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -16,8 +15,6 @@ import javax.swing.JMenuItem;
 public class GraphingUtility {
 
 	private JFrame frame;
-
-	private final Action action = new SwingAction();
 
 	/**
 	 * Launch the application.
@@ -99,7 +96,12 @@ public class GraphingUtility {
 		mnNewMenu_1.add(mnNewMenu_2);
 
 		JMenuItem mntmNewMenuItem = new JMenuItem("Shape Drawing");
-		mntmNewMenuItem.setAction(action);
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				NewShapeDrawer n = new NewShapeDrawer();
+				n.newClass();
+			}
+		});
 		mntmNewMenuItem.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		mnNewMenu_2.add(mntmNewMenuItem);
 
@@ -118,17 +120,4 @@ public class GraphingUtility {
 
 	}
 
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "Shape Drawer");
-			putValue(SHORT_DESCRIPTION,
-					"You can draw perfect polygons and shapes and perform different types of transformations.");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			NewShapeDrawer n = new NewShapeDrawer();
-			n.newClass();
-
-		}
-	}
 }

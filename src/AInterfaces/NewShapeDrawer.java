@@ -4,10 +4,7 @@ import java.applet.Applet;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -18,7 +15,6 @@ public class NewShapeDrawer extends Applet {
 
 	private JFrame frame;
 
-	private final Action action_1 = new SwingAction_1();
 
 	/**
 	 * Launch the application.
@@ -66,7 +62,6 @@ public class NewShapeDrawer extends Applet {
 		menuBar.add(mnNewMenu);
 
 		JMenuItem mntmNewMenuItem = new JMenuItem("Square");
-		mntmNewMenuItem.setAction(action_1);
 		mntmNewMenuItem.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		mnNewMenu.add(mntmNewMenuItem);
 
@@ -105,25 +100,5 @@ public class NewShapeDrawer extends Applet {
 
 	}
 
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "Shape Drawer");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-
-		}
-	}
-
-	private class SwingAction_1 extends AbstractAction {
-		public SwingAction_1() {
-			putValue(NAME, "Square");
-			putValue(SHORT_DESCRIPTION, "Draw a Perfect Square");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-
-		}
-	}
+	
 }

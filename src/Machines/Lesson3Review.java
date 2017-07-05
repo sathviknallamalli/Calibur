@@ -182,7 +182,7 @@ public class Lesson3Review extends JFrame {
 		JButton btnNewButton = new JButton("Submit");
 
 		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		btnNewButton.setBounds(287, 550, 178, 49);
+		btnNewButton.setBounds(698, 554, 161, 42);
 		getContentPane().add(btnNewButton);
 
 		JRadioButton op61 = new JRadioButton("A");
@@ -267,6 +267,7 @@ public class Lesson3Review extends JFrame {
 
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				close();
 				JFrame frame = new JFrame();
 				frame.setSize(348, 145);
 				frame.setLocation(600, 300);

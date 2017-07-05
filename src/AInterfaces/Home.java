@@ -10,9 +10,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,12 +25,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.CreationHelper;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
 
 public class Home extends JFrame {
 
@@ -227,7 +218,7 @@ public class Home extends JFrame {
 		});
 
 		login.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
-		login.setBounds(224, 180, 124, 41);
+		login.setBounds(228, 175, 124, 41);
 		getContentPane().add(login);
 
 		JLabel lblIfYouDont = new JLabel(

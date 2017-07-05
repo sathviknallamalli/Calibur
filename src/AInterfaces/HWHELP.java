@@ -1,7 +1,6 @@
 package AInterfaces;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +19,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 
-import AlgebraTopics.EquationSolver;
 import AlgebraTopics.ExponentsAndPowers;
 import AlgebraTopics.Graphing;
 import AlgebraTopics.Inequalities;
@@ -406,7 +404,6 @@ public class HWHELP {
 		JButton btnTeacherAssistant = new JButton("Teacher Assistant");
 		btnTeacherAssistant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TACALIBUR TA = new TACALIBUR();
 
 			}
 		});
