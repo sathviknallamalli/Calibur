@@ -1,34 +1,27 @@
 package CRUDOps;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
-import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
-import java.awt.Font;
 import javax.swing.JTextField;
+
 import com.toedter.calendar.JDateChooser;
 
 import AInterfaces.sqlConnection;
-import FundamentalsOfAlgebra.FundamentalsAlg;
-
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.awt.event.ActionEvent;
-import javax.swing.JRadioButton;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.Color;
 
 public class UpdateDelete {
 
@@ -58,6 +51,9 @@ public class UpdateDelete {
 	private JTextField name;
 	private JTextField date;
 
+
+	DBOperations db = new DBOperations();
+	
 	public UpdateDelete() {
 		initialize();
 		conn = sqlConnection.sqlExpress();
@@ -91,6 +87,7 @@ public class UpdateDelete {
 		ssid.setFont(new Font("Arial", Font.PLAIN, 13));
 		ssid.setColumns(10);
 		ssid.setBounds(10, 27, 119, 20);
+		
 		frame.getContentPane().add(ssid);
 
 		String genders[] = { " ", "Male", "Female" };
@@ -166,29 +163,25 @@ public class UpdateDelete {
 				// check if recird exists
 				boolean exists = false;
 				try {
-					String personSSID = ssid.getText();
-					String query = "select * from PersonDetails";
-					PreparedStatement pst = conn.prepareStatement(query);
-					ResultSet rs = pst.executeQuery();
-					while (rs.next()) {
-						// record exists
-						if (rs.getString("SSID").equals(personSSID)) {
-							name.setText(rs.getString("Name"));
-							date.setText(rs.getString("DOB"));
-							String gender = rs.getString("Gender");
-							int index;
-							if (gender.equals("M")) {
-								index = 1;
-							} else {
-								index = 2;
-							}
-							gens.setSelectedIndex(index);
-							st.setSelectedItem(rs.getString("State"));
-							exists = true;
+					int personSSID = Integer.parseInt( ssid.getText());
+					
+					PersonInfo person =db.getPersonDetails(personSSID);
+					
+					
+					if (person!=null) {
+						name.setText(person.getName());
+						date.setText(person.getDob().toString());
+						String gender = person.getGender();
+						int index;
+						if (gender.equals("M")) {
+							index = 1;
+						} else {
+							index = 2;
 						}
-
-					}
-					if (exists == false) {
+						gens.setSelectedIndex(index);
+						st.setSelectedItem(person.getState());
+						
+					}else{
 						JOptionPane.showMessageDialog(null, "ERROR: This record doesnt exist");
 					}
 					editSave.setBounds(162, 222, 100, 28);
@@ -202,6 +195,7 @@ public class UpdateDelete {
 		editSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				editSave.setText("Save");
+				ssid.setEditable(false);
 				gens.setEnabled(true);
 				st.setEnabled(true);
 				gens.setEditable(true);
@@ -222,44 +216,26 @@ public class UpdateDelete {
 				editSave.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent a) {
 
-						try {
-							PreparedStatement update = conn.prepareStatement(
-									"UPDATE PersonDetails SET Name = ?, DOB = ?, SSID = ?, Gender = ?, State = ? WHERE SSID = "
-											+ cSSID);
+						PersonInfo person = new PersonInfo();
 
-							update.setString(1, name.getText());
+						person.setName(name.getText());
+						person.setDob(jd.getDate());
+						person.setSsid(Integer.parseInt(ssid.getText()));
+						
+						String personGender = "";
+						String raw = (String) gens.getSelectedItem();
+						if (raw.equals("Male")) {
+							personGender = "M";
+						} else if (raw.equals("Female")) {
+							personGender = "F";
+						} 
 
-							String input = "";
-							String raw = (String) gens.getSelectedItem();
-							if (raw.equals("Male")) {
-								input = "M";
-							} else if (raw.equals("Female")) {
-								input = "F";
-							} else {
-								input = "NS";
-							}
-
-							java.util.Date d = jd.getDate();
-							java.sql.Date sqldate = null;
-							if (d == null) {
-								System.out.println("No date specified!");
-							} else {
-								sqldate = new java.sql.Date(d.getTime());
-								// Do something with sqldate
-							}
-
-							update.setDate(2, sqldate);
-							update.setString(3, ssid.getText());
-							update.setString(4, input);
-							String state = (String) st.getSelectedItem();
-							update.setString(5, state);
-							update.executeUpdate();
-							JOptionPane.showMessageDialog(null, "Saved!");
-						} catch (Exception e) {
-							JOptionPane.showMessageDialog(null, e);
-
-						}
-					}
+						person.setGender(personGender);
+						person.setState((String) st.getSelectedItem());
+						
+						db.updatePersonInfo(person);
+						
+											}
 				});
 			}
 		});
@@ -278,14 +254,9 @@ public class UpdateDelete {
 				int p = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete your information", "",
 						JOptionPane.YES_NO_OPTION);
 				if (p == 0) {
-					try {
-						String sql = "delete from PersonDetails where SSID= " + ssid.getText();
-						PreparedStatement stmt = conn.prepareStatement(sql);
-						stmt.execute();
-						JOptionPane.showMessageDialog(null, "Deleted!");
-					} catch (Exception a) {
-						JOptionPane.showMessageDialog(null, a);
-					}
+					
+					db.deletePerson(Integer.parseInt(ssid.getText()));
+					
 				}
 			}
 		});

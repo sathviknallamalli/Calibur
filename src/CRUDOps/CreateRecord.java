@@ -1,36 +1,36 @@
 package CRUDOps;
 
 import java.awt.EventQueue;
-
-import javax.swing.ButtonGroup;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Font;
-import javax.swing.JTextField;
-import com.toedter.calendar.JDateChooser;
-
-import AInterfaces.sqlConnection;
-
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
-import java.awt.event.ActionEvent;
-import javax.swing.JRadioButton;
-import javax.swing.JComboBox;
+import java.util.Date;
+
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+import com.toedter.calendar.JDateChooser;
+
+import AInterfaces.sqlConnection;
 
 public class CreateRecord {
 
 	private JFrame frame;
 	private JTextField name;
 	private JTextField ssid;
+	Connection conn = null;
 
 	/**
 	 * Launch the application.
@@ -51,7 +51,7 @@ public class CreateRecord {
 	/**
 	 * Create the application.
 	 */
-	Connection conn = null;
+	
 
 	public CreateRecord() {
 		initialize();
@@ -74,6 +74,7 @@ public class CreateRecord {
 		frame.getContentPane().add(label);
 
 		name = new JTextField();
+	
 		name.setFont(new Font("Arial", Font.PLAIN, 13));
 		name.setColumns(10);
 		name.setBounds(10, 28, 119, 20);
@@ -96,6 +97,7 @@ public class CreateRecord {
 		frame.getContentPane().add(lblSsid);
 
 		ssid = new JTextField();
+		
 		ssid.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent evt) {
@@ -149,72 +151,30 @@ public class CreateRecord {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				String personName = name.getText();
-				String personSSID = ssid.getText();
+				DBOperations db= new DBOperations();
+				
+				PersonInfo person =new PersonInfo();
+				person.setName(name.getText());
+				person.setDob(jd.getDate());
+				person.setSsid(Integer.parseInt(ssid.getText()));
+				
 				String personGender = "";
 				if (male.isSelected()) {
 					personGender = "M";
 				} else {
 					personGender = "F";
 				}
-				String state = (String) st.getSelectedItem();
+				person.setGender(personGender);
+				person.setState((String) st.getSelectedItem());
+				
 				// verify if ssid is already there - READ
 				boolean exists = false;
-				try {
-					// System.out.println("Connection value in submit===" +
-					// conn);
-
-					String query = "select * from PersonDetails";
-					PreparedStatement pst = conn.prepareStatement(query);
-					ResultSet rs = pst.executeQuery();
-					while (rs.next()) {
-						if (rs.getString("SSID").equals(personSSID)) {
-							exists = true;
-
-						}
-					}
-					rs.close();
-					pst.close();
-					// conn.close();
-					if (exists == true) {
-						JOptionPane.showMessageDialog(null, "ERROR: This record already exists");
-					}
-
-				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, e);
-				}
+				exists= db.isRecordExists(person.getSsid());
+				
 				// CREATE RECORD
 				if (exists == false) {
-					try {
-						String query1 = "insert into PersonDetails (Name,DOB,SSID,Gender,State) values (?, ?, ?, ?, ?)";
-						PreparedStatement pst1 = conn.prepareStatement(query1);
-						pst1.setString(1, personName);
-
-						try {
-							int day = jd.getDate().getDate();
-							int month = jd.getDate().getMonth() + 1;
-							int year = jd.getDate().getYear() + 1900;
-
-							String date = month + "/" + day + "/" + year;
-							SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
-							java.util.Date parsed = format.parse(date);
-							java.sql.Date sql_date = new java.sql.Date(parsed.getTime());
-							pst1.setDate(2, sql_date);
-						} catch (Exception e) {
-							JOptionPane.showMessageDialog(null, e);
-						}
-
-						pst1.setString(3, personSSID);
-						pst1.setString(4, personGender);
-						pst1.setString(5, state);
-						pst1.execute();
-						pst1.close();
-						JOptionPane.showMessageDialog(null, "Success!");
-
-					} catch (Exception e) {
-						JOptionPane.showMessageDialog(null, e);
-
-					}
+					
+					db.insertRecord(person);
 				}
 
 			}
@@ -244,4 +204,5 @@ public class CreateRecord {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
-}
+
+	}

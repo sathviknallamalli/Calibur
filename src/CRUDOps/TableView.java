@@ -1,30 +1,22 @@
 package CRUDOps;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
-import java.util.List;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
 
-import AInterfaces.sqlConnection;
 import net.proteanit.sql.DbUtils;
-import javax.swing.JButton;
 
 public class TableView {
 
@@ -48,7 +40,8 @@ public class TableView {
 		});
 	}
 
-	Connection connection = null;
+
+	DBOperations db = new DBOperations();
 
 	private JTable table;
 
@@ -56,7 +49,6 @@ public class TableView {
 	 * Create the application.
 	 */
 	public TableView() {
-		connection = sqlConnection.sqlExpress();
 
 		initialize();
 
@@ -83,9 +75,8 @@ public class TableView {
 		scrollPane.setViewportView(table);
 
 		try {
-			String query = "select * from PersonDetails";
-			PreparedStatement pst = connection.prepareStatement(query);
-			ResultSet rs = pst.executeQuery();
+			
+			ResultSet rs = db.getPersonDetailsAsResultSet();
 
 			DefaultTableModel model = (DefaultTableModel) DbUtils.resultSetToTableModel(rs);
 			table.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -118,14 +109,8 @@ public class TableView {
 						int p = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete your information",
 								"", JOptionPane.YES_NO_OPTION);
 						if (p == 0) {
-							try {
-								String sql = "delete from PersonDetails where SSID= ?";
-								PreparedStatement stmt = connection.prepareStatement(sql);
-								stmt.setInt(1, (int) table.getValueAt(j, 1));
-								stmt.execute();
-							} catch (Exception a) {
-								JOptionPane.showMessageDialog(null, a);
-							}
+							
+							db.deletePerson((int) table.getValueAt(j, 1));
 							delButtons.get(j).setBounds(0, 0, 0, 0);
 							editButtons.get(j).setBounds(0, 0, 0, 0);
 							model.removeRow(j);
@@ -154,9 +139,8 @@ public class TableView {
 		refresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					String query = "select * from PersonDetails";
-					PreparedStatement pst = connection.prepareStatement(query);
-					ResultSet rs = pst.executeQuery();
+					
+					ResultSet rs = db.getPersonDetailsAsResultSet();
 
 					DefaultTableModel model = (DefaultTableModel) DbUtils.resultSetToTableModel(rs);
 					table.setFont(new Font("Arial", Font.PLAIN, 12));
