@@ -1,3 +1,4 @@
+package AInterfaces;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -11,9 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import com.ibm.icu.util.Calendar;
-
-import AInterfaces.Browser;
-import AInterfaces.Home;
 
 public class Demo {
 

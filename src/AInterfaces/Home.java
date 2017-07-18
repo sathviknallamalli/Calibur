@@ -29,7 +29,6 @@ import javax.swing.SwingConstants;
 public class Home extends JFrame {
 
 	Connection connection = null;
-	Connection connection2 = null;
 	JTextField untf = new JTextField();
 	JPasswordField passwordField = new JPasswordField();;
 	static String username;
@@ -257,7 +256,7 @@ public class Home extends JFrame {
 		trivia.setVerticalAlignment(SwingConstants.TOP);
 		trivia.setForeground(Color.RED);
 		trivia.setFont(new Font("Times New Roman", Font.ITALIC, 13));
-		trivia.setBounds(24, 127, 179, 94);
+		trivia.setBounds(24, 127, 176, 100);
 		getContentPane().add(trivia);
 
 		try {
@@ -324,6 +323,18 @@ public class Home extends JFrame {
 		btnRateUs.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
 		btnRateUs.setBounds(572, 187, 124, 26);
 		getContentPane().add(btnRateUs);
+
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				DeleteAccount da = new DeleteAccount();
+				da.newClass();
+
+			}
+		});
+		btnDelete.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
+		btnDelete.setBounds(675, 233, 86, 26);
+		getContentPane().add(btnDelete);
 
 		btnSignup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
